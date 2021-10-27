@@ -21,7 +21,7 @@
     <!-- Sidebar -->
     <div id="sidebar-wrapper">
         <ul class="sidebar-nav">
-            <li class="sidebar-brand">
+        <li class="sidebar-brand">
                 <h2>ADMIN</h2>
             </li>
             <li>
@@ -40,16 +40,7 @@
                 <a href=".teach.php"><i class="fas fa-school"></i> Teach</a>
             </li>
             <li>
-                <a href="btvn.php"><i class="fas fa-book-reader"></i> BTVN</a>
-            </li>
-            <li>
-                <a href="listbtvn.php"><i class="fas fa-list"></i> List BTVN</a>
-            </li>
-            <li>
                 <a href="btl.php"><i class="fas fa-users"></i> BTL</a>
-            </li>
-            <li>
-                <a href="listbtl.php"><i class="fas fa-list"></i> List BTL</a>
             </li>
 
             <li>
