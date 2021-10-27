@@ -100,7 +100,7 @@ session_start();
                                             <td><?php echo $row['nameMH']; ?></td>
                                             <td><?php echo $row['TC']; ?></td>
                                             <td>
-                                                <a href="./excise-subject-admin.php?idMH=<?php echo $row['idMH']; ?>"><button type="button" class="btn btn-info text-white me-2"><i class="fas fa-book-open"></i>    </button></a>
+                                                <a href="./exercise-subject-admin.php?idMH=<?php echo $row['idMH']; ?>"><button type="button" class="btn btn-info text-white me-2"><i class="fas fa-book-open"></i>    </button></a>
                                             </td>
                                             <td>
                                                 <a href="./upd-subject-admin.php?idMH=<?php echo $row['idMH']; ?>"><button type="button" class="btn btn-primary text-white me-2"><i class="fas fa-user-edit"></i></button></a>
