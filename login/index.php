@@ -1,4 +1,5 @@
-<?php include('../config/config.php');?>
+<?php include('../config/config.php');
+session_start()?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,11 +32,19 @@
 					<img src="images/img-01.png" alt="IMG">
 				</div>
 
-				<form class="login100-form validate-form">
+				<form class="login100-form validate-form" method="POST">			
 					<span class="login100-form-title">
 						Member Login
 					</span>
-
+					<br>
+					<?php
+					if(isset($_SESSION['echo fail']))
+					{
+						echo $_SESSION['echo fail'];
+						unset($_SESSION['echo fail']);
+					}
+					?>
+					<br>
 					<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
 						<input class="input100" type="text" name="email" placeholder="Email">
 						<span class="focus-input100"></span>
@@ -53,7 +62,7 @@
 					</div>
 					
 					<div class="container-login100-form-btn">
-						<button class="login100-form-btn">
+						<button name="login" type="submit" class="login100-form-btn">
 							Login
 						</button>
 					</div>
@@ -77,7 +86,26 @@
 			</div>
 		</div>
 	</div>
-	
+	<?php
+    if(isset($_POST['login']))
+	{
+		$username = $_POST['email'];
+		$password = $_POST['pass'];
+		$sql = "select * from db_users where user_email = '$username' and user_pass ='$password' and status = 1";
+		$rs = mysqli_query($conn,$sql);
+		if(mysqli_num_rows($rs)>0 )
+		{
+			$row = mysqli_fetch_assoc($rs);
+			$_SESSION['loginok'] = $username;
+			header('location:../admin/index.php');
+			$_SESSION['title-loginok'] = "<h2 style='color:green'> xin chào ". $row['user_name'] ."  </h2>";
+		} else
+		{
+			$_SESSION['echo fail'] = "<p style='color:red'> wrong password or username </p>";
+			header('location:./index.php');		
+		}
+	}
+    ?>
 	
 
 	
