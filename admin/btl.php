@@ -69,7 +69,7 @@
                            
                             <br>
                         <a href="./add-btl-admin.php"><button class="btn btn-success"> ADD BTL</button></a>
-                        <a href="./add-student-admin.php"><button class="btn btn-success"> Đăng ký BTL</button></a>
+                        <a href="./dk-btl-admin.php"><button class="btn btn-success"> Đăng ký BTL</button></a>
                         <a href="./add-student-admin.php"><button class="btn btn-success"> Nộp bài</button></a>
                         
                             <table class="table">
