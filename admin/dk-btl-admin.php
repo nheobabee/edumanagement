@@ -81,7 +81,7 @@
                             }
                             ?>
                             <div class="form-group">
-                                <label for="nameBTL">Name BTL:</label>
+                                <label for="nameBTL">Tên nhóm:</label>
                                 <input type="text" class="form-control" id="nameBTL" placeholder="Enter name" name="nameBTL">
                             </div>
 
