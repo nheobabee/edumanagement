@@ -69,6 +69,9 @@ if (isset($_GET['idMH'])) {
                     <div class="main-content">
 
                         <div class="container">
+                            <br>
+                            <a href="./add-exercise-admin.php?idMH=<?php echo $idMH; ?>"><button type="button" class="btn btn-success text-white me-2"><i class="fas fa-plus"></i>ADD EXCERCISE</button></a>
+                            <br><br>
                             <div class="tittle-mh">
                                 <h2><?php echo $nameMH ?></h2>
                             </div>
@@ -95,12 +98,13 @@ if (isset($_GET['idMH'])) {
                 </div>
             </div>
         </div>
-        <footer>
-            <p class="ftr text-center">
-                QTV - Do your best, the rest will come!
-            </p>
-        </footer>
+
     </div>
+    <footer>
+        <p class="ftr text-center">
+            QTV - Do your best, the rest will come!
+        </p>
+    </footer>
     <!-- /#page-content-wrapper -->
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
