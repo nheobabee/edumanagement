@@ -11,8 +11,6 @@ if (isset($_GET['idMH'])) {
     $res1 = mysqli_query($conn, $sql1);
     $row1 = mysqli_fetch_assoc($res1);
     $nameMH = $row1['nameMH'];
-
-   
 }
 ?>
 <div id="wrapper">
@@ -79,9 +77,7 @@ if (isset($_GET['idMH'])) {
                             $res3 = mysqli_query($conn, $sql3);
                             if ($res3 == true) {
                                 while ($row3 = mysqli_fetch_assoc($res3)) {
-
                             ?>
-
                                     <div class="title-btvn">
                                         <div class="name-btvn">
                                             <h6><?php echo $row3['nameBTVN'] ?></h6>
@@ -93,11 +89,8 @@ if (isset($_GET['idMH'])) {
                                 }
                             }
                                 ?>
-
                                     </div>
-
                         </div>
-
                     </div>
                 </div>
             </div>

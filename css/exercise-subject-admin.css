@@ -172,8 +172,11 @@ h1.count{
   padding:1%;
   border-radius: 4px;
 }
-.container{
+.main-content{
     background-color: #c7ecee;
+}
+.container{
+  
     min-height: 521px;
 }
 
@@ -187,3 +190,4 @@ h1.count{
 .note {
     margin-top:14px;
 }
+
