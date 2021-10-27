@@ -70,7 +70,7 @@ session_start();
                     </nav>
                     <div class="container">
                         <br>
-                        <a href="./add-teacher.php"><button class="btn btn-success"> ADD SUBJECT</button></a>
+                        <a href="./add-subject-admin.php"><button class="btn btn-success"> ADD SUBJECT</button></a>
                         <?php
                             if(isset($_SESSION['errorDel'])){
                                 echo $_SESSION['errorDel'];
@@ -88,6 +88,7 @@ session_start();
                                     <th scope="col">STT</th>
                                     <th scope="col">Name</th>
                                     <th scope="col">Credits</th>
+                                    <th scope="col">Excise</th>
                                     <th scope="col">Update</th>
                                     <th scope="col">Delete</th>
 
@@ -107,6 +108,9 @@ session_start();
                                             <td><?php echo $sn++ ?></td>
                                             <td><?php echo $row['nameMH']; ?></td>
                                             <td><?php echo $row['TC']; ?></td>
+                                            <td>
+                                                <a href="./excise-subject-admin.php?idMH=<?php echo $row['idMH']; ?>"><button type="button" class="btn btn-info text-white me-2"><i class="fas fa-book-open"></i>    </button></a>
+                                            </td>
                                             <td>
                                                 <a href="./upd-subject-admin.php?idMH=<?php echo $row['idMH']; ?>"><button type="button" class="btn btn-primary text-white me-2"><i class="fas fa-user-edit"></i></button></a>
                                             </td>

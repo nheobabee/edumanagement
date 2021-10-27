@@ -1,5 +1,5 @@
 <?php
 
-$conn = mysqli_connect('localhost','root','','dbcnw');
+$conn = mysqli_connect('localhost','root','','cnw');
 
 ?>
