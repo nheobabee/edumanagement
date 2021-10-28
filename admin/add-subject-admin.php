@@ -55,7 +55,7 @@
                         </div>
                     </nav>
                     <div class="container">
-                        <h2>ADD STUDENT</h2>
+                        <h2>ADD SUBJECT</h2>
                         <form method="post">
                             <?php
                             if (isset($_POST['add'])) {
