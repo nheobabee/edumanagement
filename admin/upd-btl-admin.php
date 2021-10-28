@@ -1,10 +1,9 @@
 <title>TEACHER</title>
-<?php include('../config/config.php'); 
-        session_start();
-        if(!isset($_SESSION['loginok']))
-        {
-            header('location:../login/index.php');
-        }
+<?php include('../config/config.php');
+session_start();
+if (!isset($_SESSION['loginok'])) {
+    header('location:../login/index.php');
+}
 ?>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -33,7 +32,7 @@
             <li>
                 <a href=".teach.php"><i class="fas fa-school"></i> Teach</a>
             </li>
-           
+
 
             <li>
                 <a href="result.php"><i class="fas fa-poll"></i> Result</a>
@@ -42,6 +41,27 @@
     </div>
     <!-- /#sidebar-wrapper -->
 
+    <?php
+    // lấy giá trị name cần sửa 
+    if (isset($_GET['idBTL'])) {
+        $idBTL = $_GET['idBTL'];
+
+        //lấy giá trị từ bảng
+        $sqlqq = "SELECT * FROM btl WHERE idBTL = '$idBTL'";
+        $kqqq = mysqli_query($conn, $sqlqq);
+        if ($kqqq) {
+            $rowqq = mysqli_fetch_assoc($kqqq);
+            $nameBTL_q = $rowqq['nameBTL'];
+            $formatBTL_q = $rowqq['formatBTL'];
+            $openedBTL_q = $rowqq['openedBTL'];
+            $deadlineBTL_q = $rowqq['deadlineBTL'];
+            $idMH_q = $rowqq['idMH'];
+            $tenGV_q = $rowqq['tenGV'];
+         
+        }
+    }
+
+    ?>
     <!-- Page Content -->
     <div id="page-content-wrapper">
         <div class="container-fluid">
@@ -61,45 +81,50 @@
                         </div>
                     </nav>
                     <div class="container">
-                        <h2>ADD BTL</h2>
+                        <h2>SỬA BTL</h2>
                         <form method="post">
-                            <?php
-                            if (isset($_POST['addbtl'])) {
+
+
+                        <?php
+                            if (isset($_POST['updbtl'])) {
                                
                                 $nameBTL = $_POST['nameBTL'];
                                 $formatBTL = $_POST['formatBTL'];
-                               // $openedBTL = $_POST['openedBTL'];
                                 $deadlineBTL = $_POST['deadlineBTL'];
                                 $idMH = $_POST['idMH'];
-                                $tenGV = $_POST['tenGV'];
-                               
-
-                                $sql = "INSERT INTO `btl`( `nameBTL`, `formatBTL`,  `deadlineBTL`, `idMH`, `tenGV`) 
-                                VALUES (' $nameBTL','$formatBTL','$deadlineBTL',' $idMH ','$tenGV')";
-                                $res = mysqli_query($conn, $sql);
-                                if ($res == true) {
-                                    header('location: subject.php');
+                                $tenGV = $_POST['tenGV'];                            
+                                
+                                $sql3 = "UPDATE `btl` SET 
+                                `nameBTL`=' $nameBTL',
+                                `formatBTL`='$formatBTL',                               
+                                `deadlineBTL`='$deadlineBTL',
+                                `idMH`='$idMH',
+                                `tenGV`=' $tenGV'                               
+                                WHERE idBTL = $idBTL";
+                                $res3 = mysqli_query($conn, $sql3);
+                                if ($res3 == true) {                                  
+                                    header("Location:http://localhost/edumanagement/admin/btl.php?idMH=".$idMH);
                                 } else {
-                                    echo $sql;
+                                    echo 'lỗi';
                                 }
                             }
                             ?>
                             <div class="form-group">
                                 <label for="nameBTL">Name BTL:</label>
-                                <input type="text" class="form-control" id="nameBTL" placeholder="Enter name" name="nameBTL">
+                                <input type="text" class="form-control" id="nameBTL" placeholder="Enter name" name="nameBTL" value="<?php echo  $nameBTL_q ?>">
                             </div>
 
                             <div class="form-group">
                                 <label for="formatBTL">formatBTL:</label>
-                                <input type="text" class="form-control" id="formatBTL" placeholder="Enter formatBTL" name="formatBTL">
+                                <input type="text" class="form-control" id="formatBTL" placeholder="Enter formatBTL" name="formatBTL" value="<?php echo  $formatBTL_q ?>">
                             </div>
-                                <!-- <div class="form-group">
-                                    <label for="openedBTL">openedBTL:</label>
-                                    <input type="date" class="form-control" id="openedBTL" placeholder="Enter openedBTL" name="openedBTL">
-                                </div> -->
+                            <div class="form-group">
+                                <label for="openedBTL">openedBTL:</label>
+                                <input type="datetime-local" readonly class="form-control" id="openedBTL" placeholder="Enter openedBTL" name="openedBTL" value="<?php echo $date = date("Y-m-d\TH:i:s", strtotime($openedBTL_q)); ?>">
+                            </div>
                             <div class="form-group">
                                 <label for="deadlineBTL">deadlineBTL:</label>
-                                <input type="datetime-local" class="form-control" id="deadlineBTL" placeholder="Enter deadlineBTL" name="deadlineBTL">
+                                <input type="datetime-local" class="form-control" id="deadlineBTL" placeholder="Enter deadlineBTL" name="deadlineBTL" value="<?php echo $date = date("Y-m-d\TH:i:s", strtotime($deadlineBTL_q));?>">
                             </div>
                             <div class="form-group ">
                                 <label for="idMH" class="col-sm-2 col-form-label">Tên môn học:</label>
@@ -108,22 +133,22 @@
                                         <?php
                                         $sqlq = "SELECT * FROM monhoc";
                                         $resultq = mysqli_query($conn, $sqlq);
-                                          if (mysqli_num_rows($resultq) > 0) {
-                                        while ($row = mysqli_fetch_assoc($resultq)) {                                                                                 
-                                            echo '<option value="'.$row['idMH'].'">'.$row['nameMH'].'</option>';
+                                        if (mysqli_num_rows($resultq) > 0) {
+                                            while ($row = mysqli_fetch_assoc($resultq)) {
+                                                echo '<option value="' . $row['idMH'] . '">' . $row['nameMH'] . '</option>';
+                                            }
                                         }
-                                          }
                                         ?>
                                     </select>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="addressSV">Tên GV:</label>
-                                <input type="text" class="form-control" id="tenGV" placeholder="Enter tenGV" name="tenGV">
+                                <label for="tenGV">Tên GV:</label>
+                                <input type="text" class="form-control" id="tenGV" placeholder="Enter tenGV" name="tenGV" value="<?php echo $tenGV_q ?>">
                             </div>
 
                             <br>
-                            <button name="addbtl" type="submit" class="btn btn-success">ADD BTL</button>
+                            <button name="updbtl" type="submit" class="btn btn-success">UPDATE</button>
                         </form>
                     </div>
                 </div>
