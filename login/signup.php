@@ -158,11 +158,11 @@ require './sendEmail/SMTP.php';
                                     <label class="label">Gender</label>
                                     <div class="p-t-10">
                                         <label class="radio-container m-r-45">Male
-                                            <input type="radio" checked="checked" name="gender">
+                                            <input value="1" type="radio"  name="gender">
                                             <span class="checkmark"></span>
                                         </label>
                                         <label class="radio-container">Female
-                                            <input type="radio" name="gender">
+                                            <input value="0" type="radio" name="gender">
                                             <span class="checkmark"></span>
                                         </label>
                                     </div>
@@ -205,7 +205,7 @@ require './sendEmail/SMTP.php';
                             <button name="sign-up" class="btn btn--radius-2 btn--blue" type="submit">Submit</button>
                         </div>
                         <div class="p-t-15">
-                       <a href="./index.php"><button type="button" class="btn btn-success">Success</button></a>
+                       <a href="./index.php"><button type="button" class="btn btn-success">Login</button></a>
                         </div>
 
                     </form>
