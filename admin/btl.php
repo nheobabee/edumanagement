@@ -84,18 +84,17 @@ if (isset($_GET['idMH'])) {
                                       
                                             <div class="name-btvn row">
                                                
-                                                  <div class="content-btvn col-md-7">
-                                                  <h6><?php echo $row3['nameBTL'] ?></h6>
+                                                  <div class="content-btvn col-md-8">
+                                                  <h4><?php echo $row3['nameBTL'] ?></h4>
                                                     <p><span style="font-weight: 500;">Opened: </span><?php echo $row3['openedBTL'] ?></p>
                                                     <p style="border-bottom: 1px solid;"><span style="font-weight: 500;">Deadline: </span><?php echo $row3['deadlineBTL'] ?></p>
                                                     <p class="note"><?php echo $row3['tenGV'] ?></p>
                                             
                                                   </div>
-                                                  <div class="service col-md-5">
-                                                  <a href="./dk-btl-admin.php?idBTL=<?php echo $row3['idBTL']; ?>"><button type="button" class="btn btn-success text-white me-2"><i class="fas fa-edit"></i> Đăng kí</button></a>
+                                                  <div style="margin:auto"  class="service col-md-4">
                                                   <a href="./upd-btl-admin.php?idBTL=<?php echo $row3['idBTL']; ?>"><button type="button" class="btn btn-success text-white me-2"><i class="fas fa-edit"></i> UPDATE</button></a>
                                                   <a href="./del-btl-admin.php?idBTL=<?php echo $row3['idBTL']; ?>"><button type="button" class="btn btn-danger text-white me-2"><i class="fas fa-trash-alt"></i> DELETE</button></a>
-                                                  <a href="./view-btl-admin.php?idBTL=<?php echo $row3['idBTL']; ?>"><button type="button" class="btn btn-info text-white me-2"><i class="far fa-eye"></i> VIEW</button></a>
+                                                  <a href="./chitiet-btl-admin.php?idBTL=<?php echo $row3['idBTL']; ?>"><button type="button" class="btn btn-info text-white me-2"><i class="far fa-eye"></i> Chi Tiết</button></a>
                                                   </div>
                                             </div>
                                         </div>
