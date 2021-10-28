@@ -183,6 +183,8 @@ h1.count{
 
 .name-btvn{
     margin-top:14px;
+    margin-left: 0;
+    margin-right: 0;
 }
 .name-btvn p {
     margin-bottom: 0;
@@ -190,6 +192,12 @@ h1.count{
 }
 .note {
     margin-top:14px;
+}
+.content-btvn {
+    border-right: 0.5px solid;
+}
+.btn-success {
+    margin-left: 8px;
 }
 
 

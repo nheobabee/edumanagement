@@ -101,7 +101,6 @@
                                     <select id="formatBTVN" name = "formatBTVN">
                                         <option value="Trắc nghiệm">Trắc nghiệm</option>
                                         <option value="Tự luận">Tự luận</option>
-                                        <option value="Thực hành-vấn đáp">Thực hành-vấn đáp</option>
                                     </select>
                                 </div>
                             </div>
