@@ -69,10 +69,10 @@
 
                                 <!--  -->
                             <?php
-                            if(isset($_SESSION['title-loginok']))
+                            if(isset($_SESSION['displayACC']))
                             {
-                                        echo $_SESSION['title-loginok'];
-                                        unset($_SESSION['title-loginok']);
+                                        echo $_SESSION['displayACC'];
+                                        
                             }
                             ?>
                             </div>
