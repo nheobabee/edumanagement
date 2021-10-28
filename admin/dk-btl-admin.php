@@ -58,20 +58,21 @@
                         <form method="post">
                             <?php
                             if (isset($_POST['dkbtl'])) {
-                                $idTeam = $_POST['idTeam'];
+                               
                                 $nameTeam = $_POST['nameTeam'];
                                 $nameST1 = $_POST['nameST1'];
                                 $nameST2 = $_POST['nameST2'];
                                 $nameST3 = $_POST['nameST3'];
-                                $nameBTL = $_POST['nameBTL'];
+                                $idBTL = $_POST['idBTL'];
 
 
-                                $sql = "INSERT INTO `btlsv`(`idTeam`, `nameTeam`, `nameST1`, `nameST2`, `nameST3`, `nameBTL`) 
-                                VALUES ('','$nameTeam','$nameST1',' $nameST2','$nameST3','$nameBTL')";
+                                $sql = "INSERT INTO `btlsv`(`idTeam`, `nameTeam`, `nameST1`, `nameST2`, `nameST3`, `idBTL`) 
+                                VALUES ('','$nameTeam','$nameST1',' $nameST2','$nameST3','$idBTL')";
                                 $res = mysqli_query($conn, $sql);
                                 if ($res == true) {
                                     header('location: btl.php');
                                 } else {
+                                    echo 'Lỗi';
                                     echo $sql;
                                 }
                             }
@@ -86,7 +87,7 @@
                                 $kql = mysqli_query($conn, $sqll);
                                 if ($kql) {
                                     $row = mysqli_fetch_assoc($kql);
-                                    $nameBTL = $row['nameBTL'];
+                                    $nameBTL_q = $row['nameBTL'];
                                 
                                 }
                             }
@@ -110,7 +111,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="nameST3">Tên BTL:</label>
-                                <input readonly type="text" class="form-control" id="nameST3" placeholder="Enter name" name="nameST3" value="<?php echo $nameBTL ?>">
+                                <input readonly type="text" class="form-control" id="idBTL" placeholder="Enter name" name="idBTL" value="<?php echo $nameBTL_q ?>">
                             </div>
                     </div>
                     <br>

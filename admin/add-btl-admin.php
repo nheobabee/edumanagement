@@ -72,7 +72,7 @@
                                 VALUES ('$idBTL',' $nameBTL','$formatBTL','$openedBTL','$deadlineBTL',' $idMH ','$tenGV','')";
                                 $res = mysqli_query($conn, $sql);
                                 if ($res == true) {
-                                    header('location: btl.php');
+                                    header('location: subject.php');
                                 } else {
                                     echo $sql;
                                 }

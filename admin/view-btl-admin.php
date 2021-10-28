@@ -64,35 +64,38 @@ if (isset($_GET['idMH'])) {
                         </div>
                     </nav>
                     <div class="main-content">
+                   
 
                         <div class="container">
                             <br>
-                        <a href="./add-btl-admin.php"><button class="btn btn-success"> ADD BTL</button></a>
-                        <br>
                            
                             <div class="tittle-mh">
-                                <h2><?php echo $nameMH ?></h2>
+                              
                             </div>
                             <?php
-                            $sql3 = "SELECT * FROM btl WHERE idMH = '$idMH'";
+                            $sql3 = "SELECT * FROM btlsv WHERE idBTL = '$idBTL'";
                             $res3 = mysqli_query($conn, $sql3);
                             if ($res3 == true) {
                                 while ($row3 = mysqli_fetch_assoc($res3)) {
 
                             ?>
+                              
                                     <div class="title-btvn">
                                       
                                             <div class="name-btvn row">
                                                
                                                   <div class="content-btvn col-md-7">
-                                                  <h6><?php echo $row3['nameBTL'] ?></h6>
-                                                    <p><span style="font-weight: 500;">Opened: </span><?php echo $row3['openedBTL'] ?></p>
-                                                    <p style="border-bottom: 1px solid;"><span style="font-weight: 500;">Deadline: </span><?php echo $row3['deadlineBTL'] ?></p>
-                                                    <p class="note"><?php echo $row3['tenGV'] ?></p>
+                                                 <b><h6><?php echo $row3['nameTeam'] ?></h6></b> 
+                                                    <p><span style="font-weight: 500;">Thành viên 1: </span><?php echo $row3['nameST1'] ?></p>
+                                                    <p><span style="font-weight: 500;">Thành viên 2: </span><?php echo $row3['nameST2'] ?></p>
+                                                    <p><span style="font-weight: 500;">Thành viên 3: </span><?php echo $row3['nameST3'] ?></p>
+                                                    <p style="border-bottom: 1px solid;"><span style="font-weight: 500;"></span></p>
+                                                    <p class="note"><?php echo $row4['nameBTL'] ?></p>
                                             
                                                   </div>
                                                   <div class="service col-md-5">
                                                   <a href="./dk-btl-admin.php?idBTL=<?php echo $row3['idBTL']; ?>"><button type="button" class="btn btn-success text-white me-2"><i class="fas fa-edit"></i> Đăng kí</button></a>
+
                                                   <a href="./upd-btl-admin.php?idBTL=<?php echo $row3['idBTL']; ?>"><button type="button" class="btn btn-success text-white me-2"><i class="fas fa-edit"></i> UPDATE</button></a>
                                                   <a href="./del-btl-admin.php?idBTL=<?php echo $row3['idBTL']; ?>"><button type="button" class="btn btn-danger text-white me-2"><i class="fas fa-trash-alt"></i> DELETE</button></a>
                                                   <a href="./view-btl-admin.php?idBTL=<?php echo $row3['idBTL']; ?>"><button type="button" class="btn btn-info text-white me-2"><i class="far fa-eye"></i> VIEW</button></a>
@@ -126,4 +129,4 @@ if (isset($_GET['idMH'])) {
         });
     </script>
 </div>
-<!-- /#wrapper -->
+<!-- /#wrapper -->  
