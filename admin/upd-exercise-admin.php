@@ -4,13 +4,22 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <link rel="stylesheet" href="../css/add-exercise-admin.css">
 <?php
-    if(isset($_GET['idMH'])){
-        $idMH = $_GET['idMH'];
-        $sql1 = "SELECT * FROM monhoc where idmh = $idMH";
-        $res1 = mysqli_query($conn, $sql1);
-        $row = mysqli_fetch_assoc($res1);
-        $nameMH = $row['nameMH'];
-    }
+if (isset($_GET['idBTVN'])) {
+    $idBTVN = $_GET['idBTVN'];
+    $sql1 = "SELECT * FROM btvn where idBTVN = $idBTVN";
+    $res1 = mysqli_query($conn, $sql1);
+    $row = mysqli_fetch_assoc($res1);
+    $idBTVN = $row['idBTVN'];
+    $nameBTVN = $row['nameBTVN'];
+    $formatBTVN1 = $row['formatBTVN'];
+    $deadlineBTVN = $row['deadlineBTVN'];
+    $note = $row['note'];
+    $idMH = $row['idMH'];
+    $sql2 = "SELECT * FROM monhoc where idMH = $idMH";
+    $res2 = mysqli_query($conn, $sql2);
+    $row2 = mysqli_fetch_assoc($res2);
+    $nameMH = $row2['nameMH'];
+}
 ?>
 <div id="wrapper">
 
@@ -35,7 +44,9 @@
             <li>
                 <a href=".teach.php"><i class="fas fa-school"></i> Teach</a>
             </li>
-           
+            <li>
+                <a href="btl.php"><i class="fas fa-users"></i> BTL</a>
+            </li>
 
             <li>
                 <a href="result.php"><i class="fas fa-poll"></i> Result</a>
@@ -64,7 +75,7 @@
                     </nav>
                     <div class="container">
                         <div class="tittleAdd">
-                        <h2>ADD EXERCISE</h2>
+                            <h2>ADD EXERCISE</h2>
                         </div>
                         <form method="post">
                             <?php
@@ -75,31 +86,43 @@
                                 $deadlineBTVN = $_POST['deadlineBTVN'];
                                 $note = $_POST['note'];
 
-                                $sql2 = "INSERT INTO btvn(nameBTVN, formatBTVN, deadlineBTVN, note, idMH) 
-                                    VALUES('$nameBTVN', '$formatBTVN', '$deadlineBTVN', '$note', '$idMH')";
-                                $res2 = mysqli_query($conn, $sql2);
-                                if ($res2 == true) {
-                                    header('location: http://localhost/edumanagement/admin/exercise-subject-admin.php?idMH='.$idMH);
+                                $sql3 = "UPDATE btvn SET
+                                nameBTVN = '$nameBTVN',
+                                formatBTVN = '$formatBTVN',
+                                deadlineBTVN = '$deadlineBTVN',
+                                note = '$note'
+                                where idBTVN = '$idBTVN'
+                                 ";
+                                    
+                                    
+                                $res3 = mysqli_query($conn, $sql3);
+                                if ($res3 == true) {
+                                    header('location: http://localhost/edumanagement/admin/exercise-subject-admin.php?idMH=' . $idMH);
                                 } else {
                                     echo $sql2;
                                 }
                             }
                             ?>
                             <span style="font-weight:500">Subject: <?php echo $nameMH ?><span>
-                              <div class="form-group">
-                                <label class = "subMH" for="idMH">ID Subject  </label>
-                                <input type="text" class="form-control" id="idMH" readonly value="<?php echo $idMH?>"name="idMH">
+                            <div class="form-group">
+                                <label class="subMH" for="idMH">ID Exercise : </label>
+                                <input type="text" class="form-control" id="idMH" readonly value="<?php echo $idBTVN ?>" name="idMH">
                             </div>
                             <div class="form-group">
                                 <label for="nameBTVN">Name Homework:</label>
-                                <input type="text" class="form-control" id="nameBTVN" placeholder="Enter name" name="nameBTVN">
+                                <input type="text" class="form-control" id="nameBTVN" placeholder="Enter name" name="nameBTVN" value="<?php echo $nameBTVN ?>">
                             </div>
                             <div class="form-group">
                                 <label for="formatBTVN">Format:</label>
                                 <div class="format_btvn">
-                                    <select id="formatBTVN" name = "formatBTVN">
-                                        <option value="Trắc nghiệm">Trắc nghiệm</option>
-                                        <option value="Tự luận">Tự luận</option>
+                                    <select id="formatBTVN" name="formatBTVN">
+                                        <?php
+                                        ?>
+                                            <option <?php if($formatBTVN1 == 'Trắc nghiệm'){echo 'selected';}?> value="Trắc nghiệm">Trắc nghiệm</option>
+                                            <option <?php if($formatBTVN1 == 'Tự luận'){echo 'selected';}?> value="Tự luận">Tự luận</option>
+                                        <?php
+                                        ?>
+
                                     </select>
                                 </div>
                             </div>
@@ -107,13 +130,14 @@
                                 <label for="openedBTVN">Opened:</label>
                                 <input type="date" class="form-control" id="openedBTVN" placeholder="Enter opened" name="openedBTVN">
                             </div> -->
+                          
                             <div class="form-group">
                                 <label for="deadlineBTVN">Deadline:</label>
-                                <input type="datetime-local" class="form-control" id="deadlineBTVN" placeholder="Enter deadline" name="deadlineBTVN">
+                                <input type="datetime-local" class="form-control" id="deadlineBTVN" placeholder="Enter deadline" name="deadlineBTVN" value="<?php echo date_format($deadlineBTVN,"Y-m-d H:i:s"); ?>">
                             </div>
                             <div class="form-group">
                                 <label for="note">Note:</label>
-                                <input type="text" class="form-control" id="note" placeholder="Enter note" name="note">
+                                <input type="text" class="form-control" id="note" placeholder="Enter note" name="note" value="<?php echo $note ?>">
                             </div>
                             <br>
                             <button name="add" type="submit" class="btn btn-success">ADD</button>
