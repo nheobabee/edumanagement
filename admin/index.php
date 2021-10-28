@@ -66,6 +66,9 @@
 
                             <div class="header-page">
                                 <h1 class="page-title">Dashboard</h1>
+                                <div class="helloAcc">
+                                    <h6>Hello, </h6>
+                                </div>
 
                                 <!--  -->
                             <?php
@@ -137,6 +140,16 @@
                                     <h1 class="count"><?php echo $count6 ?></h1>
                                     <br>
                                     <p>Result</p>
+                                </div>
+                                <div class="col text-center">
+                                    <?php
+                                    $sql7 = "SELECT * FROM db_users";
+                                    $res7 = mysqli_query($conn, $sql7);                                   
+                                    $count7 = mysqli_num_rows($res7);
+                                    ?>
+                                    <h1 class="count"><?php echo $count7 ?></h1>
+                                    <br>
+                                    <p>Users</p>
                                 </div>
                             </div>
                         </div>
