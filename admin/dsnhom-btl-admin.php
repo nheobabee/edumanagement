@@ -13,7 +13,7 @@
 if (isset($_GET['idBTL'])) {
     $idBTL = $_GET['idBTL'];
 
-    $sql1 = "SELECT * FROM btl ";
+    $sql1 = "SELECT * FROM btl WHERE idBTL = $idBTL ";
     $res1 = mysqli_query($conn, $sql1);
     $row1 = mysqli_fetch_assoc($res1);
     $nameBTL = $row1['nameBTL'];
