@@ -93,8 +93,8 @@ if (isset($_GET['idMH'])) {
                                                   </div>
                                                   <div class="service col-md-5">
                                                   <a href="./upd-exercise-admin.php?idBTVN=<?php echo $row3['idBTVN']; ?>"><button type="button" class="btn btn-success text-white me-2"><i class="fas fa-edit"></i> UPDATE</button></a>
-                                                  <a href="./del-exercise-admin.php?idBTVN=<?php echo $row3['idBTVN']; ?>"><button type="button" class="btn btn-danger text-white me-2"><i class="fas fa-trash-alt"></i> DELETE</button></a>
-                                                  <a href="./del-exercise-admin.php?idBTVN=<?php echo $row3['idBTVN']; ?>"><button type="button" class="btn btn-info text-white me-2"><i class="far fa-eye"></i> VIEW</button></a>
+                                                  <a href="./del-exercise-admin.php?idBTVN=<?php echo $row3['idBTVN']; ?>&&idMH=<?php echo $row3['idMH']; ?>"><button type="button" class="btn btn-danger text-white me-2"><i class="fas fa-trash-alt"></i> DELETE</button></a>
+                                                  <a href="./de-exercise-admin.php?idBTVN=<?php echo $row3['idBTVN']; ?>"><button type="button" class="btn btn-info text-white me-2"><i class="far fa-eye"></i> VIEW</button></a>
                                                   </div>
                                             </div>
                                         </div>
