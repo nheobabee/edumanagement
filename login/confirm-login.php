@@ -1,10 +1,6 @@
 <?php include('../config/config.php'); 
         session_start();
-        if(!isset($_SESSION['loginok']))
-        {
-            header('location:../login/index.php');
-        }
-
+    
 $email = $_GET['email'];
 $code = md5($_GET['code']);
 $sql  = "select * from db_users where user_email = '$email'";
