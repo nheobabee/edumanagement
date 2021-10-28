@@ -4,9 +4,10 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <link rel="stylesheet" href="../css/add-exercise-admin.css">
 <?php
-if (isset($_GET['idBTVN'])) {
+if (isset($_GET['idBTVN'],$_GET['idMH'] )) {
     $idBTVN = $_GET['idBTVN'];
-    $sql1 = "SELECT * FROM btvn where idBTVN = $idBTVN";
+    $idMH = $_GET['idMH'];
+    $sql1 = "SELECT * FROM btvn where idBTVN = $idBTVN and idMH = $idMH";
     $res1 = mysqli_query($conn, $sql1);
     $row1 = mysqli_fetch_assoc($res1);
     $idBTVN = $row1['idBTVN'];
@@ -14,7 +15,8 @@ if (isset($_GET['idBTVN'])) {
     $formatBTVN1 = $row1['formatBTVN'];
     $deadlineBTVN = $row1['deadlineBTVN'];
     $note = $row1['note'];
-    $idMH = $row1['idMH'];
+
+
     $sql2 = "SELECT * FROM monhoc where idMH = $idMH";
     $res2 = mysqli_query($conn, $sql2);
     $row2 = mysqli_fetch_assoc($res2);
@@ -75,12 +77,12 @@ if (isset($_GET['idBTVN'])) {
                     </nav>
                     <div class="container">
                         <div class="tittleAdd">
-                            <h2>ADD EXERCISE</h2>
+                            <h2>UPDATE EXERCISE</h2>
                         </div>
                         <form method="post">
                             <?php
                             if (isset($_POST['add'])) {
-                                $idMH = $_POST['idMH'];
+                               
                                 $nameBTVN = $_POST['nameBTVN'];
                                 $formatBTVN = $_POST['formatBTVN'];
                                 $deadlineBTVN = $_POST['deadlineBTVN'];
@@ -93,11 +95,9 @@ if (isset($_GET['idBTVN'])) {
                                 note = '$note'
                                 where idBTVN = '$idBTVN'
                                  ";
-                                    
-                                    
                                 $res3 = mysqli_query($conn, $sql3);
                                 if ($res3 == true) {
-                                    header("http://localhost/edumanagement/admin/exercise-subject-admin.php?idMH=" . $idMH);
+                                    header("Location:http://localhost/edumanagement/admin/exercise-subject-admin.php?idMH=" . $idMH);
                                 } else {
                                     echo $sql3;
                                 }
@@ -105,8 +105,8 @@ if (isset($_GET['idBTVN'])) {
                             ?>
                             <span style="font-weight:500">Subject: <?php echo $nameMH ?><span>
                             <div class="form-group">
-                                <label class="subMH" for="idMH">ID Exercise : </label>
-                                <input type="text" class="form-control" id="idMH" readonly value="<?php echo $idBTVN ?>" name="idMH">
+                                <label class="idBTVN" for="idMH">ID Exercise : </label>
+                                <input type="text" class="form-control" id="idBTVN" readonly value="<?php echo $idBTVN ?>" name="idBTVN">
                             </div>
                             <div class="form-group">
                                 <label for="nameBTVN">Name Homework:</label>
@@ -145,7 +145,7 @@ if (isset($_GET['idBTVN'])) {
                                 <input type="text" class="form-control" id="note" placeholder="Enter note" name="note" value="<?php echo $note ?>">
                             </div>
                             <br>
-                            <button name="add" type="submit" class="btn btn-success">ADD</button>
+                            <button name="add" type="submit" class="btn btn-success">UPDATE</button>
                         </form>
                     </div>
                 </div>
