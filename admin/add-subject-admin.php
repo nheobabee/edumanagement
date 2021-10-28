@@ -80,7 +80,8 @@
                            
                             <div class="form-group">
                                 <label for="TC">Credits:</label>
-                                <input type="number" value="1" class="form-control" id="TC" placeholder="Enter credits" name="TC">
+                                <input type="number" value="1"
+                                 class="form-control" id="TC" placeholder="Enter credits" name="TC">
                             </div>
                         
                             <br>

@@ -8,13 +8,13 @@ if (isset($_GET['idBTVN'])) {
     $idBTVN = $_GET['idBTVN'];
     $sql1 = "SELECT * FROM btvn where idBTVN = $idBTVN";
     $res1 = mysqli_query($conn, $sql1);
-    $row = mysqli_fetch_assoc($res1);
-    $idBTVN = $row['idBTVN'];
-    $nameBTVN = $row['nameBTVN'];
-    $formatBTVN1 = $row['formatBTVN'];
-    $deadlineBTVN = $row['deadlineBTVN'];
-    $note = $row['note'];
-    $idMH = $row['idMH'];
+    $row1 = mysqli_fetch_assoc($res1);
+    $idBTVN = $row1['idBTVN'];
+    $nameBTVN = $row1['nameBTVN'];
+    $formatBTVN1 = $row1['formatBTVN'];
+    $deadlineBTVN = $row1['deadlineBTVN'];
+    $note = $row1['note'];
+    $idMH = $row1['idMH'];
     $sql2 = "SELECT * FROM monhoc where idMH = $idMH";
     $res2 = mysqli_query($conn, $sql2);
     $row2 = mysqli_fetch_assoc($res2);
@@ -97,9 +97,9 @@ if (isset($_GET['idBTVN'])) {
                                     
                                 $res3 = mysqli_query($conn, $sql3);
                                 if ($res3 == true) {
-                                    header('location: http://localhost/edumanagement/admin/exercise-subject-admin.php?idMH=' . $idMH);
+                                    header("http://localhost/edumanagement/admin/exercise-subject-admin.php?idMH=" . $idMH);
                                 } else {
-                                    echo $sql2;
+                                    echo $sql3;
                                 }
                             }
                             ?>
@@ -135,7 +135,9 @@ if (isset($_GET['idBTVN'])) {
                             
                             <div class="form-group">
                                 <label for="deadlineBTVN">Deadline:</label>
-                                <input type="datetime-local" class="form-control" id="deadlineBTVN" placeholder="Enter deadline" name="deadlineBTVN" value="<?php  ?>">
+                                <div class="deadline-BTVN">
+                                <input type="datetime-local" name="deadlineBTVN" id="deadlineBTVN" value="<?php echo $date = date("Y-m-d\TH:i:s", strtotime($deadlineBTVN));?>">
+                                </div>
 
                             </div>
                             <div class="form-group">
