@@ -66,16 +66,11 @@
 
                             <div class="header-page">
                                 <h1 class="page-title">Dashboard</h1>
-                                <div class="helloAcc">
-                                    <h6>Hello, </h6>
-                                </div>
-
                                 <!--  -->
                             <?php
-                            if(isset($_SESSION['title-loginok']))
+                            if(isset($_SESSION['display-username']))
                             {
-                                        echo $_SESSION['title-loginok'];
-                                        unset($_SESSION['title-loginok']);
+                                        echo $_SESSION['display-username'];
                             }
                             ?>
                             </div>
