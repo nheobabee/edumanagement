@@ -4,13 +4,13 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <link rel="stylesheet" href="../css/exercise-subject-admin.css">
 <?php
-if (isset($_GET['idMH'])) {
-    $idMH = $_GET['idMH'];
+if (isset($_GET['idBTL'])) {
+    $idBTL = $_GET['idBTL'];
 
-    $sql1 = "SELECT * FROM monhoc where idMH = $idMH";
+    $sql1 = "SELECT * FROM btl ";
     $res1 = mysqli_query($conn, $sql1);
     $row1 = mysqli_fetch_assoc($res1);
-    $nameMH = $row1['nameMH'];
+    $nameBTL = $row1['nameBTL'];
 }
 ?>
 <div id="wrapper">
@@ -73,7 +73,7 @@ if (isset($_GET['idMH'])) {
                               
                             </div>
                             <?php
-                            $sql3 = "SELECT * FROM btlsv";
+                            $sql3 = "SELECT * FROM btlsv WHERE idBTL = $idBTL";
                             $res3 = mysqli_query($conn, $sql3);
                             if ($res3 == true) {
                                 while ($row3 = mysqli_fetch_assoc($res3)) {
@@ -85,12 +85,12 @@ if (isset($_GET['idMH'])) {
                                             <div class="name-btvn row">
                                                
                                                   <div class="content-btvn col-md-7">
-                                                 <b><h6><?php echo $row3['nameTeam'] ?></h6></b> 
+                                                    <h2 style="color:darkgrey"><?php echo $row3['nameTeam'] ?></h2>
                                                     <p><span style="font-weight: 500;">Thành viên 1: </span><?php echo $row3['nameST1'] ?></p>
                                                     <p><span style="font-weight: 500;">Thành viên 2: </span><?php echo $row3['nameST2'] ?></p>
                                                     <p><span style="font-weight: 500;">Thành viên 3: </span><?php echo $row3['nameST3'] ?></p>
                                                     <p style="border-bottom: 1px solid;"><span style="font-weight: 500;"></span></p>
-                                                    <p class="note"><?php echo $row4['nameBTL'] ?></p>
+                                                    <p class="note"><?php echo $row1['nameBTL'] ?></p>
                                             
                                                   </div>
                                                   <div class="service col-md-5">
