@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 28, 2021 lúc 02:34 PM
+-- Thời gian đã tạo: Th10 28, 2021 lúc 03:19 PM
 -- Phiên bản máy phục vụ: 10.4.21-MariaDB
 -- Phiên bản PHP: 8.0.10
 
@@ -120,6 +120,41 @@ INSERT INTO `btvnsv` (`idBTVN`, `idSV`, `fileBTVN`, `idMH`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Cấu trúc bảng cho bảng `db_users`
+--
+
+CREATE TABLE `db_users` (
+  `user_id` int(10) UNSIGNED NOT NULL,
+  `user_name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `user_avatar` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `user_gioitinh` tinyint(1) NOT NULL,
+  `user_birthday` date DEFAULT NULL,
+  `user_phone` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `user_email` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `user_pass` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `user_level` int(11) NOT NULL,
+  `status` tinyint(1) NOT NULL,
+  `code` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `code_forgot` varchar(222) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `db_users`
+--
+
+INSERT INTO `db_users` (`user_id`, `user_name`, `user_avatar`, `user_gioitinh`, `user_birthday`, `user_phone`, `user_email`, `user_pass`, `user_level`, `status`, `code`, `code_forgot`) VALUES
+(1, 'vtmo', '', 0, NULL, '', 'vtmo@tlu.edu.vn', '$2y$10$HJ0rPiSdeyJ/4IccIxf1quvEypJ/86u5/781vY0n1aVYeuXKQDN2G', 0, 1, '', '0'),
+(2, 'ntphuong', '', 0, NULL, '', 'ntphuong@tlu.edu.vnb', '$2y$10$HJ0rPiSdeyJ/4IccIxf1quvEypJ/86u5/781vY0n1aVYeuXKQDN2G', 0, 1, '', '0'),
+(3, 'MinhHN', 'img/avatar.jpg', 1, '2021-09-28', '034892039', 'MinhHN@gmail.com', '$2y$10$HJ0rPiSdeyJ/4IccIxf1quvEypJ/86u5/781vY0n1aVYeuXKQDN2G', 0, 1, '', '0'),
+(38, 'Hoàng Nhật Minh', 'img/avatar.jpg', 0, '2001-07-07', '012345678911', 'Nhatminh7721@gmail.com', '$2y$10$HJ0rPiSdeyJ/4IccIxf1quvEypJ/86u5/781vY0n1aVYeuXKQDN2G', 0, 1, '805b00106d385e07fbaf6fd07d46d159', '0'),
+(39, 'Vương Nguyễn', 'img/Logo HMT.png', 1, '2021-09-26', '039420349', 'ab@1.1', '$2y$10$HJ0rPiSdeyJ/4IccIxf1quvEypJ/86u5/781vY0n1aVYeuXKQDN2G', 0, 1, '9c9882ea7e6c162b7dac95b58994811e', '0'),
+(40, 'minh nè', 'img/avatar.jpg_173', 1, '2021-09-27', '0122', 'minh01@minh.com', '$2y$10$HJ0rPiSdeyJ/4IccIxf1quvEypJ/86u5/781vY0n1aVYeuXKQDN2G', 0, 1, '2290c7fadb9c6c343a9f3e84cf2ee861', '0'),
+(47, 'Huỳnh Hân', 'img/4207591edfda16844fcb.jpg', 0, '2021-10-20', '0972258286', 'han@gmail.com', '1', 0, 1, '9ceab358c1f5e4dcfc49b5d2a1d4a1e2', '0'),
+(85, 'Nguyễn Minh Vương', ' img/cam.png', 1, '2021-09-29', '0972258286', 'vuong9xx@gmail.com', '$2y$10$Kdx5.I2oczhB9BUtZ8IFf.78qCur.o7N2I3.Vp5j7JAwreVTGCPvS', 0, 1, '53bafeca233d95be1b6d524b748779bf', '41877');
+
+-- --------------------------------------------------------
+
+--
 -- Cấu trúc bảng cho bảng `giaovien`
 --
 
@@ -200,7 +235,7 @@ CREATE TABLE `monhoc` (
 
 INSERT INTO `monhoc` (`idMH`, `nameMH`, `TC`) VALUES
 (1, 'Công nghệ Web', 3),
-(2, 'Hệ quản trị CSDL', 3);
+(2, 'Hệ quản trị CSDL', 2);
 
 -- --------------------------------------------------------
 
@@ -300,6 +335,14 @@ ALTER TABLE `btvnsv`
   ADD KEY `BTVNSV_fk2` (`idMH`);
 
 --
+-- Chỉ mục cho bảng `db_users`
+--
+ALTER TABLE `db_users`
+  ADD PRIMARY KEY (`user_id`),
+  ADD UNIQUE KEY `user_name` (`user_name`),
+  ADD UNIQUE KEY `user_email` (`user_email`);
+
+--
 -- Chỉ mục cho bảng `giaovien`
 --
 ALTER TABLE `giaovien`
@@ -366,6 +409,12 @@ ALTER TABLE `btlsv`
 --
 ALTER TABLE `btvn`
   MODIFY `idBTVN` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT cho bảng `db_users`
+--
+ALTER TABLE `db_users`
+  MODIFY `user_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=86;
 
 --
 -- AUTO_INCREMENT cho bảng `giaovien`
