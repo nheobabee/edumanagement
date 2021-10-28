@@ -73,7 +73,7 @@ if (isset($_GET['idMH'])) {
                               
                             </div>
                             <?php
-                            $sql3 = "SELECT * FROM btlsv WHERE idBTL = '$idBTL'";
+                            $sql3 = "SELECT * FROM btlsv";
                             $res3 = mysqli_query($conn, $sql3);
                             if ($res3 == true) {
                                 while ($row3 = mysqli_fetch_assoc($res3)) {

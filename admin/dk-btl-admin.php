@@ -58,7 +58,7 @@
                         <form method="post">
                             <?php
                             if (isset($_POST['dkbtl'])) {
-                               
+
                                 $nameTeam = $_POST['nameTeam'];
                                 $nameST1 = $_POST['nameST1'];
                                 $nameST2 = $_POST['nameST2'];
@@ -70,14 +70,14 @@
                                 VALUES ('','$nameTeam','$nameST1',' $nameST2','$nameST3','$idBTL')";
                                 $res = mysqli_query($conn, $sql);
                                 if ($res == true) {
-                                    header('location: btl.php');
+                                    header('location: subject.php');
                                 } else {
                                     echo 'Lỗi';
                                     echo $sql;
                                 }
                             }
                             ?>
-                            <?php
+                             <?php
                             // lấy giá trị name của bài tập lớn
                             if (isset($_GET['idBTL'])) {
                                 $idBTL = $_GET['idBTL'];
@@ -92,6 +92,7 @@
                                 }
                             }
                             ?>
+
                             <div class="form-group">
                                 <label for="nameBTL">Tên nhóm:</label>
                                 <input type="text" class="form-control" id="nameTeam" placeholder="Enter name" name="nameTeam">
@@ -109,31 +110,34 @@
                                 <label for="nameST3">Tên thành viên 3:</label>
                                 <input type="text" class="form-control" id="nameST3" placeholder="Enter name" name="nameST3">
                             </div>
-                            <div class="form-group">
+                             <div class="form-group">
                                 <label for="nameST3">Tên BTL:</label>
-                                <input readonly type="text" class="form-control" id="idBTL" placeholder="Enter name" name="idBTL" value="<?php echo $nameBTL_q ?>">
+                                <span><?php echo $nameBTL_q?></span>
+                                <input readonly type="text" class="form-control" id="idBTL" placeholder="Enter name" name="idBTL" value="<?php echo $idBTL ?>">
+                            </div> 
+                            
+                           
                             </div>
+                            <br>
+                            <button name="dkbtl" type="submit" class="btn btn-success">Đăng kí</button>
+                        </form>
                     </div>
-                    <br>
-                    <button name="dkbtl" type="submit" class="btn btn-success">Đăng kí</button>
-                    </form>
                 </div>
+                <footer>
+                    <p class="ftr text-center">
+                        QTV - Do your best, the rest will come!
+                    </p>
+                </footer>
             </div>
-            <footer>
-                <p class="ftr text-center">
-                    QTV - Do your best, the rest will come!
-                </p>
-            </footer>
         </div>
+        <!-- /#page-content-wrapper -->
+        <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        <script>
+            $("#menu-toggle").click(function(e) {
+                e.preventDefault();
+                $("#wrapper").toggleClass("toggled");
+            });
+        </script>
     </div>
-    <!-- /#page-content-wrapper -->
-    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <script>
-        $("#menu-toggle").click(function(e) {
-            e.preventDefault();
-            $("#wrapper").toggleClass("toggled");
-        });
-    </script>
-</div>
-<!-- /#wrapper -->
+    <!-- /#wrapper -->
