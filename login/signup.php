@@ -87,12 +87,12 @@ require './sendEmail/SMTP.php';
                         $mail->addAddress($email); // Add a recipient
                         // Content
                         $mail->isHTML(true);   // Set email format to HTML
-                        $tieude = '[Đăng ký tài khoản] Danh bạ Trường DHTL';
+                        $tieude = '[Đăng ký tài khoản]';
                         $mail->Subject = $tieude;
 
                         //  Mail body content 
                         $bodyContent = '<h2><p>Xin chào<p></h2>';
-                        $bodyContent .= '<p>Nhấn vào đây để kích hoạt <a href="http://localhost/minhvuong/dhtl_danhba/xacnhanEmail.php?email=' . $email . '&code=' . $code . '">Xác nhận</a></p>';
+                        $bodyContent .= '<p>Nhấn vào đây để kích hoạt <a href="http://localhost/edumanagement/login/confirm-login.php?email='.$email.'&code='.$code.'">Xác nhận</a></p>';
                         $bodyContent .= '<p>Vui lòng không trả lời thư này .</p>';
                         $bodyContent .= '<p><b>Trân trọng cảm ơn !</b></p>';
                         $bodyContent .= '<p><b>Chào !Thân ái!</b></p>';
