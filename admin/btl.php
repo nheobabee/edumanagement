@@ -100,7 +100,7 @@ if (isset($_GET['idMH'])) {
                                                   <div style="margin:auto"  class="service col-md-4">
                                                   <a href="./upd-btl-admin.php?idBTL=<?php echo $row3['idBTL']; ?>"><button type="button" class="btn btn-success text-white me-2"><i class="fas fa-edit"></i> UPDATE</button></a>
                                                   <a href="./del-btl-admin.php?idBTL=<?php echo $row3['idBTL']; ?>"><button type="button" class="btn btn-danger text-white me-2"><i class="fas fa-trash-alt"></i> DELETE</button></a>
-                                                  <a href="./chitiet-btl-admin.php?idBTL=<?php echo $row3['idBTL']; ?>"><button type="button" class="btn btn-info text-white me-2"><i class="far fa-eye"></i> Chi Tiết</button></a>
+                                                  <a href="./chitiet-btl-admin.php?idBTL=<?php echo $row3['idBTL']; ?>&&idMH=<?php echo $row3['idMH']; ?>"><button type="button" class="btn btn-info text-white me-2"><i class="far fa-eye"></i> Chi Tiết</button></a>
                                                   </div>
                                             </div>
                                         </div>

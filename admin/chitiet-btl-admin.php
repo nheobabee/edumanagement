@@ -79,15 +79,15 @@ if (isset($_GET['idBTL'])) {
 
                             <div class="tittle-mh">
                                 <h2><?php
-                                    if (isset($_GET['idMH'])) {
+                                    if (isset($_GET['idMH'],$_GET['idBTL'])) {
                                         $idMH = $_GET['idMH'];
-
-                                        $sql5 = "SELECT * FROM monhoc";
+                                        $idBTL = $_GET['idBTL'];
+                                        $sql5 = "SELECT * FROM monhoc WHERE idMH = '$idMH'";
                                         $res5 = mysqli_query($conn, $sql5);
                                         $row5 = mysqli_fetch_assoc($res5);
                                         $nameMH = $row5['nameMH'];
                                     }
-                                    echo $nameBTL;
+                                    echo $nameMH;
                                     ?>
                                     
                                     </h2>
