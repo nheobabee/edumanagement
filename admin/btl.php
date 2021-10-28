@@ -67,13 +67,12 @@ if (isset($_GET['idMH'])) {
 
                         <div class="container">
                             <br>
-                            <a href="./dk-btl-admin.php?idMH=<?php echo $idMH; ?>"><button type="button" class="btn btn-success text-white me-2"><i class="fas fa-plus"></i>Đăng kí BTL</button></a>
-                            <br><br>
+                           
                             <div class="tittle-mh">
                                 <h2><?php echo $nameMH ?></h2>
                             </div>
                             <?php
-                            $sql3 = "SELECT * FROM btvn WHERE idMH = '$idMH'";
+                            $sql3 = "SELECT * FROM btl WHERE idMH = '$idMH'";
                             $res3 = mysqli_query($conn, $sql3);
                             if ($res3 == true) {
                                 while ($row3 = mysqli_fetch_assoc($res3)) {
@@ -84,16 +83,18 @@ if (isset($_GET['idMH'])) {
                                             <div class="name-btvn row">
                                                
                                                   <div class="content-btvn col-md-7">
-                                                  <h6><?php echo $row3['nameBTVN'] ?></h6>
-                                                    <p><span style="font-weight: 500;">Opened: </span><?php echo $row3['openedBTVN'] ?></p>
-                                                    <p style="border-bottom: 1px solid;"><span style="font-weight: 500;">Deadline: </span><?php echo $row3['deadlineBTVN'] ?></p>
-                                                    <p class="note"><?php echo $row3['note'] ?></p>
+                                                  <h6><?php echo $row3['nameBTL'] ?></h6>
+                                                    <p><span style="font-weight: 500;">Opened: </span><?php echo $row3['openedBTL'] ?></p>
+                                                    <p style="border-bottom: 1px solid;"><span style="font-weight: 500;">Deadline: </span><?php echo $row3['deadlineBTL'] ?></p>
+                                                    <p class="note"><?php echo $row3['tenGV'] ?></p>
                                             
                                                   </div>
                                                   <div class="service col-md-5">
-                                                  <a href="./upd-exercise-admin.php?idBTVN=<?php echo $row3['idBTVN']; ?>"><button type="button" class="btn btn-success text-white me-2"><i class="fas fa-edit"></i> UPDATE</button></a>
-                                                  <a href="./del-exercise-admin.php?idBTVN=<?php echo $row3['idBTVN']; ?>"><button type="button" class="btn btn-danger text-white me-2"><i class="fas fa-trash-alt"></i> DELETE</button></a>
-                                                  <a href="./del-exercise-admin.php?idBTVN=<?php echo $row3['idBTVN']; ?>"><button type="button" class="btn btn-info text-white me-2"><i class="far fa-eye"></i> VIEW</button></a>
+                                                  <a href="./dk-btl-admin.php?idBTL=<?php echo $row3['idBTL']; ?>"><button type="button" class="btn btn-success text-white me-2"><i class="fas fa-edit"></i> Đăng kí</button></a>
+
+                                                  <a href="./upd-btl-admin.php?idBTL=<?php echo $row3['idBTL']; ?>"><button type="button" class="btn btn-success text-white me-2"><i class="fas fa-edit"></i> UPDATE</button></a>
+                                                  <a href="./del-btl-admin.php?idBTL=<?php echo $row3['idBTL']; ?>"><button type="button" class="btn btn-danger text-white me-2"><i class="fas fa-trash-alt"></i> DELETE</button></a>
+                                                  <a href="./view-btl-admin.php?idBTL=<?php echo $row3['idBTL']; ?>"><button type="button" class="btn btn-info text-white me-2"><i class="far fa-eye"></i> VIEW</button></a>
                                                   </div>
                                             </div>
                                         </div>

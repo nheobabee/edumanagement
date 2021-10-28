@@ -27,7 +27,7 @@
             <li>
                 <a href=".teach.php"><i class="fas fa-school"></i> Teach</a>
             </li>
-           
+
             <li>
                 <a href="result.php"><i class="fas fa-poll"></i> Result</a>
             </li>
@@ -64,7 +64,7 @@
                                 $nameST2 = $_POST['nameST2'];
                                 $nameST3 = $_POST['nameST3'];
                                 $nameBTL = $_POST['nameBTL'];
-                              
+
 
                                 $sql = "INSERT INTO `btlsv`(`idTeam`, `nameTeam`, `nameST1`, `nameST2`, `nameST3`, `nameBTL`) 
                                 VALUES ('','$nameTeam','$nameST1',' $nameST2','$nameST3','$nameBTL')";
@@ -73,6 +73,21 @@
                                     header('location: btl.php');
                                 } else {
                                     echo $sql;
+                                }
+                            }
+                            ?>
+                            <?php
+                            // lấy giá trị name của bài tập lớn
+                            if (isset($_GET['idBTL'])) {
+                                $idBTL = $_GET['idBTL'];
+
+                                //lấy giá trị từ bảng
+                                $sqll = "SELECT * FROM btl WHERE idBTL = '$idBTL'";
+                                $kql = mysqli_query($conn, $sqll);
+                                if ($kql) {
+                                    $row = mysqli_fetch_assoc($kql);
+                                    $nameBTL = $row['nameBTL'];
+                                
                                 }
                             }
                             ?>
@@ -93,43 +108,31 @@
                                 <label for="nameST3">Tên thành viên 3:</label>
                                 <input type="text" class="form-control" id="nameST3" placeholder="Enter name" name="nameST3">
                             </div>
-                            <div class="form-group ">
-                                <label for="nameBTL" class="col-sm-2 col-form-label">Tên bài tập lớn:</label>
-                                <div class="col-sm-10">
-                                    <select name="nameBTL">
-                                        <?php
-                                        $sqlq = "SELECT * FROM btl";
-                                        $resultq = mysqli_query($conn, $sqlq);
-                                          if (mysqli_num_rows($resultq) > 0) {
-                                        while ($row = mysqli_fetch_assoc($resultq)) {                                                                                 
-                                            echo '<option value="'.$row['idBTL'].'">'.$row['nameBTL'].'</option>';
-                                        }
-                                          }
-                                        ?>
-                                    </select>
-                                </div>
+                            <div class="form-group">
+                                <label for="nameST3">Tên BTL:</label>
+                                <input readonly type="text" class="form-control" id="nameST3" placeholder="Enter name" name="nameST3" value="<?php echo $nameBTL ?>">
                             </div>
-                            
-                            <br>
-                            <button name="dkbtl" type="submit" class="btn btn-success">Đăng kí</button>
-                        </form>
                     </div>
+                    <br>
+                    <button name="dkbtl" type="submit" class="btn btn-success">Đăng kí</button>
+                    </form>
                 </div>
-                <footer>
-                    <p class="ftr text-center">
-                        QTV - Do your best, the rest will come!
-                    </p>
-                </footer>
             </div>
+            <footer>
+                <p class="ftr text-center">
+                    QTV - Do your best, the rest will come!
+                </p>
+            </footer>
         </div>
-        <!-- /#page-content-wrapper -->
-        <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-        <script>
-            $("#menu-toggle").click(function(e) {
-                e.preventDefault();
-                $("#wrapper").toggleClass("toggled");
-            });
-        </script>
     </div>
-    <!-- /#wrapper -->
+    <!-- /#page-content-wrapper -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script>
+        $("#menu-toggle").click(function(e) {
+            e.preventDefault();
+            $("#wrapper").toggleClass("toggled");
+        });
+    </script>
+</div>
+<!-- /#wrapper -->
