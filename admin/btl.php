@@ -94,7 +94,7 @@ if (isset($_GET['idMH'])) {
                                                   <h4><?php echo $row3['nameBTL'] ?></h4>
                                                     <p><span style="font-weight: 500;">Opened: </span><?php echo $row3['openedBTL'] ?></p>
                                                     <p style="border-bottom: 1px solid;"><span style="font-weight: 500;">Deadline: </span><?php echo $row3['deadlineBTL'] ?></p>
-                                                    <p class="note"><?php echo $row3['tenGV'] ?></p>
+                                                    <p class="note">Giáo viên: <?php echo $row3['tenGV'] ?></p>
                                             
                                                   </div>
                                                   <div style="margin:auto"  class="service col-md-4">
