@@ -140,7 +140,7 @@
 
 /* Dashboard */
 .col{
-    border: 1px solid #000; 
+
     margin:1%;
     height: 200px;
     border-radius:4px;
@@ -185,6 +185,7 @@ h1.count{
     margin-top:14px;
     margin-left: 0;
     margin-right: 0;
+    min-height: 290px;
 }
 .name-btvn p {
     margin-bottom: 0;
@@ -193,9 +194,12 @@ h1.count{
 .note {
     margin-top:14px;
 }
-.content-btvn {
-    border-right: 0.5px solid;
-}
+
 .btn-success {
     margin-left: 8px;
+    float: right;
 }
+
+
+
+
