@@ -1,6 +1,6 @@
 <?php
 include('../config/config.php');
-
+session_start();
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
@@ -58,7 +58,7 @@ require './sendEmail/SMTP.php';
         $sql_checkmail = "select * from db_users where user_email = '$email'";
         $rs_checkmail = mysqli_query($conn, $sql_checkmail);
         if (mysqli_num_rows($rs_checkmail) > 0) {
-            $_SESSION['email-exist'] = "<h4 style'color:red'>Email exist</h4>";
+            $_SESSION['email-exist'] = "<h4 style='color:red'>Email exist</h4>";
         } else {
             if ($pass1 == $pass2) {
                 $pass_hash = password_hash($pass1,PASSWORD_DEFAULT); 
@@ -121,7 +121,14 @@ require './sendEmail/SMTP.php';
                 <div class="card-body">
                     <h2 class="title">Registration Form</h2>
                     <form method="POST" enctype="multipart/form-data">
-
+                      <?php
+                      if(isset($_SESSION['email-exist']))
+                      {
+                        echo $_SESSION['email-exist'];
+                        unset($_SESSION['email-exist']);
+                      }
+                      ?>
+                      <br>
                         <div class="row row-space">
                             <div class="col-2">
                                 <div class="input-group">
