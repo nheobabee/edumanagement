@@ -1,5 +1,6 @@
-<?php
-include('../config/config.php');
+<?php include('../config/config.php');
+session_start();
+
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
@@ -22,35 +23,22 @@ require './sendEmail/SMTP.php';
 </head>
 
 <body>
-    <div class="d-flex align-items-center light-blue-gradient" style="height: 100vh;">
-        <div class="container">
-            <form action="" method="POST">
-            <div class="d-flex justify-content-center">
-                <div class="col-md-7">
-                    <div class="card rounded-0 shadow">
-                        <div class="card-body">
-                            <h3>Forget Password</h3>
-                            <form>
-                                <div class="form-group">
-                                    <label for="exampleInputEmail1">Email address:</label>
-                                    <input name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                                    <small id="emailHelp" class="form-text text-muted">we'll send forget password link on your email.</small>
-                                </div>
-                                <button name="forgot-pass" type="submit" class="btn btn-primary">Send Code</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </form>
-            <?php
-            if(isset($_POST['forgot-pass']))
-            {
-                setcookie('code',mt_rand(1000,99999),time()+300);
-                $code = $_COOKIE['code'];
-                $email = $_POST['email'];
+    <?php
+    if (isset($_POST['forgot-pass'])) {
+        setcookie('code', mt_rand(1000, 99999), time() + 300);
+        if (isset($_COOKIE['code'])) {
+            $code = $_COOKIE['code'];
+
+            $email = $_POST['email'];
+            $sql_check = "select * from db_users where user_email = '$email'";
+            $rs_check = mysqli_query($conn, $sql_check);
+            if (mysqli_num_rows($rs_check) > 0) {
                 $sql = "update db_users set code_forgot = '$code' where user_email= '$email'";
-                $rs = mysqli_query($conn,$sql);
-                $mail = new PHPMailer(true);
+                $rs = mysqli_query($conn, $sql);
+                if ($rs) {
+                    $_SESSION['check-passforgot']=$email;
+                    header("location:./confirm-forgot.php?email=$email");
+                    $mail = new PHPMailer(true);
                     try {
                         //Server settings
                         $mail->SMTPDebug = SMTP::DEBUG_SERVER; // Enable verbose debug output
@@ -75,7 +63,7 @@ require './sendEmail/SMTP.php';
 
                         //  Mail body content 
                         $bodyContent = '<h2><p>Xin chào<p></h2>';
-                        $bodyContent .= "<p>Vui lòng không tiết lộ mã này : '. $code .' </p>";
+                        $bodyContent .= "<p>Vui lòng không tiết lộ mã này :  $code  </p>";
                         $bodyContent .= '<p>Vui lòng không trả lời thư này .</p>';
                         $bodyContent .= '<p><b>Trân trọng cảm ơn !</b></p>';
                         $bodyContent .= '<p><b>Chào !Thân ái!</b></p>';
@@ -90,19 +78,49 @@ require './sendEmail/SMTP.php';
                     } catch (Exception $e) {
                         echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
                     }
+                }
+            } else {
+                $_SESSION['email-not-exist'] = "<h3 style='color:red'>email not exist please fill email correct</h3>";
             }
-            ?>
+        }
+    }
+    ?>
+    <div class="d-flex align-items-center light-blue-gradient" style="height: 100vh;">
+        <div class="container">
+            <form action="" method="POST">
+                <div class="d-flex justify-content-center">
+                    <div class="col-md-7">
+                        <div class="card rounded-0 shadow">
+                            <div class="card-body">
+                                <h3>Forget Password</h3>
+                                <form>
+                                    <?php if (isset($_SESSION['email-not-exist'])) {
+                                        echo $_SESSION['email-not-exist'];
+                                        unset($_SESSION['email-not-exist']);
+                                    }
+                                    ?>
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Email address:</label>
+                                        <input name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                                        <small id="emailHelp" class="form-text text-muted">we'll send forget password link on your email.</small>
+                                    </div>
+                                    <button name="forgot-pass" type="submit" class="btn btn-primary">Send Code</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+            </form>
 
 
 
-            </div>
-
-            <!-- Optional JavaScript -->
-            <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-            <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
         </div>
+
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    </div>
 </body>
 <style>
     @import url(https://fonts.googleapis.com/css?family=Poppins);

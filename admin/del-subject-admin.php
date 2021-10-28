@@ -1,5 +1,11 @@
 <?php session_start() ?>
-<?php include('../config/config.php') ?>
+<?php include('../config/config.php'); 
+        session_start();
+        if(!isset($_SESSION['loginok']))
+        {
+            header('location:../login/index.php');
+        }
+?>
 <?php
     if(isset($_GET['idMH'])){
         $idMH = $_GET['idMH'];

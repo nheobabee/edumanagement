@@ -100,7 +100,7 @@ session_start() ?>
 			if (password_verify($password, $password_hash)) {
 				$_SESSION['loginok'] = $username;
 				header('location:../admin/index.php');
-				$_SESSION['title-loginok'] = "<h2 style='color:green'> xin chào " . $row['user_name'] . "  </h2>";
+				// $_SESSION['title-loginok'] = "<h2 style='color:green'> xin chào " . $row['user_name'] . "  </h2>";
 			}
 		 else {
 			$_SESSION['echo fail'] = "<p style='color:red'> wrong password or username </p>";
