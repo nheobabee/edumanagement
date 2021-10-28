@@ -130,10 +130,10 @@ if (isset($_GET['idBTVN'])) {
                                 <label for="openedBTVN">Opened:</label>
                                 <input type="date" class="form-control" id="openedBTVN" placeholder="Enter opened" name="openedBTVN">
                             </div> -->
-                          
+                            <?php echo $deadlineBTVN ?>
                             <div class="form-group">
                                 <label for="deadlineBTVN">Deadline:</label>
-                                <input type="datetime-local" class="form-control" id="deadlineBTVN" placeholder="Enter deadline" name="deadlineBTVN" value="<?php echo date_format($deadlineBTVN,"Y-m-d H:i:s"); ?>">
+                                <input type="datetime-local" class="form-control" id="deadlineBTVN" placeholder="Enter deadline" name="deadlineBTVN" value="<?php echo date_format($deadlineBTVN,"Y/m/d H:i:s"); ?>">
                             </div>
                             <div class="form-group">
                                 <label for="note">Note:</label>
