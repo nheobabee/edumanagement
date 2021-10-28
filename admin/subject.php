@@ -30,9 +30,7 @@ session_start();
             <li>
                 <a href=".teach.php"><i class="fas fa-school"></i> Teach</a>
             </li>
-            <li>
-                <a href="btl.php"><i class="fas fa-users"></i> BTL</a>
-            </li>
+           
 
             <li>
                 <a href="result.php"><i class="fas fa-poll"></i> Result</a>
@@ -80,6 +78,7 @@ session_start();
                                     <th scope="col">Name</th>
                                     <th scope="col">Credits</th>
                                     <th scope="col">Excise</th>
+                                    <th scope="col">BTL</th>
                                     <th scope="col">Update</th>
                                     <th scope="col">Delete</th>
 
@@ -101,6 +100,9 @@ session_start();
                                             <td><?php echo $row['TC']; ?></td>
                                             <td>
                                                 <a href="./exercise-subject-admin.php?idMH=<?php echo $row['idMH']; ?>"><button type="button" class="btn btn-info text-white me-2"><i class="fas fa-book-open"></i>    </button></a>
+                                            </td>
+                                            <td>
+                                                <a href="./btl.php?idMH=<?php echo $row['idMH']; ?>"><button type="button" class="btn btn-warning text-white me-2"><i class="far fa-folder"></i></button></a>
                                             </td>
                                             <td>
                                                 <a href="./upd-subject-admin.php?idMH=<?php echo $row['idMH']; ?>"><button type="button" class="btn btn-primary text-white me-2"><i class="fas fa-user-edit"></i></button></a>

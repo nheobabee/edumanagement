@@ -27,10 +27,7 @@
             <li>
                 <a href=".teach.php"><i class="fas fa-school"></i> Teach</a>
             </li>
-            <li>
-                <a href="btl.php"><i class="fas fa-users"></i> BTL</a>
-            </li>
-
+           
             <li>
                 <a href="result.php"><i class="fas fa-poll"></i> Result</a>
             </li>
@@ -57,21 +54,20 @@
                         </div>
                     </nav>
                     <div class="container">
-                        <h2>ADD BTL</h2>
+                        <h2>Đăng kí bài tập lớn</h2>
                         <form method="post">
                             <?php
-                            if (isset($_POST['addbtl'])) {
-                                $idBTL = $_POST['idBTL'];
+                            if (isset($_POST['dkbtl'])) {
+                                $idTeam = $_POST['idTeam'];
+                                $nameTeam = $_POST['nameTeam'];
+                                $nameST1 = $_POST['nameST1'];
+                                $nameST2 = $_POST['nameST2'];
+                                $nameST3 = $_POST['nameST3'];
                                 $nameBTL = $_POST['nameBTL'];
-                                $formatBTL = $_POST['formatBTL'];
-                                $openedBTL = $_POST['openedBTL'];
-                                $deadlineBTL = $_POST['deadlineBTL'];
-                                $idMH = $_POST['idMH'];
-                                $tenGV = $_POST['tenGV'];
-                                $sonhom = $_POST['sonhom'];
+                              
 
-                                $sql = "INSERT INTO `btl`(`idBTL`, `nameBTL`, `formatBTL`, `openedBTL`, `deadlineBTL`, `idMH`, `tenGV`, `sonhom`) 
-                                VALUES ('$idBTL',' $nameBTL','$formatBTL','$openedBTL','$deadlineBTL',' $idMH ','$tenGV','')";
+                                $sql = "INSERT INTO `btlsv`(`idTeam`, `nameTeam`, `nameST1`, `nameST2`, `nameST3`, `nameBTL`) 
+                                VALUES ('','$nameTeam','$nameST1',' $nameST2','$nameST3','$nameBTL')";
                                 $res = mysqli_query($conn, $sql);
                                 if ($res == true) {
                                     header('location: btl.php');
@@ -82,44 +78,40 @@
                             ?>
                             <div class="form-group">
                                 <label for="nameBTL">Tên nhóm:</label>
-                                <input type="text" class="form-control" id="nameBTL" placeholder="Enter name" name="nameBTL">
+                                <input type="text" class="form-control" id="nameTeam" placeholder="Enter name" name="nameTeam">
                             </div>
 
                             <div class="form-group">
-                                <label for="formatBTL">formatBTL:</label>
-                                <input type="text" class="form-control" id="formatBTL" placeholder="Enter formatBTL" name="formatBTL">
+                                <label for="nameST1">Tên thành viên 1:</label>
+                                <input type="text" class="form-control" id="nameST1" placeholder="Enter name" name="nameST1">
                             </div>
                             <div class="form-group">
-                                <label for="openedBTL">openedBTL:</label>
-                                <input type="date" class="form-control" id="openedBTL" placeholder="Enter openedBTL" name="openedBTL">
+                                <label for="nameST2">Tên thành viên 2:</label>
+                                <input type="text" class="form-control" id="nameST2" placeholder="Enter name" name="nameST2">
                             </div>
                             <div class="form-group">
-                                <label for="deadlineBTL">deadlineBTL:</label>
-                                <input type="date" class="form-control" id="deadlineBTL" placeholder="Enter deadlineBTL" name="deadlineBTL">
+                                <label for="nameST3">Tên thành viên 3:</label>
+                                <input type="text" class="form-control" id="nameST3" placeholder="Enter name" name="nameST3">
                             </div>
                             <div class="form-group ">
-                                <label for="idMH" class="col-sm-2 col-form-label">Tên môn học:</label>
+                                <label for="nameBTL" class="col-sm-2 col-form-label">Tên bài tập lớn:</label>
                                 <div class="col-sm-10">
-                                    <select name="idMH">
+                                    <select name="nameBTL">
                                         <?php
-                                        $sqlq = "SELECT * FROM monhoc";
+                                        $sqlq = "SELECT * FROM btl";
                                         $resultq = mysqli_query($conn, $sqlq);
                                           if (mysqli_num_rows($resultq) > 0) {
                                         while ($row = mysqli_fetch_assoc($resultq)) {                                                                                 
-                                            echo '<option value="'.$row['idMH'].'">'.$row['nameMH'].'</option>';
+                                            echo '<option value="'.$row['idBTL'].'">'.$row['nameBTL'].'</option>';
                                         }
                                           }
                                         ?>
                                     </select>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label for="addressSV">Tên GV:</label>
-                                <input type="text" class="form-control" id="tenGV" placeholder="Enter tenGV" name="tenGV">
-                            </div>
-
+                            
                             <br>
-                            <button name="addbtl" type="submit" class="btn btn-success">ADD BTL</button>
+                            <button name="dkbtl" type="submit" class="btn btn-success">Đăng kí</button>
                         </form>
                     </div>
                 </div>

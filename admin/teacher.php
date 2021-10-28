@@ -30,9 +30,7 @@ session_start();
             <li>
                 <a href=".teach.php"><i class="fas fa-school"></i> Teach</a>
             </li>
-            <li>
-                <a href="btl.php"><i class="fas fa-users"></i> BTL</a>
-            </li>
+           
 
             <li>
                 <a href="result.php"><i class="fas fa-poll"></i> Result</a>
