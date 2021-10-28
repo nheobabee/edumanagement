@@ -1,7 +1,10 @@
 <?php
 include('../config/config.php'); 
 session_start();
-
+if(!isset($_SESSION['check-passforgot']))
+{
+    header('location:forgot-ppas.php');
+}
 
 
 use PHPMailer\PHPMailer\PHPMailer;

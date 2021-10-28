@@ -1,6 +1,6 @@
-<?php include('../config/config.php'); 
-        session_start();
-      
+<?php include('../config/config.php');
+session_start();
+
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
@@ -26,62 +26,64 @@ require './sendEmail/SMTP.php';
     <?php
     if (isset($_POST['forgot-pass'])) {
         setcookie('code', mt_rand(1000, 99999), time() + 300);
-        $code = $_COOKIE['code'];
-        $email = $_POST['email'];
-        $sql_check = "select * from db_users where user_email = '$email'";
-        $rs_check = mysqli_query($conn, $sql_check);
-        if (mysqli_num_rows($rs_check) > 0) {
-            $sql = "update db_users set code_forgot = '$code' where user_email= '$email'";
-            $rs = mysqli_query($conn, $sql);
-            if($rs)
-            {
-                header("location:./confirm-forgot.php?email=$email");
-                $mail = new PHPMailer(true);
-            try {
-                //Server settings
-                $mail->SMTPDebug = SMTP::DEBUG_SERVER; // Enable verbose debug output
-                $mail->isSMTP(); // gửi mail SMTP
-                $mail->Host = 'smtp.gmail.com'; // Set the SMTP server to send through
-                $mail->SMTPAuth = true; // Enable SMTP authentication
-                $mail->Username = 'vuong9xx@gmail.com'; // SMTP username// 'aqdz01@gmail.com'
-                $mail->Password = 'wjcntbqtopmkkzyh'; // SMTP password'durvyjkufbrdelbl'
-                $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` also accepted
-                $mail->Port = 587; // TCP port to connect to
-                $mail->CharSet = 'UTF-8';
-                //Recipients
-                $mail->setFrom('vuong9xx@gmail.com', 'Đăng ký tài khoản ');
+        if (isset($_COOKIE['code'])) {
+            $code = $_COOKIE['code'];
 
-                $mail->addReplyTo('vuong9xx@gmail.com', 'Đăng ký tài khoản ');
+            $email = $_POST['email'];
+            $sql_check = "select * from db_users where user_email = '$email'";
+            $rs_check = mysqli_query($conn, $sql_check);
+            if (mysqli_num_rows($rs_check) > 0) {
+                $sql = "update db_users set code_forgot = '$code' where user_email= '$email'";
+                $rs = mysqli_query($conn, $sql);
+                if ($rs) {
+                    $_SESSION['check-passforgot']=$email;
+                    header("location:./confirm-forgot.php?email=$email");
+                    $mail = new PHPMailer(true);
+                    try {
+                        //Server settings
+                        $mail->SMTPDebug = SMTP::DEBUG_SERVER; // Enable verbose debug output
+                        $mail->isSMTP(); // gửi mail SMTP
+                        $mail->Host = 'smtp.gmail.com'; // Set the SMTP server to send through
+                        $mail->SMTPAuth = true; // Enable SMTP authentication
+                        $mail->Username = 'vuong9xx@gmail.com'; // SMTP username// 'aqdz01@gmail.com'
+                        $mail->Password = 'wjcntbqtopmkkzyh'; // SMTP password'durvyjkufbrdelbl'
+                        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` also accepted
+                        $mail->Port = 587; // TCP port to connect to
+                        $mail->CharSet = 'UTF-8';
+                        //Recipients
+                        $mail->setFrom('vuong9xx@gmail.com', 'Đăng ký tài khoản ');
 
-                $mail->addAddress($email); // Add a recipient
-                // Content
-                $mail->isHTML(true);   // Set email format to HTML
-                $tieude = '[Đăng ký tài khoản]';
-                $mail->Subject = $tieude;
+                        $mail->addReplyTo('vuong9xx@gmail.com', 'Đăng ký tài khoản ');
 
-                //  Mail body content 
-                $bodyContent = '<h2><p>Xin chào<p></h2>';
-                $bodyContent .= "<p>Vui lòng không tiết lộ mã này :  $code  </p>";
-                $bodyContent .= '<p>Vui lòng không trả lời thư này .</p>';
-                $bodyContent .= '<p><b>Trân trọng cảm ơn !</b></p>';
-                $bodyContent .= '<p><b>Chào !Thân ái!</b></p>';
+                        $mail->addAddress($email); // Add a recipient
+                        // Content
+                        $mail->isHTML(true);   // Set email format to HTML
+                        $tieude = '[Đăng ký tài khoản]';
+                        $mail->Subject = $tieude;
 
-                $mail->Body = $bodyContent;
-                // $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
-                if ($mail->send()) {
-                    echo 'Thư đã được gửi đi';
-                } else {
-                    echo 'Lỗi. Thư chưa gửi được';
+                        //  Mail body content 
+                        $bodyContent = '<h2><p>Xin chào<p></h2>';
+                        $bodyContent .= "<p>Vui lòng không tiết lộ mã này :  $code  </p>";
+                        $bodyContent .= '<p>Vui lòng không trả lời thư này .</p>';
+                        $bodyContent .= '<p><b>Trân trọng cảm ơn !</b></p>';
+                        $bodyContent .= '<p><b>Chào !Thân ái!</b></p>';
+
+                        $mail->Body = $bodyContent;
+                        // $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+                        if ($mail->send()) {
+                            echo 'Thư đã được gửi đi';
+                        } else {
+                            echo 'Lỗi. Thư chưa gửi được';
+                        }
+                    } catch (Exception $e) {
+                        echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+                    }
                 }
-            } catch (Exception $e) {
-                echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+            } else {
+                $_SESSION['email-not-exist'] = "<h3 style='color:red'>email not exist please fill email correct</h3>";
             }
-            }
-        } else {
-            $_SESSION['email-not-exist'] = "<h3 style='color:red'>email not exist please fill email correct</h3>";
         }
     }
-
     ?>
     <div class="d-flex align-items-center light-blue-gradient" style="height: 100vh;">
         <div class="container">

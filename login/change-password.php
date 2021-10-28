@@ -1,5 +1,8 @@
-<?php include('../config/config.php'); 
-        session_start();
+<?php include('../config/config.php');
+session_start();
+if (!isset($_SESSION['check-passforgot'])) {
+    header('location:forgot-ppas.php');
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -48,25 +51,21 @@
     <!--Section: Block Content-->
 </body>
 <?php
-    if(isset($_POST['change']))
-    {
-        $email =$_GET['email'];
-        $pass1 = $_POST['pass1'];
-        $pass2 = $_POST['pass2'];
-        if($pass1==$pass2)
-        {
-            $pass_hash = password_hash($pass1,PASSWORD_DEFAULT);
-            $sql  = "update db_users set user_pass='$pass_hash' where user_email ='$email'";
-            $rs = mysqli_query($conn,$sql);
-            if($rs)
-            {
-                header('location:./index.php');
-            }
-            else
-            {
-                echo "fail";
-            }
+if (isset($_POST['change'])) {
+    $email = $_GET['email'];
+    $pass1 = $_POST['pass1'];
+    $pass2 = $_POST['pass2'];
+    if ($pass1 == $pass2) {
+        $pass_hash = password_hash($pass1, PASSWORD_DEFAULT);
+        $sql  = "update db_users set user_pass='$pass_hash' where user_email ='$email'";
+        $rs = mysqli_query($conn, $sql);
+        if ($rs) {
+            header('location:./index.php');
+        } else {
+            echo "fail";
         }
     }
+}
 ?>
+
 </html>
