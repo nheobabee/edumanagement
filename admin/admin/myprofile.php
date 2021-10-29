@@ -64,12 +64,13 @@ if (!isset($_SESSION['loginok'])) {
 
                     if (isset($_POST['btn-luu'])) {
                         $username = $_POST['user_name'];
+                        $useravatar = $_FILES['user_avatar']['name'];
                         $usergioitinh = $_POST['user_gioitinh'];
                         $userbirthday = $_POST['user_birthday'];
                         $userphone = $_POST['user_phone'];
                         $useremail = $_POST['user_email'];
                         if ($useravatar != null) {
-                            $path = "../../login/";
+                            $path = "./img/";
                             $tmp_name = $_FILES['user_avatar']['tmp_name'];
                             move_uploaded_file($tmp_name, $path . $useravatar);
                         }
@@ -88,7 +89,7 @@ if (!isset($_SESSION['loginok'])) {
 
                         if ($result1 > 0) {
                             echo "Bản ghi đã được lưu";
-                            header('Location: indexl.php');
+                            header('Location: index.php');
                             die();
                         } else {
                             echo "Lỗi";
@@ -125,8 +126,7 @@ if (!isset($_SESSION['loginok'])) {
                                 <div class="row">
                                     <div class="col-md-4 border-right">
                                         <div class="d-flex flex-column align-items-center text-center p-3 py-5">
-                                            <img id="phongto" class="rounded-circle mt-5" src="../../login/<?php echo $row['user_avatar']?>" style="width :100px ;height :100px ;">
-                                         
+                                            <img id="phongto" class="rounded-circle mt-5" src="./img/<?php echo $row['user_avatar']?>" style="width :100px ;height :100px ;">
                                             <span class="font-weight-bold"></span>
                                             <span class="text-black-50"></span><br>
                                             <span><label for="image" class="btn btn-secondary">Tải ảnh đại diện</label><input id="image" type="file" name="user_avatar" style="display:none;"></span>
