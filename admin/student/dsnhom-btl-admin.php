@@ -27,25 +27,14 @@ if (isset($_GET['idBTL'])) {
             <li class="sidebar-brand">
                 <h2>STUDENT</h2>
             </li>
-            <li>
-                <a href="index.php"><i class="fas fa-chart-line"></i> Dashboard</a>
-            </li>
-            <li>
-                <a href="teacher.php"><i class="fas fa-chalkboard-teacher"></i> Teacher</a>
-            </li>
+          
             <li>
                 <a href="student.php"><i class="fas fa-user-graduate"></i> Student</a>
             </li>
             <li>
                 <a href="subject.php"><i class="fas fa-book"></i> Subject</a>
             </li>
-            <li>
-                <a href="teach.php"><i class="fas fa-school"></i> Teach</a>
-            </li>
-
-            <li>
-                <a href="result-admin.php"><i class="fas fa-poll"></i> Result</a>
-            </li>
+           
         </ul>
     </div>
     <!-- /#sidebar-wrapper -->
@@ -82,15 +71,10 @@ if (isset($_GET['idBTL'])) {
                             $sql3 = "SELECT * FROM btlsv WHERE idBTL = $idBTL";
                             $res3 = mysqli_query($conn, $sql3);
                             
-                            $my_array = array();
-                            while($row3 = mysqli_fetch_assoc($res3)){
-                                $my_array[] = $row3;
-                                print_r($row3);
-                            }
 
                             if ($res3 == true) {
-                                $my_array = array();
-                                while ($row3 = mysqli_fetch_assoc($res3)) {
+                                
+                                while ($row5 = mysqli_fetch_assoc($res3)) {
                                    
             
                             ?>
@@ -100,10 +84,10 @@ if (isset($_GET['idBTL'])) {
                                             <div class="name-btvn row">
                                                
                                                   <div class="content-btvn col-md-7">
-                                                    <h2 style="color:darkgrey"><?php echo $row3['note'] ?></h2>
-                                                    <p><span style="font-weight: 500;">Thành viên 1: </span><?php echo $row3['user_id'] ?><span style="font-weight: 500;"> (Trưởng nhóm)</span></p>
-                                                    <p><span style="font-weight: 500;">Thành viên 2: </span><?php echo $row3['user_id'] ?></p>
-                                                    <p><span style="font-weight: 500;">Thành viên 3: </span><?php echo $row3['user_id'] ?></p>
+                                                    <h2 style="color:darkgrey"><?php echo $row5['note'] ?></h2>
+                                                    <p><span style="font-weight: 500;">Thành viên 1: </span><?php echo $row5['user_id'] ?><span style="font-weight: 500;"> (Trưởng nhóm)</span></p>
+                                                    <p><span style="font-weight: 500;">Thành viên 2: </span><?php echo $row5['user_id'] ?></p>
+                                                    <p><span style="font-weight: 500;">Thành viên 3: </span><?php echo $row5['user_id'] ?></p>
                                                     <p><span style="font-weight: 500;"></span></p>
                                                     <p class="note"><?php echo $row1['nameBTL'] ?></p>
                                             

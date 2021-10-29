@@ -143,14 +143,14 @@ if (!isset($_SESSION['loginok'])) {
                                                 </div>
                                                 <br>
                                                 <div class="col-md-6"> <label class="labels">Giới tính</label>
-                                                    <<div class="form-control">
+                                                    <div class="form-control">
                                                         <input <?php if ($usergioitinh_q == 1) {
                                                                     echo "checked";
-                                                                } ?> type="radio" name="gioitinh" value="Nam">
+                                                                } ?> type="radio" name="user_gioitinh" value="1">
                                                         <label>Nam</label>
                                                         <input <?php if ($usergioitinh_q == 0) {
                                                                     echo "checked";
-                                                                } ?> type="radio" name="gioitinh" value="Nữ">
+                                                                } ?> type="radio" name="user_gioitinh" value="0">
                                                         <label>Nữ</label>
 
                                                 </div>
