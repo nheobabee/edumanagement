@@ -98,8 +98,30 @@ session_start() ?>
 			$row = mysqli_fetch_assoc($rs);
 			$password_hash = $row['user_pass'];
 			if (password_verify($password, $password_hash)) {
-				$_SESSION['loginok'] = $username;
-				header('location:../admin/index.php');
+				//$_SESSION['loginok'] = $username;
+				if($row['user_level']==2)
+				{
+
+					//student
+					$st = ($row['user_level']==2) ;
+					$_SESSION['student']= $st;
+					header('location:../admin/student/student.php'); 
+				}
+				 if($row['user_level']==1)
+				{
+					//teacher
+					$tc = ($row['user_level']==1) ;
+					$_SESSION['teacher']= $tc;
+					header('location:../admin/teacher/index.php');
+				}
+				 if($row['user_level']==0)
+				{
+					//admin
+					$ad = ($row['user_level']==0) ;
+					$_SESSION['loginok'] = $ad;
+					header('location:../admin/admin/index.php');
+				}
+				// header('location:../admin/index.php');
 				$_SESSION['display-username'] = "<h6 style='margin-top:5px;'> Hello, " . $row['user_name'] . "  </h6>";
 			}
 		 else {
