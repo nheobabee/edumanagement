@@ -84,7 +84,7 @@ if (isset($_GET['idBTVN'], $_GET['idMH'])) {
                                         <p><span style="font-weight: 500;">Deadline: </span><?php echo $row3['deadlineBTVN'] ?></p>
                                         <p class="note"><?php echo $row3['note'] ?></p>
                                        <div class="form-tn">
-                                       <a href="./question.php"><button type="button" class="btn btn-info text-white me-2"><i class="fas fa-upload"></i> Trắc nghiệm</button></a>
+                                       <a href="https://forms.gle/RxH1toXPq3MEP4Zu6"><button type="button" class="btn btn-info text-white me-2"><i class="fas fa-upload"></i> Trắc nghiệm</button></a>
                                        </div>
                                         <div class="mb-3">
                                             <label for="exampleFormControlTextarea1" class="form-label"></label>

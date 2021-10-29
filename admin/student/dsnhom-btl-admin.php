@@ -27,23 +27,10 @@ if (isset($_GET['idBTL'])) {
                 <h2>STUDENT</h2>
             </li>
             <li>
-                <a href="index.php"><i class="fas fa-chart-line"></i> Dashboard</a>
-            </li>
-            <li>
-                <a href="teacher.php"><i class="fas fa-chalkboard-teacher"></i> Teacher</a>
-            </li>
-            <li>
                 <a href="student.php"><i class="fas fa-user-graduate"></i> Student</a>
             </li>
             <li>
                 <a href="subject.php"><i class="fas fa-book"></i> Subject</a>
-            </li>
-            <li>
-                <a href="teach.php"><i class="fas fa-school"></i> Teach</a>
-            </li>
-
-            <li>
-                <a href="result-admin.php"><i class="fas fa-poll"></i> Result</a>
             </li>
         </ul>
     </div>
@@ -93,9 +80,14 @@ if (isset($_GET['idBTL'])) {
                                 <?php
                                 $i = 1;
                                 while ($row3 = mysqli_fetch_assoc($res3)) {  
+                                    $user_id = $row3['user_id'];
+                                    $sql6 = "SELECT * FROM users WHERE user_id = $user_id";
+                                    $res6 = mysqli_query($conn,$sql6);
+                                    $row6 = mysqli_fetch_assoc($res6);
+
                                 ?>
                                 
-                                    <p><span style="font-weight: 500;">Thành viên <?php echo $i ?>: </span><?php echo $row3['user_id'] ?><span style="font-weight: 500;"> (Trưởng nhóm)</span></p>
+                                    <p><span style="font-weight: 500;">Thành viên <?php echo $i ?>: </span><?php echo $row6['user_name'] ?></p>
                                 <?php
                                     $i++;
                                 } ?>
