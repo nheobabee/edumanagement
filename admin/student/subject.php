@@ -1,13 +1,13 @@
 <?php
 session_start(); 
 ?>
-<title>STUDENT</title>
+
+<title>SUBJECT</title>
 <?php include('../../config/config.php'); 
-     
-        if(!isset($_SESSION['student']))
-        {
-            header('location:../../login/index.php');
-        }
+     if(!isset($_SESSION['student']))
+     {
+         header('location:../../login/index.php');
+     }
 ?>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -21,12 +21,14 @@ session_start();
         <li class="sidebar-brand">
                 <h2>ADMIN</h2>
             </li>
+         
             <li>
-                <a href="student.php"><i class="fas fa-user-graduate"></i>  Student</a>
+                <a href="student.php"><i class="fas fa-user-graduate"></i> Student</a>
             </li>
             <li>
                 <a href="subject.php"><i class="fas fa-book"></i> Subject</a>
             </li>
+    
         </ul>
     </div>
     <!-- /#sidebar-wrapper -->
@@ -51,17 +53,7 @@ session_start();
                     </nav>
                     <div class="container">
                         <br>
-                        <div class="header-page">
-                        <h1 class="page-title">STUDENT</h1>
-                                <!--  -->
-                            <?php
-                            if(isset($_SESSION['display-username']))
-                            {
-                                        echo $_SESSION['display-username'];
-                            }
-                            ?>
-                            </div>
-                        
+                        <a href="./add-subject-admin.php"><button class="btn btn-success"> ADD SUBJECT</button></a>
                         <?php
                             if(isset($_SESSION['errorDel'])){
                                 echo $_SESSION['errorDel'];
@@ -71,47 +63,48 @@ session_start();
                                 echo $_SESSION['successDel'];
                                 unset($_SESSION['successDel']);
                             }
-                            
                         ?>
-                        <br>
+                        <br><br>
                         <table class="table">
                             <thead>
                                 <tr>
                                     <th scope="col">STT</th>
                                     <th scope="col">Name</th>
-                                    <th scope="col">Gender</th>
-                                    <th scope="col">Email</th>
-                                    <th scope="col">SDT</th>
-                                    <th scope="col">Address</th>
+                                    <th scope="col">Credits</th>
+                                    <th scope="col">Excise</th>
+                                    <th scope="col">BTL</th>
+                                    <th scope="col">Update</th>
+                                    <th scope="col">Delete</th>
 
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php
-                                $sql = "SELECT * from sinhvien";
+                                $sql = "SELECT * from monhoc";
                                 $res = mysqli_query($conn, $sql);
                                 $sn = 1;
                                 if ($res == true) {
                                     while ($row = mysqli_fetch_assoc($res)) {
-                                        $genderSV = $row['genderSV'];
-                                        $idSV = $row['idSV'];
+                                        $idMH = $row['idMH'];
+                                       
                                 ?>
                                         <tr>
                                             <td><?php echo $sn++ ?></td>
-                                            <td><?php echo $row['nameSV']; ?></td>
+                                            <td><?php echo $row['nameMH']; ?></td>
+                                            <td><?php echo $row['TC']; ?></td>
                                             <td>
-                                                <?php if ($genderSV == 1) {
-                                                    echo 'Nam';
-                                                }
-                                                if ($genderSV == 0) {
-                                                    echo 'Nữ';
-                                                }
-                                                ?>
+                                                <a href="./exercise-subject-admin.php?idMH=<?php echo $row['idMH']; ?>"><button type="button" class="btn btn-info text-white me-2"><i class="fas fa-book-open"></i>    </button></a>
                                             </td>
-                                            <td><?php echo $row['emailSV']; ?></td>
-                                            <td><?php echo $row['sdtSV']; ?></td>
-                                            <td><?php echo $row['addressSV']; ?></td>
-                                           
+                                            <td>
+                                                <a href="./btl.php?idMH=<?php echo $row['idMH']; ?>"><button type="button" class="btn btn-warning text-white me-2"><i class="far fa-folder"></i></button></a>
+                                            </td>
+                                            <td>
+                                                <a href="./upd-subject-admin.php?idMH=<?php echo $row['idMH']; ?>"><button type="button" class="btn btn-primary text-white me-2"><i class="fas fa-user-edit"></i></button></a>
+                                            </td>
+
+                                            <td>
+                                                <a href="./del-subject-admin.php?idMH=<?php echo $row['idMH']; ?>"><button type="button" class="btn btn-danger text-white me-2"><i class="fas fa-user-minus"></i></button></a>
+                                            </td>
                                         </tr>
                                 <?php
                                     }
