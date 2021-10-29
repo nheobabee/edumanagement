@@ -108,14 +108,7 @@
                                 <label for="nameST1">Tên thành viên 1:</label>
                                 <input type="text" class="form-control" id="nameST1" placeholder="Enter name" name="nameST1">
                             </div>
-                            <div class="form-group">
-                                <label for="nameST2">Tên thành viên 2:</label>
-                                <input type="text" class="form-control" id="nameST2" placeholder="Enter name" name="nameST2">
-                            </div>
-                            <div class="form-group">
-                                <label for="nameST3">Tên thành viên 3:</label>
-                                <input type="text" class="form-control" id="nameST3" placeholder="Enter name" name="nameST3">
-                            </div>
+                            
                              <div class="form-group">
                                 <label for="nameST3">Tên BTL:</label>
                                 <span><?php echo $nameBTL_q?></span>

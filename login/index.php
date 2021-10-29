@@ -98,7 +98,8 @@ session_start() ?>
 			$row = mysqli_fetch_assoc($rs);
 			$password_hash = $row['user_pass'];
 			if (password_verify($password, $password_hash)) {
-				
+				//SESIOM lấy user_id
+				$_SESSION['user_id'] = $row['user_id'];
 				//$_SESSION['loginok'] = $username;
 				if($row['user_level']==2)
 				{
