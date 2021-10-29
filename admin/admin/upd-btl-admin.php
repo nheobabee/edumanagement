@@ -103,7 +103,7 @@ if (!isset($_SESSION['loginok'])) {
                                 WHERE idBTL = $idBTL";
                                 $res3 = mysqli_query($conn, $sql3);
                                 if ($res3 == true) {                                  
-                                    header("Location:http://localhost/edumanagement/admin/btl.php?idMH=".$idMH);
+                                    header("Location:http://localhost/edumanagement/admin/admin/btl.php?idMH=".$idMH);
                                 } else {
                                     echo 'lỗi';
                                 }
