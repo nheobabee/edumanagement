@@ -1,11 +1,7 @@
-<<<<<<< Updated upstream:admin/upd-teacher-admin.php
+
 <title>UPDATE TEACHER</title>
-<?php include('../config/config.php'); 
-=======
-<title>TEACHER</title>
 <?php include('../../config/config.php'); 
->>>>>>> Stashed changes:admin/admin/upd-teacher-admin.php
-        session_start();
+       session_start();
         if(!isset($_SESSION['loginok']))
         {
             header('location:../../login/index.php');

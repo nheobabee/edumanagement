@@ -1,7 +1,7 @@
 <?php
 session_start();
 ?>
-<title>STUDENT</title>
+<title>RESULT BTVN</title>
 <?php include('../../config/config.php');
 
 if (!isset($_SESSION['teacher'])) {

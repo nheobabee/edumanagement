@@ -1,13 +1,9 @@
 <?php
 session_start();
 ?>
-<<<<<<< Updated upstream:admin/result-admin.php
+
 <title>RESULT ADMIN</title>
-<?php include('../config/config.php');
-=======
-<title>STUDENT</title>
 <?php include('../../config/config.php');
->>>>>>> Stashed changes:admin/admin/result-admin.php
 
 if (!isset($_SESSION['loginok'])) {
     header('location:../../login/index.php');

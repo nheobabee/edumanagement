@@ -1,7 +1,7 @@
 <?php
 session_start(); 
 ?>
-<title>TEACHER</title>
+<title>SUBJECT</title>
 <?php include('../../config/config.php'); 
       
         if(!isset($_SESSION['teacher']))

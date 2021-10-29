@@ -1,14 +1,10 @@
 <?php
 session_start(); 
 ?>
-<<<<<<< Updated upstream:admin/subject.php
+
 <title>SUBJECT</title>
-<?php include('../config/config.php'); 
-=======
-<title>TEACHER</title>
 <?php include('../../config/config.php'); 
->>>>>>> Stashed changes:admin/admin/subject.php
-      
+    
         if(!isset($_SESSION['loginok']))
         {
             header('location:../../login/index.php');
