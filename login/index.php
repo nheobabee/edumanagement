@@ -101,11 +101,11 @@ session_start() ?>
 				//SESIOM lấy user_id
 				$_SESSION['user_id'] = $row['user_id'];
 				//$_SESSION['loginok'] = $username;
-				if($row['user_level']==2)
+				if($row['user_level']==0)
 				{
 
 					//student
-					$st = ($row['user_level']==2) ;
+					$st = ($row['user_level']==0) ;
 					$_SESSION['student']= $st;
 					header('location:../admin/student/student.php'); 
 				}
@@ -116,10 +116,10 @@ session_start() ?>
 					$_SESSION['teacher']= $tc;
 					header('location:../admin/teacher/index.php');
 				}
-				 if($row['user_level']==0)
+				 if($row['user_level']==2)
 				{
 					//admin
-					$ad = ($row['user_level']==0) ;
+					$ad = ($row['user_level']==2) ;
 					$_SESSION['loginok'] = $ad;
 					header('location:../admin/admin/index.php');
 				}

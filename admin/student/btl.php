@@ -1,14 +1,15 @@
-
+<title>BTL</title>
 <?php include('../../config/config.php'); 
-     session_start();
-     if(!isset($_SESSION['student']))
+        session_start();
+        if(!isset($_SESSION['student']))
      {
          header('location:../../login/index.php');
      }
+        
 ?>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-<link rel="stylesheet" href="../../css/ex-stu.css">
+<link rel="stylesheet" href="../../css/btl-stu.css">
 <?php
 if (isset($_GET['idMH'])) {
     $idMH = $_GET['idMH'];
@@ -27,13 +28,14 @@ if (isset($_GET['idMH'])) {
             <li class="sidebar-brand">
                 <h2>STUDENT</h2>
             </li>
-           
+         
             <li>
                 <a href="student.php"><i class="fas fa-user-graduate"></i> Student</a>
             </li>
             <li>
                 <a href="subject.php"><i class="fas fa-book"></i> Subject</a>
             </li>
+        
         </ul>
     </div>
     <!-- /#sidebar-wrapper -->
@@ -61,13 +63,14 @@ if (isset($_GET['idMH'])) {
 
                         <div class="container">
                             <br>
-                           <h1>EXERCISE</h1>
+                                <h1 class="title-btl">BÀI TẬP LỚN</h1>
                             <br>
+                           
                             <div class="tittle-mh">
                                 <h2><?php echo $nameMH ?></h2>
                             </div>
                             <?php
-                            $sql3 = "SELECT * FROM btvn WHERE idMH = '$idMH'";
+                            $sql3 = "SELECT * FROM btl WHERE idMH = '$idMH'";
                             $res3 = mysqli_query($conn, $sql3);
                             if ($res3 == true) {
                                 while ($row3 = mysqli_fetch_assoc($res3)) {
@@ -77,16 +80,17 @@ if (isset($_GET['idMH'])) {
                                       
                                             <div class="name-btvn row">
                                                
-                                                  <div class="content-btvn col-md-10">
-                                                  <h6><?php echo $row3['nameBTVN'] ?></h6>
-                                                  <p><span style="font-weight: 500;">Hình thức: </span><?php echo $row3['formatBTVN'] ?></p>
-                                                    <p><span style="font-weight: 500;">Opened: </span><?php echo $row3['openedBTVN'] ?></p>
-                                                    <p ><span style="font-weight: 500;">Deadline: </span><?php echo $row3['deadlineBTVN'] ?></p>
-                                                    <p class="note"><?php echo $row3['note'] ?></p>
+                                                  <div class="content-btvn col-md-8">
+                                                  <h4><?php echo $row3['nameBTL'] ?></h4>
+                                                    <p><span style="font-weight: 500;">Opened: </span><?php echo $row3['openedBTL'] ?></p>
+                                                    <p ><span style="font-weight: 500;">Deadline: </span><?php echo $row3['deadlineBTL'] ?></p>
+                                                    <p class="note">Ghi chú: <?php echo $row3['notebtl'] ?></p>
                                             
                                                   </div>
-                                                  <div class="service col-md-2">
-                                                        <a href="./view-exercise-admin.php?idBTVN=<?php echo $row3['idBTVN']; ?>&&idMH=<?php echo $row3['idMH']; ?>"><button type="button" class="btn btn-info text-white me-2"><i class="far fa-eye"></i> VIEW</button></a>
+                                                  <div  class="service col-md-4">
+                                               
+                                                
+                                                  <a href="./chitiet-btl-admin.php?idBTL=<?php echo $row3['idBTL']; ?>&&idMH=<?php echo $row3['idMH']; ?>"><button type="button" class="btn btn-info text-white me-2"><i class="far fa-eye"></i> VIEW</button></a>
                                                   </div>
                                             </div>
                                         </div>

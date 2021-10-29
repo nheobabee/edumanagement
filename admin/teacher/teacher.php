@@ -18,10 +18,7 @@ if (!isset($_SESSION['teacher'])) {
     <div id="sidebar-wrapper">
         <ul class="sidebar-nav">
             <li class="sidebar-brand">
-                <h2>ADMIN</h2>
-            </li>
-            <li>
-                <a href="index.php"><i class="fas fa-chart-line"></i> Dashboard</a>
+                <h2>TEACHER</h2>
             </li>
             <li>
                 <a href="teacher.php"><i class="fas fa-chalkboard-teacher"></i> Teacher</a>

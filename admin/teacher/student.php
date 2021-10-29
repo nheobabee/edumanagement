@@ -1,13 +1,12 @@
 <?php
 session_start(); 
 ?>
-
-<title>SUBJECT</title>
+<title>STUDENT</title>
 <?php include('../../config/config.php'); 
-     if(!isset($_SESSION['student']))
-     {
-         header('location:../../login/index.php');
-     }
+     
+     if (!isset($_SESSION['teacher'])) {
+        header('location:../../login/index.php');
+    }
 ?>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -21,14 +20,23 @@ session_start();
         <li class="sidebar-brand">
                 <h2>STUDENT</h2>
             </li>
-         
+           
+            <li>
+                <a href="teacher.php"><i class="fas fa-chalkboard-teacher"></i> Teacher</a>
+            </li>
             <li>
                 <a href="student.php"><i class="fas fa-user-graduate"></i> Student</a>
             </li>
             <li>
                 <a href="subject.php"><i class="fas fa-book"></i> Subject</a>
             </li>
-    
+            <li>
+                <a href="teach.php"><i class="fas fa-school"></i> Teach</a>
+            </li>
+       
+            <li>
+                <a href="result-admin.php"><i class="fas fa-poll"></i> Result</a>
+            </li>
         </ul>
     </div>
     <!-- /#sidebar-wrapper -->
@@ -53,7 +61,7 @@ session_start();
                     </nav>
                     <div class="container">
                         <br>
-
+                        <a href="./add-student-admin.php"><button class="btn btn-success"> ADD STUDENT</button></a>
                         <?php
                             if(isset($_SESSION['errorDel'])){
                                 echo $_SESSION['errorDel'];
@@ -64,41 +72,53 @@ session_start();
                                 unset($_SESSION['successDel']);
                             }
                         ?>
-                        
-                        <h1>SUBJECT</h1>
-                        <br>
+                        <br><br>
                         <table class="table">
                             <thead>
                                 <tr>
                                     <th scope="col">STT</th>
                                     <th scope="col">Name</th>
-                                    <th scope="col">Credits</th>
-                                    <th scope="col">Excise</th>
-                                    <th scope="col">BTL</th>
+                                    <th scope="col">Gender</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">SDT</th>
+                                    <th scope="col">Address</th>
+                                    <th scope="col">Update</th>
+                                    <th scope="col">Delete</th>
 
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php
-                                $sql = "SELECT * from monhoc";
+                                $sql = "SELECT * from users where user_level = 2";
                                 $res = mysqli_query($conn, $sql);
                                 $sn = 1;
                                 if ($res == true) {
                                     while ($row = mysqli_fetch_assoc($res)) {
-                                        $idMH = $row['idMH'];
-                                       
+                                        $user_gioitinh = $row['user_gioitinh'];
+                                        $user_id = $row['user_id'];
                                 ?>
                                         <tr>
                                             <td><?php echo $sn++ ?></td>
-                                            <td><?php echo $row['nameMH']; ?></td>
-                                            <td><?php echo $row['TC']; ?></td>
+                                            <td><?php echo $row['user_name']; ?></td>
                                             <td>
-                                                <a href="./exercise-subject-admin.php?idMH=<?php echo $row['idMH']; ?>"><button type="button" class="btn btn-info text-white me-2"><i class="fas fa-book-open"></i>    </button></a>
+                                                <?php if ($user_gioitinh == 1) {
+                                                    echo 'Nam';
+                                                }
+                                                if ($user_gioitinh == 0) {
+                                                    echo 'Nữ';
+                                                }
+                                                ?>
                                             </td>
+                                            <td><?php echo $row['user_birthday']; ?></td>
+                                            <td><?php echo $row['user_phone']; ?></td>
+                                            <td><?php echo $row['user_email']; ?></td>
                                             <td>
-                                                <a href="./btl.php?idMH=<?php echo $row['idMH']; ?>"><button type="button" class="btn btn-warning text-white me-2"><i class="far fa-folder"></i></button></a>
+                                                <a href="./upd-teacher-admin.php?user_id=<?php echo $row['user_id']; ?>"><button type="button" class="btn btn-primary text-white me-2"><i class="fas fa-user-edit"></i></button></a>
                                             </td>
-                                          
+
+                                            <td>
+                                                <a href="./del-teacher-admin.php?user_id=<?php echo $row['user_id']; ?>"><button type="button" class="btn btn-danger text-white me-2"><i class="fas fa-user-minus"></i></button></a>
+                                            </td>
                                         </tr>
                                 <?php
                                     }

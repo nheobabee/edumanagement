@@ -19,7 +19,7 @@ session_start();
     <div id="sidebar-wrapper">
         <ul class="sidebar-nav">
         <li class="sidebar-brand">
-                <h2>ADMIN</h2>
+                <h2>STUDENT</h2>
             </li>
             <li>
                 <a href="student.php"><i class="fas fa-user-graduate"></i>  Student</a>
