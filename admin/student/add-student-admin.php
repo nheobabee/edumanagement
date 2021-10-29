@@ -18,26 +18,14 @@
             <li class="sidebar-brand">
                 <h2>ADMIN</h2>
             </li>
-            <li>
-                <a href="index.php"><i class="fas fa-chart-line"></i> Dashboard</a>
-            </li>
-            <li>
-                <a href="teacher.php"><i class="fas fa-chalkboard-teacher"></i> Teacher</a>
-            </li>
+         
             <li>
                 <a href="student.php"><i class="fas fa-user-graduate"></i> Student</a>
             </li>
             <li>
                 <a href="subject.php"><i class="fas fa-book"></i> Subject</a>
             </li>
-            <li>
-                <a href="teach.php"><i class="fas fa-school"></i> Teach</a>
-            </li>
-           
-
-            <li>
-                <a href="result-admin.php"><i class="fas fa-poll"></i> Result</a>
-            </li>
+          
         </ul>
     </div>
     <!-- /#sidebar-wrapper -->
@@ -53,7 +41,7 @@
 
                             <form class="d-flex">
                                 <a href="" class="navbar-brand">HOME</a>
-                                <a href="" class="navbar-brand">ACCOUNT</a>
+                                <a href="./myprofile.php" class="navbar-brand">ACCOUNT</a>
                                 <a href="../login/logout.php" class="navbar-brand">LOGOUT</a>
                                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                                 <button class="btn btn-outline-success" type="submit">Search</button>
