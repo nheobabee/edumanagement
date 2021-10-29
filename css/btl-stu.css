@@ -140,7 +140,7 @@
 
 /* Dashboard */
 .col{
-
+    border: 1px solid #000; 
     margin:1%;
     height: 200px;
     border-radius:4px;
@@ -185,7 +185,6 @@ h1.count{
     margin-top:14px;
     margin-left: 0;
     margin-right: 0;
-    min-height: 330px;
 }
 .name-btvn p {
     margin-bottom: 0;
@@ -195,14 +194,18 @@ h1.count{
 
 .btn-success {
     margin-left: 8px;
-    float: right;
 }
-.tittle-mh,.name-btvn{
+
+.title-btl {
+    border: 1px solid lightgray;
+    width: 23%;
+    border-top: 5px solid tomato;
+    background-color:#fff;
+    border-radius:4px;
+}
+.tittle-mh, .name-btvn {
     border-top: 5px solid tomato;
 }
-
-
-
-
-
-
+.btn-info{
+    float: right;
+}
