@@ -1,13 +1,12 @@
 <?php
-session_start(); 
+session_start();
 ?>
 <title>TEACHER</title>
-<?php include('../config/config.php'); 
-      
-        if(!isset($_SESSION['loginok']))
-        {
-            header('location:../login/index.php');
-        }
+<?php include('../config/config.php');
+
+if (!isset($_SESSION['loginok'])) {
+    header('location:../login/index.php');
+}
 ?>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -18,7 +17,7 @@ session_start();
     <!-- Sidebar -->
     <div id="sidebar-wrapper">
         <ul class="sidebar-nav">
-        <li class="sidebar-brand">
+            <li class="sidebar-brand">
                 <h2>ADMIN</h2>
             </li>
             <li>
@@ -34,12 +33,12 @@ session_start();
                 <a href="subject.php"><i class="fas fa-book"></i> Subject</a>
             </li>
             <li>
-                <a href=".teach.php"><i class="fas fa-school"></i> Teach</a>
+                <a href="teach.php"><i class="fas fa-school"></i> Teach</a>
             </li>
-           
+
 
             <li>
-                <a href="result.php"><i class="fas fa-poll"></i> Result</a>
+                <a href="result-admin.php"><i class="fas fa-poll"></i> Result</a>
             </li>
         </ul>
     </div>
@@ -67,14 +66,14 @@ session_start();
                         <br>
                         <a href="./add-teacher.php"><button class="btn btn-success"> ADD TEACHER</button></a>
                         <?php
-                            if(isset($_SESSION['errorDel'])){
-                                echo $_SESSION['errorDel'];
-                                unset($_SESSION['errorDel']);
-                            }
-                            if(isset($_SESSION['successDel'])){
-                                echo $_SESSION['successDel'];
-                                unset($_SESSION['successDel']);
-                            }
+                        if (isset($_SESSION['errorDel'])) {
+                            echo $_SESSION['errorDel'];
+                            unset($_SESSION['errorDel']);
+                        }
+                        if (isset($_SESSION['successDel'])) {
+                            echo $_SESSION['successDel'];
+                            unset($_SESSION['successDel']);
+                        }
                         ?>
                         <br><br>
                         <table class="table">

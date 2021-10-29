@@ -31,12 +31,12 @@
                 <a href="subject.php"><i class="fas fa-book"></i> Subject</a>
             </li>
             <li>
-                <a href=".teach.php"><i class="fas fa-school"></i> Teach</a>
+                <a href="teach.php"><i class="fas fa-school"></i> Teach</a>
             </li>
            
 
             <li>
-                <a href="result.php"><i class="fas fa-poll"></i> Result</a>
+                <a href="result-admin.php"><i class="fas fa-poll"></i> Result</a>
             </li>
         </ul>
     </div>

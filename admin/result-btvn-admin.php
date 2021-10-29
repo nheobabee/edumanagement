@@ -1,24 +1,23 @@
 <?php
-session_start(); 
+session_start();
 ?>
-<title>TEACHER</title>
-<?php include('../config/config.php'); 
-      
-        if(!isset($_SESSION['loginok']))
-        {
-            header('location:../login/index.php');
-        }
+<title>STUDENT</title>
+<?php include('../config/config.php');
+
+if (!isset($_SESSION['loginok'])) {
+    header('location:../login/index.php');
+}
 ?>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-<link rel="stylesheet" href="../css/teacher-admin.css">
+<link rel="stylesheet" href="../css/result-admin.css">
 
 <div id="wrapper">
 
     <!-- Sidebar -->
     <div id="sidebar-wrapper">
         <ul class="sidebar-nav">
-        <li class="sidebar-brand">
+            <li class="sidebar-brand">
                 <h2>ADMIN</h2>
             </li>
             <li>
@@ -36,7 +35,6 @@ session_start();
             <li>
                 <a href="teach.php"><i class="fas fa-school"></i> Teach</a>
             </li>
-           
 
             <li>
                 <a href="result-admin.php"><i class="fas fa-poll"></i> Result</a>
@@ -65,26 +63,16 @@ session_start();
                     </nav>
                     <div class="container">
                         <br>
-                        <a href="./add-subject-admin.php"><button class="btn btn-success"> ADD SUBJECT</button></a>
-                        <?php
-                            if(isset($_SESSION['errorDel'])){
-                                echo $_SESSION['errorDel'];
-                                unset($_SESSION['errorDel']);
-                            }
-                            if(isset($_SESSION['successDel'])){
-                                echo $_SESSION['successDel'];
-                                unset($_SESSION['successDel']);
-                            }
-                        ?>
+                        <a href="."><button type="button" class="btn btn-success text-white me-2"><i class="fas fa-plus"></i>ADD</i></button></a>
                         <br><br>
-                        <table class="table">
+                    <table class="table">
                             <thead>
                                 <tr>
                                     <th scope="col">STT</th>
-                                    <th scope="col">Name</th>
-                                    <th scope="col">Credits</th>
-                                    <th scope="col">Excise</th>
-                                    <th scope="col">BTL</th>
+                                    <th scope="col">NameSV</th>
+                                    <th scope="col">NameBTVN</th>
+                                    <th scope="col">Mark</th>
+                                    <th scope="col">Comment</th>
                                     <th scope="col">Update</th>
                                     <th scope="col">Delete</th>
 
@@ -92,30 +80,34 @@ session_start();
                             </thead>
                             <tbody>
                                 <?php
-                                $sql = "SELECT * from monhoc";
+                                $sql = "SELECT * from ketquabtvn";
                                 $res = mysqli_query($conn, $sql);
                                 $sn = 1;
                                 if ($res == true) {
                                     while ($row = mysqli_fetch_assoc($res)) {
-                                        $idMH = $row['idMH'];
-                                       
+                                        $idBTVN = $row['idBTVN'];
+                                        $sql3 = "SELECT * FROM btvn WHERE idBTVN = '$idBTVN'";
+                                        $res3 = mysqli_query($conn, $sql3);
+                                        $row3 = mysqli_fetch_assoc($res3);
+
+                                        $idSV = $row['idSV'];
+                                        $sql2 = "SELECT * FROM sinhvien WHERE idSV = '$idSV'";
+                                        $res2 = mysqli_query($conn, $sql2);
+                                        $row2 = mysqli_fetch_assoc($res2);
+                                        
                                 ?>
                                         <tr>
                                             <td><?php echo $sn++ ?></td>
-                                            <td><?php echo $row['nameMH']; ?></td>
-                                            <td><?php echo $row['TC']; ?></td>
+                                            <td><?php echo $row2['nameSV']; ?></td>
+                                            <td><?php echo $row3['nameBTVN']; ?></td>
+                                            <td><?php echo $row['markBTVN']; ?></td>
+                                            <td><?php echo $row['cmtBTVN']; ?></td>
                                             <td>
-                                                <a href="./exercise-subject-admin.php?idMH=<?php echo $row['idMH']; ?>"><button type="button" class="btn btn-info text-white me-2"><i class="fas fa-book-open"></i>    </button></a>
-                                            </td>
-                                            <td>
-                                                <a href="./btl.php?idMH=<?php echo $row['idMH']; ?>"><button type="button" class="btn btn-warning text-white me-2"><i class="far fa-folder"></i></button></a>
-                                            </td>
-                                            <td>
-                                                <a href="./upd-subject-admin.php?idMH=<?php echo $row['idMH']; ?>"><button type="button" class="btn btn-primary text-white me-2"><i class="fas fa-user-edit"></i></button></a>
+                                                <a href="./upd-result-btvn-admin.php?idBTVN=<?php echo $row['idBTVN']; ?>&&idSV=<?php echo $row['idSV']; ?>"><button type="button" class="btn btn-primary text-white me-2"><i class="fas fa-user-edit"></i></button></a>
                                             </td>
 
                                             <td>
-                                                <a href="./del-subject-admin.php?idMH=<?php echo $row['idMH']; ?>"><button type="button" class="btn btn-danger text-white me-2"><i class="fas fa-user-minus"></i></button></a>
+                                                <a href="./del-result-btvn-admin.php?idBTVN=<?php echo $row['idBTVN']; ?>&&idSV=<?php echo $row['idSV']; ?>"><button type="button" class="btn btn-danger text-white me-2"><i class="fas fa-user-minus"></i></button></a>
                                             </td>
                                         </tr>
                                 <?php
@@ -128,20 +120,22 @@ session_start();
                 </div>
             </div>
         </div>
-        <footer>
-            <p class="ftr text-center">
-                QTV - Do your best, the rest will come!
-            </p>
-        </footer>
     </div>
-    <!-- /#page-content-wrapper -->
-    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <script>
-        $("#menu-toggle").click(function(e) {
-            e.preventDefault();
-            $("#wrapper").toggleClass("toggled");
-        });
-    </script>
+    <footer>
+        <p class="ftr text-center">
+            QTV - Do your best, the rest will come!
+        </p>
+    </footer>
+</div>
+<!-- /#page-content-wrapper -->
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+</script>
 </div>
 <!-- /#wrapper -->
+<

@@ -1,23 +1,17 @@
-<title>DASHBOARD</title>
-<?php include('../config/config.php');
+<?php
 session_start();
+?>
+<title>STUDENT</title>
+<?php include('../config/config.php');
+
 if (!isset($_SESSION['loginok'])) {
     header('location:../login/index.php');
 }
 ?>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-<link rel="stylesheet" href="../css/view-exercise-admin.css">
-<?php
-if (isset($_GET['idBTVN'], $_GET['idMH'])) {
-    $idBTVN = $_GET['idBTVN'];
-    $idMH = $_GET['idMH'];
-    $sql1 = "SELECT * FROM monhoc where idMH = $idMH";
-    $res1 = mysqli_query($conn, $sql1);
-    $row1 = mysqli_fetch_assoc($res1);
-    $nameMH = $row1['nameMH'];
-}
-?>
+<link rel="stylesheet" href="../css/teacher-admin.css">
+
 <div id="wrapper">
 
     <!-- Sidebar -->
@@ -42,7 +36,6 @@ if (isset($_GET['idBTVN'], $_GET['idMH'])) {
                 <a href="teach.php"><i class="fas fa-school"></i> Teach</a>
             </li>
 
-
             <li>
                 <a href="result-admin.php"><i class="fas fa-poll"></i> Result</a>
             </li>
@@ -55,7 +48,6 @@ if (isset($_GET['idBTVN'], $_GET['idMH'])) {
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12">
-
                     <nav class="navbar navbar-light">
                         <div class="container-fluid">
                             <a href="#menu-toggle" class="btn btn-default" id="menu-toggle"><i class="fas fa-bars"></i></a>
@@ -69,51 +61,90 @@ if (isset($_GET['idBTVN'], $_GET['idMH'])) {
                             </form>
                         </div>
                     </nav>
-                    <div class="main-content">
+                    <div class="container">
+                        <h1>Result</h1>
 
-                        <div class="container">
-                            <br>
-                            <a href="./add-exercise-admin.php?idMH=<?php echo $idMH; ?>"><button type="button" class="btn btn-success text-white me-2"><i class="fas fa-plus"></i>ADD EXCERCISE</button></a>
-                            <br><br>
-                            <div class="tittle-mh">
-                                <h2><?php echo $nameMH ?></h2>
-                            </div>
-                            <?php
-                            $sql3 = "SELECT * FROM btvn WHERE idMH = '$idMH'";
-                            $res3 = mysqli_query($conn, $sql3);
+                        <?php
 
-                            $row3 = mysqli_fetch_assoc($res3)
+                        $answer1 = $_POST['question-1-answers'];
+                        $answer2 = $_POST['question-2-answers'];
+                        $answer3 = $_POST['question-3-answers'];
+                        $answer4 = $_POST['question-4-answers'];
+                        $answer5 = $_POST['question-5-answers'];
 
-                            ?>
-                            <div class="title-btvn">
+                        $totalCorrect = 0;
 
-                                <div class="name-btvn row">
+                        if ($answer1 == "C") {
+                            $totalCorrect++;
+                        }
+                        if ($answer2 == "D") {
+                            $totalCorrect++;
+                        }
+                        if ($answer3 == "A") {
+                            $totalCorrect++;
+                        }
+                        if ($answer4 == "B") {
+                            $totalCorrect++;
+                        }
+                        if ($answer5 == "D") {
+                            $totalCorrect++;
+                        }
 
-                                    <div class="content-btvn col">
-                                        <h6><?php echo $row3['nameBTVN'] ?></h6>
-                                        <p><span style="font-weight: 500;">Opened: </span><?php echo $row3['openedBTVN'] ?></p>
-                                        <p style="border-bottom: 1px solid;"><span style="font-weight: 500;">Deadline: </span><?php echo $row3['deadlineBTVN'] ?></p>
-                                        <p class="note"><?php echo $row3['note'] ?></p>
-                                       <div class="form-tn">
-                                       <a href="./question.php"><button type="button" class="btn btn-info text-white me-2"><i class="fas fa-upload"></i> Trắc nghiệm</button></a>
-                                       </div>
-                                        <div class="mb-3">
-                                            <label for="exampleFormControlTextarea1" class="form-label"></label>
-                                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                                        </div>
-                                        <a href=""><button type="button" class="btn btn-success text-white me-2"><i class="fas fa-upload"></i> SEND</button></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        echo "<div id='results'>$totalCorrect / 5 correct</div>";
+
+                        ?>
+
                     </div>
+
+
+                    <style>
+                        body {
+                            font: 14px Georgia, serif;
+                        }
+
+                        #page-wrap {
+                            width: 500px;
+                            margin: 0 auto;
+                        }
+
+                        h1 {
+                            margin: 25px 0;
+                            font: 18px Georgia, Serif;
+                            text-transform: uppercase;
+                            letter-spacing: 3px;
+                        }
+
+                        #quiz input {
+                            vertical-align: middle;
+                        }
+
+                        #quiz ol {
+                            margin: 0 0 10px 20px;
+                        }
+
+                        #quiz ol li {
+                            margin: 0 0 20px 0;
+                        }
+
+                        #quiz ol li div {
+                            padding: 4px 0;
+                        }
+
+                        #quiz h3 {
+                            font-size: 17px;
+                            margin: 0 0 1px 0;
+                            color: #666;
+                        }
+
+                        #results {
+                            font: 44px Georgia, Serif;
+                        }
+                    </style>
+
                 </div>
             </div>
         </div>
     </div>
-
-</div>
-<div class="">
     <footer>
         <p class="ftr text-center">
             QTV - Do your best, the rest will come!
