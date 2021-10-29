@@ -1,5 +1,5 @@
 <title>TEAM LIST</title>
-<?php include('v../config/config.php'); 
+<?php include('../../config/config.php'); 
         session_start();
         if(!isset($_SESSION['student']))
         {
@@ -8,7 +8,7 @@
 ?>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-<link rel="stylesheet" href="../../css/exercise-subject-admin.css">
+<link rel="stylesheet" href="../../css/list-dk-btl.css">
 <?php
 if (isset($_GET['idBTL'])) {
     $idBTL = $_GET['idBTL'];
@@ -25,7 +25,7 @@ if (isset($_GET['idBTL'])) {
     <div id="sidebar-wrapper">
         <ul class="sidebar-nav">
             <li class="sidebar-brand">
-                <h2>ADMIN</h2>
+                <h2>STUDENT</h2>
             </li>
             <li>
                 <a href="index.php"><i class="fas fa-chart-line"></i> Dashboard</a>
@@ -76,14 +76,23 @@ if (isset($_GET['idBTL'])) {
                             <br>
                            
                             <div class="tittle-mh">
-                              
+                              <h1><?php echo $nameBTL?></h1> 
                             </div>
                             <?php
                             $sql3 = "SELECT * FROM btlsv WHERE idBTL = $idBTL";
                             $res3 = mysqli_query($conn, $sql3);
-                            if ($res3 == true) {
-                                while ($row3 = mysqli_fetch_assoc($res3)) {
+                            
+                            $my_array = array();
+                            while($row3 = mysqli_fetch_assoc($res3)){
+                                $my_array[] = $row3;
+                                print_r($row3);
+                            }
 
+                            if ($res3 == true) {
+                                $my_array = array();
+                                while ($row3 = mysqli_fetch_assoc($res3)) {
+                                   
+            
                             ?>
                               
                                     <div class="title-btvn">
@@ -91,21 +100,15 @@ if (isset($_GET['idBTL'])) {
                                             <div class="name-btvn row">
                                                
                                                   <div class="content-btvn col-md-7">
-                                                    <h2 style="color:darkgrey"><?php echo $row3['nameTeam'] ?></h2>
-                                                    <p><span style="font-weight: 500;">Thành viên 1: </span><?php echo $row3['nameST1'] ?></p>
-                                                    <p><span style="font-weight: 500;">Thành viên 2: </span><?php echo $row3['nameST2'] ?></p>
-                                                    <p><span style="font-weight: 500;">Thành viên 3: </span><?php echo $row3['nameST3'] ?></p>
-                                                    <p style="border-bottom: 1px solid;"><span style="font-weight: 500;"></span></p>
+                                                    <h2 style="color:darkgrey"><?php echo $row3['note'] ?></h2>
+                                                    <p><span style="font-weight: 500;">Thành viên 1: </span><?php echo $row3['user_id'] ?><span style="font-weight: 500;"> (Trưởng nhóm)</span></p>
+                                                    <p><span style="font-weight: 500;">Thành viên 2: </span><?php echo $row3['user_id'] ?></p>
+                                                    <p><span style="font-weight: 500;">Thành viên 3: </span><?php echo $row3['user_id'] ?></p>
+                                                    <p><span style="font-weight: 500;"></span></p>
                                                     <p class="note"><?php echo $row1['nameBTL'] ?></p>
                                             
                                                   </div>
-                                                  <div class="service col-md-5">
-                                                  <a href="./dk-btl-admin.php?idBTL=<?php echo $row3['idBTL']; ?>"><button type="button" class="btn btn-success text-white me-2"><i class="fas fa-edit"></i> Đăng kí</button></a>
-
-                                                  <a href="./upd-btl-admin.php?idBTL=<?php echo $row3['idBTL']; ?>"><button type="button" class="btn btn-success text-white me-2"><i class="fas fa-edit"></i> UPDATE</button></a>
-                                                  <a href="./del-btl-admin.php?idBTL=<?php echo $row3['idBTL']; ?>"><button type="button" class="btn btn-danger text-white me-2"><i class="fas fa-trash-alt"></i> DELETE</button></a>
-                                                  <a href="./view-btl-admin.php?idBTL=<?php echo $row3['idBTL']; ?>"><button type="button" class="btn btn-info text-white me-2"><i class="far fa-eye"></i> VIEW</button></a>
-                                                  </div>
+                                                 
                                             </div>
                                         </div>
                                 <?php

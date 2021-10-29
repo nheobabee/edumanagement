@@ -88,29 +88,29 @@ session_start();
                             </thead>
                             <tbody>
                                 <?php
-                                $sql = "SELECT * from sinhvien";
+                                $sql = "SELECT * from users where user_level = 0";
                                 $res = mysqli_query($conn, $sql);
                                 $sn = 1;
                                 if ($res == true) {
                                     while ($row = mysqli_fetch_assoc($res)) {
-                                        $genderSV = $row['genderSV'];
-                                        $idSV = $row['idSV'];
+                                        $user_gioitinh = $row['user_gioitinh'];
+                                        $user_id = $row['user_id'];
                                 ?>
                                         <tr>
                                             <td><?php echo $sn++ ?></td>
-                                            <td><?php echo $row['nameSV']; ?></td>
+                                            <td><?php echo $row['user_name']; ?></td>
                                             <td>
-                                                <?php if ($genderSV == 1) {
+                                                <?php if ($user_gioitinh == 1) {
                                                     echo 'Nam';
                                                 }
-                                                if ($genderSV == 0) {
+                                                if ($user_gioitinh == 0) {
                                                     echo 'Nữ';
                                                 }
                                                 ?>
                                             </td>
-                                            <td><?php echo $row['emailSV']; ?></td>
-                                            <td><?php echo $row['sdtSV']; ?></td>
-                                            <td><?php echo $row['addressSV']; ?></td>
+                                            <td><?php echo $row['user_birthday']; ?></td>
+                                            <td><?php echo $row['user_phone']; ?></td>
+                                            <td><?php echo $row['user_email']; ?></td>
                                            
                                         </tr>
                                 <?php
