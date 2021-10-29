@@ -11,7 +11,12 @@ if (!isset($_SESSION['loginok'])) {
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <link rel="stylesheet" href="../css/teacher-admin.css">
+<?php
+    if (isset($_GET['idMH'])){
+        $idMH = $_GET['idMH'];
+    }
 
+?>
 <div id="wrapper">
 
     <!-- Sidebar -->
@@ -95,7 +100,7 @@ if (!isset($_SESSION['loginok'])) {
                         ?>
 
                     </div>
-
+                    <a href="./exercise-subject-admin.php?idMH=<?php echo $idMH ?>"><button type="submit" name="send" class="btn btn-success text-white me-2"><i class="fas fa-user-minus"></i></button></a>
 
                     <style>
                         body {
