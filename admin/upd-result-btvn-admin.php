@@ -1,4 +1,4 @@
-<title>TEACHER</title>
+<title>UPDATE RESULT BTVN</title>
 <?php include('../config/config.php'); 
         session_start();
         if(!isset($_SESSION['loginok']))
@@ -76,7 +76,7 @@
                         </div>
                     </nav>
                     <div class="container">
-                        <h2>UPDATE STUDENT</h2>
+                        <h2>UPDATE RESULT BTVN</h2>
                         <form method="post">
                             <?php
                             if (isset($_POST['add'])) {

@@ -1,4 +1,4 @@
-<title>TEACHER</title>
+<title>ADD TEACHER</title>
 <?php include('../config/config.php'); 
         session_start();
         if(!isset($_SESSION['loginok']))

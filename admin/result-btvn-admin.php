@@ -1,7 +1,7 @@
 <?php
 session_start();
 ?>
-<title>STUDENT</title>
+<title>RESULT BTVN</title>
 <?php include('../config/config.php');
 
 if (!isset($_SESSION['loginok'])) {
@@ -63,7 +63,7 @@ if (!isset($_SESSION['loginok'])) {
                     </nav>
                     <div class="container">
                         <br>
-                        <a href="."><button type="button" class="btn btn-success text-white me-2"><i class="fas fa-plus"></i>ADD</i></button></a>
+                        <a href=""><button type="button" class="btn btn-success text-white me-2"><i class="fas fa-plus"></i>ADD</i></button></a>
                         <br><br>
                     <table class="table">
                             <thead>
