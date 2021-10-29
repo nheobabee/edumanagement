@@ -1,10 +1,19 @@
 <title>TEACHER</title>
-<?php include('../config/config.php'); 
-        session_start();
-        if(!isset($_SESSION['loginok']))
-        {
-            header('location:../login/index.php');
-        }
+<?php include('../config/config.php');
+session_start();
+if (!isset($_SESSION['loginok'])) {
+    header('location:../login/index.php');
+}
+?>
+<?php
+if (isset($_GET['idMH'])) {
+    $idMH = $_GET['idMH'];
+    $sql5 = "SELECT * FROM monhoc WHERE idMH = '$idMH'";
+    $res5 = mysqli_query($conn, $sql5);
+    $row5 = mysqli_fetch_assoc($res5);
+    $nameMH = $row5['nameMH'];
+}
+echo $nameMH;
 ?>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -33,7 +42,7 @@
             <li>
                 <a href=".teach.php"><i class="fas fa-school"></i> Teach</a>
             </li>
-           
+
 
             <li>
                 <a href="result.php"><i class="fas fa-poll"></i> Result</a>
@@ -65,14 +74,14 @@
                         <form method="post">
                             <?php
                             if (isset($_POST['addbtl'])) {
-                               
+
                                 $nameBTL = $_POST['nameBTL'];
                                 $formatBTL = $_POST['formatBTL'];
-                               // $openedBTL = $_POST['openedBTL'];
+                                // $openedBTL = $_POST['openedBTL'];
                                 $deadlineBTL = $_POST['deadlineBTL'];
                                 $idMH = $_POST['idMH'];
                                 $note = $_POST['notebtl'];
-                               
+
 
                                 $sql = "INSERT INTO `btl`( `nameBTL`, `formatBTL`,  `deadlineBTL`, `idMH`, `notebtl`) 
                                 VALUES (' $nameBTL','$formatBTL','$deadlineBTL',' $idMH ','$note')";
@@ -93,7 +102,7 @@
                                 <label for="formatBTL">formatBTL:</label>
                                 <input type="text" class="form-control" id="formatBTL" placeholder="Enter formatBTL" name="formatBTL">
                             </div>
-                                <!-- <div class="form-group">
+                            <!-- <div class="form-group">
                                     <label for="openedBTL">openedBTL:</label>
                                     <input type="date" class="form-control" id="openedBTL" placeholder="Enter openedBTL" name="openedBTL">
                                 </div> -->
@@ -102,24 +111,24 @@
                                 <input type="datetime-local" class="form-control" id="deadlineBTL" placeholder="Enter deadlineBTL" name="deadlineBTL">
                             </div>
                             <div class="form-group ">
-                                <label for="idMH" class="col-sm-2 col-form-label">Tên môn học:</label>
+                                <label for="idMH" class="col-sm-2 col-form-label">Tên môn học:</label>                           
                                 <div class="col-sm-10">
                                     <select name="idMH">
                                         <?php
-                                        $sqlq = "SELECT * FROM monhoc";
+                                        $sqlq = "SELECT * FROM monhoc WHERE idMH = $idMH   ";
                                         $resultq = mysqli_query($conn, $sqlq);
-                                          if (mysqli_num_rows($resultq) > 0) {
-                                        while ($row = mysqli_fetch_assoc($resultq)) {                                                                                 
-                                            echo '<option value="'.$row['idMH'].'">'.$row['nameMH'].'</option>';
+                                        if (mysqli_num_rows($resultq) > 0) {
+                                            while ($row = mysqli_fetch_assoc($resultq)) {
+                                                echo '<option value="' . $idMH . '">' . $row['nameMH'] . '</option>';
+                                            }
                                         }
-                                          }
                                         ?>
                                     </select>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="addressSV">Tên GV:</label>
-                                <input type="text" class="form-control" id="notebtl" placeholder="Enter tenGV" name="notebtl">
+                                <label for="addressSV">Ghi chú:</label>
+                                <input type="text" class="form-control" id="notebtl" placeholder="note" name="notebtl">
                             </div>
 
                             <br>

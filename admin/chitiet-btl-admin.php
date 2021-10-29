@@ -107,7 +107,7 @@ if (isset($_GET['idBTL'])) {
                                                 <h4><?php echo $row3['nameBTL'] ?></h4>
                                                 <p><span style="font-weight: 500;">Opened: </span><?php echo $row3['openedBTL'] ?></p>
                                                 <p style="border-bottom: 1px solid;"><span style="font-weight: 500;">Deadline: </span><?php echo $row3['deadlineBTL'] ?></p>
-                                                <p class="note">Giáo viên: <?php echo $row3['tenGV'] ?></p>
+                                                <p class="note">Ghi chú: <?php echo $row3['notebtl'] ?></p>
 
                                             </div>
                                             <div style="margin: auto;" class="service col-md-3">
@@ -116,7 +116,8 @@ if (isset($_GET['idBTL'])) {
                                                 <a href="./dsnhom-btl-admin.php?idBTL=<?php echo $row3['idBTL']; ?>"><button type="button" class="btn btn-info text-white me-2"><i class="far fa-eye"></i>Danh sách nhóm</button></a>
                                             </div>
                                             <div class="content-nopbtvn col-md-9">
-                                                <h4>Nộp bài tập lớn</h4>
+                                               <br>
+                                            <h4>Nộp bài tập lớn</h4>
                                             </div>
 
                                             <div class="mb-3">

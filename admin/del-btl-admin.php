@@ -11,8 +11,9 @@
         $idBTL = $_GET['idBTL'];
         $sql = "DELETE FROM btl WHERE idBTL = '$idBTL'";
         $res = mysqli_query($conn, $sql);
+       
         if($res == true){
-            header('location: subject.php');
+            header("Location:http:subject.php");
             $_SESSION['successDel'] = "<div class='success'>Xóa thành công!</div>";
         }
         else{

@@ -73,7 +73,7 @@ if (isset($_GET['idMH'])) {
 
                         <div class="container">
                             <br>
-                        <a href="./add-btl-admin.php"><button class="btn btn-success"> ADD BTL</button></a>
+                        <a href="./add-btl-admin.php?idMH=<?php echo $idMH; ?>"><button class="btn btn-success"> ADD BTL</button></a>
                         <br>
                            
                             <div class="tittle-mh">
