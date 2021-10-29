@@ -71,11 +71,11 @@
                                // $openedBTL = $_POST['openedBTL'];
                                 $deadlineBTL = $_POST['deadlineBTL'];
                                 $idMH = $_POST['idMH'];
-                                $tenGV = $_POST['tenGV'];
+                                $note = $_POST['notebtl'];
                                
 
-                                $sql = "INSERT INTO `btl`( `nameBTL`, `formatBTL`,  `deadlineBTL`, `idMH`, `tenGV`) 
-                                VALUES (' $nameBTL','$formatBTL','$deadlineBTL',' $idMH ','$tenGV')";
+                                $sql = "INSERT INTO `btl`( `nameBTL`, `formatBTL`,  `deadlineBTL`, `idMH`, `notebtl`) 
+                                VALUES (' $nameBTL','$formatBTL','$deadlineBTL',' $idMH ','$note')";
                                 $res = mysqli_query($conn, $sql);
                                 if ($res == true) {
                                     header('location: subject.php');
@@ -119,7 +119,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="addressSV">Tên GV:</label>
-                                <input type="text" class="form-control" id="tenGV" placeholder="Enter tenGV" name="tenGV">
+                                <input type="text" class="form-control" id="notebtl" placeholder="Enter tenGV" name="notebtl">
                             </div>
 
                             <br>

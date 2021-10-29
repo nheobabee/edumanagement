@@ -56,7 +56,7 @@ if (!isset($_SESSION['loginok'])) {
             $openedBTL_q = $rowqq['openedBTL'];
             $deadlineBTL_q = $rowqq['deadlineBTL'];
             $idMH_q = $rowqq['idMH'];
-            $tenGV_q = $rowqq['tenGV'];
+            $note_q = $rowqq['notebtl'];
          
         }
     }
@@ -92,14 +92,14 @@ if (!isset($_SESSION['loginok'])) {
                                 $formatBTL = $_POST['formatBTL'];
                                 $deadlineBTL = $_POST['deadlineBTL'];
                                 $idMH = $_POST['idMH'];
-                                $tenGV = $_POST['tenGV'];                            
+                                $note = $_POST['notebtl'];                            
                                 
                                 $sql3 = "UPDATE `btl` SET 
                                 `nameBTL`=' $nameBTL',
                                 `formatBTL`='$formatBTL',                               
                                 `deadlineBTL`='$deadlineBTL',
                                 `idMH`='$idMH',
-                                `tenGV`=' $tenGV'                               
+                                `notebtl`=' $note'                               
                                 WHERE idBTL = $idBTL";
                                 $res3 = mysqli_query($conn, $sql3);
                                 if ($res3 == true) {                                  
@@ -143,8 +143,8 @@ if (!isset($_SESSION['loginok'])) {
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="tenGV">Tên GV:</label>
-                                <input type="text" class="form-control" id="tenGV" placeholder="Enter tenGV" name="tenGV" value="<?php echo $tenGV_q ?>">
+                                <label for="tenGV">Gi chú:</label>
+                                <input type="text" class="form-control" id="notebtl" placeholder="Enter tenGV" name="notebtl" value="<?php echo $note_q ?>">
                             </div>
 
                             <br>

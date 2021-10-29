@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 28, 2021 lúc 03:19 PM
+-- Thời gian đã tạo: Th10 29, 2021 lúc 04:46 AM
 -- Phiên bản máy phục vụ: 10.4.21-MariaDB
 -- Phiên bản PHP: 8.0.10
 
@@ -34,19 +34,19 @@ CREATE TABLE `btl` (
   `openedBTL` datetime NOT NULL DEFAULT current_timestamp(),
   `deadlineBTL` datetime NOT NULL,
   `idMH` int(11) NOT NULL,
-  `tenGV` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `sonhom` int(11) NOT NULL
+  `notebtl` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `btl`
 --
 
-INSERT INTO `btl` (`idBTL`, `nameBTL`, `formatBTL`, `openedBTL`, `deadlineBTL`, `idMH`, `tenGV`, `sonhom`) VALUES
-(1, 'Web học tập', 'code', '2021-10-27 12:45:48', '2021-11-04 00:00:00', 1, '', 0),
-(2, 'Dùng ngôn ngữ bậc cao kết nối CSDL', 'code', '2021-10-27 12:45:48', '2021-11-06 00:00:00', 2, '', 0),
-(3, 'Đề tài 4: Thiết kế webdite quản lý học tập', 'Code', '2021-10-27 21:49:59', '2021-10-31 21:48:57', 1, 'Kiều Tuấn Dũng', 2),
-(4, ' Hack sập facebook', 'code', '2021-10-27 00:00:00', '2021-11-25 00:00:00', 1, 'Kiều Tuấn Dũng', 0);
+INSERT INTO `btl` (`idBTL`, `nameBTL`, `formatBTL`, `openedBTL`, `deadlineBTL`, `idMH`, `notebtl`) VALUES
+(1, '          Web học tập', 'code', '2021-10-27 12:45:48', '2021-11-04 00:00:00', 1, ' code bằng visua studio rồi tải lên github và nộp lại đường link'),
+(2, '  Dùng ngôn ngữ bậc cao kết nối CSDL', 'code', '2021-10-27 12:45:48', '2021-11-06 00:00:00', 1, '  Kiều Tuấn Dũng'),
+(3, 'Đề tài 4: Thiết kế webdite quản lý học tập', 'Code', '2021-10-27 21:49:59', '2021-10-31 21:48:57', 1, 'Kiều Tuấn Dũng'),
+(4, ' Hack sập facebook', 'code', '2021-10-27 00:00:00', '2021-11-25 00:00:00', 1, 'Kiều Tuấn Dũng'),
+(9, ' làm database', 'code', '2021-10-28 23:07:41', '2021-10-29 00:00:00', 2, 'Nguyễn Ngọc Quỳnh Châu');
 
 -- --------------------------------------------------------
 
@@ -70,7 +70,7 @@ CREATE TABLE `btlsv` (
 INSERT INTO `btlsv` (`idTeam`, `nameTeam`, `nameST1`, `nameST2`, `nameST3`, `idBTL`) VALUES
 (3, 'Nhóm 3', 'Nguyễn Minh Đức', ' Trịnh Hoàng Long', 'Hà Việt Dũng', 2),
 (7, 'nhóm ngu', 'hiếu ', ' phương', 'hoàng', 1),
-(9, 'nhóm rất ngu', 'dũng', ' thiên ', 'kiệt', 1);
+(10, 'nhóm mệt ', 'Nguyễn Văn Tân', ' Hồ Hồng Quân', 'Nguyễn Minh Vương', 3);
 
 -- --------------------------------------------------------
 
@@ -93,7 +93,7 @@ CREATE TABLE `btvn` (
 --
 
 INSERT INTO `btvn` (`idBTVN`, `nameBTVN`, `formatBTVN`, `openedBTVN`, `deadlineBTVN`, `note`, `idMH`) VALUES
-(1, 'Thiết kết giao diện bằng bootstrap5', 'code', '2021-10-27 12:43:52', '2021-11-04 00:00:00', 'Thiết kế giao diện Web học tập bằng Bootstrap 5 và nộp link github tại đây', 1),
+(1, 'Thiết kết giao diện bằng bootstrap5', 'Trắc nghiệm', '2021-10-27 12:43:52', '2021-11-04 00:00:00', 'Thiết kế giao diện Web học tập bằng Bootstrap 5 và nộp link github tại đây nha', 1),
 (2, 'Bài thực hành TRIGGER', 'code', '2021-10-27 12:43:52', '2021-11-06 00:00:00', '', 2);
 
 -- --------------------------------------------------------
@@ -150,7 +150,8 @@ INSERT INTO `db_users` (`user_id`, `user_name`, `user_avatar`, `user_gioitinh`, 
 (39, 'Vương Nguyễn', 'img/Logo HMT.png', 1, '2021-09-26', '039420349', 'ab@1.1', '$2y$10$HJ0rPiSdeyJ/4IccIxf1quvEypJ/86u5/781vY0n1aVYeuXKQDN2G', 0, 1, '9c9882ea7e6c162b7dac95b58994811e', '0'),
 (40, 'minh nè', 'img/avatar.jpg_173', 1, '2021-09-27', '0122', 'minh01@minh.com', '$2y$10$HJ0rPiSdeyJ/4IccIxf1quvEypJ/86u5/781vY0n1aVYeuXKQDN2G', 0, 1, '2290c7fadb9c6c343a9f3e84cf2ee861', '0'),
 (47, 'Huỳnh Hân', 'img/4207591edfda16844fcb.jpg', 0, '2021-10-20', '0972258286', 'han@gmail.com', '1', 0, 1, '9ceab358c1f5e4dcfc49b5d2a1d4a1e2', '0'),
-(85, 'Nguyễn Minh Vương', ' img/cam.png', 1, '2021-09-29', '0972258286', 'vuong9xx@gmail.com', '$2y$10$Kdx5.I2oczhB9BUtZ8IFf.78qCur.o7N2I3.Vp5j7JAwreVTGCPvS', 0, 1, '53bafeca233d95be1b6d524b748779bf', '41877');
+(85, 'Nguyễn Minh Vương', ' img/cam.png', 1, '2021-09-29', '0972258286', 'vuong9xx@gmail.com', '$2y$10$Kdx5.I2oczhB9BUtZ8IFf.78qCur.o7N2I3.Vp5j7JAwreVTGCPvS', 0, 1, '53bafeca233d95be1b6d524b748779bf', '41877'),
+(87, 'hohongquan', ' img/244103339_2652082735100066_6816555485889753629_n.png', 1, '2001-11-25', '0346785893', 'aqdz01@gmail.com', '$2y$10$FmqFrnEuEhBDFOIlwVuo3OG7lCz/NJZv1oMGmZA28Q38muHe3ri2S', 0, 1, '40ddbf9e5cc80ef5e2111d47ee165397', NULL);
 
 -- --------------------------------------------------------
 
@@ -396,25 +397,25 @@ ALTER TABLE `teach`
 -- AUTO_INCREMENT cho bảng `btl`
 --
 ALTER TABLE `btl`
-  MODIFY `idBTL` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `idBTL` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT cho bảng `btlsv`
 --
 ALTER TABLE `btlsv`
-  MODIFY `idTeam` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `idTeam` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT cho bảng `btvn`
 --
 ALTER TABLE `btvn`
-  MODIFY `idBTVN` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `idBTVN` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT cho bảng `db_users`
 --
 ALTER TABLE `db_users`
-  MODIFY `user_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=86;
+  MODIFY `user_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=88;
 
 --
 -- AUTO_INCREMENT cho bảng `giaovien`
