@@ -63,11 +63,11 @@ if (!isset($_SESSION['loginok'])) {
                     $userid = $_SESSION['user_id'];
 
                     if (isset($_POST['btn-luu'])) {
-                        $username = $row1['user_name'];
-                        $usergioitinh = $row1['user_gioitinh'];
-                        $userbirthday = $row1['user_birthday'];
-                        $userphone = $row1['user_phone'];
-                        $useremail = $row1['user_email'];
+                        $username = $_POST['user_name'];
+                        $usergioitinh = $_POST['user_gioitinh'];
+                        $userbirthday = $_POST['user_birthday'];
+                        $userphone = $_POST['user_phone'];
+                        $useremail = $_POST['user_email'];
                         if ($useravatar != null) {
                             $path = "../../login/";
                             $tmp_name = $_FILES['user_avatar']['tmp_name'];
