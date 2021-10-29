@@ -58,7 +58,7 @@ session_start();
                     </nav>
                     <div class="container">
                         <br>
-                        <a href="./add-student-admin.php"><button class="btn btn-success"> ADD STUDENT</button></a>
+                       
                         <?php
                             if(isset($_SESSION['errorDel'])){
                                 echo $_SESSION['errorDel'];
