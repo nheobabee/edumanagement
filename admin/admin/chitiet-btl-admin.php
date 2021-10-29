@@ -110,8 +110,8 @@ if (isset($_GET['idBTL'])) {
                                                 <p class="note">Ghi chú: <?php echo $row3['notebtl'] ?></p>
 
                                             </div>
-                                            <div style="margin: auto;" class="service col-md-3">
-                                                <a href="./dk-btl-admin.php?idBTL=<?php echo $row3['idBTL']; ?>"><button type="button" class="btn btn-success text-white me-2"><i class="fas fa-edit"></i> Đăng kí</button></a>
+                                            <div style="margin: auto;" class="service col-md-2">
+                                               
 
                                                 <a href="./dsnhom-btl-admin.php?idBTL=<?php echo $row3['idBTL']; ?>"><button type="button" class="btn btn-info text-white me-2"><i class="far fa-eye"></i>Danh sách nhóm</button></a>
                                             </div>
@@ -124,7 +124,7 @@ if (isset($_GET['idBTL'])) {
                                                 <label for="exampleFormControlTextarea1" class="form-label">Nộp link github tại đây</label>
                                                 <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                                             </div>
-                                            <a href="./dk-btl-admin.php?idBTL=<?php echo $row3['idBTL']; ?>"><button type="button" class="btn btn-success text-white me-2"><i class="fas fa-edit"></i>Nộp bài</button></a>
+                                            <a href="#"><button type="button" class="btn btn-success text-white me-2"><i class="fas fa-edit"></i>Nộp bài</button></a>
 
                                         </div>
                                     </div>
