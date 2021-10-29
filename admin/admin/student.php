@@ -92,35 +92,35 @@ session_start();
                             </thead>
                             <tbody>
                                 <?php
-                                $sql = "SELECT * from sinhvien";
+                                $sql = "SELECT * from users where user_level = 2";
                                 $res = mysqli_query($conn, $sql);
                                 $sn = 1;
                                 if ($res == true) {
                                     while ($row = mysqli_fetch_assoc($res)) {
-                                        $genderSV = $row['genderSV'];
-                                        $idSV = $row['idSV'];
+                                        $user_gioitinh = $row['user_gioitinh'];
+                                        $user_id = $row['user_id'];
                                 ?>
                                         <tr>
                                             <td><?php echo $sn++ ?></td>
-                                            <td><?php echo $row['nameSV']; ?></td>
+                                            <td><?php echo $row['user_name']; ?></td>
                                             <td>
-                                                <?php if ($genderSV == 1) {
+                                                <?php if ($user_gioitinh == 1) {
                                                     echo 'Nam';
                                                 }
-                                                if ($genderSV == 0) {
+                                                if ($user_gioitinh == 0) {
                                                     echo 'Nữ';
                                                 }
                                                 ?>
                                             </td>
-                                            <td><?php echo $row['emailSV']; ?></td>
-                                            <td><?php echo $row['sdtSV']; ?></td>
-                                            <td><?php echo $row['addressSV']; ?></td>
+                                            <td><?php echo $row['user_birthday']; ?></td>
+                                            <td><?php echo $row['user_phone']; ?></td>
+                                            <td><?php echo $row['user_email']; ?></td>
                                             <td>
-                                                <a href="./upd-student-admin.php?idSV=<?php echo $row['idSV']; ?>"><button type="button" class="btn btn-primary text-white me-2"><i class="fas fa-user-edit"></i></button></a>
+                                                <a href="./upd-teacher-admin.php?user_id=<?php echo $row['user_id']; ?>"><button type="button" class="btn btn-primary text-white me-2"><i class="fas fa-user-edit"></i></button></a>
                                             </td>
 
                                             <td>
-                                                <a href="./del-student-admin.php?idSV=<?php echo $row['idSV']; ?>"><button type="button" class="btn btn-danger text-white me-2"><i class="fas fa-user-minus"></i></button></a>
+                                                <a href="./del-teacher-admin.php?user_id=<?php echo $row['user_id']; ?>"><button type="button" class="btn btn-danger text-white me-2"><i class="fas fa-user-minus"></i></button></a>
                                             </td>
                                         </tr>
                                 <?php

@@ -30,10 +30,10 @@ require './sendEmail/SMTP.php';
             $code = $_COOKIE['code'];
 
             $email = $_POST['email'];
-            $sql_check = "select * from db_users where user_email = '$email'";
+            $sql_check = "select * from users where user_email = '$email'";
             $rs_check = mysqli_query($conn, $sql_check);
             if (mysqli_num_rows($rs_check) > 0) {
-                $sql = "update db_users set code_forgot = '$code' where user_email= '$email'";
+                $sql = "update users set code_forgot = '$code' where user_email= '$email'";
                 $rs = mysqli_query($conn, $sql);
                 if ($rs) {
                     $_SESSION['check-passforgot']=$email;

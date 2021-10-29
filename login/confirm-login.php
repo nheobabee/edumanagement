@@ -4,7 +4,7 @@
 
 $email = $_GET['email'];
 $code = md5($_GET['code']);
-$sql  = "select * from db_users where user_email = '$email'";
+$sql  = "select * from users where user_email = '$email'";
 $rs  = mysqli_query($conn,$sql);
 
 if(mysqli_num_rows($rs)>0)
@@ -13,7 +13,7 @@ if(mysqli_num_rows($rs)>0)
     if($code = $row['code'])
     {
         echo "<h1 style='color:green'>Bạn đã kích hoạt thành công</h1>";
-        $sql_u = "update db_users set status = 1";
+        $sql_u = "update users set status = 1";
         $rs_u = mysqli_query($conn,$sql_u);
     }else 
     {

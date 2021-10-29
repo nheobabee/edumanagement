@@ -92,12 +92,13 @@ session_start() ?>
 	if (isset($_POST['login'])) {
 		$username = $_POST['email'];
 		$password = $_POST['pass'];
-		$sql = "select * from db_users where user_email = '$username'  and status = 1";
+		$sql = "select * from users where user_email = '$username'  and status = 1";
 		$rs = mysqli_query($conn, $sql);
 		if (mysqli_num_rows($rs) > 0) {
 			$row = mysqli_fetch_assoc($rs);
 			$password_hash = $row['user_pass'];
 			if (password_verify($password, $password_hash)) {
+				
 				//$_SESSION['loginok'] = $username;
 				if($row['user_level']==2)
 				{

@@ -78,7 +78,7 @@
                             <div class="row">
                                 <div class="col text-center">
                                     <?php
-                                    $sql1 = "SELECT * FROM giaovien";
+                                    $sql1 = "SELECT * FROM users where user_level = 1";
                                     $res1 = mysqli_query($conn, $sql1);
                                     $count1 = mysqli_num_rows($res1);
                                     ?>
@@ -88,7 +88,7 @@
                                 </div>
                                 <div class="col text-center">
                                     <?php
-                                    $sql2 = "SELECT * FROM sinhvien";
+                                    $sql2 = "SELECT * FROM users where user_level = 2";
                                     $res2 = mysqli_query($conn, $sql2);
                                     $count2 = mysqli_num_rows($res2);
                                     ?>
@@ -138,7 +138,7 @@
                                 </div>
                                 <div class="col text-center">
                                     <?php
-                                    $sql7 = "SELECT * FROM db_users";
+                                    $sql7 = "SELECT * FROM users";
                                     $res7 = mysqli_query($conn, $sql7);                                   
                                     $count7 = mysqli_num_rows($res7);
                                     ?>

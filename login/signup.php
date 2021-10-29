@@ -55,7 +55,7 @@ require './sendEmail/SMTP.php';
         $fileimg =  "img/";
         $fileavt = $fileimg . $avata;
         //query
-        $sql_checkmail = "select * from db_users where user_email = '$email'";
+        $sql_checkmail = "select * from users where user_email = '$email'";
         $rs_checkmail = mysqli_query($conn, $sql_checkmail);
         if (mysqli_num_rows($rs_checkmail) > 0) {
             $_SESSION['email-exist'] = "<h4 style='color:red'>Email exist</h4>";
@@ -63,7 +63,7 @@ require './sendEmail/SMTP.php';
             if ($pass1 == $pass2) {
                 $pass_hash = password_hash($pass1,PASSWORD_DEFAULT); 
                 if (move_uploaded_file($_FILES["Avatar"]["tmp_name"], $fileavt)) {
-                    $sql = "insert into db_users(user_name,user_avatar ,user_birthday, user_gioitinh , user_phone, user_email, user_pass, code)
+                    $sql = "insert into users(user_name,user_avatar ,user_birthday, user_gioitinh , user_phone, user_email, user_pass, code)
                                             values('$name',' $fileavt','$birthday','$gender','$phone','$email','$pass_hash','$code')";
                     $rs = mysqli_query($conn, $sql);
                     header('location:index.php');

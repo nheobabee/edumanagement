@@ -64,7 +64,7 @@ if(isset($_POST['forgot-pass']))
     $code = $_POST['code'];
     if(isset($_COOKIE['code']))
     {
-    $sql = "select * from db_users where user_email = '$email' and code_forgot ='$code'";
+    $sql = "select * from users where user_email = '$email' and code_forgot ='$code'";
     $rs = mysqli_query($conn,$sql);
     if($rs)
     {
@@ -72,7 +72,7 @@ if(isset($_POST['forgot-pass']))
     }
     }else 
     {
-        $sql_code = "update db_users set code_forgot = '' where user_email='$email'";
+        $sql_code = "update users set code_forgot = '' where user_email='$email'";
         $rs_code = mysqli_query($conn,$sql_code);
         $_SESSION['password-expired']="<h3 style='color:red'>password expired please send code again </h3>";
     }

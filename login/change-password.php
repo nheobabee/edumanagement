@@ -57,7 +57,7 @@ if (isset($_POST['change'])) {
     $pass2 = $_POST['pass2'];
     if ($pass1 == $pass2) {
         $pass_hash = password_hash($pass1, PASSWORD_DEFAULT);
-        $sql  = "update db_users set user_pass='$pass_hash' where user_email ='$email'";
+        $sql  = "update users set user_pass='$pass_hash' where user_email ='$email'";
         $rs = mysqli_query($conn, $sql);
         if ($rs) {
             header('location:./index.php');
