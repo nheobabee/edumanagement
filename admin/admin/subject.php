@@ -86,7 +86,7 @@ session_start();
                                     <th scope="col">Credits</th>
                                     <th scope="col">Excise</th>
                                     <th scope="col">BTL</th>
-                                    <th scope="col">Update</th>
+                                    
                                     <th scope="col">Delete</th>
 
                                 </tr>
@@ -111,9 +111,7 @@ session_start();
                                             <td>
                                                 <a href="./btl.php?idMH=<?php echo $row['idMH']; ?>"><button type="button" class="btn btn-warning text-white me-2"><i class="far fa-folder"></i></button></a>
                                             </td>
-                                            <td>
-                                                <a href="./upd-subject-admin.php?idMH=<?php echo $row['idMH']; ?>"><button type="button" class="btn btn-primary text-white me-2"><i class="fas fa-user-edit"></i></button></a>
-                                            </td>
+                                            
 
                                             <td>
                                                 <a href="./del-subject-admin.php?idMH=<?php echo $row['idMH']; ?>"><button type="button" class="btn btn-danger text-white me-2"><i class="fas fa-user-minus"></i></button></a>

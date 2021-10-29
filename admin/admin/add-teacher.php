@@ -1,11 +1,9 @@
-
 <title>ADD TEACHER</title>
-<?php include('../../config/config.php'); 
-        session_start();
-        if(!isset($_SESSION['loginok']))
-        {
-            header('location:../../login/index.php');
-        }
+<?php include('../../config/config.php');
+session_start();
+if (!isset($_SESSION['loginok'])) {
+    header('location:../../login/index.php');
+}
 ?>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -16,7 +14,7 @@
     <!-- Sidebar -->
     <div id="sidebar-wrapper">
         <ul class="sidebar-nav">
-        <li class="sidebar-brand">
+            <li class="sidebar-brand">
                 <h2>ADMIN</h2>
             </li>
             <li>
@@ -34,7 +32,7 @@
             <li>
                 <a href="teach.php"><i class="fas fa-school"></i> Teach</a>
             </li>
-           
+
 
             <li>
                 <a href="result-admin.php"><i class="fas fa-poll"></i> Result</a>
@@ -65,49 +63,55 @@
                         <h2>ADD TEACHER</h2>
                         <form method="post">
                             <?php
-                            if (isset($_POST['add'])) {
-                                $nameGV = $_POST['nameGV'];
-                                $genderGV = $_POST['genderGV'];
-                                $emailGV = $_POST['emailGV'];
-                                $sdtGV = $_POST['sdtGV'];
-                                $addressGV = $_POST['addressGV'];
+                            
 
-                                $sql = "INSERT INTO giaovien(nameGV, genderGV, emailGV, sdtGV, addressGV) 
-                                    VALUES('$nameGV','$genderGV','$emailGV','$sdtGV','$addressGV')";
-                                $res = mysqli_query($conn, $sql);
-                                if ($res == true) {
-                                    header('location: teacher.php');
-                                    
+                            if (isset($_POST['add'])) {     
+                                $userid =  $_POST['user_id'];                    
+                                $userlevel = $_POST['user_level'];
+                                // Bước 2 câu lệnh truy vấn
+                                $sql1 = "UPDATE `users` SET 
+                                `user_level`='$userlevel'
+                                 WHERE `user_id`='$userid'";
+
+                                $result1 = mysqli_query($conn, $sql1);
+
+                                if ($result1 > 0) {
+                                    echo "Bản ghi đã được lưu";
+                                    header('Location: index.php');
+                                    die();
                                 } else {
-                                    echo $sql;
+                                    echo "Lỗi";
                                 }
                             }
+
                             ?>
-                            <div class="form-group">
-                                <label for="nameGV">Name:</label>
-                                <input type="text" class="form-control" id="nameGV" placeholder="Enter name" name="nameGV">
-                            </div>
-                            <div class="form-group">
-                                <label for="genderGV">Gender:</label>
-                                <div class="rdo-genderGV" style="padding-left: 12px;">
-                                    <input id="genderGV" type="radio" name="genderGV" value="1"> Nam
-                                    <input id="genderGV" type="radio" name="genderGV" value="0"> Nữ
+                            <?php
+                            // lấy giá trị user cần sửa 
+                          
+                            
+                            ?>
+                            <div class="form-group ">
+                                <label for="idMH" class="col-sm-2 col-form-label">Tên người dùng:</label>
+                                <div class="col-sm-10">
+                                    <select name="user_id">
+                                        <?php
+                                        $sqlq = "SELECT * FROM users WHERE user_level= 0 ";
+                                        $resultq = mysqli_query($conn, $sqlq);
+                                        if (mysqli_num_rows($resultq) > 0) {
+                                            while ($row = mysqli_fetch_assoc($resultq)) {
+                                                echo '<option value="' . $row['user_id'] . '">' . $row['user_name'] . '</option>';
+                                            }
+                                        }
+                                        ?>
+                                    </select>
                                 </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="emailGV">Email:</label>
-                                <input type="email" class="form-control" id="emailGV" placeholder="Enter email" name="emailGV">
-                            </div>
-                            <div class="form-group">
-                                <label for="sdtGV">Phone number:</label>
-                                <input type="tel" class="form-control" id="sdtGV" placeholder="Enter phone number" name="sdtGV">
-                            </div>
-                            <div class="form-group">
-                                <label for="addressGV">Address:</label>
-                                <input type="text" class="form-control" id="addressGV" placeholder="Enter address" name="addressGV">
-                            </div>
-                            <br>
-                            <button name="add" type="submit" class="btn btn-success">ADD</button>
+                                <div class="form-group">
+                                    <label for="`user_level">Chức vụ:</label>
+                                    <input type="text" class="form-control" id="user_level" placeholder="Enter chức vụ" name="user_level">
+                                </div>
+                               
+                                <br>
+                                <button name="add" type="submit" class="btn btn-success">ADD</button>
                         </form>
                     </div>
                 </div>
