@@ -182,11 +182,11 @@ h1.count{
 
   
 }
-.res-info{
-   float: left;
-   margin-top:45px;
+.res-tittle, .res-link{
+   margin: 10px 0 0 10px;
 }
 .result-btvn{
    border-top: 5px solid tomato;
+
 }
 
