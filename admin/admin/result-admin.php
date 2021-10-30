@@ -63,15 +63,27 @@ if (!isset($_SESSION['loginok'])) {
                         </div>
                     </nav>
                     <div class="container">
+                        <h1>KẾT QUẢ</h1>    
+                    <br>
                         <div class="row">
-                            <div class="result-btvn col text-center">
-                            <h5>Result BTVN</h5>
-                            <a href="./result-btvn-admin.php"><button type="button" class="btn btn-info text-white me-2"><i class="fas fa-folder"></i> View all</button></a>
+                            <div class="result-btvn col text-center row">
+                            <div class="icon-res col-md-6">
+                            <i class="icon-result fas fa-poll"></i>
                             </div>
+                            <div class="res-info col-md-6">
+                            <h5 style="float: left;">KẾT QUẢ BÀI TẬP VỀ NHÀ</h5>
+                            <a href="./result-btvn-admin.php"><button style="float: left;" type="button" class="btn btn-info text-white me-2"><i class="far fa-eye"></i> Xem</button></a>
+                            
+                            </div>
+                        </div>
 
-                            <div class="result-btl col text-center">
-                                <h5>Result BTL</h5>
-                                <a href="./result-btl-admin.php"><button type="button" class="btn btn-info text-white me-2"><i class="fas fa-folder"></i> View all</button></a>
+                        <div class="result-btvn col text-center row">
+                            <div class="icon-res col-md-6">
+                            <i style="height:100px" class="icon-result fas fa-poll"></i>
+                            </div>
+                            <div class="res-info col-md-6">
+                            <h5 style="float: left;">KẾT QUẢ BÀI TẬP LỚN</h5>
+                            <a href="./result-btl-admin.php"><button style="float: left;" type="button" class="btn btn-info text-white me-2"><i class="far fa-eye"></i> Xem</button></a>
                            
                             </div>
                         </div>

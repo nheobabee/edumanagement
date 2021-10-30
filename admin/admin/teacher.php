@@ -87,7 +87,6 @@ if (!isset($_SESSION['loginok'])) {
                                     <th scope="col">Email</th>
                                     <th scope="col">SĐT</th>
                                     <th scope="col">Địa chỉ</th>
-                                    <th scope="col">Cập nhật</th>
                                     <th scope="col">Xóa</th>
                                 </tr>
                             </thead>
@@ -116,9 +115,6 @@ if (!isset($_SESSION['loginok'])) {
                                             <td><?php echo $row['user_birthday']; ?></td>
                                             <td><?php echo $row['user_phone']; ?></td>
                                             <td><?php echo $row['user_email']; ?></td>
-                                            <td>
-                                                <a href="./upd-teacher-admin.php?user_id=<?php echo $row['user_id']; ?>"><button type="button" class="btn btn-primary text-white me-2"><i class="fas fa-edit"></i></button></a>
-                                            </td>
                                             <td>
                                                 <a href="./del-teacher-admin.php?user_id=<?php echo $row['user_id']; ?>"><button type="button" class="btn btn-danger text-white me-2"><i class="fas fa-user-minus"></i></button></a>
                                             </td>
