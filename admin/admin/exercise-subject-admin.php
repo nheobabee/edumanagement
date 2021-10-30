@@ -1,14 +1,14 @@
-<title>BTL</title>
+
 <?php include('../../config/config.php'); 
-        session_start();
-        if(!isset($_SESSION['loginok']))
-        {
-            header('location:../../login/index.php');
-        }
+     session_start();
+     if(!isset($_SESSION['loginok']))
+     {
+         header('location:../../login/index.php');
+     }
 ?>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-<link rel="stylesheet" href="../../css/btl-ad.css">
+<link rel="stylesheet" href="../../css/ex-stu-ad.css">
 <?php
 if (isset($_GET['idMH'])) {
     $idMH = $_GET['idMH'];
@@ -25,13 +25,10 @@ if (isset($_GET['idMH'])) {
     <div id="sidebar-wrapper">
         <ul class="sidebar-nav">
             <li class="sidebar-brand">
-                <h2>ADMIN</h2>
+                <h2>STUDENT</h2>
             </li>
             <li>
                 <a href="index.php"><i class="fas fa-chart-line"></i> Dashboard</a>
-            </li>
-            <li>
-                <a href="teacher.php"><i class="fas fa-chalkboard-teacher"></i> Teacher</a>
             </li>
             <li>
                 <a href="student.php"><i class="fas fa-user-graduate"></i> Student</a>
@@ -40,9 +37,12 @@ if (isset($_GET['idMH'])) {
                 <a href="subject.php"><i class="fas fa-book"></i> Subject</a>
             </li>
             <li>
+                <a href="subject.php"><i class="fas fa-book"></i> Subject</a>
+            </li>
+            <li>
                 <a href="teach.php"><i class="fas fa-school"></i> Teach</a>
             </li>
-
+           
             <li>
                 <a href="result-admin.php"><i class="fas fa-poll"></i> Result</a>
             </li>
@@ -62,7 +62,7 @@ if (isset($_GET['idMH'])) {
 
                             <form class="d-flex">
                                 <a href="" class="navbar-brand">HOME</a>
-                                <a href="" class="navbar-brand">ACCOUNT</a>
+                                <a href="./myprofile.php" class="navbar-brand">ACCOUNT</a>
                                 <a href="../../login/logout.php" class="navbar-brand">LOGOUT</a>
                                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                                 <button class="btn btn-outline-success" type="submit">Search</button>
@@ -73,14 +73,15 @@ if (isset($_GET['idMH'])) {
 
                         <div class="container">
                             <br>
-                        <a href="./add-btl-admin.php?idMH=<?php echo $idMH; ?>"><button class="btn btn-success"> ADD BTL</button></a>
-                        <br><br>
-                           
+                            <a href="./add-exercise-admin.php?idMH=<?php echo $idMH; ?>"><button type="button" class="btn btn-success text-white me-2"><i class="fas fa-plus"></i>ADD EXCERCISE</button></a>
+                            <br><br>
+                            <h1 class="title-btl">BÀI TẬP VỀ NHÀ</h1>
+                            <br>
                             <div class="tittle-mh">
-                                <h2><?php echo $row1['nameMH'] ?></h2>
+                                <h2><?php echo $nameMH ?></h2>
                             </div>
                             <?php
-                            $sql3 = "SELECT * FROM btl WHERE idMH = '$idMH'";
+                            $sql3 = "SELECT * FROM btvn WHERE idMH = '$idMH'";
                             $res3 = mysqli_query($conn, $sql3);
                             if ($res3 == true) {
                                 while ($row3 = mysqli_fetch_assoc($res3)) {
@@ -91,16 +92,17 @@ if (isset($_GET['idMH'])) {
                                             <div class="name-btvn row">
                                                
                                                   <div class="content-btvn col-md-7">
-                                                  <h4><?php echo $row3['nameBTL'] ?></h4>
-                                                    <p><span style="font-weight: 500;">Opened: </span><?php echo $row3['openedBTL'] ?></p>
-                                                    <p><span style="font-weight: 500;">Deadline: </span><?php echo $row3['deadlineBTL'] ?></p>
-                                                    <p class="note">Ghi chú: <?php echo $row3['notebtl'] ?></p>
+                                                  <h6><?php echo $row3['nameBTVN'] ?></h6>
+                                                  <p><span style="font-weight: 500;">Hình thức: </span><?php echo $row3['formatBTVN'] ?></p>
+                                                    <p><span style="font-weight: 500;">Opened: </span><?php echo $row3['openedBTVN'] ?></p>
+                                                    <p ><span style="font-weight: 500;">Deadline: </span><?php echo $row3['deadlineBTVN'] ?></p>
+                                                    <p>Ghi chú: <?php echo $row3['note']?></p>
                                             
                                                   </div>
                                                   <div class="service col-md-5">
-                                                        <a href="./del-btl-admin.php?idBTL=<?php echo $row3['idBTL']; ?>&&idMH=<?php echo $row3['idMH']; ?>"><button type="button" class="btn btn-danger text-white me-2"><i class="far fa-eye"></i> DELETE</button></a>
-                                                        <a href="./upd-btl-admin.php?idBTL=<?php echo $row3['idBTL']; ?>&&idMH=<?php echo $row3['idMH']; ?>"><button type="button" class="btn btn-primary text-white me-2"><i class="far fa-eye"></i> UPDATE</button></a>
-                                                        <a href="./view-btl-admin.php?idBTL=<?php echo $row3['idBTL']; ?>&&idMH=<?php echo $row3['idMH']; ?>"><button type="button" class="btn btn-info text-white me-2"><i class="far fa-eye"></i> VIEW</button></a>
+                                                        <a href="./del-exercise-admin.php?idBTVN=<?php echo $row3['idBTVN']; ?>&&idMH=<?php echo $row3['idMH']; ?>"><button type="button" class="btn btn-danger text-white me-2"><i class="far fa-eye"></i> DELETE</button></a>
+                                                        <a href="./upd-exercise-admin.php?idBTVN=<?php echo $row3['idBTVN']; ?>&&idMH=<?php echo $row3['idMH']; ?>"><button type="button" class="btn btn-primary text-white me-2"><i class="far fa-eye"></i> UPDATE</button></a>
+                                                        <a href="./view-exercise-admin.php?idBTVN=<?php echo $row3['idBTVN']; ?>&&idMH=<?php echo $row3['idMH']; ?>"><button type="button" class="btn btn-info text-white me-2"><i class="far fa-eye"></i> VIEW</button></a>
                                                   </div>
                                             </div>
                                         </div>

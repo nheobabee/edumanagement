@@ -42,7 +42,6 @@
                 <a href="teach.php"><i class="fas fa-school"></i> Teach</a>
             </li>
            
-
             <li>
                 <a href="result-admin.php"><i class="fas fa-poll"></i> Result</a>
             </li>
@@ -85,7 +84,7 @@
                                     VALUES('$nameBTVN', '$formatBTVN', '$deadlineBTVN', '$note', '$idMH')";
                                 $res2 = mysqli_query($conn, $sql2);
                                 if ($res2 == true) {
-                                    header('location: http://localhost/edumanagement/admin/exercise-subject-admin.php?idMH='.$idMH);
+                                    header('location: http://localhost/edumanagement/admin/admin/exercise-subject-admin.php?idMH='.$idMH);
                                 } else {
                                     echo $sql2;
                                 }
