@@ -31,7 +31,7 @@
                 <a href="subject.php"><i class="fas fa-book"></i> Subject</a>
             </li>
             <li>
-                <a href="learn-teach-admin.php"><i class="fas fa-school"></i> Teach</a>
+                <a href="learn-teach-admin.php"><i class="fas fa-school"></i> Teach - Learn</a>
             </li>
         
             <li>
@@ -65,7 +65,7 @@
                         <div class="container">
 
                             <div class="header-page">
-                                <h1 class="page-title">DASHBOARD</h1>
+                                <h1 class="page-title">THỐNG KÊ</h1>
                                 <!--  -->
                             <?php
                             if(isset($_SESSION['display-username']))
@@ -84,7 +84,7 @@
                                     ?>
                                     <h1 class="count"><?php echo $count1 ?></h1>
                                     <br>
-                                    <p>Teacher</p>
+                                    <p>Giáo viên</p>
                                 </div>
                                 <div class="col text-center">
                                     <?php
@@ -94,7 +94,7 @@
                                     ?>
                                     <h1 class="count"><?php echo $count2 ?></h1>
                                     <br>
-                                    <p>Student</p>
+                                    <p>Sinh viên</p>
                                 </div>
                                 <div class="col text-center">
                                     <?php
@@ -104,7 +104,7 @@
                                     ?>
                                     <h1 class="count"><?php echo $count3 ?></h1>
                                     <br>
-                                    <p>BTVN</p>
+                                    <p>Bài tập về nhà</p>
                                 </div>
                                 <div class="col text-center">
                                     <?php
@@ -114,7 +114,7 @@
                                     ?>
                                     <h1 class="count"><?php echo $count4 ?></h1>
                                     <br>
-                                    <p>BTL</p>
+                                    <p>Bài tập lớn</p>
                                 </div>
                                 <div class="col text-center">
                                     <?php
@@ -124,7 +124,7 @@
                                     ?>
                                     <h1 class="count"><?php echo $count5 ?></h1>
                                     <br>
-                                    <p>Subject</p>
+                                    <p>Môn học</p>
                                 </div>
                                 <div class="col text-center">
                                     <?php
@@ -134,7 +134,7 @@
                                     ?>
                                     <h1 class="count"><?php echo $count6 ?></h1>
                                     <br>
-                                    <p>Result</p>
+                                    <p>Kết quả</p>
                                 </div>
                                 <div class="col text-center">
                                     <?php
@@ -144,7 +144,7 @@
                                     ?>
                                     <h1 class="count"><?php echo $count7 ?></h1>
                                     <br>
-                                    <p>Users</p>
+                                    <p>Người dùng</p>
                                 </div>
                             </div>
                         </div>

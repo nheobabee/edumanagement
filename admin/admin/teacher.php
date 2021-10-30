@@ -33,7 +33,7 @@ if (!isset($_SESSION['loginok'])) {
                 <a href="subject.php"><i class="fas fa-book"></i> Subject</a>
             </li>
             <li>
-                <a href="learn-teach-admin.php"><i class="fas fa-school"></i> Teach</a>
+                <a href="learn-teach-admin.php"><i class="fas fa-school"></i> Teach - Learn</a>
             </li>
 
 
@@ -63,10 +63,10 @@ if (!isset($_SESSION['loginok'])) {
                         </div>
                     </nav>
                     <div class="container">
+
+                        <h1>DANH SÁCH GIÁO VIÊN</h1>
                         <br>
-                        <h1>LIST TEACHER</h1>
-                        <br>
-                        <a href="./add-teacher.php"><button class="btn btn-success"> ADD TEACHER</button></a>
+                        <a href="./add-teacher.php"><button class="btn btn-success"><i class="fas fa-plus"></i> Thêm giáo viên</button></a>
                         <?php
                         if (isset($_SESSION['errorDel'])) {
                             echo $_SESSION['errorDel'];
@@ -82,14 +82,13 @@ if (!isset($_SESSION['loginok'])) {
                             <thead>
                                 <tr>
                                     <th scope="col">STT</th>
-                                    <th scope="col">Name</th>
-                                    <th scope="col">Gender</th>
+                                    <th scope="col">Tên giáo viên</th>
+                                    <th scope="col">Giới tính</th>
                                     <th scope="col">Email</th>
-                                    <th scope="col">SDT</th>
-                                    <th scope="col">Address</th>
-                                 
-                                    <th scope="col">Delete</th>
-
+                                    <th scope="col">SĐT</th>
+                                    <th scope="col">Địa chỉ</th>
+                                    <th scope="col">Cập nhật</th>
+                                    <th scope="col">Xóa</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -117,8 +116,9 @@ if (!isset($_SESSION['loginok'])) {
                                             <td><?php echo $row['user_birthday']; ?></td>
                                             <td><?php echo $row['user_phone']; ?></td>
                                             <td><?php echo $row['user_email']; ?></td>
-                                          
-
+                                            <td>
+                                                <a href="./upd-teacher-admin.php?user_id=<?php echo $row['user_id']; ?>"><button type="button" class="btn btn-primary text-white me-2"><i class="fas fa-edit"></i></button></a>
+                                            </td>
                                             <td>
                                                 <a href="./del-teacher-admin.php?user_id=<?php echo $row['user_id']; ?>"><button type="button" class="btn btn-danger text-white me-2"><i class="fas fa-user-minus"></i></button></a>
                                             </td>

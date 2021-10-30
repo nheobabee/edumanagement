@@ -34,7 +34,7 @@ session_start();
                 <a href="subject.php"><i class="fas fa-book"></i> Subject</a>
             </li>
             <li>
-                <a href="learn-teach-admin.php"><i class="fas fa-school"></i> Teach</a>
+                <a href="learn-teach-admin.php"><i class="fas fa-school"></i> Teach - Learn</a>
             </li>
        
             <li>
@@ -63,8 +63,7 @@ session_start();
                         </div>
                     </nav>
                     <div class="container">
-                        <br>
-                        <h1>LIST STUDENT</h1>
+                        <h1>DANH SÁCH SINH VIÊN</h1>
                        <br>
                         <?php
                             if(isset($_SESSION['errorDel'])){
@@ -81,13 +80,12 @@ session_start();
                             <thead>
                                 <tr>
                                     <th scope="col">STT</th>
-                                    <th scope="col">Name</th>
-                                    <th scope="col">Gender</th>
+                                    <th scope="col">Tên sinh viên</th>
+                                    <th scope="col">Giới tính</th>
                                     <th scope="col">Email</th>
-                                    <th scope="col">SDT</th>
-                                    <th scope="col">Address</th>
-                                   
-                                    <th scope="col">Delete</th>
+                                    <th scope="col">SĐT</th>
+                                    <th scope="col">Địa chỉ</th>
+                                   <th scope="col">Xóa</th>
 
                                 </tr>
                             </thead>
