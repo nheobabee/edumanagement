@@ -7,8 +7,28 @@ if (!isset($_SESSION['loginok'])) {
 ?>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-<link rel="stylesheet" href="../../css/add-teacher-admin.css">
+<link rel="stylesheet" href="../../css/add-teach-admin.css">
 
+
+<?php
+if (isset($_GET['user_id'])) {
+    $user_id1 = $_GET['user_id'];
+
+    $sql0 = "SELECT * FROM relationship WHERE user_id = '$user_id1'";
+    $res0 = mysqli_query($conn, $sql0);
+    $row0 = mysqli_fetch_assoc($res0);
+    $idMH1 = $row0['idMH'];
+    $sql1 = "SELECT * FROM monhoc WHERE idMH = '$idMH1'";
+    $res1 = mysqli_query($conn, $sql1);
+    $row1 = mysqli_fetch_assoc($res1);
+    $nameMH1 = $row1['nameMH'];
+
+    $sql2 = "SELECT * FROM users WHERE user_id = '$user_id1'";
+    $res2 = mysqli_query($conn, $sql2);
+    $row2 = mysqli_fetch_assoc($res2);
+    $user_name1 = $row2['user_name'];
+}
+?>
 <div id="wrapper">
 
     <!-- Sidebar -->
@@ -60,25 +80,26 @@ if (!isset($_SESSION['loginok'])) {
                         </div>
                     </nav>
                     <div class="container">
-                        <h2>THÊM GIÁO VIÊN</h2>
+                        <h2>CẬP NHẬT SINH VIÊN</h2>
                         <form class="form-add" method="post">
                             <?php
 
 
                             if (isset($_POST['add'])) {
-                                $userid =  $_POST['user_id'];
-                                $userlevel = $_POST['user_level'];
+                                $user_id =  $_POST['user_id'];
+                                $idMH = $_POST['idMH'];
                                 // Bước 2 câu lệnh truy vấn
-                                $sql1 = "UPDATE `users` SET 
-                                `user_level`='$userlevel'
-                                 WHERE `user_id`='$userid'";
+                                $sql7 = "UPDATE relationship SET 
+                                idMH = '$idMH'
+                                where user_id = '$user_id'
+                                ";
 
-                                $result1 = mysqli_query($conn, $sql1);
 
-                                if ($result1 > 0) {
+                                $result7 = mysqli_query($conn, $sql7);
+
+                                if ($result7 > 0) {
                                     echo "Bản ghi đã được lưu";
-                                    header('Location: teacher.php');
-                                    die();
+                                    header("Location: http://localhost/edumanagement/admin/admin/learn.php");
                                 } else {
                                     echo "Lỗi";
                                 }
@@ -91,27 +112,53 @@ if (!isset($_SESSION['loginok'])) {
 
                             ?>
                             <div class="form-group ">
-                                <label style="display: inline" for="idMH" class="col-sm-2 col-form-label">Tên người dùng:</label>
+                                <label style="display: inline" for="idMH" class="col-sm-2 col-form-label">Tên sinh viên:</label>
                                 <div class="col-sm-10">
                                     <select name="user_id">
                                         <?php
-                                        $sqlq = "SELECT * FROM users WHERE user_level= 0 ";
-                                        $resultq = mysqli_query($conn, $sqlq);
-                                        if (mysqli_num_rows($resultq) > 0) {
-                                            while ($row = mysqli_fetch_assoc($resultq)) {
-                                                echo '<option value="' . $row['user_id'] . '">' . $row['user_name'] . '</option>';
-                                            }
+                                        $sql4 = "SELECT * FROM users WHERE user_id = '$user_id1'";
+                                        $result4 = mysqli_query($conn, $sql4);
+                                        //  if (sqlsrv_num_rows($result) > 0) {
+                                        while ($row4 = mysqli_fetch_assoc($result4)) {
+                                            $user_id = $row4['user_id'];
+                                            $user_name = $row4['user_name'];
+                                        ?>
+                                            <option <?php if ($user_id1 == $user_id) {
+                                                        echo "selected";
+                                                    } ?> value="<?php echo $user_id; ?>"><?php echo $user_name; ?></option>
+                                        <?php
                                         }
                                         ?>
-                                    </select>
+                                   </select>
+                                </div>
+                            </div>
+                            <div class="form-group ">
+                                <label style="display: inline" for="idMH" class="col-sm-2 col-form-label">Tên môn học</label>
+                                <div class="col-sm-10">
+                                    <select name="idMH">
+                                        <?php
+                                        $sql5 = "SELECT * FROM monhoc";
+                                        $result5 = mysqli_query($conn, $sql5);
+                                        //  if (sqlsrv_num_rows($result) > 0) {
+                                        while ($row5 = mysqli_fetch_assoc($result5)) {
+                                            $idMH = $row5['idMH'];
+                                            $nameMH = $row5['nameMH'];
+                                        ?>
+                                            <option <?php if ($idMH1 == $idMH) {
+                                                        echo "selected";
+                                                    } ?> value="<?php echo $idMH; ?>"><?php echo $nameMH; ?></option>
+                                        <?php
+                                        }
+                                        ?>
+                                   </select>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label style="margin:3px 0" for="`user_level">Chức vụ: Giáo viên</label>
-                                <input hidden type="text" class="form-control" id="user_level" placeholder="Enter chức vụ" name="user_level" value="1">
+
+                                <input hidden type="text" class="form-control" id="note" placeholder="Ghi chú" name="note" value="1">
                             </div>
                             <br>
-                            <button name="add" type="submit" class="btn btn-success"><i class="fas fa-plus"></i> Thêm</button>
+                            <button name="add" type="submit" class="btn btn-success"><i class="fas fa-pen"></i> Cập nhật</button>
                         </form>
                     </div>
                 </div>

@@ -40,7 +40,7 @@ if (isset($_GET['idMH'])) {
                 <a href="subject.php"><i class="fas fa-book"></i> Subject</a>
             </li>
             <li>
-                <a href="learn-teach-admin.php"><i class="fas fa-school"></i> Teach</a>
+                <a href="learn-teach-admin.php"><i class="fas fa-school"></i> Teach - Learn</a>
             </li>
             
 
@@ -76,7 +76,6 @@ if (isset($_GET['idMH'])) {
                             <br>
                             <a  href="./subject.php"><button style="padding:1% 2%;" type="button" class="btn btn-secondary text-white me-2"><i class="fas fa-undo-alt"></i></button></a>
                             <br><br>
-                            <br>
                         <?php 
                             if(isset($_GET['idMH'])){
                                 $idMH = $_GET['idMH'];

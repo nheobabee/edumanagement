@@ -1,16 +1,13 @@
-
-<title>ADD SUBJECT</title>
-<?php include('../../config/config.php'); 
-
-        session_start();
-        if(!isset($_SESSION['loginok']))
-        {
-            header('location:../../login/index.php');
-        }
+<title>ADD TEACHER</title>
+<?php include('../../config/config.php');
+session_start();
+if (!isset($_SESSION['loginok'])) {
+    header('location:../../login/index.php');
+}
 ?>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-<link rel="stylesheet" href="../../css/add-teacher-admin.css">
+<link rel="stylesheet" href="../../css/add-teach-admin.css">
 
 <div id="wrapper">
 
@@ -35,7 +32,7 @@
             <li>
                 <a href="learn-teach-admin.php"><i class="fas fa-school"></i> Teach - Learn</a>
             </li>
-           
+
 
             <li>
                 <a href="result-admin.php"><i class="fas fa-poll"></i> Result</a>
@@ -63,38 +60,73 @@
                         </div>
                     </nav>
                     <div class="container">
-                        <h2>ADD SUBJECT</h2>
-                        <form method="post">
+                        <h2>THÊM SINH VIÊN</h2>
+                        <form class="form-add" method="post">
                             <?php
-                            if (isset($_POST['add'])) {
-                                $nameMH = $_POST['nameMH'];
-                                $TC = $_POST['TC'];
 
-                                $sql = "INSERT INTO monhoc(nameMH, TC) 
-                                    VALUES(N'$nameMH','$TC')";
-                                $res = mysqli_query($conn, $sql);
-                                if ($res == true) {
-                                    header('location: subject.php');
-                                    
+
+                            if (isset($_POST['add'])) {
+                                $user_id =  $_POST['user_id'];
+                                $idMH = $_POST['idMH'];
+                                $note = $_POST['note'];
+                                // Bước 2 câu lệnh truy vấn
+                                $sql0 = "INSERT INTO relationship values ('$user_id','$idMH','$note')";
+
+
+                                $result0 = mysqli_query($conn, $sql0);
+
+                                if ($result0 > 0) {
+                                    echo "Bản ghi đã được lưu";
+                                    header("Location: http://localhost/edumanagement/admin/admin/learn.php");
                                 } else {
-                                    echo $sql;
+                                    echo "Lỗi";
                                 }
                             }
+
                             ?>
-                            
-                            <div class="form-group">
-                                <label for="nameMH">Name:</label>
-                                <input type="text" class="form-control" id="nameMH" placeholder="Enter name" name="nameMH">
+                            <?php
+                            // lấy giá trị user cần sửa 
+
+
+                            ?>
+                            <div class="form-group ">
+                                <label style="display: inline" for="idMH" class="col-sm-2 col-form-label">Tên sinh viên:</label>
+                                <div class="col-sm-10">
+                                    <select name="user_id">
+                                        <?php
+                                        $sql1 = "SELECT * FROM users WHERE user_level= 0 ";
+                                        $result1 = mysqli_query($conn, $sql1);
+                                        if (mysqli_num_rows($result1) > 0) {
+                                            while ($row1 = mysqli_fetch_assoc($result1)) {
+                                                echo '<option value="' . $row1['user_id'] . '">' . $row1['user_name'] . '</option>';
+                                            }
+                                        }
+                                        ?>
+                                    </select>
+                                </div>
                             </div>
-                           
-                            <div class="form-group">
-                                <label for="TC">Credits:</label>
-                                <input type="number" value="1"
-                                 class="form-control" id="TC" placeholder="Enter credits" name="TC">
+                            <div class="form-group ">
+                                <label style="display: inline" for="idMH" class="col-sm-2 col-form-label">Tên môn học:</label>
+                                <div class="col-sm-10">
+                                    <select name="idMH">
+                                        <?php
+                                        $sql2 = "SELECT * FROM monhoc";
+                                        $result2 = mysqli_query($conn, $sql2);
+                                        if (mysqli_num_rows($result2) > 0) {
+                                            while ($row2 = mysqli_fetch_assoc($result2)) {
+                                                echo '<option value="' . $row2['idMH'] . '">' . $row2['nameMH'] . '</option>';
+                                            }
+                                        }
+                                        ?>
+                                    </select>
+                                </div>
                             </div>
-                        
+                            <div class="form-group">
+
+                                <input hidden type="text" class="form-control" id="note" placeholder="Ghi chú" name="note" value="0">
+                            </div>
                             <br>
-                            <button name="add" type="submit" class="btn btn-success">ADD</button>
+                            <button name="add" type="submit" class="btn btn-success"><i class="fas fa-plus"></i> Thêm</button>
                         </form>
                     </div>
                 </div>

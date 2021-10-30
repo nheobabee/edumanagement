@@ -30,7 +30,7 @@ if (!isset($_SESSION['loginok'])) {
                 <a href="subject.php"><i class="fas fa-book"></i> Subject</a>
             </li>
             <li>
-                <a href="learn-teach-admin.php"><i class="fas fa-school"></i> Teach</a>
+                <a href="learn-teach-admin.php"><i class="fas fa-school"></i> Teach - Learn</a>
             </li>
 
 
@@ -60,7 +60,7 @@ if (!isset($_SESSION['loginok'])) {
                         </div>
                     </nav>
                     <div class="container">
-                        <h2>ADD TEACHER</h2>
+                        <h2>THÊM GIÁO VIÊN PHỤ TRÁCH</h2>
                         <form class="form-add" method="post">
                             <?php
 
@@ -126,7 +126,7 @@ if (!isset($_SESSION['loginok'])) {
                                 <input hidden type="text" class="form-control" id="note" placeholder="Ghi chú" name="note" value="1">
                             </div>
                             <br>
-                            <button name="add" type="submit" class="btn btn-success">ADD</button>
+                            <button name="add" type="submit" class="btn btn-success"><i class="fas fa-plus"></i> Thêm</button>
                         </form>
                     </div>
                 </div>
