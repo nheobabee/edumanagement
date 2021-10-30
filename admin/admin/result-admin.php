@@ -63,50 +63,52 @@ if (!isset($_SESSION['loginok'])) {
                         </div>
                     </nav>
                     <div class="container">
-                        <h1>KẾT QUẢ</h1>    
-                    <br>
+                        <h1>KẾT QUẢ</h1>
+                        <br>
                         <div class="row">
-                            <div class="result-btvn col text-center row">
-                            <div class="icon-res col-md-6">
-                            <i class="icon-result fas fa-poll"></i>
-                            </div>
-                            <div class="res-info col-md-6">
-                            <h5 style="float: left;">KẾT QUẢ BÀI TẬP VỀ NHÀ</h5>
-                            <a href="./result-btvn-admin.php"><button style="float: left;" type="button" class="btn btn-info text-white me-2"><i class="far fa-eye"></i> Xem</button></a>
-                            
-                            </div>
-                        </div>
+                            <div class="result-btvn col">
 
-                        <div class="result-btvn col text-center row">
-                            <div class="icon-res col-md-6">
-                            <i style="height:100px" class="icon-result fas fa-poll"></i>
+                                <div class="res-tittle">
+                                    <h5 >KẾT QUẢ BÀI TẬP VỀ NHÀ</h5>
+                                </div>
+                                <div class="res-link">
+                                    <a href="./result-btvn-admin.php"><button type="button" class="btn btn-info text-white me-2"><i class="far fa-eye"></i> Xem</button></a>
+
+                                </div>
+
                             </div>
-                            <div class="res-info col-md-6">
-                            <h5 style="float: left;">KẾT QUẢ BÀI TẬP LỚN</h5>
-                            <a href="./result-btl-admin.php"><button style="float: left;" type="button" class="btn btn-info text-white me-2"><i class="far fa-eye"></i> Xem</button></a>
-                           
+
+                            <div class="result-btvn col">
+
+                                <div class="res-tittle">
+                                    <h5 >KẾT QUẢ BÀI TẬP LỚN</h5>
+                                </div>
+                                <div class="res-link">
+                                    <a href="./result-btl-admin.php"><button type="button" class="btn btn-info text-white me-2"><i class="far fa-eye"></i> Xem</button></a>
+
+                                </div>
+
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        <footer>
+            <p class="ftr text-center">
+                QTV - Do your best, the rest will come!
+            </p>
+        </footer>
     </div>
-    <footer>
-        <p class="ftr text-center">
-            QTV - Do your best, the rest will come!
-        </p>
-    </footer>
-</div>
-<!-- /#page-content-wrapper -->
-<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-<script>
-    $("#menu-toggle").click(function(e) {
-        e.preventDefault();
-        $("#wrapper").toggleClass("toggled");
-    });
-</script>
+    <!-- /#page-content-wrapper -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script>
+        $("#menu-toggle").click(function(e) {
+            e.preventDefault();
+            $("#wrapper").toggleClass("toggled");
+        });
+    </script>
 </div>
 <!-- /#wrapper -->
 <
