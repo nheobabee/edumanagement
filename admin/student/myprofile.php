@@ -105,7 +105,7 @@ if(!isset($_SESSION['student']))
                             $useremail_q = $row['user_email'];
                         }
                     }
-                     echo $row['user_avatar'];
+                   
                     ?>
                        
                     <div class="main-content">
