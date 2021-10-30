@@ -13,7 +13,7 @@ if (isset($_GET['idMH'])) {
     $row5 = mysqli_fetch_assoc($res5);
     $nameMH = $row5['nameMH'];
 }
-echo $nameMH;
+
 ?>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -40,7 +40,7 @@ echo $nameMH;
                 <a href="subject.php"><i class="fas fa-book"></i> Subject</a>
             </li>
             <li>
-                <a href="teach.php"><i class="fas fa-school"></i> Teach</a>
+                <a href="learn-teach-admin.php"><i class="fas fa-school"></i> Teach</a>
             </li>
 
 
@@ -71,6 +71,7 @@ echo $nameMH;
                     </nav>
                     <div class="container">
                         <h2>ADD BTL</h2>
+                        <h6>Môn học: <?php echo $nameMH ?></h6>
                         <form method="post">
                             <?php
                             if (isset($_POST['addbtl'])) {

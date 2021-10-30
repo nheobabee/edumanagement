@@ -34,7 +34,7 @@ if (!isset($_SESSION['loginok'])) {
                 <a href="subject.php"><i class="fas fa-book"></i> Subject</a>
             </li>
             <li>
-                <a href="teach.php"><i class="fas fa-school"></i> Teach</a>
+                <a href="learn-teach-admin.php"><i class="fas fa-school"></i> Teach</a>
             </li>
 
 
@@ -64,8 +64,6 @@ if (!isset($_SESSION['loginok'])) {
                         </div>
                     </nav>
                     <div class="container">
-                        <br>
-                        <a href="./add-subject-admin.php"><button class="btn btn-success"> ADD SUBJECT</button></a>
                         <?php
                         if (isset($_SESSION['errorDel'])) {
                             echo $_SESSION['errorDel'];
@@ -76,7 +74,9 @@ if (!isset($_SESSION['loginok'])) {
                             unset($_SESSION['successDel']);
                         }
                         ?>
-                        <br><br>
+                        <br>
+                        <h1>SUBJECT</h1>
+                        <br>
 
                         <?php
                         ?>

@@ -1,23 +1,14 @@
-<title>ADD EXERCISE</title>
-<?php include('../../config/config.php'); 
-        session_start();
-        if(!isset($_SESSION['loginok']))
-        {
-            header('location:../../login/index.php');
-        }
+<title>ADD TEACHER</title>
+<?php include('../../config/config.php');
+session_start();
+if (!isset($_SESSION['loginok'])) {
+    header('location:../../login/index.php');
+}
 ?>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-<link rel="stylesheet" href="../../css/add-exercise-admin.css">
-<?php
-    if(isset($_GET['idMH'])){
-        $idMH = $_GET['idMH'];
-        $sql1 = "SELECT * FROM monhoc where idmh = $idMH";
-        $res1 = mysqli_query($conn, $sql1);
-        $row = mysqli_fetch_assoc($res1);
-        $nameMH = $row['nameMH'];
-    }
-?>
+<link rel="stylesheet" href="../../css/add-teach-admin.css">
+
 <div id="wrapper">
 
     <!-- Sidebar -->
@@ -41,7 +32,8 @@
             <li>
                 <a href="learn-teach-admin.php"><i class="fas fa-school"></i> Teach</a>
             </li>
-           
+
+
             <li>
                 <a href="result-admin.php"><i class="fas fa-poll"></i> Result</a>
             </li>
@@ -68,57 +60,70 @@
                         </div>
                     </nav>
                     <div class="container">
-                        <div class="tittleAdd">
-                        <h2>ADD EXERCISE</h2>
-                        </div>
-                        <form method="post">
+                        <h2>ADD TEACHER</h2>
+                        <form class="form-add" method="post">
                             <?php
-                            if (isset($_POST['add'])) {
-                                $idMH = $_POST['idMH'];
-                                $nameBTVN = $_POST['nameBTVN'];
-                                $formatBTVN = $_POST['formatBTVN'];
-                                $deadlineBTVN = $_POST['deadlineBTVN'];
-                                $note = $_POST['note'];
 
-                                $sql2 = "INSERT INTO btvn(nameBTVN, formatBTVN, deadlineBTVN, note, idMH) 
-                                    VALUES('$nameBTVN', '$formatBTVN', '$deadlineBTVN', '$note', '$idMH')";
-                                $res2 = mysqli_query($conn, $sql2);
-                                if ($res2 == true) {
-                                    header('location: http://localhost/edumanagement/admin/admin/exercise-subject-admin.php?idMH='.$idMH);
+
+                            if (isset($_POST['add'])) {
+                                $user_id =  $_POST['user_id'];
+                                $idMH = $_POST['idMH'];
+                                $note = $_POST['note'];
+                                // Bước 2 câu lệnh truy vấn
+                                $sql0 = "INSERT INTO relationship values ('$user_id','$idMH','$note')";
+
+
+                                $result0 = mysqli_query($conn, $sql0);
+
+                                if ($result0 > 0) {
+                                    echo "Bản ghi đã được lưu";
+                                    header("Location: http://localhost/edumanagement/admin/admin/teach.php");
                                 } else {
-                                    echo $sql2;
+                                    echo "Lỗi";
                                 }
                             }
+
                             ?>
-                            <span style="font-weight:500">Subject: <?php echo $nameMH ?><span>
-                              <div class="form-group">
-                                <label class = "subMH" for="idMH">ID Subject  </label>
-                                <input type="text" class="form-control" id="idMH" readonly value="<?php echo $idMH?>"name="idMH">
-                            </div>
-                            <div class="form-group">
-                                <label for="nameBTVN">Name Homework:</label>
-                                <input type="text" class="form-control" id="nameBTVN" placeholder="Enter name" name="nameBTVN">
-                            </div>
-                            <div class="form-group">
-                                <label for="formatBTVN">Format:</label>
-                                <div class="format_btvn">
-                                    <select id="formatBTVN" name = "formatBTVN">
-                                        <option value="Trắc nghiệm">Trắc nghiệm</option>
-                                        <option value="Tự luận">Tự luận</option>
+                            <?php
+                            // lấy giá trị user cần sửa 
+
+
+                            ?>
+                            <div class="form-group ">
+                                <label style="display: inline" for="idMH" class="col-sm-2 col-form-label">Tên giáo viên:</label>
+                                <div class="col-sm-10">
+                                    <select name="user_id">
+                                        <?php
+                                        $sql1 = "SELECT * FROM users WHERE user_level= 1 ";
+                                        $result1 = mysqli_query($conn, $sql1);
+                                        if (mysqli_num_rows($result1) > 0) {
+                                            while ($row1 = mysqli_fetch_assoc($result1)) {
+                                                echo '<option value="' . $row1['user_id'] . '">' . $row1['user_name'] . '</option>';
+                                            }
+                                        }
+                                        ?>
                                     </select>
                                 </div>
                             </div>
-                            <!-- <div class="form-group">
-                                <label for="openedBTVN">Opened:</label>
-                                <input type="date" class="form-control" id="openedBTVN" placeholder="Enter opened" name="openedBTVN">
-                            </div> -->
-                            <div class="form-group">
-                                <label for="deadlineBTVN">Deadline:</label>
-                                <input type="datetime-local" class="form-control" id="deadlineBTVN" placeholder="Enter deadline" name="deadlineBTVN">
+                            <div class="form-group ">
+                                <label style="display: inline" for="idMH" class="col-sm-2 col-form-label">Tên giáo viên:</label>
+                                <div class="col-sm-10">
+                                    <select name="idMH">
+                                        <?php
+                                        $sql2 = "SELECT * FROM monhoc";
+                                        $result2 = mysqli_query($conn, $sql2);
+                                        if (mysqli_num_rows($result2) > 0) {
+                                            while ($row2 = mysqli_fetch_assoc($result2)) {
+                                                echo '<option value="' . $row2['idMH'] . '">' . $row2['nameMH'] . '</option>';
+                                            }
+                                        }
+                                        ?>
+                                    </select>
+                                </div>
                             </div>
                             <div class="form-group">
-                                <label for="note">Note:</label>
-                                <input type="text" class="form-control" id="note" placeholder="Enter note" name="note">
+
+                                <input hidden type="text" class="form-control" id="note" placeholder="Ghi chú" name="note" value="1">
                             </div>
                             <br>
                             <button name="add" type="submit" class="btn btn-success">ADD</button>

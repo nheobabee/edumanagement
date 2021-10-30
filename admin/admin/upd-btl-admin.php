@@ -30,7 +30,7 @@ if (!isset($_SESSION['loginok'])) {
                 <a href="subject.php"><i class="fas fa-book"></i> Subject</a>
             </li>
             <li>
-                <a href="teach.php"><i class="fas fa-school"></i> Teach</a>
+                <a href="learn-teach-admin.php"><i class="fas fa-school"></i> Teach</a>
             </li>
 
 

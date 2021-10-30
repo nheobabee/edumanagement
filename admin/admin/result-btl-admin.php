@@ -1,7 +1,8 @@
 <?php
 session_start();
 ?>
-<title>RESUTL BTVN</title>
+
+<title>RESULT BTVN</title>
 <?php include('../../config/config.php');
 
 if (!isset($_SESSION['loginok'])) {
@@ -10,13 +11,8 @@ if (!isset($_SESSION['loginok'])) {
 ?>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-<link rel="stylesheet" href="../../css/teacher-admin.css">
-<?php
-    if (isset($_GET['idMH'])){
-        $idMH = $_GET['idMH'];
-    }
+<link rel="stylesheet" href="../../css/result-admin.css">
 
-?>
 <div id="wrapper">
 
     <!-- Sidebar -->
@@ -38,7 +34,7 @@ if (!isset($_SESSION['loginok'])) {
                 <a href="subject.php"><i class="fas fa-book"></i> Subject</a>
             </li>
             <li>
-                <a href="teach.php"><i class="fas fa-school"></i> Teach</a>
+                <a href="learn-teach-admin.php"><i class="fas fa-school"></i> Teach</a>
             </li>
 
             <li>
@@ -67,85 +63,54 @@ if (!isset($_SESSION['loginok'])) {
                         </div>
                     </nav>
                     <div class="container">
-                        <h1>Result</h1>
+                        <br>
+                        <a  href="./result-admin.php"><button style="padding:1% 2%;" type="button" class="btn btn-secondary text-white me-2"><i class="fas fa-undo-alt"></i></button></a>
+                          
+                        <br><br>
+                    <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">STT</th>
+                                    <th scope="col">Tên SV</th></th>
+                                    <th scope="col">Tên BTVN</th>
+                                    <th scope="col">Điểm</th>
+                                    <th scope="col">Nhận xét</th>
 
-                        <?php
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+                                $sql = "SELECT * from ketquabtl";
+                                $res = mysqli_query($conn, $sql);
+                                $sn = 1;
+                                if ($res == true) {
+                                    while ($row = mysqli_fetch_assoc($res)) {
+                                        $idBTL = $row['idBTL'];
+                                        $sql3 = "SELECT * FROM btl WHERE idBTL = '$idBTL'";
+                                        $res3 = mysqli_query($conn, $sql3);
+                                        $row3 = mysqli_fetch_assoc($res3);
 
-                        $answer1 = $_POST['question-1-answers'];
-                        $answer2 = $_POST['question-2-answers'];
-                        $answer3 = $_POST['question-3-answers'];
-                        $answer4 = $_POST['question-4-answers'];
-                        $answer5 = $_POST['question-5-answers'];
-
-                        $totalCorrect = 0;
-
-                        if ($answer1 == "C") {
-                            $totalCorrect++;
-                        }
-                        if ($answer2 == "D") {
-                            $totalCorrect++;
-                        }
-                        if ($answer3 == "A") {
-                            $totalCorrect++;
-                        }
-                        if ($answer4 == "B") {
-                            $totalCorrect++;
-                        }
-                        if ($answer5 == "D") {
-                            $totalCorrect++;
-                        }
-
-                        echo "<div id='results'>$totalCorrect / 5 correct</div>";
-
-                        ?>
-
+                                        $user_id = $row['user_id'];
+                                        $sql2 = "SELECT * FROM users WHERE user_id = '$user_id'";
+                                        $res2 = mysqli_query($conn, $sql2);
+                                        $row2 = mysqli_fetch_assoc($res2);
+                                        
+                                ?>
+                                        <tr>
+                                            <td><?php echo $sn++ ?></td>
+                                            <td><?php echo $row2['user_name']; ?></td>
+                                            <td><?php echo $row3['nameBTL']; ?></td>
+                                            <td><?php echo $row['markBTL']; ?></td>
+                                            <td><?php echo $row['cmtBTL']; ?></td>
+                                            
+                                        </tr>
+                                <?php
+                                    }
+                                }
+                                ?>
+                            </tbody>
+                        </table>
                     </div>
-                    <a href="./exercise-subject-admin.php?idMH=<?php echo $idMH ?>"><button type="submit" name="send" class="btn btn-success text-white me-2"><i class="fas fa-user-minus"></i></button></a>
-
-                    <style>
-                        body {
-                            font: 14px Georgia, serif;
-                        }
-
-                        #page-wrap {
-                            width: 500px;
-                            margin: 0 auto;
-                        }
-
-                        h1 {
-                            margin: 25px 0;
-                            font: 18px Georgia, Serif;
-                            text-transform: uppercase;
-                            letter-spacing: 3px;
-                        }
-
-                        #quiz input {
-                            vertical-align: middle;
-                        }
-
-                        #quiz ol {
-                            margin: 0 0 10px 20px;
-                        }
-
-                        #quiz ol li {
-                            margin: 0 0 20px 0;
-                        }
-
-                        #quiz ol li div {
-                            padding: 4px 0;
-                        }
-
-                        #quiz h3 {
-                            font-size: 17px;
-                            margin: 0 0 1px 0;
-                            color: #666;
-                        }
-
-                        #results {
-                            font: 44px Georgia, Serif;
-                        }
-                    </style>
-
                 </div>
             </div>
         </div>
@@ -167,3 +132,4 @@ if (!isset($_SESSION['loginok'])) {
 </script>
 </div>
 <!-- /#wrapper -->
+<
