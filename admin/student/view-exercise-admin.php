@@ -82,15 +82,20 @@ if (isset($_GET['idBTVN'], $_GET['idMH'])) {
                                         <h6><?php echo $row3['nameBTVN'] ?></h6>
                                         <p><span style="font-weight: 500;">Opened: </span><?php echo $row3['openedBTVN'] ?></p>
                                         <p><span style="font-weight: 500;">Deadline: </span><?php echo $row3['deadlineBTVN'] ?></p>
-                                        <p class="note"><?php echo $row3['note'] ?></p>
+                                   
                                        <div class="form-tn">
-                                       <a href="https://forms.gle/RxH1toXPq3MEP4Zu6"><button type="button" class="btn btn-info text-white me-2"><i class="fas fa-upload"></i> Trắc nghiệm</button></a>
+                                       <a href="<?php echo $row3['note'] ?>"><button type="button" class="btn btn-info text-white me-2"><i class="fas fa-upload"></i> Đề bài</button></a>
                                        </div>
-                                        <div class="mb-3">
+                                        <form method="post" class="mb-3">
                                             <label for="exampleFormControlTextarea1" class="form-label"></label>
-                                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                                        </div>
-                                        <a href=""><button type="button" class="btn btn-success text-white me-2"><i class="fas fa-upload"></i> SEND</button></a>
+                                            <textarea name="fileBTVN" class="form-control"  rows="3"></textarea>
+                                        </form>
+                                        <a href=""><button name="submit" type="submit" class="btn btn-success text-white me-2"><i class="fas fa-upload"></i> SEND</button></a>
+                                        <?php
+                                            if(isset($_POST['submit'])){
+                                                
+                                            }
+                                        ?>
                                     </div>
                                 </div>
                             </div>

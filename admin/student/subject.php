@@ -66,29 +66,38 @@ if (!isset($_SESSION['student'])) {
 
                         <h1>SUBJECT</h1>
                         <br>
+                        <?php
+                        // lấy giá trị user cần sửa 
+                        if (isset($_SESSION['user_id'])) {
+                            $user_id = $_SESSION['user_id'];
 
-                        <div class="folder-subject">
-                            <?php
-                            $sql3 = "SELECT * FROM monhoc";
-                            $res3 = mysqli_query($conn, $sql3);
-                            if ($res3 == true) {
-                                while ($row3 = mysqli_fetch_assoc($res3)) {
-
-                            ?>
-
-
-                                    <div class="subject-folder text-center">
-                                       
-                                       <a href="view-subject.php?idM=<?php echo $row3['idMH']?>"> <i class="subject-icon far fa-folder"></i>                                       
-                                        <h6 class="subject-name"><?php echo $row3['nameMH'] ?></h6></a>
-
-                                    </div>
-
-                            <?php
+                        ?>
+                            <div class="folder-subject">
+                                <?php
+                                $sql4 = "SELECT * FROM relationship where user_id = '$user_id'";
+                                $res4 = mysqli_query($conn, $sql4);
+                                $row4 = mysqli_fetch_assoc($res4);
+                                $idMH1 = $row4['idMH'];
+                                $sql3 = "SELECT * FROM monhoc where idMH = '$idMH1'";
+                                $res3 = mysqli_query($conn, $sql3);
+                                if ($res3 == true) {
+                                    while ($row3 = mysqli_fetch_assoc($res3)) {
+                                ?>
+                                        <div class="subject-folder text-center">
+                                            <a href="view-subject.php?idMH=<?php echo $row3['idMH'] ?>"> <i class="subject-icon far fa-folder"></i>
+                                                <h6 class="subject-name"><?php echo $row3['nameMH'] ?></h6>
+                                            </a>
+                                        </div>
+                                <?php
+                                    }
                                 }
-                            }
-                            ?>
-                        </div>
+                                ?>
+                            </div>
+                        <?php
+                        } ?>
+
+
+
                     </div>
                 </div>
             </div>

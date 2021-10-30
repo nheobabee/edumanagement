@@ -61,7 +61,7 @@ if (isset($_GET['idMH'])) {
 
                         <div class="container">
                             <br>
-                           <h1>EXERCISE</h1>
+                            <h1 class="title-btl">BÀI TẬP VỀ NHÀ</h1>
                             <br>
                             <div class="tittle-mh">
                                 <h2><?php echo $nameMH ?></h2>
@@ -82,7 +82,7 @@ if (isset($_GET['idMH'])) {
                                                   <p><span style="font-weight: 500;">Hình thức: </span><?php echo $row3['formatBTVN'] ?></p>
                                                     <p><span style="font-weight: 500;">Opened: </span><?php echo $row3['openedBTVN'] ?></p>
                                                     <p ><span style="font-weight: 500;">Deadline: </span><?php echo $row3['deadlineBTVN'] ?></p>
-                                                    <p class="note"><?php echo $row3['note'] ?></p>
+                                                    
                                             
                                                   </div>
                                                   <div class="service col-md-2">

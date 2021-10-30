@@ -179,7 +179,7 @@ h1.count{
     text-align: center;
     border:  1px solid lightgray;
     margin: 10px;
-    height:130px;
+    height:150px;
     width:20%;
     border-radius: 6px;
     display: inline-block;
@@ -187,10 +187,11 @@ h1.count{
     color:#000;
 }
 
-.subject-icon{
+.subject-icon,.subject-btl{
     font-size:100px;
-    border-bottom: 1px solid lightgray;
+    border-bottom: 1px solid tomato;
     color:#000;
+    opacity: 0.7;
 }
 .subject-name{
     margin-bottom: 0;
@@ -202,5 +203,6 @@ a {
     text-decoration: none;
 }
 .subject-icon:hover{
-    color: #fd7057;
+    opacity: 1
+
 }
