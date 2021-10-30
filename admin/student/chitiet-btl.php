@@ -76,7 +76,7 @@ if (isset($_GET['idBTL'])) {
                                         $row5 = mysqli_fetch_assoc($res5);
                                         $nameMH = $row5['nameMH'];
                                     }
-                                    echo $nameMH;
+                                    
                                     ?>
                                     
                                     </h2>
@@ -100,16 +100,16 @@ if (isset($_GET['idBTL'])) {
 
                                             </div>
                                             <div class="service col-md-4">
-                                                <a href="./dk-btl-admin.php?idBTL=<?php echo $row3['idBTL']; ?>"><button type="button" class="btn btn-warning text-white me-2"><i class="fas fa-edit"></i> Đăng kí</button></a>
+                                                <a href="./dk-btl.php?idBTL=<?php echo $row3['idBTL']; ?>"><button type="button" class="btn btn-warning text-white me-2"><i class="fas fa-edit"></i> Đăng kí</button></a>
 
-                                                <a href="./dsnhom-btl-admin.php?idBTL=<?php echo $row3['idBTL']; ?>"><button type="button" class="btn btn-info text-white me-2"><i class="far fa-eye"></i>Danh sách nhóm</button></a>
+                                                <a href="./dsnhom-btl.php?idBTL=<?php echo $row3['idBTL']; ?>"><button type="button" class="btn btn-info text-white me-2"><i class="far fa-eye"></i>Danh sách nhóm</button></a>
                                             </div>
                                             
 
                                             <div class="mb-3">
                                                 <label for="exampleFormControlTextarea1" class="form-label">Nộp link github tại đây</label>
                                                 <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                                                <a class="col-md-2" href="./dk-btl-admin.php?idBTL=<?php echo $row3['idBTL']; ?>"><button type="button" class="btn btn-success text-white me-2"><i class="fas fa-edit"></i>Nộp bài</button></a>
+                                                <a class="col-md-2" href="?idBTL=<?php echo $row3['idBTL']; ?>"><button type="button" class="btn btn-success text-white me-2"><i class="fas fa-edit"></i>Nộp bài</button></a>
 
                                             </div>
                                            

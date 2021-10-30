@@ -1,25 +1,24 @@
 <?php
-session_start(); 
+session_start();
 ?>
 
 <title>SUBJECT</title>
-<?php include('../../config/config.php'); 
-    
-        if(!isset($_SESSION['loginok']))
-        {
-            header('location:../../login/index.php');
-        }
+<?php include('../../config/config.php');
+
+if (!isset($_SESSION['loginok'])) {
+    header('location:../../login/index.php');
+}
 ?>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-<link rel="stylesheet" href="../../css/teacher-admin.css">
+<link rel="stylesheet" href="../../css/sj-stu.css">
 
 <div id="wrapper">
 
     <!-- Sidebar -->
     <div id="sidebar-wrapper">
         <ul class="sidebar-nav">
-        <li class="sidebar-brand">
+            <li class="sidebar-brand">
                 <h2>ADMIN</h2>
             </li>
             <li>
@@ -37,7 +36,7 @@ session_start();
             <li>
                 <a href="teach.php"><i class="fas fa-school"></i> Teach</a>
             </li>
-           
+
 
             <li>
                 <a href="result-admin.php"><i class="fas fa-poll"></i> Result</a>
@@ -68,61 +67,39 @@ session_start();
                         <br>
                         <a href="./add-subject-admin.php"><button class="btn btn-success"> ADD SUBJECT</button></a>
                         <?php
-                            if(isset($_SESSION['errorDel'])){
-                                echo $_SESSION['errorDel'];
-                                unset($_SESSION['errorDel']);
-                            }
-                            if(isset($_SESSION['successDel'])){
-                                echo $_SESSION['successDel'];
-                                unset($_SESSION['successDel']);
-                            }
+                        if (isset($_SESSION['errorDel'])) {
+                            echo $_SESSION['errorDel'];
+                            unset($_SESSION['errorDel']);
+                        }
+                        if (isset($_SESSION['successDel'])) {
+                            echo $_SESSION['successDel'];
+                            unset($_SESSION['successDel']);
+                        }
                         ?>
                         <br><br>
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th scope="col">STT</th>
-                                    <th scope="col">Name</th>
-                                    <th scope="col">Credits</th>
-                                    <th scope="col">Excise</th>
-                                    <th scope="col">BTL</th>
-                                    
-                                    <th scope="col">Delete</th>
 
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php
-                                $sql = "SELECT * from monhoc";
-                                $res = mysqli_query($conn, $sql);
-                                $sn = 1;
-                                if ($res == true) {
-                                    while ($row = mysqli_fetch_assoc($res)) {
-                                        $idMH = $row['idMH'];
-                                       
-                                ?>
-                                        <tr>
-                                            <td><?php echo $sn++ ?></td>
-                                            <td><?php echo $row['nameMH']; ?></td>
-                                            <td><?php echo $row['TC']; ?></td>
-                                            <td>
-                                                <a href="./exercise-subject-admin.php?idMH=<?php echo $row['idMH']; ?>"><button type="button" class="btn btn-info text-white me-2"><i class="fas fa-book-open"></i>    </button></a>
-                                            </td>
-                                            <td>
-                                                <a href="./btl.php?idMH=<?php echo $row['idMH']; ?>"><button type="button" class="btn btn-warning text-white me-2"><i class="far fa-folder"></i></button></a>
-                                            </td>
-                                            
+                        <?php
+                        ?>
 
-                                            <td>
-                                                <a href="./del-subject-admin.php?idMH=<?php echo $row['idMH']; ?>"><button type="button" class="btn btn-danger text-white me-2"><i class="fas fa-user-minus"></i></button></a>
-                                            </td>
-                                        </tr>
-                                <?php
-                                    }
+                        <div class="folder-subject">
+                            <?php
+                            $sql3 = "SELECT * FROM monhoc ";
+                            $res3 = mysqli_query($conn, $sql3);
+                            if ($res3 == true) {
+                                while ($row3 = mysqli_fetch_assoc($res3)) {
+                            ?>
+                                    <div class="subject-folder text-center">
+                                        <a href="view-subject-admin.php?idMH=<?php echo $row3['idMH'] ?>"> <i class="subject-icon far fa-folder"></i>
+                                            <h6 class="subject-name"><?php echo $row3['nameMH'] ?></h6>
+                                        </a>
+                                    </div>
+                            <?php
                                 }
-                                ?>
-                            </tbody>
-                        </table>
+                            }
+                            ?>
+                        </div>
+                        <?php
+                        ?>
                     </div>
                 </div>
             </div>
