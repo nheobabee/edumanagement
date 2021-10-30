@@ -74,7 +74,7 @@ if (isset($_GET['idBTVN'], $_GET['idMH'])) {
                         <div class="container">
                             <br>
                             <a href="./add-exercise-admin.php?idMH=<?php echo $idMH; ?>"><button type="button" class="btn btn-success text-white me-2"><i class="fas fa-plus"></i>ADD EXCERCISE</button></a>
-                            <br><br>
+                            <br><br><br>
                             <div class="tittle-mh">
                                 <h2><?php echo $nameMH ?></h2>
                             </div>

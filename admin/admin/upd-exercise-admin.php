@@ -103,7 +103,7 @@ if (isset($_GET['idBTVN'],$_GET['idMH'] )) {
                                  ";
                                 $res3 = mysqli_query($conn, $sql3);
                                 if ($res3 == true) {
-                                    header("Location:http://localhost/edumanagement/admin/exercise-subject-admin.php?idMH=" . $idMH);
+                                    header("Location:http://localhost/edumanagement/admin/admin/exercise-subject-admin.php?idMH=" . $idMH);
                                 } else {
                                     echo $sql3;
                                 }

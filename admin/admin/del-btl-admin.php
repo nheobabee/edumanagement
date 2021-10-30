@@ -13,7 +13,7 @@
         $res = mysqli_query($conn, $sql);
        
         if($res == true){
-            header("Location:http:subject.php");
+            header("Location:http://localhost/edumanagement/admin/admin/btl.php?idMH=".$idMH);
             $_SESSION['successDel'] = "<div class='success'>Xóa thành công!</div>";
         }
         else{

@@ -77,7 +77,7 @@ echo $nameMH;
 
                                 $nameBTL = $_POST['nameBTL'];
                                 $formatBTL = $_POST['formatBTL'];
-                                // $openedBTL = $_POST['openedBTL'];
+                                
                                 $deadlineBTL = $_POST['deadlineBTL'];
                                 $idMH = $_POST['idMH'];
                                 $note = $_POST['notebtl'];
@@ -87,7 +87,7 @@ echo $nameMH;
                                 VALUES (' $nameBTL','$formatBTL','$deadlineBTL',' $idMH ','$note')";
                                 $res = mysqli_query($conn, $sql);
                                 if ($res == true) {
-                                    header('location: subject.php');
+                                    header("location:http://localhost/edumanagement/admin/admin/btl.php?idMH= ".$idMH);
                                 } else {
                                     echo $sql;
                                 }
