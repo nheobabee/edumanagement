@@ -18,9 +18,6 @@ if (!isset($_SESSION['teacher'])) {
                 <h2>ADMIN</h2>
             </li>
             <li>
-                <a href="index.php"><i class="fas fa-chart-line"></i> Dashboard</a>
-            </li>
-            <li>
                 <a href="teacher.php"><i class="fas fa-chalkboard-teacher"></i> Teacher</a>
             </li>
             <li>

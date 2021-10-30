@@ -20,10 +20,7 @@ session_start();
         <ul class="sidebar-nav">
         <li class="sidebar-brand">
                 <h2>ADMIN</h2>
-            </li>
-            <li>
-                <a href="index.php"><i class="fas fa-chart-line"></i> Dashboard</a>
-            </li>
+            </li>        
             <li>
                 <a href="teacher.php"><i class="fas fa-chalkboard-teacher"></i> Teacher</a>
             </li>
@@ -35,9 +32,7 @@ session_start();
             </li>
             <li>
                 <a href="teach.php"><i class="fas fa-school"></i> Teach</a>
-            </li>
-           
-
+            </li>          
             <li>
                 <a href="result-admin.php"><i class="fas fa-poll"></i> Result</a>
             </li>

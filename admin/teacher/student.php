@@ -19,8 +19,7 @@ session_start();
         <ul class="sidebar-nav">
         <li class="sidebar-brand">
                 <h2>STUDENT</h2>
-            </li>
-           
+            </li>        
             <li>
                 <a href="teacher.php"><i class="fas fa-chalkboard-teacher"></i> Teacher</a>
             </li>

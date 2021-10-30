@@ -32,8 +32,6 @@ if (!isset($_SESSION['teacher'])) {
             <li>
                 <a href="teach.php"><i class="fas fa-school"></i> Teach</a>
             </li>
-
-
             <li>
                 <a href="result-admin.php"><i class="fas fa-poll"></i> Result</a>
             </li>

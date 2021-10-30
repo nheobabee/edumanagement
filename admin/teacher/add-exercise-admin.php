@@ -75,25 +75,30 @@ if (isset($_GET['idMH'])) {
 
 
                             <?php
-                            if (isset($_POST['add'])) {
+                            if(isset($_POST['add'])){
                                 $idMH = $_POST['idMH'];
-                                $nameBTVN = $_POST['nameBTVN'];
-                                $formatBTVN = $_POST['formatBTVN'];
+                                $namebtvn = $_POST['nameBTVN'];
+                                $formatbtvn = $_POST['formatBTVN'];
                                 $deadlineBTVN = $_POST['deadlineBTVN'];
+                                $note = $_POST['note'];
                                 $fileName = $_FILES['file']['name'];
                                 $fileTmpName = $_FILES['file']['tmp_name'];
-                                $path = "uploads/" . $fileName;
-                                $note = $_POST['note'];
-
-                                $sql2 = "INSERT INTO `btvn`( `nameBTVN`, `formatBTVN`,  `deadlineBTVN`, `note`, `filename`, `idMH`)
-                                 VALUES ('$nameBTVN ','$formatBTVN','$deadlineBTVN','$note ','$fileName',' $idMH')";
-                                $res2 = mysqli_query($conn, $sql2);
-                                if ($res2 == true) {
-                                    header('location: http://localhost/edumanagement/admin/exercise-subject-admin.php?idMH=' . $idMH);
-                                } else {
-                                    echo $sql2;
+                                $path = "uploads/".$fileName;
+                                
+                                $query = "INSERT INTO `btvn`(`nameBTVN`, `formatBTVN`,`deadlineBTVN`, `note`, `filename`, `idMH`) 
+                                VALUES (' $namebtvn','$formatbtvn','$deadlineBTVN','$note','$fileName','$idMH')";
+                                $run = mysqli_query($conn,$query);
+                                
+                                if($run){
+                                    move_uploaded_file($fileTmpName,$path);
+                                    echo "success";
                                 }
+                                else{
+                                    echo $query;
+                                }
+                                
                             }
+                            
                             ?>
                             <span style="font-weight:500">Subject: <?php echo $nameMH ?><span>
                                     <div class="form-group">
