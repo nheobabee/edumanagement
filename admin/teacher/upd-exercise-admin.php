@@ -1,16 +1,15 @@
 <title>UPDATE EXERCISE</title>
-<?php include('../../config/config.php'); 
-        session_start();
-        if(!isset($_SESSION['teacher']))
-        {
-            header('location:../../login/index.php');
-        }
+<?php include('../../config/config.php');
+session_start();
+if (!isset($_SESSION['teacher'])) {
+    header('location:../../login/index.php');
+}
 ?>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <link rel="stylesheet" href="../../css/add-exercise-admin.css">
 <?php
-if (isset($_GET['idBTVN'],$_GET['idMH'] )) {
+if (isset($_GET['idBTVN'], $_GET['idMH'])) {
     $idBTVN = $_GET['idBTVN'];
     $idMH = $_GET['idMH'];
     $sql1 = "SELECT * FROM btvn where idBTVN = $idBTVN and idMH = $idMH";
@@ -20,6 +19,7 @@ if (isset($_GET['idBTVN'],$_GET['idMH'] )) {
     $nameBTVN = $row1['nameBTVN'];
     $formatBTVN1 = $row1['formatBTVN'];
     $deadlineBTVN = $row1['deadlineBTVN'];
+    $fileName_q = $row1['filename'];
     $note = $row1['note'];
 
 
@@ -84,18 +84,22 @@ if (isset($_GET['idBTVN'],$_GET['idMH'] )) {
                         <form method="post">
                             <?php
                             if (isset($_POST['add'])) {
-                               
+
                                 $nameBTVN = $_POST['nameBTVN'];
                                 $formatBTVN = $_POST['formatBTVN'];
                                 $deadlineBTVN = $_POST['deadlineBTVN'];
+                                $fileName = $_FILES['file']['name'];
+                                $fileTmpName = $_FILES['file']['tmp_name'];
+                                $path = "uploads/".$fileName;
                                 $note = $_POST['note'];
 
-                                $sql3 = "UPDATE btvn SET
-                                nameBTVN = '$nameBTVN',
-                                formatBTVN = '$formatBTVN',
-                                deadlineBTVN = '$deadlineBTVN',
-                                note = '$note'
-                                where idBTVN = '$idBTVN'
+                                $sql3 = "UPDATE `btvn` SET `nameBTVN`='$nameBTVN',
+                                `formatBTVN`=' $formatBTVN',
+                                `deadlineBTVN`=' $deadlineBTVN',
+                                `note`='[$note]',
+                                `filename`='$fileName'
+                                
+                                WHERE idBTVN = '$idBTVN'
                                  ";
                                 $res3 = mysqli_query($conn, $sql3);
                                 if ($res3 == true) {
@@ -106,48 +110,55 @@ if (isset($_GET['idBTVN'],$_GET['idMH'] )) {
                             }
                             ?>
                             <span style="font-weight:500">Subject: <?php echo $nameMH ?><span>
-                            <div class="form-group">
-                                <label class="idBTVN" for="idMH">ID Exercise : </label>
-                                <input type="text" class="form-control" id="idBTVN" readonly value="<?php echo $idBTVN ?>" name="idBTVN">
-                            </div>
-                            <div class="form-group">
-                                <label for="nameBTVN">Name Homework:</label>
-                                <input type="text" class="form-control" id="nameBTVN" placeholder="Enter name" name="nameBTVN" value="<?php echo $nameBTVN ?>">
-                            </div>
-                            <div class="form-group">
-                                <label for="formatBTVN">Format:</label>
-                                <div class="format_btvn">
-                                    <select id="formatBTVN" name="formatBTVN">
-                                        <?php
-                                        ?>
-                                            <option <?php if($formatBTVN1 == 'Trắc nghiệm'){echo 'selected';}?> value="Trắc nghiệm">Trắc nghiệm</option>
-                                            <option <?php if($formatBTVN1 == 'Tự luận'){echo 'selected';}?> value="Tự luận">Tự luận</option>
-                                        <?php
-                                        ?>
+                                    <div class="form-group">
+                                        <label class="idBTVN" for="idMH">ID Exercise : </label>
+                                        <input type="text" class="form-control" id="idBTVN" readonly value="<?php echo $idBTVN ?>" name="idBTVN">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="nameBTVN">Name Homework:</label>
+                                        <input type="text" class="form-control" id="nameBTVN" placeholder="Enter name" name="nameBTVN" value="<?php echo $nameBTVN ?>">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="formatBTVN">Format:</label>
+                                        <div class="format_btvn">
+                                            <select id="formatBTVN" name="formatBTVN">
+                                                <?php
+                                                ?>
+                                                <option <?php if ($formatBTVN1 == 'Trắc nghiệm') {
+                                                            echo 'selected';
+                                                        } ?> value="Trắc nghiệm">Trắc nghiệm</option>
+                                                <option <?php if ($formatBTVN1 == 'Tự luận') {
+                                                            echo 'selected';
+                                                        } ?> value="Tự luận">Tự luận</option>
+                                                <?php
+                                                ?>
 
-                                    </select>
-                                </div>
-                            </div>
-                            <!-- <div class="form-group">
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <!-- <div class="form-group">
                                 <label for="openedBTVN">Opened:</label>
                                 <input type="date" class="form-control" id="openedBTVN" placeholder="Enter opened" name="openedBTVN">
                             </div> -->
 
 
-                            
-                            <div class="form-group">
-                                <label for="deadlineBTVN">Deadline:</label>
-                                <div class="deadline-BTVN">
-                                <input type="datetime-local" name="deadlineBTVN" id="deadlineBTVN" value="<?php echo $date = date("Y-m-d\TH:i:s", strtotime($deadlineBTVN));?>">
-                                </div>
 
-                            </div>
-                            <div class="form-group">
-                                <label for="note">Note:</label>
-                                <input type="text" class="form-control" id="note" placeholder="Enter note" name="note" value="<?php echo $note ?>">
-                            </div>
-                            <br>
-                            <button name="add" type="submit" class="btn btn-success">UPDATE</button>
+                                    <div class="form-group">
+                                        <label for="deadlineBTVN">Deadline:</label>
+                                        <div class="deadline-BTVN">
+                                            <input type="datetime-local" name="deadlineBTVN" id="deadlineBTVN" value="<?php echo $date = date("Y-m-d\TH:i:s", strtotime($deadlineBTVN)); ?>">
+                                        </div>
+                                        <label for="empEmail" class="col-sm-3 col-form-label">Đề bài</label>
+                                        <div class="col-sm-5">
+                                            <input type="file" class="form-control" id="file" name="file" value="<?php echo $fileName_q ?>">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="note">Note:</label>
+                                        <input type="text" class="form-control" id="note" placeholder="Enter note" name="note" value="<?php echo $note ?>">
+                                    </div>
+                                    <br>
+                                    <button name="add" type="submit" class="btn btn-success">UPDATE</button>
                         </form>
                     </div>
                 </div>

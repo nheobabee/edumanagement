@@ -70,7 +70,6 @@ if (isset($_GET['idBTVN'], $_GET['idMH'])) {
 
                         <div class="container">
                             <br>
-                            <a href="./add-exercise-admin.php?idMH=<?php echo $idMH; ?>"><button type="button" class="btn btn-success text-white me-2"><i class="fas fa-plus"></i>ADD EXCERCISE</button></a>
                             <br><br>
                             <div class="tittle-mh">
                                 <h2><?php echo $nameMH ?></h2>
@@ -101,14 +100,14 @@ if (isset($_GET['idBTVN'], $_GET['idMH'])) {
                                             <p style="border-bottom: 1px solid;"><span style="font-weight: 500;">Deadline: </span><?php echo $row3['deadlineBTVN'] ?></p>
                                             <p class="note"><?php echo $row3['note'] ?></p>
                                             <div class="form-tn">
-                                                <a href="./question.php?idMH=<?php echo $idMH ?>"><button type="button" class="btn btn-info text-white me-2"><i class="fas fa-upload"></i> Trắc nghiệm</button></a>
+                                               
                                             </div>
 
                                             <div class="mb-3">
                                                 <label for="exampleFormControlTextarea1" class="form-label"></label>
                                                 <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                                             </div>
-                                            <a href="./exercise-subject-admin.php?idMH=<?php echo $idMH ?>"><button type="button" class="btn btn-success text-white me-2"><i class="fas fa-upload"></i> SEND</button></a>
+                                            <a href="#"><button type="button" class="btn btn-success text-white me-2"><i class="fas fa-upload"></i> SEND</button></a>
                                         </div>
                                     </div>
                                 </div>
