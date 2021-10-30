@@ -12,7 +12,7 @@ session_start() ?>
 	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
 	<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+	
 	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
 	<!--===============================================================================================-->
@@ -23,19 +23,22 @@ session_start() ?>
 	<link rel="stylesheet" type="text/css" href="css/util.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<!--===============================================================================================-->
+	<link rel="stylesheet" href="css.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
-<body>
-
-
-	<div class="limiter">
+<body">
+<div style="padding:5px 0 0 5px" class="bt">
+<button class="btn btn-secondary"onClick="Show()" id="mytext"><i class="fas fa-bars"></i></button>
+</div>
+	<div id="myform" class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
 				<div class="login100-pic js-tilt" data-tilt>
 					<img src="images/img-01.png" alt="IMG">
 				</div>
-
-				<form class="login100-form validate-form" method="POST">
+					
+				<form  class="login100-form validate-form" method="POST">
 					<span class="login100-form-title">
 						Member Login
 					</span>
@@ -114,7 +117,7 @@ session_start() ?>
 					//teacher
 					$tc = ($row['user_level']==1) ;
 					$_SESSION['teacher']= $tc;
-					header('location:../admin/teacher/index.php');
+					header('location:../admin/teacher/teacher.php');
 				}
 				 if($row['user_level']==2)
 				{
@@ -151,7 +154,7 @@ session_start() ?>
 	</script>
 	<!--===============================================================================================-->
 	<script src="js/main.js"></script>
-
+	<script src="./js/js.js"></script>
 </body>
 
 </html>
