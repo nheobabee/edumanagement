@@ -87,7 +87,7 @@ if (isset($_GET['idBTL'], $_GET['idMH'])) {
                                             <label for="empEmail" class="col-sm-3 col-form-label">Đề bài:</label>
                                             <div class="form-group">
                                                 <h6><?php echo $row3['filenamebtl'] ?></h6>
-                                                <a href="download-btl.php?file=<?php echo $row3['filenamebtl'] ?>"> <button class="btn btn-success text-white me-2"><i class="fas fa-download"></i>Tải đề</button></a>
+                                                <a href="download-exercise.php?file=<?php echo $row3['filenamebtl'] ?>"> <button class="btn btn-success text-white me-2"><i class="fas fa-download"></i>Tải đề</button></a>
                                                 <a href="./dk-btl-admin.php?idBTL=<?php echo $row3['idBTL']; ?>"><button type="button" class="btn btn-success text-white me-4 col-3"><i class="fas fa-edit"></i> Đăng kí</button></a>
                                                 <a href="./dsnhom-btl-admin.php?idBTL=<?php echo $row3['idBTL']; ?>"><button type="button" class="btn btn-info text-white me-4 col-3"><i class="far fa-eye"></i>Danh sách nhóm</button></a>
                                             </div>

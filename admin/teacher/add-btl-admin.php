@@ -83,7 +83,7 @@ if (isset($_GET['idMH'])) {
                                 $note = $_POST['notebtl'];
                                 $fileName = $_FILES['file']['name'];
                                 $fileTmpName = $_FILES['file']['tmp_name'];
-                                $path = "uploadsbtl/".$fileName;
+                                $path = "uploads/".$fileName;
 
                                 $sql = "INSERT INTO `btl`( `nameBTL`, `formatBTL`, `deadlineBTL`, `notebtl`, `filenamebtl`, `idMH`)
                                 VALUES (' $nameBTL','$formatBTL','$deadlineBTL','$note','$fileName', '$idMH')";
