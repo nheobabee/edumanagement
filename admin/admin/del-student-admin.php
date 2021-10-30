@@ -7,9 +7,9 @@
         }
 ?>
 <?php
-    if(isset($_GET['idSV'])){
-        $idSV = $_GET['idSV'];
-        $sql = "DELETE FROM sinhvien WHERE idSV = '$idSV'";
+    if(isset($_GET['user_id'])){
+        $user_id = $_GET['user_id'];
+        $sql = "DELETE FROM users WHERE user_id = '$user_id'";
         $res = mysqli_query($conn, $sql);
         if($res == true){
             header('location: student.php');

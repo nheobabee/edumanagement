@@ -33,7 +33,7 @@ if (!isset($_SESSION['loginok'])) {
                 <a href="subject.php"><i class="fas fa-book"></i> Subject</a>
             </li>
             <li>
-                <a href="teach.php"><i class="fas fa-school"></i> Teach</a>
+                <a href="learn-teach-admin.php"><i class="fas fa-school"></i> Teach</a>
             </li>
 
 
@@ -63,6 +63,8 @@ if (!isset($_SESSION['loginok'])) {
                         </div>
                     </nav>
                     <div class="container">
+                        <br>
+                        <h1>LIST TEACHER</h1>
                         <br>
                         <a href="./add-teacher.php"><button class="btn btn-success"> ADD TEACHER</button></a>
                         <?php

@@ -34,7 +34,7 @@ session_start();
                 <a href="subject.php"><i class="fas fa-book"></i> Subject</a>
             </li>
             <li>
-                <a href="teach.php"><i class="fas fa-school"></i> Teach</a>
+                <a href="learn-teach-admin.php"><i class="fas fa-school"></i> Teach</a>
             </li>
        
             <li>
@@ -64,7 +64,8 @@ session_start();
                     </nav>
                     <div class="container">
                         <br>
-                       
+                        <h1>LIST STUDENT</h1>
+                       <br>
                         <?php
                             if(isset($_SESSION['errorDel'])){
                                 echo $_SESSION['errorDel'];
@@ -75,7 +76,7 @@ session_start();
                                 unset($_SESSION['successDel']);
                             }
                         ?>
-                        <br><br>
+                        
                         <table class="table">
                             <thead>
                                 <tr>
@@ -118,7 +119,7 @@ session_start();
                                            
 
                                             <td>
-                                                <a href="./del-teacher-admin.php?user_id=<?php echo $row['user_id']; ?>"><button type="button" class="btn btn-danger text-white me-2"><i class="fas fa-user-minus"></i></button></a>
+                                                <a href="./del-student-admin.php?user_id=<?php echo $row['user_id']; ?>"><button type="button" class="btn btn-danger text-white me-2"><i class="fas fa-user-minus"></i></button></a>
                                             </td>
                                         </tr>
                                 <?php

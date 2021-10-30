@@ -40,7 +40,7 @@ if (isset($_GET['idMH'])) {
                 <a href="subject.php"><i class="fas fa-book"></i> Subject</a>
             </li>
             <li>
-                <a href="teach.php"><i class="fas fa-school"></i> Teach</a>
+                <a href="learn-teach-admin.php"><i class="fas fa-school"></i> Teach</a>
             </li>
 
             <li>
@@ -73,8 +73,9 @@ if (isset($_GET['idMH'])) {
 
                         <div class="container">
                             <br>
-                        <a href="./add-btl-admin.php?idMH=<?php echo $idMH; ?>"><button class="btn btn-success"> ADD BTL</button></a>
-                        <br><br>
+                            <a href="http://localhost/edumanagement/admin/admin/view-subject-admin.php?idMH=<?php echo $idMH ?>"><button style="padding:1% 2%;" type="button" class="btn btn-secondary text-white me-2"><i class="fas fa-undo-alt"></i></button></a>
+                            <br><br>
+                
                            
                             <div class="tittle-mh">
                                 <h2><?php echo $row1['nameMH'] ?></h2>
@@ -98,9 +99,7 @@ if (isset($_GET['idMH'])) {
                                             
                                                   </div>
                                                   <div class="service col-md-5">
-                                                        <a href="./del-btl-admin.php?idBTL=<?php echo $row3['idBTL']; ?>&&idMH=<?php echo $row3['idMH']; ?>"><button type="button" class="btn btn-danger text-white me-2"><i class="far fa-eye"></i> DELETE</button></a>
-                                                        <a href="./upd-btl-admin.php?idBTL=<?php echo $row3['idBTL']; ?>&&idMH=<?php echo $row3['idMH']; ?>"><button type="button" class="btn btn-primary text-white me-2"><i class="far fa-eye"></i> UPDATE</button></a>
-                                                        <a href="./view-btl-admin.php?idBTL=<?php echo $row3['idBTL']; ?>&&idMH=<?php echo $row3['idMH']; ?>"><button type="button" class="btn btn-info text-white me-2"><i class="far fa-eye"></i> VIEW</button></a>
+                                                       <a href="./dsnhom-btl-admin.php?idBTL=<?php echo $row3['idBTL']; ?>&&idMH=<?php echo $row3['idMH']; ?>"><button type="button" class="btn btn-info text-white me-2"><i class="far fa-eye"></i> VIEW</button></a>
                                                   </div>
                                             </div>
                                         </div>

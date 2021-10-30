@@ -64,44 +64,48 @@ if (!isset($_SESSION['loginok'])) {
                     </nav>
                     <div class="container">
                         <br>
-                        <a  href="./result-admin.php"><button style="padding:1% 2%;" type="button" class="btn btn-secondary text-white me-2"><i class="fas fa-undo-alt"></i></button></a>
+                        <a  href="./add-teach-admin.php"><button  type="button" class="btn btn-success text-white me-2"><i class="fas fa-plus"></i> ADD</button></a>
+                        <br>
+                          
+                        <br>
+                        <a  href="./learn-teach-admin.php"><button style="padding:1% 2%;" type="button" class="btn btn-secondary text-white me-2"><i class="fas fa-undo-alt"></i></button></a>
                           
                         <br><br>
                     <table class="table">
                             <thead>
                                 <tr>
                                     <th scope="col">STT</th>
-                                    <th scope="col">Tên SV</th></th>
-                                    <th scope="col">Tên BTVN</th>
-                                    <th scope="col">Điểm</th>
-                                    <th scope="col">Nhận xét</th>
+                                    <th scope="col">Tên GV</th></th>
+                                    <th scope="col">Tên Môn học</th>
+                                    <th scope="col">Cập nhật</th>
+                                    <th scope="col">Xóa</th>
 
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php
-                                $sql = "SELECT * from ketquabtvn";
+                                $sql = "SELECT * from relationship where note = 1";
                                 $res = mysqli_query($conn, $sql);
                                 $sn = 1;
                                 if ($res == true) {
                                     while ($row = mysqli_fetch_assoc($res)) {
-                                        $idBTVN = $row['idBTVN'];
-                                        $sql3 = "SELECT * FROM btvn WHERE idBTVN = '$idBTVN'";
+                                        $user_id = $row['user_id'];
+                                        $idMH = $row['idMH'];
+
+                                        $sql3 = "SELECT * FROM users WHERE user_id = '$user_id'";
                                         $res3 = mysqli_query($conn, $sql3);
                                         $row3 = mysqli_fetch_assoc($res3);
 
-                                        $user_id = $row['user_id'];
-                                        $sql2 = "SELECT * FROM users WHERE user_id = '$user_id'";
+                                       
+                                        $sql2 = "SELECT * FROM monhoc WHERE idMH = '$idMH'";
                                         $res2 = mysqli_query($conn, $sql2);
                                         $row2 = mysqli_fetch_assoc($res2);
                                         
                                 ?>
                                         <tr>
                                             <td><?php echo $sn++ ?></td>
-                                            <td><?php echo $row2['user_name']; ?></td>
-                                            <td><?php echo $row3['nameBTVN']; ?></td>
-                                            <td><?php echo $row['markBTVN']; ?></td>
-                                            <td><?php echo $row['cmtBTVN']; ?></td>
+                                            <td><?php echo $row3['user_name']; ?></td>
+                                            <td><?php echo $row2['nameMH']; ?></td>
                                             
                                         </tr>
                                 <?php

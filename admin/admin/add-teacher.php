@@ -30,7 +30,7 @@ if (!isset($_SESSION['loginok'])) {
                 <a href="subject.php"><i class="fas fa-book"></i> Subject</a>
             </li>
             <li>
-                <a href="teach.php"><i class="fas fa-school"></i> Teach</a>
+                <a href="learn-teach-admin.php"><i class="fas fa-school"></i> Teach</a>
             </li>
 
 
@@ -61,12 +61,12 @@ if (!isset($_SESSION['loginok'])) {
                     </nav>
                     <div class="container">
                         <h2>ADD TEACHER</h2>
-                        <form method="post">
+                        <form class="form-add" method="post">
                             <?php
-                            
 
-                            if (isset($_POST['add'])) {     
-                                $userid =  $_POST['user_id'];                    
+
+                            if (isset($_POST['add'])) {
+                                $userid =  $_POST['user_id'];
                                 $userlevel = $_POST['user_level'];
                                 // Bước 2 câu lệnh truy vấn
                                 $sql1 = "UPDATE `users` SET 
@@ -77,7 +77,7 @@ if (!isset($_SESSION['loginok'])) {
 
                                 if ($result1 > 0) {
                                     echo "Bản ghi đã được lưu";
-                                    header('Location: index.php');
+                                    header('Location: teacher.php');
                                     die();
                                 } else {
                                     echo "Lỗi";
@@ -87,11 +87,11 @@ if (!isset($_SESSION['loginok'])) {
                             ?>
                             <?php
                             // lấy giá trị user cần sửa 
-                          
-                            
+
+
                             ?>
                             <div class="form-group ">
-                                <label for="idMH" class="col-sm-2 col-form-label">Tên người dùng:</label>
+                                <label style="display: inline" for="idMH" class="col-sm-2 col-form-label">Tên người dùng:</label>
                                 <div class="col-sm-10">
                                     <select name="user_id">
                                         <?php
@@ -105,13 +105,13 @@ if (!isset($_SESSION['loginok'])) {
                                         ?>
                                     </select>
                                 </div>
-                                <div class="form-group">
-                                    <label for="`user_level">Chức vụ:</label>
-                                    <input type="text" class="form-control" id="user_level" placeholder="Enter chức vụ" name="user_level">
-                                </div>
-                               
-                                <br>
-                                <button name="add" type="submit" class="btn btn-success">ADD</button>
+                            </div>
+                            <div class="form-group">
+                                <label style="margin:3px 0" for="`user_level">Chức vụ: Giáo viên</label>
+                                <input hidden type="text" class="form-control" id="user_level" placeholder="Enter chức vụ" name="user_level" value="1">
+                            </div>
+                            <br>
+                            <button name="add" type="submit" class="btn btn-success">ADD</button>
                         </form>
                     </div>
                 </div>

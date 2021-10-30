@@ -31,7 +31,7 @@
                 <a href="subject.php"><i class="fas fa-book"></i> Subject</a>
             </li>
             <li>
-                <a href="teach.php"><i class="fas fa-school"></i> Teach</a>
+                <a href="learn-teach-admin.php"><i class="fas fa-school"></i> Teach</a>
             </li>
         
             <li>
@@ -65,7 +65,7 @@
                         <div class="container">
 
                             <div class="header-page">
-                                <h1 class="page-title">Dashboard</h1>
+                                <h1 class="page-title">DASHBOARD</h1>
                                 <!--  -->
                             <?php
                             if(isset($_SESSION['display-username']))
