@@ -87,6 +87,20 @@ if (isset($_GET['idBTVN'], $_GET['idMH'])) {
                             ?>
                             <div class="title-btvn">
 
+                            <div class="name-btvn row">
+
+                                    <div class="content-btvn col">
+                                        <h6><?php echo $row3['nameBTVN'] ?></h6>
+                                       
+                                        <div class="form-group">
+                                            <label for="empEmail" class="col-sm-3 col-form-label">Đề bài</label>
+                                            <div class="col-sm-3">
+                                                <input type="file" class="form-control" id="user_avatar" name="user_avatar">
+                                            </div>
+                                        </div>
+                                     
+                                    </div>
+                                </div>
                                 <div class="name-btvn row">
 
                                     <div class="content-btvn col">
@@ -94,9 +108,10 @@ if (isset($_GET['idBTVN'], $_GET['idMH'])) {
                                         <p><span style="font-weight: 500;">Opened: </span><?php echo $row3['openedBTVN'] ?></p>
                                         <p style="border-bottom: 1px solid;"><span style="font-weight: 500;">Deadline: </span><?php echo $row3['deadlineBTVN'] ?></p>
                                         <p class="note"><?php echo $row3['note'] ?></p>
-                                       <div class="form-tn">
-                                       <a href="./question.php?idMH=<?php echo $idMH ?>"><button type="button" class="btn btn-info text-white me-2"><i class="fas fa-upload"></i> Trắc nghiệm</button></a>
-                                       </div>
+                                        <div class="form-tn">
+                                            <a href="./question.php?idMH=<?php echo $idMH ?>"><button type="button" class="btn btn-info text-white me-2"><i class="fas fa-upload"></i> Trắc nghiệm</button></a>
+                                        </div>
+                                       
                                         <div class="mb-3">
                                             <label for="exampleFormControlTextarea1" class="form-label"></label>
                                             <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>

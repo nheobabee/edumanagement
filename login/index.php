@@ -114,7 +114,7 @@ session_start() ?>
 					//teacher
 					$tc = ($row['user_level']==1) ;
 					$_SESSION['teacher']= $tc;
-					header('location:../admin/teacher/index.php');
+					header('location:../admin/teacher/teacher.php');
 				}
 				 if($row['user_level']==2)
 				{

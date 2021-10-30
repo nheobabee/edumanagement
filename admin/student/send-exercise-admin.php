@@ -75,7 +75,7 @@ if (isset($_GET['idBTVN'], $_GET['idMH'])) {
                             ?>
                             <div class="title-btvn">
 
-                                <div class="name-btvn ">
+                                <div class="name-btvn row">
 
                                     <div class="content-btvn col">
                                         <h6><?php echo $row3['nameBTVN'] ?></h6>
@@ -85,7 +85,21 @@ if (isset($_GET['idBTVN'], $_GET['idMH'])) {
                                         <div class="form-tn">
                                             <a href="send-exercise-admin.php"><button type="button" class="btn btn-info text-white me-2"><i class="fas fa-upload"></i> Đề bài</button></a>
                                         </div>
-                                     
+                                        <form method="post" class="mb-3">
+                                            <label for="exampleFormControlTextarea1" class="form-label"></label>
+                                            <textarea name="fileBTVN" class="form-control" rows="3"></textarea>
+                                        </form>
+                                        <div class="form-group">
+                                            <label for="empEmail" class="col-sm-2 col-form-label">Avatar</label>
+                                            <div class="col-sm-10">
+                                                <input type="file" class="form-control" id="user_avatar" name="user_avatar">
+                                            </div>
+                                        </div>
+                                        <a href=""><button name="submit" type="submit" class="btn btn-success text-white me-2"><i class="fas fa-upload"></i> SEND</button></a>
+                                        <?php
+                                        if (isset($_POST['submit'])) {
+                                        }
+                                        ?>
                                     </div>
                                 </div>
                             </div>
