@@ -62,46 +62,7 @@ if (!isset($_SESSION['loginok'])) {
                     <?php
                     $userid = $_SESSION['user_id'];
 
-                    if (isset($_POST['btn-luu'])) {
-                        $username = $_POST['user_name'];
-                        $useravatar = $_FILES['user_avatar']['name'];
-                        $usergioitinh = $_POST['user_gioitinh'];
-                        $userbirthday = $_POST['user_birthday'];
-                        $userphone = $_POST['user_phone'];
-                        $useremail = $_POST['user_email'];
-                        if ($useravatar != null) {
-                            $path = "./img/";
-                            $tmp_name = $_FILES['user_avatar']['tmp_name'];
-                            move_uploaded_file($tmp_name, $path . $useravatar);
-                        }
-                        
-                        // Bước 2 câu lệnh truy vấn
-                        $sql1 = "UPDATE `users` SET 
-                        `user_name`='$username',
-                        -- `user_avatar`='$useravatar',
-                        `user_gioitinh`='$usergioitinh',
-                        `user_birthday`='$userbirthday',
-                        `user_phone`='$userphone',
-                        `user_email`='$useremail'
-                        WHERE `user_id`='$userid'";
-                        
-                        $result1 = mysqli_query($conn, $sql1);
-                        if($useravatar!='')
-                        {
-                            $sql_img = "UPDATE `users` SET 
-                             `user_avatar`='$useravatar'
-                            WHERE `user_id`='$userid'";
-                            $rs_img = mysqli_query($conn,$sql_img);
-                        }
-
-                        if ($result1 > 0) {
-                            echo "Bản ghi đã được lưu";
-                            header('Location: index.php');
-                            die();
-                        } else {
-                            echo "Lỗi";
-                        }
-                    }
+                    
                    
                     ?>
                     <?php
@@ -122,7 +83,7 @@ if (!isset($_SESSION['loginok'])) {
                             $useremail_q = $row['user_email'];
                         }
                     }
-                     echo $row['user_avatar'];
+                    
                     ?>
                        
                     <div class="main-content">
@@ -133,21 +94,10 @@ if (!isset($_SESSION['loginok'])) {
                                 <div class="row">
                                     <div class="col-md-4 border-right">
                                         <div class="d-flex flex-column align-items-center text-center p-3 py-5">
-                                            <img id="phongto" class="rounded-circle mt-5" 
-                                            <?php
-                                            if(isset($_POST['user_avatar']))
-                                            {
-                                               echo "src='./img/$useravatar' alt=''"; 
-                                            } else 
-                                            {
-                                                echo "src='./img/$useravatar_q' alt=''"; 
-                                            }
-                                            ?>
-                                            
-                                            style="width :100px ;height :100px ;">
+                                            <img id="phongto" class="rounded-circle mt-5" src="./img/<?php echo $row['user_avatar']?>" style="width :100px ;height :100px ;">
                                             <span class="font-weight-bold"></span>
                                             <span class="text-black-50"></span><br>
-                                            <span><label for="image" class="btn btn-secondary">Tải ảnh đại diện</label><input id="image" type="file" name="user_avatar" style="display:none;"></span>
+                                            <span><label for="image" class="btn btn-secondary"> Ảnh đại diện</label><input disabled id="image" type="file" name="user_avatar" style="display:none;"></span>
                                         </div>
                                     </div>
                                     <div class="col-md-7 border-right">
@@ -157,16 +107,16 @@ if (!isset($_SESSION['loginok'])) {
                                             </div>
                                             <div class="row mt-6">
                                                 <div class="col-md-6"><label class="labels"> Full Name</label>
-                                                    <input name="user_name" type="text" class="form-control" placeholder="Full Name" value="<?php echo $username_q; ?>">
+                                                    <input disabled name="user_name" type="text" class="form-control" placeholder="Full Name" value="<?php echo $username_q; ?>">
                                                 </div>
                                                 <br>
                                                 <div class="col-md-6"> <label class="labels">Giới tính</label>
                                                     <div class="form-control">
-                                                        <input <?php if ($usergioitinh_q == 1) {
+                                                        <input disabled <?php if ($usergioitinh_q == 1) {
                                                                     echo "checked";
                                                                 } ?> type="radio" name="user_gioitinh" value="1">
                                                         <label>Nam</label>
-                                                        <input <?php if ($usergioitinh_q == 0) {
+                                                        <input disabled <?php if ($usergioitinh_q == 0) {
                                                                     echo "checked";
                                                                 } ?> type="radio" name="user_gioitinh" value="0">
                                                         <label>Nữ</label>
@@ -174,23 +124,23 @@ if (!isset($_SESSION['loginok'])) {
                                                 </div>
                                             </div>
                                             <div class="col-md-6"> <label class="labels"> Birthday</label>
-                                                <input class="form-control" type="date" id="user_birthday" name="user_birthday" value="<?php echo $date = date("Y-m-d", strtotime($userbirthday_q)); ?>">
+                                                <input disabled class="form-control" type="date" id="user_birthday" name="user_birthday" value="<?php echo $date = date("Y-m-d", strtotime($userbirthday_q)); ?>">
                                             </div>
 
                                         </div>
                                         <div class="row mt-3">
                                             <div class="col-md-12"><label class="labels">Số điện thoại</label>
-                                                <input name="user_phone" type="text" class="form-control" placeholder="Nhập SDT" value="<?php echo $userphone_q; ?>">
+                                                <input disabled name="user_phone" type="text" class="form-control" placeholder="Nhập SDT" value="<?php echo $userphone_q; ?>">
                                             </div>
 
                                             <div class="col-md-12"><label class="labels">Email</label>
-                                                <input name="user_email" type="email" class="form-control" placeholder="nhập email" value="<?php echo $useremail_q; ?>">
+                                                <input disabled name="user_email" type="email" class="form-control" placeholder="nhập email" value="<?php echo $useremail_q; ?>">
                                             </div>
                                         </div>
                                         <div class="mt-5 text-center">
-                                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                                Lưu
-                                            </button>
+                                            <a href="./myprofile.php"><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                                Sửa thông tin 
+                                            </button></a>
                                             <!-- Modal -->
                                             <div class="modal fade " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                 <div class="modal-dialog modal-dialog-centered ">
@@ -240,6 +190,9 @@ if (!isset($_SESSION['loginok'])) {
         e.preventDefault();
         $("#wrapper").toggleClass("toggled");
     });
+    $("file").click(function(){
+        
+    })
 </script>
 </div>
 <!-- /#wrapper -->
