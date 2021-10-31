@@ -88,6 +88,7 @@ if (isset($_GET['idMH'])) {
                                                   <div class="service col-md-2">
                                                         <a href="./view-exercise.php?idBTVN=<?php echo $row3['idBTVN']; ?>&&idMH=<?php echo $row3['idMH']; ?>"><button type="button" class="btn btn-info text-white me-2"><i class="far fa-eye"></i> VIEW</button></a>
                                                   </div>
+                                                  
                                             </div>
                                         </div>
                                 <?php
@@ -102,6 +103,7 @@ if (isset($_GET['idMH'])) {
         </div>
 
     </div>
+    
     <footer>
         <p class="ftr text-center">
             QTV - Do your best, the rest will come!
