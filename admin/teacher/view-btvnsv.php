@@ -102,7 +102,7 @@ if (isset($_GET['idBTVN'], $_GET['idMH'])) {
                                             <label for="empEmail" class="col-sm-3 col-form-label">Đề bài:</label>
                                             <div class="form-group">
                                                 <h6><?php echo $row3['fileBTVN'] ?></h6>
-                                                <a href="download-bt.php?file=<?php echo $row3['fileBTVN'] ?>"> <button class="btn btn-success text-white me-2"><i class="fas fa-download"></i>Tải và xem bài làm</button></a><br>
+                                                <a href="download-btvnsv.php?file=<?php echo $row3['fileBTVN'] ?>"> <button class="btn btn-success text-white me-2"><i class="fas fa-download"></i>Tải và xem bài làm</button></a><br>
                                             </div>
 
                                         </div>
