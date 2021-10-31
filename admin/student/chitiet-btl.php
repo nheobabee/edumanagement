@@ -7,7 +7,7 @@ if (!isset($_SESSION['student'])) {
 ?>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-<link rel="stylesheet" href="../../css/view-exercise-admin.css">
+<link rel="stylesheet" href="../../css/chitiet-btl-stu.css">
 <?php
 if (isset($_GET['idBTL'], $_GET['idMH'])) {
     $idBTL = $_GET['idBTL'];
@@ -24,24 +24,13 @@ if (isset($_GET['idBTL'], $_GET['idMH'])) {
     <div id="sidebar-wrapper">
         <ul class="sidebar-nav">
             <li class="sidebar-brand">
-                <h2>ADMIN</h2>
-            </li>
-            <li>
-                <a href="teacher.php"><i class="fas fa-chalkboard-teacher"></i> Teacher</a>
+                <h2>STUDENT</h2>
             </li>
             <li>
                 <a href="student.php"><i class="fas fa-user-graduate"></i> Student</a>
             </li>
             <li>
                 <a href="subject.php"><i class="fas fa-book"></i> Subject</a>
-            </li>
-            <li>
-                <a href="teach.php"><i class="fas fa-school"></i> Teach</a>
-            </li>
-
-
-            <li>
-                <a href="result-admin.php"><i class="fas fa-poll"></i> Result</a>
             </li>
         </ul>
     </div>
@@ -69,20 +58,24 @@ if (isset($_GET['idBTL'], $_GET['idMH'])) {
                     <div class="main-content">
 
                         <div class="container">
+                            <div class="btn-chucnang">
+                                <a href="./dk-btl-admin.php?idBTL=<?php echo $row3['idBTL']; ?>"><button type="button" class="btn btn-success text-white"><i class="fas fa-edit"></i> Đăng kí</button></a>
+                                <a href="./dsnhom-btl-admin.php?idBTL=<?php echo $row3['idBTL']; ?>"><button type="button" class="btn btn-info text-white "><i class="far fa-eye"></i>Danh sách nhóm</button></a>
+
+                            </div>
                             <br>
-                            <br><br>
                             <div class="tittle-mh">
-                                <h2><?php echo $nameMH;?></h2>
+                                <h2><?php echo $nameMH; ?></h2>
                             </div>
                             <?php
                             $sql3 = "SELECT * FROM btl WHERE idMH = '$idMH' AND idBTL = '$idBTL'";
                             $res3 = mysqli_query($conn, $sql3);
                             while ($row3 = mysqli_fetch_assoc($res3)) { ?>
                                 <div class="title-btvn">
-
                                     <div class="name-btvn row">
 
                                         <div class="content-btvn col">
+
                                             <h6><?php echo $row3['nameBTL'] ?></h6>
                                             <label for="empEmail" class="col-sm-3 col-form-label">Đề bài:</label>
                                             <div class="form-group">
@@ -96,7 +89,10 @@ if (isset($_GET['idBTL'], $_GET['idMH'])) {
 
                                         </div>
                                     </div>
-                                    
+
+                                        </div>
+                                    </div>
+
                                 </div>
                             <?php
                             }

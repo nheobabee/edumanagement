@@ -7,7 +7,7 @@ if (!isset($_SESSION['teacher'])) {
 ?>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-<link rel="stylesheet" href="../../css/view-exercise-admin.css">
+<link rel="stylesheet" href="../../css/v-btvnsv.css">
 <?php
 if (isset($_GET['idBTVN'], $_GET['idMH'])) {
     $idBTVN = $_GET['idBTVN'];
@@ -92,16 +92,19 @@ if (isset($_GET['idBTVN'], $_GET['idMH'])) {
                             $sql3 = "SELECT * FROM btvnsv WHERE idMH = '$idMH' AND idBTVN = '$idBTVN'";
                             $res3 = mysqli_query($conn, $sql3);
                             
-                            while ($row3 = mysqli_fetch_assoc($res3)) { ?>
+                            while ($row3 = mysqli_fetch_assoc($res3)) { 
+                                    $user_id = $row3['user_id'];
+                                    $sql0 = "Select * from users where user_id = '$user_id'";
+                                    $res0 = mysqli_query($conn, $sql0);
+                                    $row0 = mysqli_fetch_assoc($res0);
+                                ?>
                                 <div class="title-btvn">
 
                                     <div class="name-btvn row">
 
                                         <div class="content-btvn col">
-                                            <h6><?php echo $row3['user_id'] ?></h6>
-                                            <label for="empEmail" class="col-sm-3 col-form-label">Đề bài:</label>
+                                            <h6><?php echo $row3['user_id'] ?>. <?php echo $row0['user_name'] ?></h6>
                                             <div class="form-group">
-                                                <h6><?php echo $row3['fileBTVN'] ?></h6>
                                                 <a href="download-btvnsv.php?file=<?php echo $row3['fileBTVN'] ?>"> <button class="btn btn-success text-white me-2"><i class="fas fa-download"></i>Tải và xem bài làm</button></a><br>
                                             </div>
 

@@ -24,22 +24,13 @@ if (isset($_GET['idBTVN'], $_GET['idMH'])) {
     <div id="sidebar-wrapper">
         <ul class="sidebar-nav">
             <li class="sidebar-brand">
-                <h2>ADMIN</h2>
-            </li>
-            <li>
-                <a href="teacher.php"><i class="fas fa-chalkboard-teacher"></i> Teacher</a>
+                <h2>STUDENT</h2>
             </li>
             <li>
                 <a href="student.php"><i class="fas fa-user-graduate"></i> Student</a>
             </li>
             <li>
                 <a href="subject.php"><i class="fas fa-book"></i> Subject</a>
-            </li>
-            <li>
-                <a href="teach.php"><i class="fas fa-school"></i> Teach</a>
-            </li>
-            <li>
-                <a href="result-admin.php"><i class="fas fa-poll"></i> Result</a>
             </li>
         </ul>
     </div>
