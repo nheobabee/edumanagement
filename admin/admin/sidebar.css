@@ -166,3 +166,192 @@
 h1.count{
     margin-top:30px
 }
+/* add btl admin/  add student admin/ add subject admin/add teacher/dk btl admin/ [add-teacher-admin.css] */
+.container {
+    min-height: 521px;
+  }
+  
+  .form-control {
+    width: 60%;
+  }
+  .form-control .rdo-genderGV{
+      padding-left:12px;
+  }
+  
+  .form-add {
+    border: 1px solid lightgray;
+    height:190px;
+    padding-left: 10px;
+    width: 25%;
+    border-radius:4px;
+    border-top: 5px solid lightblue;
+    padding-top: 10px;
+  }
+
+  /* add-exercise-admin/ add-exercise-admin.css */
+  .container {
+    min-height: 521px;
+  }
+  
+  .form-control {
+    width: 60%;
+  }
+  .form-control .rdo-genderGV{
+      padding-left:12px;
+  }
+  
+select {
+    padding-left: 8px;
+}
+
+.form-group {
+    margin-top:5px;
+}
+
+.subMH {
+    display: flex;
+}
+h6{
+    margin-top: 0;
+}
+  /* add learn admin/add teach admin/[add-teach-admin.css] */
+  .container {
+    min-height: 521px;
+  }
+  
+  .form-control {
+    width: 60%;
+  }
+  .form-control .rdo-genderGV{
+      padding-left:12px;
+  }
+  
+  .form-add {
+    border: 1px solid lightgray;
+    height:190px;
+    padding-left: 10px;
+    width: 25%;
+    border-radius:4px;
+    border-top: 5px solid lightblue;
+    padding-top: 10px;
+  }
+  /* btl/ [btl-ad.css] */
+  .tittle-mh, .name-btvn{
+    background-color:#fff;
+    padding:1%;
+    border-radius: 4px;
+    border: 0.5px solid lightgray;
+    border-top: 5px solid lightblue;
+  }
+  .main-content{
+      background-color: #e9edf1;
+  }
+  .container{
+    
+      min-height: 521px;
+  }
+  
+  .name-btvn{
+      margin-top:14px;
+      margin-left: 0;
+      margin-right: 0;
+  }
+  .name-btvn p {
+      margin-bottom: 0;
+      
+  }
+  .note {
+      margin-top:14px;
+  }
+  
+  .btn-danger,.btn-primary, .btn-info{
+      float: right;
+  }
+  
+  .btn-success {
+      margin-left: 8px;
+  }
+/*dsnhom btl admin [list-dk-btl.css] */
+
+.tittle-mh, .name-btvn{
+    background-color:#fff;
+    padding:1%;
+    border-radius: 4px;
+    border: 0.5px solid lightgray;
+  }
+  .main-content{
+      background-color: #e9edf1;
+  }
+  .container{
+    
+      min-height: 521px;
+  }
+  
+  .name-btvn{
+      margin-top:14px;
+      margin-left: 0;
+      margin-right: 0;
+  }
+  .name-btvn p {
+      margin-bottom: 0;
+      
+  }
+  .note {
+      margin-top:14px;
+  }
+  
+  .btn-success {
+      margin-left: 8px;
+  }
+  .team-btl {
+      margin-top:10px;
+      border: 1px solid lightgray;
+      width: 50%;
+      background-color: #fff;
+      padding-left: 10px;
+      border-radius:4px;
+      border-top: 5px solid lightblue;
+  }
+  .tittle-mh {
+      border-top: 5px solid lightblue;
+  }
+  /* exercise subject admin/ [ex-stu-ad.css] */
+  .tittle-mh, .name-btvn{
+    background-color:#fff;
+    padding:1%;
+    border-radius: 4px;
+    border: 0.5px solid lightgray;
+  }
+  .main-content{
+      background-color: #e9edf1;
+  }
+  .container{
+    
+      min-height: 521px;
+  }
+  
+  .name-btvn{
+      margin-top:14px;
+      margin-left: 0;
+      margin-right: 0;
+  }
+  .name-btvn p {
+      margin-bottom: 0;
+      
+  }
+  .note {
+      margin-top:14px;
+  }
+  .content-btvn {
+   
+  }
+  
+  
+  .btn-info, .btn-primary , .btn-danger{
+      float: right;
+  }
+  
+  .tittle-mh,.name-btvn{
+      border-top: 5px solid lightblue;
+  }
+  
