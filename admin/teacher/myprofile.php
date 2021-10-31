@@ -1,7 +1,7 @@
 <title>DASHBOARD</title>
 <?php include('../../config/config.php');
 session_start();
-if (!isset($_SESSION['student'])) {
+if (!isset($_SESSION['teacher'])) {
     header('location:../../login/index.php');
 }
 ?>
@@ -59,7 +59,7 @@ if (!isset($_SESSION['student'])) {
                         WHERE `user_id`='$userid'";
 
         $result1 = mysqli_query($conn, $sql1);
-
+     
         header('location:./accout.php');
     }
 
@@ -114,26 +114,6 @@ if (!isset($_SESSION['student'])) {
                         </div>
                     </nav>
                     <form action="" method="POST" enctype="multipart/form-data">
-                        <?php
-
-                        if (isset($_POST['update-img'])) {
-                            $useravatar = $_FILES['user_avatar']['name'];
-                            if ($useravatar != null) {
-                                $path = "./img/";
-                                $tmp_name = $_FILES['user_avatar']['tmp_name'];
-                                move_uploaded_file($tmp_name, $path . $useravatar);
-                            }
-
-                            $sql_img = "UPDATE `users` SET 
-                            `user_avatar`='$useravatar'
-                            WHERE `user_id`='$userid'";
-                            $rs_img = mysqli_query($conn, $sql_img);
-                            if ($rs_img) {
-                                header('location:./myprofile.php');
-                            }
-                        }
-
-                        ?>
                         <div class="main-content">
 
                             <div class="container">
@@ -229,13 +209,32 @@ if (!isset($_SESSION['student'])) {
                                 </div>
                             </div>
                         </div>
-
                     </form>
                 </div>
             </div>
         </div>
     </div>
+    <?php
 
+    if (isset($_POST['update-img'])) {
+        $useravatar = $_FILES['user_avatar']['name'];
+        if ($useravatar != null) {
+            $path = "./img/";
+            $tmp_name = $_FILES['user_avatar']['tmp_name'];
+            move_uploaded_file($tmp_name, $path . $useravatar);
+        }
+
+        $sql_img = "UPDATE `users` SET 
+                     `user_avatar`='$useravatar'
+                    WHERE `user_id`='$userid'";
+        $rs_img = mysqli_query($conn, $sql_img);
+       if($rs_img)
+       {
+        header('location:./myprofile.php');
+       }
+    }
+
+    ?>
     <footer>
         <p class="ftr text-center">
             QTV - Do your best, the rest will come!

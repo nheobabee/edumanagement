@@ -50,7 +50,7 @@ if (!isset($_SESSION['teacher'])) {
 
                             <form class="d-flex">
                                 <a href="" class="navbar-brand">HOME</a>
-                                <a href="" class="navbar-brand">ACCOUNT</a>
+                                <a href="./accout.php" class="navbar-brand">ACCOUNT</a>
                                 <a href="../../login/logout.php" class="navbar-brand">LOGOUT</a>
                                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                                 <button class="btn btn-outline-success" type="submit">Search</button>
