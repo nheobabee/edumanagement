@@ -13,11 +13,11 @@ if (isset($_GET['idBTVN'], $_GET['idMH'])) {
     $sql = "DELETE FROM btvn WHERE idBTVN = '$idBTVN'";
     $res = mysqli_query($conn, $sql);
     if ($res == true) {
-        header('location: http://localhost/edumanagement/admin/exercise-subject-admin.php?idMH=' . $idMH);
+        header('location: http://localhost/edumanagement/admin/teacher/exercise-subject-teacher.php?idMH=' . $idMH);
         $_SESSION['successDel'] = "<div class='success'>Xóa thành công!</div>";
     } else {
-        header('location:student.php');
-        $_SESSION['errorDel'] = "<div class='error'>Sinh hiện đang có trong danh sách học, không thể xóa!</div>";
+        header('location: http://localhost/edumanagement/admin/teacher/exercise-subject-teacher.php?idMH=' . $idMH);
+        $_SESSION['errorDel'] = "<div class='error'>Bài tập đang được giao, không thể xóa</div>";
     }
 }
 ?>

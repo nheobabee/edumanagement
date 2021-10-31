@@ -70,8 +70,8 @@ if (isset($_GET['idMH'])) {
 
                         <div class="container">
                             <br>
-                        <a href="./add-btl-admin.php?idMH=<?php echo $idMH; ?>"><button class="btn btn-success"> ADD BTL</button></a>
-                        <br>
+                        <a href="./add-btl-teacher.php?idMH=<?php echo $idMH; ?>"><button class="btn btn-success"><i class="fas fa-plus"></i> Thêm bài tập lớn</button></a>
+                        <br><br>
                            
                             <div class="tittle-mh">
                                 <h2><?php echo $nameMH ?></h2>
@@ -95,9 +95,9 @@ if (isset($_GET['idMH'])) {
                                             
                                                   </div>
                                                   <div style="margin:auto"  class="service col-md-4">
-                                                  <a href="./upd-btl-admin.php?idBTL=<?php echo $row3['idBTL']; ?>"><button type="button" class="btn btn-success text-white me-2"><i class="fas fa-edit"></i> UPDATE</button></a>
-                                                  <a href="./del-btl-admin.php?idBTL=<?php echo $row3['idBTL']; ?>"><button type="button" class="btn btn-danger text-white me-2"><i class="fas fa-trash-alt"></i> DELETE</button></a>
-                                                  <a href="./chitiet-btl-admin.php?idBTL=<?php echo $row3['idBTL']; ?>&&idMH=<?php echo $row3['idMH']; ?>"><button type="button" class="btn btn-info text-white me-2"><i class="far fa-eye"></i> Chi Tiết</button></a>
+                                                  <a href="./upd-btl-teacher.php?idBTL=<?php echo $row3['idBTL']; ?>&&idMH=<?php echo $row3['idMH']; ?>"><button type="button" class="btn btn-success text-white me-2"><i class="fas fa-edit"></i> Cập nhật</button></a>
+                                                  <a href="./del-btl-teacher.php?idBTL=<?php echo $row3['idBTL']; ?>&&idMH=<?php echo $row3['idMH']; ?>"><button type="button" class="btn btn-danger text-white me-2"><i class="fas fa-trash-alt"></i> Xóa</button></a>
+                                                  <a href="./chitiet-btl-teacher.php?idBTL=<?php echo $row3['idBTL']; ?>&&idMH=<?php echo $row3['idMH']; ?>"><button type="button" class="btn btn-info text-white me-2"><i class="far fa-eye"></i> Xem</button></a>
                                                   </div>
                                             </div>
                                         </div>

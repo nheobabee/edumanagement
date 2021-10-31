@@ -35,7 +35,7 @@ if (isset($_GET['idBTVN'], $_GET['idMH'])) {
     <div id="sidebar-wrapper">
         <ul class="sidebar-nav">
             <li class="sidebar-brand">
-                <h2>ADMIN</h2>
+                <h2>TEACHER</h2>
             </li>
             <li>
                 <a href="teacher.php"><i class="fas fa-chalkboard-teacher"></i> Teacher</a>
@@ -47,10 +47,7 @@ if (isset($_GET['idBTVN'], $_GET['idMH'])) {
                 <a href="subject.php"><i class="fas fa-book"></i> Subject</a>
             </li>
             <li>
-                <a href="teach.php"><i class="fas fa-school"></i> Teach</a>
-            </li>
-            <li>
-                <a href="btl.php"><i class="fas fa-users"></i> BTL</a>
+                <a href="learn-teach-teacher.php"><i class="fas fa-school"></i> Teach - Learn</a>
             </li>
             <li>
                 <a href="result-admin.php"><i class="fas fa-poll"></i> Result</a>
@@ -79,7 +76,7 @@ if (isset($_GET['idBTVN'], $_GET['idMH'])) {
                     </nav>
                     <div class="container">
                         <div class="tittleAdd">
-                            <h2>UPDATE EXERCISE</h2>
+                            <h2>CẬP NHẬT BÀI TẬP</h2>
                         </div>
                         <form method="post">
                             <?php
@@ -96,30 +93,30 @@ if (isset($_GET['idBTVN'], $_GET['idMH'])) {
                                 $sql3 = "UPDATE `btvn` SET `nameBTVN`='$nameBTVN',
                                 `formatBTVN`=' $formatBTVN',
                                 `deadlineBTVN`=' $deadlineBTVN',
-                                `note`='[$note]',
+                                `note`='$note',
                                 `filename`='$fileName'
                                 
                                 WHERE idBTVN = '$idBTVN'
                                  ";
                                 $res3 = mysqli_query($conn, $sql3);
                                 if ($res3 == true) {
-                                    header("Location:http://localhost/edumanagement/admin/exercise-subject-admin.php?idMH=" . $idMH);
+                                    header("Location:http://localhost/edumanagement/admin/teacher/exercise-subject-teacher.php?idMH=" . $idMH);
                                 } else {
                                     echo $sql3;
                                 }
                             }
                             ?>
-                            <span style="font-weight:500">Subject: <?php echo $nameMH ?><span>
+                            <span style="font-weight:500">Môn học: <?php echo $nameMH ?><span>
                                     <div class="form-group">
-                                        <label class="idBTVN" for="idMH">ID Exercise : </label>
+                                        <label class="idBTVN" for="idMH">Mã bài tập: </label>
                                         <input type="text" class="form-control" id="idBTVN" readonly value="<?php echo $idBTVN ?>" name="idBTVN">
                                     </div>
                                     <div class="form-group">
-                                        <label for="nameBTVN">Name Homework:</label>
+                                        <label for="nameBTVN">Tên bài tập:</label>
                                         <input type="text" class="form-control" id="nameBTVN" placeholder="Enter name" name="nameBTVN" value="<?php echo $nameBTVN ?>">
                                     </div>
                                     <div class="form-group">
-                                        <label for="formatBTVN">Format:</label>
+                                        <label for="formatBTVN">Hình thức:</label>
                                         <div class="format_btvn">
                                             <select id="formatBTVN" name="formatBTVN">
                                                 <?php
@@ -144,21 +141,21 @@ if (isset($_GET['idBTVN'], $_GET['idMH'])) {
 
 
                                     <div class="form-group">
-                                        <label for="deadlineBTVN">Deadline:</label>
+                                        <label for="deadlineBTVN">Hạn cuối:</label>
                                         <div class="deadline-BTVN">
                                             <input type="datetime-local" name="deadlineBTVN" id="deadlineBTVN" value="<?php echo $date = date("Y-m-d\TH:i:s", strtotime($deadlineBTVN)); ?>">
                                         </div>
-                                        <label for="empEmail" class="col-sm-3 col-form-label">Đề bài</label>
+                                        <label for="empEmail" class="col-sm-3 col-form-label">Tệp</label>
                                         <div class="col-sm-5">
                                             <input type="file" class="form-control" id="file" name="file" value="<?php echo $fileName_q ?>">
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="note">Note:</label>
+                                        <label for="note">Ghi chú:</label>
                                         <input type="text" class="form-control" id="note" placeholder="Enter note" name="note" value="<?php echo $note ?>">
                                     </div>
-                                    <br>
-                                    <button name="add" type="submit" class="btn btn-success">UPDATE</button>
+                                    
+                                    <button style="margin-top:10px" name="add" type="submit" class="btn btn-success"><i class="fas fa-pen"></i> Cập nhật</button>
                         </form>
                     </div>
                 </div>
