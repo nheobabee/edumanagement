@@ -11,6 +11,60 @@ if (!isset($_SESSION['loginok'])) {
 
 <div id="wrapper">
 
+    <?php
+    // lấy giá trị user cần sửa 
+    if (isset($_SESSION['user_id'])) {
+        $userid = $_SESSION['user_id'];
+
+        //lấy giá trị từ bảng
+        $sql = "SELECT * FROM users WHERE user_id = '$userid'";
+        $kq = mysqli_query($conn, $sql);
+        if ($kq) {
+            $row = mysqli_fetch_assoc($kq);
+            $username_q = $row['user_name'];
+            $useravatar_q = $row['user_avatar'];
+            $usergioitinh_q = $row['user_gioitinh'];
+            $userbirthday_q = $row['user_birthday'];
+            $userphone_q = $row['user_phone'];
+            $useremail_q = $row['user_email'];
+        }
+    }
+    echo $row['user_avatar'];
+    ?>
+    <?php
+    $userid = $_SESSION['user_id'];
+
+
+    if (isset($_POST['update'])) {
+        $username = $_POST['user_name'];
+        $useravatar = $_FILES['user_avatar']['name'];
+        $usergioitinh = $_POST['user_gioitinh'];
+        $userbirthday = $_POST['user_birthday'];
+        $userphone = $_POST['user_phone'];
+        $useremail = $_POST['user_email'];
+        if ($useravatar != null) {
+            $path = "./img/";
+            $tmp_name = $_FILES['user_avatar']['tmp_name'];
+            move_uploaded_file($tmp_name, $path . $useravatar);
+        }
+
+        // Bước 2 câu lệnh truy vấn
+        $sql1 = "UPDATE `users` SET 
+                        `user_name`='$username',
+                        --  `user_avatar`='$useravatar',
+                        `user_gioitinh`='$usergioitinh',
+                        `user_birthday`='$userbirthday',
+                        `user_phone`='$userphone',
+                        `user_email`='$useremail'
+                        WHERE `user_id`='$userid'";
+
+        $result1 = mysqli_query($conn, $sql1);
+     
+        header('location:./accout.php');
+    }
+
+    ?>
+
     <!-- Sidebar -->
     <div id="sidebar-wrapper">
         <ul class="sidebar-nav">
@@ -59,101 +113,135 @@ if (!isset($_SESSION['loginok'])) {
                             </form>
                         </div>
                     </nav>
-                    <div class="main-content">
+                    <form action="" method="POST" enctype="multipart/form-data">
+                        <div class="main-content">
 
-                        <div class="container">
+                            <div class="container">
 
-                            <div class="view-account">
-                                <section class="module">
-                                    <div class="module-inner">
-                                        <div class="side-bar">
-                                            <div class="user-info">
-                                                <img class="img-profile img-circle img-responsive center-block" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="">
-                                                <ul class="meta list list-unstyled">
-                                                    <li class="name">Rebecca Sanders
-                                                        <label class="label label-info">UX Designer</label>
-                                                    </li>
+                                <div class="view-account">
+                                    <section class="module">
+                                        <div class="module-inner">
+                                            <div class="side-bar">
 
-                                                </ul>
+                                                <div class="user-info">
+                                                    <img class="img-profile img-circle img-responsive center-block" src="./img/<?php echo $useravatar_q ?>" alt="">
+                                                    <ul class="meta list list-unstyled">
+                                                        <li class="name"><?php echo $username_q ?>
+
+                                                        </li>
+
+                                                    </ul>
+                                                </div>
+
                                             </div>
 
-                                        </div>
-                                        <div class="content-panel">
-                                            <h2 class="title">Profile<span class="pro-label label label-warning">PRO</span></h2>
-                                            <form class="form-horizontal">
-                                                <fieldset class="fieldset">
-                                                    <h3 class="fieldset-title">Personal Info</h3>
-                                                    <div class="form-group avatar">
-                                                        <figure class="figure col-md-2 col-sm-3 col-xs-12">
-                                                            <img class="img-rounded img-responsive" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="">
-                                                        </figure>
-                                                        <div class="form-inline col-md-10 col-sm-9 col-xs-12">
-                                                            <input type="file" class="file-uploader pull-left">
-                                                            <button type="submit" class="btn btn-sm btn-default-alt pull-left">Update Image</button>
+                                            <div class="content-panel">
+                                                <h2 class="title">Profile<span class="pro-label label label-warning">PRO</span></h2>
+                                                <form class="form-horizontal" method="POST">
+                                                    <fieldset class="fieldset">
+                                                        <h3 class="fieldset-title">Personal Info</h3>
+                                                        <div class="form-group avatar">
+                                                            <figure class="figure col-md-2 col-sm-3 col-xs-12">
+                                                                <img class="img-rounded img-responsive" src="./img/<?php echo $useravatar_q ?>" alt="">
+                                                            </figure>
+                                                            <div class="form-inline col-md-10 col-sm-9 col-xs-12">
+                                                                <input name="user_avatar" type="file" class="file-uploader pull-left">
+                                                                <button name="update-img" type="submit" class="btn btn-sm btn-default-alt pull-left">Update Image</button>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                    <br>
-                                                    <div class="form-group">
-                                                        <label class="col-md-2 col-sm-3 col-xs-12 control-label">Họ và tên</label>
-                                                        <div class="col-md-10 col-sm-9 col-xs-12">
-                                                            <input type="text" class="form-control" value="Rebecca">
+                                                        <!-- </form>
+                                                <form action="" method="POST"> -->
+                                                        <br>
+                                                        <div class="form-group">
+                                                            <label class="col-md-2 col-sm-3 col-xs-12 control-label">Họ và tên</label>
+                                                            <div class="col-md-10 col-sm-9 col-xs-12">
+                                                                <input name="user_name" type="text" class="form-control" value="<?php echo $username_q ?>">
+                                                            </div>
                                                         </div>
-                                                    </div>
 
-                                                    <div class="form-group">
-                                                        <label class="col-md-2 col-sm-3 col-xs-12 control-label">Giới tính</label>
-                                                        <div class="col-md-10 col-sm-9 col-xs-12">
-                                                            <input type="text" class="form-control" value="Rebecca">
+                                                        <div class="form-group">
+                                                            <label class="col-md-2 col-sm-3 col-xs-12 control-label">Giới tính</label>
+                                                            <div class="col-md-10 col-sm-9 col-xs-12">
+                                                                <input <?php if ($usergioitinh_q == 1) {
+                                                                            echo "checked";
+                                                                        } ?> type="radio" name="user_gioitinh" value="1">
+                                                                <label>Nam</label>
+                                                                <input <?php if ($usergioitinh_q == 0) {
+                                                                            echo "checked";
+                                                                        } ?> type="radio" name="user_gioitinh" value="0">
+                                                                <label>Nữ</label>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="col-md-2 col-sm-3 col-xs-12 control-label">Ngày sinh</label>
-                                                        <div class="col-md-10 col-sm-9 col-xs-12">
-                                                            <input type="text" class="form-control" value="Sanders">
+                                                        <div class="form-group">
+                                                            <label class="col-md-2 col-sm-3 col-xs-12 control-label">Ngày sinh</label>
+                                                            <div class="col-md-10 col-sm-9 col-xs-12">
+                                                                <input name="user_birthday" type="date" class="form-control" value="<?php echo $userbirthday_q ?>">
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                </fieldset>
-                                                <fieldset class="fieldset">
-                                                    <h3 class="fieldset-title">Contact Info</h3>
-                                                    <div class="form-group">
-                                                        <label class="col-md-2  col-sm-3 col-xs-12 control-label">Email</label>
-                                                        <div class="col-md-10 col-sm-9 col-xs-12">
-                                                            <input type="email" class="form-control" value="Rebecca@website.com">
-                                                            <p class="help-block">This is the email </p>
+                                                    </fieldset>
+                                                    <fieldset class="fieldset">
+                                                        <h3 class="fieldset-title">Contact Info</h3>
+                                                        <div class="form-group">
+                                                            <label class="col-md-2  col-sm-3 col-xs-12 control-label">Email</label>
+                                                            <div class="col-md-10 col-sm-9 col-xs-12">
+                                                                <input name="user_email" type="email" class="form-control" value="<?php echo $useremail_q ?>">
+                                                                <p class="help-block">This is the email </p>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="col-md-2  col-sm-3 col-xs-12 control-label">Số điện thoại</label>
-                                                        <div class="col-md-10 col-sm-9 col-xs-12">
-                                                            <input type="text" class="form-control" value="SpeedyBecky">
+                                                        <div class="form-group">
+                                                            <label class="col-md-2  col-sm-3 col-xs-12 control-label">Số điện thoại</label>
+                                                            <div class="col-md-10 col-sm-9 col-xs-12">
+                                                                <input name="user_phone" type="text" class="form-control" value="<?php echo $userphone_q ?>">
+                                                            </div>
                                                         </div>
-                                                    </div>
 
-                                                </fieldset>
-                                                <hr>
-                                                <div class="form-group">
-                                                    <div class="col-md-10 col-sm-9 col-xs-12 col-md-push-2 col-sm-push-3 col-xs-push-0">
-                                                        <input class="btn btn-primary" type="submit" value="Update Profile">
+                                                    </fieldset>
+                                                    <hr>
+                                                    <div class="form-group">
+                                                        <div class="col-md-10 col-sm-9 col-xs-12 col-md-push-2 col-sm-push-3 col-xs-push-0">
+                                                            <input name="update" class="btn btn-primary" type="submit" value="Update Profile">
+                                                        </div>
                                                     </div>
-                                                </div>
-                                            </form>
+                                                </form>
+                                            </div>
                                         </div>
-                                    </div>
-                                </section>
+                                    </section>
+                                </div>
                             </div>
                         </div>
-                    </div>
-
+                    </form>
                 </div>
             </div>
         </div>
     </div>
+    <?php
+
+    if (isset($_POST['update-img'])) {
+        $useravatar = $_FILES['user_avatar']['name'];
+        if ($useravatar != null) {
+            $path = "./img/";
+            $tmp_name = $_FILES['user_avatar']['tmp_name'];
+            move_uploaded_file($tmp_name, $path . $useravatar);
+        }
+
+        $sql_img = "UPDATE `users` SET 
+                     `user_avatar`='$useravatar'
+                    WHERE `user_id`='$userid'";
+        $rs_img = mysqli_query($conn, $sql_img);
+       if($rs_img)
+       {
+        header('location:./myprofile.php');
+       }
+    }
+
+    ?>
     <footer>
         <p class="ftr text-center">
             QTV - Do your best, the rest will come!
         </p>
     </footer>
 </div>
+
 <!-- /#page-content-wrapper -->
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
