@@ -104,6 +104,7 @@ if (isset($_GET['idBTVN'], $_GET['idMH'])) {
 
                                         <div class="content-btvn col">
                                             <h6><?php echo $row3['user_id'] ?>. <?php echo $row0['user_name'] ?></h6>
+                                            <p><span style="font-weight:500">Ngày nộp: </span><?php echo $row3['ngaynop'] ?></p>
                                             <div class="form-group">
                                                 <a href="download-btvnsv.php?file=<?php echo $row3['fileBTVN'] ?>"> <button class="btn btn-success text-white me-2"><i class="fas fa-download"></i>Tải và xem bài làm</button></a><br>
                                             </div>

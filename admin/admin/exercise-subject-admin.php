@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php include('../../config/config.php');
 session_start();
 if (!isset($_SESSION['loginok'])) {
@@ -11,6 +12,10 @@ if (!isset($_SESSION['loginok'])) {
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
+=======
+<!-- <link rel="stylesheet" href="../../css/ex-stu-ad.css"> -->
+<?php include('./header.php') ?>
+>>>>>>> 03f5987279926d049e10fe2867482b51d1a1c702
 <?php
 if (isset($_GET['idMH'])) {
     $idMH = $_GET['idMH'];
@@ -21,6 +26,7 @@ if (isset($_GET['idMH'])) {
     $nameMH = $row1['nameMH'];
 }
 ?>
+<<<<<<< HEAD
 <div id="wrapper">
 
     <!-- Sidebar -->
@@ -57,22 +63,28 @@ if (isset($_GET['idMH'])) {
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12">
+=======
+<br>
+<a href="http://localhost/edumanagement/admin/admin/view-subject-admin.php?idMH=<?php echo $idMH ?>"><button style="padding:1% 2%;" type="button" class="btn btn-secondary text-white me-2"><i class="fas fa-undo-alt"></i></button></a>
+<br><br>
+<h1 class="title-btl">BÀI TẬP VỀ NHÀ</h1>
+<br>
+<div class="tittle-mh">
+    <h2><?php echo $nameMH ?></h2>
+</div>
+<?php
+$sql3 = "SELECT * FROM btvn WHERE idMH = '$idMH'";
+$res3 = mysqli_query($conn, $sql3);
+if ($res3 == true) {
+    while ($row3 = mysqli_fetch_assoc($res3)) {
+>>>>>>> 03f5987279926d049e10fe2867482b51d1a1c702
 
-                    <nav class="navbar navbar-light">
-                        <div class="container-fluid">
-                            <a href="#menu-toggle" class="btn btn-default" id="menu-toggle"><i class="fas fa-bars"></i></a>
+?>
+        <div class="title-btvn">
 
-                            <form class="d-flex">
-                                <a href="" class="navbar-brand">HOME</a>
-                                <a href="./myprofile.php" class="navbar-brand">ACCOUNT</a>
-                                <a href="../../login/logout.php" class="navbar-brand">LOGOUT</a>
-                                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                                <button class="btn btn-outline-success" type="submit">Search</button>
-                            </form>
-                        </div>
-                    </nav>
-                    <div class="main-content">
+            <div class="name-btvn row">
 
+<<<<<<< HEAD
                         <div class="container">
                             <br>
                             <a href="http://localhost/edumanagement/admin/admin/view-subject-admin.php?idMH=<?php echo $idMH ?>"><button style="padding:1% 2%;" type="button" class="btn btn-secondary text-white me-2"><i class="fas fa-undo-alt"></i></button></a>
@@ -110,9 +122,20 @@ if (isset($_GET['idMH'])) {
                             ?>
                         </div>
                     </div>
+=======
+                <div class="content-btvn col-md-7">
+                    <h6><?php echo $row3['nameBTVN'] ?></h6>
+                    <p><span style="font-weight: 500;">Hình thức: </span><?php echo $row3['formatBTVN'] ?></p>
+                    <p><span style="font-weight: 500;">Opened: </span><?php echo $row3['openedBTVN'] ?></p>
+                    <p><span style="font-weight: 500;">Deadline: </span><?php echo $row3['deadlineBTVN'] ?></p>
+                    <p>Ghi chú: <?php echo $row3['note'] ?></p>
+
+>>>>>>> 03f5987279926d049e10fe2867482b51d1a1c702
                 </div>
+
             </div>
         </div>
+<<<<<<< HEAD
     </div>
 
 </div>
@@ -192,3 +215,10 @@ if (isset($_GET['idMH'])) {
 </script>
 </div>
 <!-- /#wrapper -->
+=======
+<?php
+    }
+}
+?>
+<?php include('./footer.php') ?>
+>>>>>>> 03f5987279926d049e10fe2867482b51d1a1c702

@@ -86,7 +86,6 @@ if (isset($_GET['idBTL'], $_GET['idMH'])) {
                                                 <a href="send-btl.php?idBTL=<?php echo $row3['idBTL']; ?>&&idMH=<?php echo $row3['idMH']; ?>&&user_id=<?php echo $_SESSION['user_id']; ?>"><button type="button" class="btn btn-success text-white me-2"><i class="fas fa-upload"></i>NỘP BÀI</i></button></a>
                                             </div>
 
-
                                         </div>
                                     </div>
 
@@ -98,8 +97,6 @@ if (isset($_GET['idBTL'], $_GET['idMH'])) {
                             }
 
                             ?>
-
-
                         </div>
                     </div>
                 </div>
