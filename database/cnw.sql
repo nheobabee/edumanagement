@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 30, 2021 lúc 08:54 PM
+-- Thời gian đã tạo: Th10 31, 2021 lúc 10:55 AM
 -- Phiên bản máy phục vụ: 10.4.21-MariaDB
 -- Phiên bản PHP: 8.0.10
 
@@ -114,8 +114,16 @@ CREATE TABLE `btvnsv` (
   `idBTVN` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `fileBTVN` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `notebtvnsv` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `idMH` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `btvnsv`
+--
+
+INSERT INTO `btvnsv` (`idBTVN`, `user_id`, `fileBTVN`, `notebtvnsv`, `idMH`) VALUES
+(13, 3, 'CSE485_All.pdf', 'aaaa', 3);
 
 -- --------------------------------------------------------
 
@@ -185,7 +193,7 @@ CREATE TABLE `relationship` (
 INSERT INTO `relationship` (`user_id`, `idMH`, `note`) VALUES
 (1, 1, 'Học'),
 (1, 2, 'Học'),
-(3, 5, 'hi'),
+(3, 3, 'hi'),
 (4, 1, 'Học'),
 (5, 2, 'Học'),
 (7, 3, 'Học'),
@@ -223,7 +231,7 @@ INSERT INTO `users` (`user_id`, `user_name`, `user_avatar`, `user_gioitinh`, `us
 (4, 'Vương', NULL, 1, '2021-10-12', '6464656', 'vuong9xx@gmail.com', '1', 2, 1, '1', '1'),
 (5, 'Quân', NULL, 1, '2021-10-12', '1', 'quan@gmail.com', '1', 0, 1, '1', '1'),
 (6, 'dcs', 'sd', 1, '2021-10-12', '11', 'v@gmai.com', '11', 0, 1, '1', '1'),
-(7, 'Nguyễn Văn Tân', 'unknown1.jpg', 1, '0000-00-00', '0386653766', 'nheo.4fun@gmail.com', '$2y$10$dEk5ebENJ73EEDcSx4YOJOaVtBROLz3ucSRK5EuaHsScXXPuWWGBi', 0, 1, '64c2858418cc2aa489e8c702578faa6b', ''),
+(7, 'Nguyễn Văn Tân', 'unknown1.jpg', 1, '0000-00-00', '0386653766', 'nheo.4fun@gmail.com', '$2y$10$dEk5ebENJ73EEDcSx4YOJOaVtBROLz3ucSRK5EuaHsScXXPuWWGBi', 1, 1, '64c2858418cc2aa489e8c702578faa6b', ''),
 (8, 'Long', '.', 1, '2021-10-13', '3333333', 'long@gmail.com', '1', 0, 1, '1', '1'),
 (9, 'Đức', 'f', 1, '2021-10-07', '33333', '2@gmail.com', '1', 0, 1, '1', '1'),
 (10, 'Hồ Hông Quân', ' img/kakashi.png', 1, '2001-11-25', '0346785893', 'aqdz01@gmail.com', '$2y$10$TySByXD7JoufRz9qAoOes.o57J0r5LqV6tiiry4GE9bnDekiZgtLW', 0, 1, '01d5adc62fdbba0c64eae55eddb8bbb5', '');

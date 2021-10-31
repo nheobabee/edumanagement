@@ -23,10 +23,7 @@ if (isset($_GET['idMH'])) {
     <div id="sidebar-wrapper">
         <ul class="sidebar-nav">
             <li class="sidebar-brand">
-                <h2>ADMIN</h2>
-            </li>
-            <li>
-                <a href="index.php"><i class="fas fa-chart-line"></i> Dashboard</a>
+                <h2>TEACHER</h2>
             </li>
             <li>
                 <a href="teacher.php"><i class="fas fa-chalkboard-teacher"></i> Teacher</a>
@@ -38,7 +35,7 @@ if (isset($_GET['idMH'])) {
                 <a href="subject.php"><i class="fas fa-book"></i> Subject</a>
             </li>
             <li>
-                <a href="teach.php"><i class="fas fa-school"></i> Teach</a>
+                <a href="learn-teach-teacher.php"><i class="fas fa-school"></i> Teach - Learn</a>
             </li>
 
 
@@ -69,7 +66,7 @@ if (isset($_GET['idMH'])) {
                     </nav>
                     <div class="container">
                         <div class="tittleAdd">
-                            <h2>ADD EXERCISE</h2>
+                            <h2>THÊM BÀI TẬP</h2>
                         </div>
                         <form method="post" enctype="multipart/form-data">
 
@@ -91,7 +88,7 @@ if (isset($_GET['idMH'])) {
                                 
                                 if($run){
                                     move_uploaded_file($fileTmpName,$path);
-                                    echo "success";
+                                    header('location: http://localhost/edumanagement/admin/teacher/exercise-subject-teacher.php?idMH=' . $idMH);
                                 }
                                 else{
                                     echo $query;
@@ -100,17 +97,17 @@ if (isset($_GET['idMH'])) {
                             }
                             
                             ?>
-                            <span style="font-weight:500">Subject: <?php echo $nameMH ?><span>
+                            <span style="font-weight:500">Môn học: <?php echo $nameMH ?><span>
                                     <div class="form-group">
-                                        <label class="subMH" for="idMH">ID Subject </label>
+                                        <label class="subMH" for="idMH">Mã môn học:</label>
                                         <input type="text" class="form-control" id="idMH" readonly value="<?php echo $idMH ?>" name="idMH">
                                     </div>
                                     <div class="form-group">
-                                        <label for="nameBTVN">Name Homework:</label>
+                                        <label for="nameBTVN">Tên bài tập:</label>
                                         <input type="text" class="form-control" id="nameBTVN" placeholder="Enter name" name="nameBTVN">
                                     </div>
                                     <div class="form-group">
-                                        <label for="formatBTVN">Format:</label>
+                                        <label for="formatBTVN">Hình thức:</label>
                                         <div class="format_btvn">
                                             <select id="formatBTVN" name="formatBTVN">
                                                 <option value="Trắc nghiệm">Trắc nghiệm</option>
@@ -118,24 +115,20 @@ if (isset($_GET['idMH'])) {
                                             </select>
                                         </div>
                                     </div>
-                                    <!-- <div class="form-group">
-                                <label for="openedBTVN">Opened:</label>
-                                <input type="date" class="form-control" id="openedBTVN" placeholder="Enter opened" name="openedBTVN">
-                            </div> -->
                                     <div class="form-group">
-                                        <label for="deadlineBTVN">Deadline:</label>
+                                        <label for="deadlineBTVN">Hạn cuối:</label>
                                         <input type="datetime-local" class="form-control" id="deadlineBTVN" placeholder="Enter deadline" name="deadlineBTVN">
                                     </div>
-                                    <label for="empEmail" class="col-sm-3 col-form-label">Đề bài</label>
+                                    <label for="empEmail" class="col-sm-3 col-form-label">Tệp:</label>
                                     <div class="col-sm-5">
                                         <input type="file" class="form-control" id="file" name="file">
                                     </div>
                                     <div class="form-group">
-                                        <label for="note">Note:</label>
+                                        <label for="note">Ghi chú:</label>
                                         <input type="text" class="form-control" id="note" placeholder="Enter note" name="note">
                                     </div>
                                     <br>
-                                    <button name="add" type="submit" class="btn btn-success">ADD</button>
+                                    <button name="add" type="submit" class="btn btn-success"><i class="fas fa-plus"></i> Thêm</button>
                         </form>
                     </div>
                 </div>

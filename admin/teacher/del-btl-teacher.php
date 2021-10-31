@@ -13,12 +13,12 @@
         $res = mysqli_query($conn, $sql);
        
         if($res == true){
-            header("Location:http:subject.php");
+            header('location: http://localhost/edumanagement/admin/teacher/btl.php?idMH=' . $idMH);
             $_SESSION['successDel'] = "<div class='success'>Xóa thành công!</div>";
         }
         else{
-            header('location:subject.php');
-            $_SESSION['errorDel'] = "<div class='error'>Sinh hiện đang có trong danh sách học, không thể xóa!</div>";
+            header('location: http://localhost/edumanagement/admin/teacher/btl.php?idMH=' . $idMH);
+            $_SESSION['errorDel'] = "<div class='error'>Bài tập lớn đang được giao, không thể xóa!</div>";
         }
     }
 ?>
