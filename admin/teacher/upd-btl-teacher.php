@@ -83,7 +83,7 @@ if (!isset($_SESSION['teacher'])) {
                     </nav>
                     <div class="container">
                         <h2>CẬP NHẬT BÀI TẬP LỚN</h2>
-                        <form method="post">
+                        <form method="post" enctype="multipart/form-data">
 
 
                         <?php
@@ -94,15 +94,19 @@ if (!isset($_SESSION['teacher'])) {
                                 $deadlineBTL_q = $_POST['deadlineBTL'];
                                 $idMH_q = $_POST['idMH'];
                                 $note_q = $_POST['notebtl'];                            
-                                
+                                $fileName = $_FILES['file']['name'];
+                                $fileTmpName = $_FILES['file']['tmp_name'];
+                                $path = "uploads/".$fileName;
                                 $sql3 = "UPDATE `btl` SET 
                                 `nameBTL`=' $nameBTL_q',
                                 `formatBTL`='$formatBTL_q',                               
                                 `deadlineBTL`='$deadlineBTL_q',
-                                `notebtl`=' $note_q'                               
+                                `notebtl`=' $note_q',
+                                `filenamebtl`='$fileName'                              
                                 WHERE idBTL = $idBTL";
                                 $res3 = mysqli_query($conn, $sql3);
-                                if ($res3 == true) {                                  
+                                if ($res3 == true) {   
+                                    move_uploaded_file($fileTmpName,$path);                                
                                     header("Location:http://localhost/edumanagement/admin/teacher/btl.php?idMH=".$idMH);
                                 } else {
                                     echo 'lỗi';
