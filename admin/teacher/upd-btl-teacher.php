@@ -15,7 +15,7 @@ if (!isset($_SESSION['teacher'])) {
     <div id="sidebar-wrapper">
         <ul class="sidebar-nav">
             <li class="sidebar-brand">
-                <h2>ADMIN</h2>
+                <h2>TEACHER</h2>
             </li>
             <li>
                 <a href="teacher.php"><i class="fas fa-chalkboard-teacher"></i> Teacher</a>
@@ -27,7 +27,7 @@ if (!isset($_SESSION['teacher'])) {
                 <a href="subject.php"><i class="fas fa-book"></i> Subject</a>
             </li>
             <li>
-                <a href="teach.php"><i class="fas fa-school"></i> Teach</a>
+                <a href="learn-teach-teacher.php"><i class="fas fa-school"></i> Teach - Learn</a>
             </li>
 
 
@@ -40,8 +40,12 @@ if (!isset($_SESSION['teacher'])) {
 
     <?php
     // lấy giá trị name cần sửa 
-    if (isset($_GET['idBTL'])) {
+    if (isset($_GET['idBTL'],$_GET['idMH'])) {
         $idBTL = $_GET['idBTL'];
+        $idMH = $_GET['idMH'];
+        $sql0 = "SELECT * FROM monhoc WHERE idMH = '$idMH'";
+        $res0 = mysqli_query($conn, $sql0);
+        $row0 = mysqli_fetch_assoc($res0);
 
         //lấy giá trị từ bảng
         $sqlqq = "SELECT * FROM btl WHERE idBTL = '$idBTL'";
@@ -78,74 +82,78 @@ if (!isset($_SESSION['teacher'])) {
                         </div>
                     </nav>
                     <div class="container">
-                        <h2>SỬA BTL</h2>
+                        <h2>CẬP NHẬT BÀI TẬP LỚN</h2>
                         <form method="post">
 
 
                         <?php
                             if (isset($_POST['updbtl'])) {
                                
-                                $nameBTL = $_POST['nameBTL'];
-                                $formatBTL = $_POST['formatBTL'];
-                                $deadlineBTL = $_POST['deadlineBTL'];
-                                $idMH = $_POST['idMH'];
-                                $note = $_POST['notebtl'];                            
+                                $nameBTL_q = $_POST['nameBTL'];
+                                $formatBTL_q = $_POST['formatBTL'];
+                                $deadlineBTL_q = $_POST['deadlineBTL'];
+                                $idMH_q = $_POST['idMH'];
+                                $note_q = $_POST['notebtl'];                            
                                 
                                 $sql3 = "UPDATE `btl` SET 
-                                `nameBTL`=' $nameBTL',
-                                `formatBTL`='$formatBTL',                               
-                                `deadlineBTL`='$deadlineBTL',
-                                `idMH`='$idMH',
-                                `notebtl`=' $note'                               
+                                `nameBTL`=' $nameBTL_q',
+                                `formatBTL`='$formatBTL_q',                               
+                                `deadlineBTL`='$deadlineBTL_q',
+                                `notebtl`=' $note_q'                               
                                 WHERE idBTL = $idBTL";
                                 $res3 = mysqli_query($conn, $sql3);
                                 if ($res3 == true) {                                  
-                                    header("Location:http://localhost/edumanagement/admin/btl.php?idMH=".$idMH);
+                                    header("Location:http://localhost/edumanagement/admin/teacher/btl.php?idMH=".$idMH);
                                 } else {
                                     echo 'lỗi';
                                 }
                             }
                             ?>
+                            <span style="font-weight:500">Môn học: <?php echo $row0['nameMH'] ?><span>
                             <div class="form-group">
-                                <label for="nameBTL">Name BTL:</label>
+                                        <label class="idBTL" for="idMH">Mã bài tập lớn: </label>
+                                        <input type="text" class="form-control" id="idBTL" readonly value="<?php echo $idBTL ?>" name="idBTL">
+                                    </div>
+                            <div class="form-group">
+                                <label for="nameBTL">Tên bài tập lớn:</label>
                                 <input type="text" class="form-control" id="nameBTL" placeholder="Enter name" name="nameBTL" value="<?php echo  $nameBTL_q ?>">
                             </div>
 
                             <div class="form-group">
-                                <label for="formatBTL">formatBTL:</label>
-                                <input type="text" class="form-control" id="formatBTL" placeholder="Enter formatBTL" name="formatBTL" value="<?php echo  $formatBTL_q ?>">
-                            </div>
+                                        <label for="formatBTL">Hình thức:</label>
+                                        <div class="format_btvn">
+                                            <select id="formatBTL" name="formatBTL">
+                                                <?php
+                                                ?>
+                                                <option <?php if ($formatBTL_q == 'Trắc nghiệm') {
+                                                            echo 'selected';
+                                                        } ?> value="Trắc nghiệm">Trắc nghiệm</option>
+                                                <option <?php if ($formatBTL_q == 'Tự luận') {
+                                                            echo 'selected';
+                                                        } ?> value="Tự luận">Tự luận</option>
+                                                <?php
+                                                ?>
+
+                                            </select>
+                                        </div>
+                                    </div>
+                           
                             <div class="form-group">
-                                <label for="openedBTL">openedBTL:</label>
-                                <input type="datetime-local" readonly class="form-control" id="openedBTL" placeholder="Enter openedBTL" name="openedBTL" value="<?php echo $date = date("Y-m-d\TH:i:s", strtotime($openedBTL_q)); ?>">
-                            </div>
-                            <div class="form-group">
-                                <label for="deadlineBTL">deadlineBTL:</label>
+                                <label for="deadlineBTL">Hạn cuối:</label>
                                 <input type="datetime-local" class="form-control" id="deadlineBTL" placeholder="Enter deadlineBTL" name="deadlineBTL" value="<?php echo $date = date("Y-m-d\TH:i:s", strtotime($deadlineBTL_q));?>">
                             </div>
-                            <div class="form-group ">
-                                <label for="idMH" class="col-sm-2 col-form-label">Tên môn học:</label>
-                                <div class="col-sm-10">
-                                    <select name="idMH">
-                                        <?php
-                                        $sqlq = "SELECT * FROM monhoc";
-                                        $resultq = mysqli_query($conn, $sqlq);
-                                        if (mysqli_num_rows($resultq) > 0) {
-                                            while ($row = mysqli_fetch_assoc($resultq)) {
-                                                echo '<option value="' . $row['idMH'] . '">' . $row['nameMH'] . '</option>';
-                                            }
-                                        }
-                                        ?>
-                                    </select>
-                                </div>
-                            </div>
+                            <label for="empEmail" class="col-sm-3 col-form-label">Tệp</label>
+                                        <div class="col-sm-5">
+                                            <input type="file" class="form-control" id="file" name="file" value="<?php echo $fileName_q ?>">
+                                        </div>
+                           
                             <div class="form-group">
-                                <label for="tenGV">Gi chú:</label>
+                                <label for="tenGV">Ghi chú:</label>
                                 <input type="text" class="form-control" id="notebtl" placeholder="Enter tenGV" name="notebtl" value="<?php echo $note_q ?>">
                             </div>
 
                             <br>
-                            <button name="updbtl" type="submit" class="btn btn-success">UPDATE</button>
+                            <button name="updbtl" type="submit" class="btn btn-success"><i class="fas fa-pen"></i> Cập nhật</button>
                         </form>
                     </div>
                 </div>

@@ -7,7 +7,7 @@ if (!isset($_SESSION['teacher'])) {
 ?>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-<link rel="stylesheet" href="../../css/view-exercise-admin.css">
+<link rel="stylesheet" href="../../css/v-ex-tea.css">
 <?php
 if (isset($_GET['idBTVN'], $_GET['idMH'])) {
     $idBTVN = $_GET['idBTVN'];
@@ -24,7 +24,7 @@ if (isset($_GET['idBTVN'], $_GET['idMH'])) {
     <div id="sidebar-wrapper">
         <ul class="sidebar-nav">
             <li class="sidebar-brand">
-                <h2>ADMIN</h2>
+                <h2>TEACHER</h2>
             </li>
             <li>
                 <a href="teacher.php"><i class="fas fa-chalkboard-teacher"></i> Teacher</a>
@@ -36,7 +36,7 @@ if (isset($_GET['idBTVN'], $_GET['idMH'])) {
                 <a href="subject.php"><i class="fas fa-book"></i> Subject</a>
             </li>
             <li>
-                <a href="teach.php"><i class="fas fa-school"></i> Teach</a>
+                <a href="learn-teach-teacher.php"><i class="fas fa-school"></i> Teach - Learn</a>
             </li>
 
 
@@ -69,8 +69,7 @@ if (isset($_GET['idBTVN'], $_GET['idMH'])) {
                     <div class="main-content">
 
                         <div class="container">
-                            <br>
-                            <br><br>
+                            <h1>CHI TIẾT BÀI TẬP</h1><br>
                             <div class="tittle-mh">
                                 <h2><?php echo $nameMH ?></h2>
                             </div>
@@ -83,31 +82,24 @@ if (isset($_GET['idBTVN'], $_GET['idMH'])) {
                                     <div class="name-btvn row">
 
                                         <div class="content-btvn col">
-                                            <h6><?php echo $row3['nameBTVN'] ?></h6>
-                                            <label for="empEmail" class="col-sm-3 col-form-label">Đề bài:</label>
-                                            <div class="form-group">
+                                            <h6>Đề bài: <?php echo $row3['nameBTVN'] ?></h6>
+                                            <div class="file-bt">
                                                 <h6><?php echo $row3['filename'] ?></h6>
                                                 <a href="download-exercise.php?file=<?php echo $row3['filename'] ?>"> <button class="btn btn-success text-white me-2"><i class="fas fa-download"></i>Tải đề</button></a><br>
                                             </div>
-
-                                        </div>
-                                    </div>
-                                    <div class="name-btvn row">
-
-                                        <div class="content-btvn col">
-                                            <h6><?php echo $row3['nameBTVN'] ?></h6>
-                                            <p><span style="font-weight: 500;">Opened: </span><?php echo $row3['openedBTVN'] ?></p>
-                                            <p style="border-bottom: 1px solid;"><span style="font-weight: 500;">Deadline: </span><?php echo $row3['deadlineBTVN'] ?></p>
+                                            <div class="sub-bt">
+                                            <p><span style="font-weight: 500;">Ngày giao: </span><?php echo $row3['openedBTVN'] ?></p>
+                                            <p style="border-bottom: 1px solid;"><span style="font-weight: 500;">Hạn cuối: </span><?php echo $row3['deadlineBTVN'] ?></p>
                                             <p class="note"><?php echo $row3['note'] ?></p>
-                                            <div class="form-tn">
-                                               
                                             </div>
+                                           
+
 
                                            
                                             <a href="view-btvnsv.php?idBTVN=<?php echo $row3['idBTVN']; ?>&&idMH=<?php echo $row3['idMH']; ?>"><button type="button" class="btn btn-success text-white me-2"><i class="fas fa-upload"></i>Xem bài tập đã nộp</button></a>
-                                        </div>
+
+                                      </div>
                                     </div>
-                                </div>
                             <?php
                             }
 
