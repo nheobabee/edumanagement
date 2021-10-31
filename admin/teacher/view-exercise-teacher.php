@@ -92,10 +92,7 @@ if (isset($_GET['idBTVN'], $_GET['idMH'])) {
                                             <p style="border-bottom: 1px solid;"><span style="font-weight: 500;">Hạn cuối: </span><?php echo $row3['deadlineBTVN'] ?></p>
                                             <p class="note"><?php echo $row3['note'] ?></p>
                                             </div>
-                                           
-
-
-                                           
+                                            
                                             <a href="view-btvnsv.php?idBTVN=<?php echo $row3['idBTVN']; ?>&&idMH=<?php echo $row3['idMH']; ?>"><button type="button" class="btn btn-success text-white me-2"><i class="fas fa-upload"></i>Xem bài tập đã nộp</button></a>
 
                                       </div>
