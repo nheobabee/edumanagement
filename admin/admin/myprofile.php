@@ -1,69 +1,4 @@
 <link rel="stylesheet" href="../../css/style.css">
-<<<<<<< HEAD
-
-<div id="wrapper">
-
-    <?php
-    // lấy giá trị user cần sửa 
-    if (isset($_SESSION['user_id'])) {
-        $userid = $_SESSION['user_id'];
-
-        //lấy giá trị từ bảng
-        $sql = "SELECT * FROM users WHERE user_id = '$userid'";
-        $kq = mysqli_query($conn, $sql);
-        if ($kq) {
-            $row = mysqli_fetch_assoc($kq);
-            $username_q = $row['user_name'];
-            $useravatar_q = $row['user_avatar'];
-            $usergioitinh_q = $row['user_gioitinh'];
-            $userbirthday_q = $row['user_birthday'];
-            $userphone_q = $row['user_phone'];
-            $useremail_q = $row['user_email'];
-        }
-    }
-    
-    ?>
-    <?php
-
-if (isset($_POST['update-img'])) {
-    $useravatar = $_FILES['user_avatar']['name'];
-    if ($useravatar != null) {
-        $path = "./img/";
-        $tmp_name = $_FILES['user_avatar']['tmp_name'];
-        move_uploaded_file($tmp_name, $path . $useravatar);
-    }
-
-    $sql_img = "UPDATE `users` SET 
-                 `user_avatar`='$useravatar'
-                WHERE `user_id`='$userid'";
-    $rs_img = mysqli_query($conn, $sql_img);
-   if($rs_img)
-   {
-    header('location:./myprofile.php');
-   }
-}
-
-?>
-    <?php
-    $userid = $_SESSION['user_id'];
-
-
-    if (isset($_POST['update'])) {
-        $username = $_POST['user_name'];
-        $useravatar = $_FILES['user_avatar']['name'];
-        $usergioitinh = $_POST['user_gioitinh'];
-        $userbirthday = $_POST['user_birthday'];
-        $userphone = $_POST['user_phone'];
-        $useremail = $_POST['user_email'];
-        if ($useravatar != null) {
-            $path = "./img/";
-            $tmp_name = $_FILES['user_avatar']['tmp_name'];
-            move_uploaded_file($tmp_name, $path . $useravatar);
-        }
-
-        // Bước 2 câu lệnh truy vấn
-        $sql1 = "UPDATE `users` SET 
-=======
 <?php include('./header.php') ?>
 <form action="" method="POST" enctype="multipart/form-data">
     <div class="main-content">
@@ -107,7 +42,6 @@ if (isset($_POST['update-img'])) {
 
                 // Bước 2 câu lệnh truy vấn
                 $sql1 = "UPDATE `users` SET 
->>>>>>> 03f5987279926d049e10fe2867482b51d1a1c702
                         `user_name`='$username',
                         --  `user_avatar`='$useravatar',
                         `user_gioitinh`='$usergioitinh',
@@ -213,7 +147,8 @@ if (isset($_POST['update-img'])) {
             </div>
 
     </div>
-<<<<<<< HEAD
+
+    
     
     <footer>
         <p class="ftr text-center">
@@ -221,7 +156,8 @@ if (isset($_POST['update-img'])) {
         </p>
     </footer>
 </div>
-=======
+
+
 </form>
 <?php
 
@@ -243,7 +179,8 @@ if (isset($_POST['update-img'])) {
 }
 
 ?>
->>>>>>> 03f5987279926d049e10fe2867482b51d1a1c702
+
+
 
 <style>
     body {
