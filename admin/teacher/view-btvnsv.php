@@ -16,7 +16,20 @@ if (isset($_GET['idBTVN'], $_GET['idMH'])) {
     $res1 = mysqli_query($conn, $sql1);
     $row1 = mysqli_fetch_assoc($res1);
     $nameMH = $row1['nameMH'];
+    $sql2 = "SELECT * FROM btvn WHERE  idBTVN = $idBTVN";
+    $res2 = mysqli_query($conn, $sql2);
+    $row2 = mysqli_fetch_assoc($res2);
+    $nameBTVN = $row2['nameBTVN'];
+    
+    
 }
+
+    
+    // $sql4 = "SELECT * FROM btvn WHERE  user_id = $row3";
+    // $res4 = mysqli_query($conn, $sql4);
+    // $row4 = mysqli_fetch_assoc($res4);
+    // $user_name = $row4['user_name'];
+
 ?>
 <div id="wrapper">
 
@@ -72,41 +85,29 @@ if (isset($_GET['idBTVN'], $_GET['idMH'])) {
                             <br>
                             <br><br>
                             <div class="tittle-mh">
-                                <h2><?php echo $nameMH ?></h2>
+                               <h3><?php echo $nameMH ?></h3>
+                               <h5><?php echo $nameBTVN?></h5>
                             </div>
                             <?php
-                            $sql3 = "SELECT * FROM btvn WHERE idMH = '$idMH' AND idBTVN = '$idBTVN'";
+                            $sql3 = "SELECT * FROM btvnsv WHERE idMH = '$idMH' AND idBTVN = '$idBTVN'";
                             $res3 = mysqli_query($conn, $sql3);
+                            
                             while ($row3 = mysqli_fetch_assoc($res3)) { ?>
                                 <div class="title-btvn">
 
                                     <div class="name-btvn row">
 
                                         <div class="content-btvn col">
-                                            <h6><?php echo $row3['nameBTVN'] ?></h6>
+                                            <h6><?php echo $row3['user_id'] ?></h6>
                                             <label for="empEmail" class="col-sm-3 col-form-label">Đề bài:</label>
                                             <div class="form-group">
-                                                <h6><?php echo $row3['filename'] ?></h6>
-                                                <a href="download-exercise.php?file=<?php echo $row3['filename'] ?>"> <button class="btn btn-success text-white me-2"><i class="fas fa-download"></i>Tải đề</button></a><br>
+                                                <h6><?php echo $row3['fileBTVN'] ?></h6>
+                                                <a href="download-bt.php?file=<?php echo $row3['fileBTVN'] ?>"> <button class="btn btn-success text-white me-2"><i class="fas fa-download"></i>Tải và xem bài làm</button></a><br>
                                             </div>
 
                                         </div>
                                     </div>
-                                    <div class="name-btvn row">
-
-                                        <div class="content-btvn col">
-                                            <h6><?php echo $row3['nameBTVN'] ?></h6>
-                                            <p><span style="font-weight: 500;">Opened: </span><?php echo $row3['openedBTVN'] ?></p>
-                                            <p style="border-bottom: 1px solid;"><span style="font-weight: 500;">Deadline: </span><?php echo $row3['deadlineBTVN'] ?></p>
-                                            <p class="note"><?php echo $row3['note'] ?></p>
-                                            <div class="form-tn">
-                                               
-                                            </div>
-
-                                           
-                                            <a href="view-btvnsv.php?idBTVN=<?php echo $row3['idBTVN']; ?>&&idMH=<?php echo $row3['idMH']; ?>"><button type="button" class="btn btn-success text-white me-2"><i class="fas fa-upload"></i>Xem bài tập đã nộp</button></a>
-                                        </div>
-                                    </div>
+                                   
                                 </div>
                             <?php
                             }

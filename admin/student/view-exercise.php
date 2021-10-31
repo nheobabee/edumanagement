@@ -38,8 +38,6 @@ if (isset($_GET['idBTVN'], $_GET['idMH'])) {
             <li>
                 <a href="teach.php"><i class="fas fa-school"></i> Teach</a>
             </li>
-
-
             <li>
                 <a href="result-admin.php"><i class="fas fa-poll"></i> Result</a>
             </li>
@@ -71,51 +69,50 @@ if (isset($_GET['idBTVN'], $_GET['idMH'])) {
                         <div class="container">
                             <br>
                             <br><br>
-                            <div class="tittle-mh">
+                           
+                            
+                                 <div class="tittle-mh">
                                 <h2><?php echo $nameMH ?></h2>
-                            </div>
-                            <?php
-                            $sql3 = "SELECT * FROM btvn WHERE idMH = '$idMH' AND idBTVN = '$idBTVN'";
-                            $res3 = mysqli_query($conn, $sql3);
-                            while ($row3 = mysqli_fetch_assoc($res3)) { ?>
-                                <div class="title-btvn">
-
-                                    <div class="name-btvn row">
-
-                                        <div class="content-btvn col">
-                                            <h6><?php echo $row3['nameBTVN'] ?></h6>
-                                            <label for="empEmail" class="col-sm-3 col-form-label">Đề bài:</label>
-                                            <div class="form-group">
-                                                <h6><?php echo $row3['filename'] ?></h6>
-                                                <a href="download-exercise.php?file=<?php echo $row3['filename'] ?>"> <button class="btn btn-success text-white me-2"><i class="fas fa-download"></i>Tải đề</button></a><br>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                    <div class="name-btvn row">
-
-                                        <div class="content-btvn col">
-                                            <h6><?php echo $row3['nameBTVN'] ?></h6>
-                                            <p><span style="font-weight: 500;">Opened: </span><?php echo $row3['openedBTVN'] ?></p>
-                                            <p style="border-bottom: 1px solid;"><span style="font-weight: 500;">Deadline: </span><?php echo $row3['deadlineBTVN'] ?></p>
-                                            <p class="note"><?php echo $row3['note'] ?></p>
-                                            <div class="form-tn">
-                                               
-                                            </div>
-
-                                            <div class="mb-3">
-                                                <label for="exampleFormControlTextarea1" class="form-label"></label>
-                                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                                            </div>
-                                            <a href="#"><button type="button" class="btn btn-success text-white me-2"><i class="fas fa-upload"></i> SEND</button></a>
-                                        </div>
-                                    </div>
                                 </div>
-                            <?php
-                            }
+                                <?php
+                                
+                                $sql3 = "SELECT * FROM btvn WHERE idMH = '$idMH' AND idBTVN = '$idBTVN'";
+                                $res3 = mysqli_query($conn, $sql3);
+                                while ($row3 = mysqli_fetch_assoc($res3)) { ?>
+                                    <div class="title-btvn">
 
-                            ?>
+                                        <div class="name-btvn row">
 
+                                            <div class="content-btvn col">
+                                                <h6><?php echo $row3['nameBTVN'] ?></h6>
+                                                <label for="empEmail" class="col-sm-3 col-form-label">Đề bài:</label>
+                                                <div class="form-group">
+                                                    <h6><?php echo $row3['filename'] ?></h6>
+                                                    <a href="download-exercise.php?file=<?php echo $row3['filename'] ?>"> <button class="btn btn-success text-white me-2"><i class="fas fa-download"></i>Tải đề</button></a><br>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div style="min-height: 150px;" class="name-btvn row">
+
+                                            <div class="content-btvn col">
+                                                <h6><?php echo $row3['nameBTVN'] ?></h6>
+                                                <p><span style="font-weight: 500;">Opened: </span><?php echo $row3['openedBTVN'] ?></p>
+                                                <p style="border-bottom: 1px solid;"><span style="font-weight: 500;">Deadline: </span><?php echo $row3['deadlineBTVN'] ?></p>
+                                                <p class="note"><?php echo $row3['note'] ?></p>
+                                                <div class="form-tn">
+
+                                                </div>
+                                                <a href="send-exercise-admin.php?idBTVN=<?php echo $row3['idBTVN']; ?>&&idMH=<?php echo $row3['idMH']; ?>&&user_id=<?php echo $_SESSION['user_id']; ?>"><button type="button" class="btn btn-success text-white me-2"><i class="fas fa-upload"></i>NỘP BÀI</button></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <?php
+                                }
+                                ?>
+                           
+                                
+                           
 
                         </div>
                     </div>

@@ -1,4 +1,4 @@
-<title>VIEW EXERCISE</title>
+<title>VIEW EXCERCISE</title>
 <?php include('../../config/config.php');
 session_start();
 if (!isset($_SESSION['student'])) {
@@ -24,16 +24,23 @@ if (isset($_GET['idBTVN'], $_GET['idMH'])) {
     <div id="sidebar-wrapper">
         <ul class="sidebar-nav">
             <li class="sidebar-brand">
-                <h2>STUDENT</h2>
+                <h2>ADMIN</h2>
             </li>
-
+            <li>
+                <a href="teacher.php"><i class="fas fa-chalkboard-teacher"></i> Teacher</a>
+            </li>
             <li>
                 <a href="student.php"><i class="fas fa-user-graduate"></i> Student</a>
             </li>
             <li>
                 <a href="subject.php"><i class="fas fa-book"></i> Subject</a>
             </li>
-
+            <li>
+                <a href="teach.php"><i class="fas fa-school"></i> Teach</a>
+            </li>
+            <li>
+                <a href="result-admin.php"><i class="fas fa-poll"></i> Result</a>
+            </li>
         </ul>
     </div>
     <!-- /#sidebar-wrapper -->
@@ -50,7 +57,7 @@ if (isset($_GET['idBTVN'], $_GET['idMH'])) {
 
                             <form class="d-flex">
                                 <a href="" class="navbar-brand">HOME</a>
-                                <a href="./myprofile.php" class="navbar-brand">ACCOUNT</a>
+                                <a href="" class="navbar-brand">ACCOUNT</a>
                                 <a href="../../login/logout.php" class="navbar-brand">LOGOUT</a>
                                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                                 <button class="btn btn-outline-success" type="submit">Search</button>
@@ -58,52 +65,72 @@ if (isset($_GET['idBTVN'], $_GET['idMH'])) {
                         </div>
                     </nav>
                     <div class="main-content">
-
+                    <form action="" method="post" enctype="multipart/form-data">
+                    
                         <div class="container">
                             <br>
-
-                            <br>
-                            <div class="tittle-mh">
+                            <br><br>
+                           
+                           
+                                 <div class="tittle-mh">
                                 <h2><?php echo $nameMH ?></h2>
-                            </div>
-                            <?php
-                            $sql3 = "SELECT * FROM btvn WHERE idMH = '$idMH'";
-                            $res3 = mysqli_query($conn, $sql3);
+                                </div>
+                                <?php
+                                
+                                $sql3 = "SELECT * FROM btvn WHERE idMH = '$idMH' AND idBTVN = '$idBTVN'";
+                                $res3 = mysqli_query($conn, $sql3);
+                                while ($row3 = mysqli_fetch_assoc($res3)) { ?>
+                                <?php                     
+                        if(isset($_POST['send'])){                                                                                                  
+                            $fileName = $_FILES['file']['name'];
+                            $fileTmpName = $_FILES['file']['tmp_name'];
+                            $path = "filebt/".$fileName;
+                            $notebtvnsv = $_POST['notebtvnsv'];
+                            $userid = $_SESSION['user_id'];
+                            $query = "INSERT INTO `btvnsv`(`idBTVN`, `user_id`, `fileBTVN`, `notebtvnsv`, `idMH`) 
+                            VALUES (' $idBTVN','$userid','$fileName','$notebtvnsv','$idMH')";
+                            $run = mysqli_query($conn,$query);
+                            
+                            if($run){
+                                move_uploaded_file($fileTmpName,$path);
+                                echo "success";
+                            }
+                            else{
+                                echo $query;
+                            }
+                        }                 
+                    ?>
+                                    <div class="title-btvn">
 
-                            $row3 = mysqli_fetch_assoc($res3)
+                                     
+                                        <div style="min-height: 400px;" class="name-btvn row">
 
-                            ?>
-                            <div class="title-btvn">
+                                            <div class="content-btvn col">
+                                                <h6><?php echo $row3['nameBTVN'] ?></h6>
+                                                <p><span style="font-weight: 500;">Opened: </span><?php echo $row3['openedBTVN'] ?></p>
+                                                <p style="border-bottom: 1px solid;"><span style="font-weight: 500;">Deadline: </span><?php echo $row3['deadlineBTVN'] ?></p>
+                                                <p class="note"><?php echo $row3['note'] ?></p>
+                                                <div class="form-tn">
 
-                                <div class="name-btvn row">
+                                                </div>
 
-                                    <div class="content-btvn col">
-                                        <h6><?php echo $row3['nameBTVN'] ?></h6>
-                                        <p><span style="font-weight: 500;">Opened: </span><?php echo $row3['openedBTVN'] ?></p>
-                                        <p><span style="font-weight: 500;">Deadline: </span><?php echo $row3['deadlineBTVN'] ?></p>
-
-                                        <div class="form-tn">
-                                            <a href="send-exercise-admin.php"><button type="button" class="btn btn-info text-white me-2"><i class="fas fa-upload"></i> Đề bài</button></a>
-                                        </div>
-                                        <form method="post" class="mb-3">
-                                            <label for="exampleFormControlTextarea1" class="form-label"></label>
-                                            <textarea name="fileBTVN" class="form-control" rows="3"></textarea>
-                                        </form>
-                                        <div class="form-group">
-                                            <label for="empEmail" class="col-sm-2 col-form-label">Avatar</label>
-                                            <div class="col-sm-10">
-                                                <input type="file" class="form-control" id="user_avatar" name="user_avatar">
+                                                <div class="mb-3">
+                                                    <label for="exampleFormControlTextarea1" class="form-label"></label>
+                                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="notebtvnsv"></textarea>
+                                                </div>
+                                                <label for="empEmail" class="col-sm-3 col-form-label">File bài nộp</label>
+                                                <div class="col-sm-5">
+                                                    <input type="file" class="form-control" id="file" name="file">
+                                                </div>
+                                                <button type="submit" class="btn btn-success text-white me-2" name="send"><i class="fas fa-upload"></i>SEND</button></a>
                                             </div>
                                         </div>
-                                        <a href=""><button name="submit" type="submit" class="btn btn-success text-white me-2"><i class="fas fa-upload"></i> SEND</button></a>
-                                        <?php
-                                        if (isset($_POST['submit'])) {
-                                        }
-                                        ?>
                                     </div>
-                                </div>
-                            </div>
+                                <?php
+                                }
+                                ?>                                                                           
                         </div>
+                        </form>
                     </div>
                 </div>
             </div>
