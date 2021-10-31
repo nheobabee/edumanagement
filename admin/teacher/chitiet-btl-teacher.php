@@ -91,14 +91,8 @@ if (isset($_GET['idBTL'], $_GET['idMH'])) {
                                             <p><span style="font-weight: 500;">Ngày giao: </span><?php echo $row3['openedBTL'] ?></p>
                                             <p style="border-bottom: 1px solid;"><span style="font-weight: 500;">Hạn cuối: </span><?php echo $row3['deadlineBTL'] ?></p>
                                             <p class="note"><?php echo $row3['notebtl'] ?></p>
-                                            </div>
-                                           
-
-                                            <div class="mb-3">
-                                                <label for="exampleFormControlTextarea1" class="form-label"></label>
-                                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                                            </div>
-                                            <a href="#"><button type="button" class="nopbai btn btn-success text-white me-2"><i class="fas fa-upload"></i> Nộp bài</button></a>
+                                            </div>                                                                                   
+                                            <a href="view-btlsv.php?idBTL=<?php echo $row3['idBTL']; ?>&&idMH=<?php echo $row3['idMH']; ?>"><button type="button" class="nopbai btn btn-success text-white me-2"><i class="fas fa-upload"></i> Xem bài nộp</button></a>
                                         </div>
                                     </div>
                             <?php

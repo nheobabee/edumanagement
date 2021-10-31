@@ -38,8 +38,6 @@ if (isset($_GET['idBTL'], $_GET['idMH'])) {
             <li>
                 <a href="teach.php"><i class="fas fa-school"></i> Teach</a>
             </li>
-
-
             <li>
                 <a href="result-admin.php"><i class="fas fa-poll"></i> Result</a>
             </li>
@@ -67,44 +65,72 @@ if (isset($_GET['idBTL'], $_GET['idMH'])) {
                         </div>
                     </nav>
                     <div class="main-content">
-
+                    <form action="" method="post" enctype="multipart/form-data">
+                    
                         <div class="container">
                             <br>
                             <br><br>
-                            <div class="tittle-mh">
-                                <h2><?php echo $nameMH;?></h2>
-                            </div>
-                            <?php
-                            $sql3 = "SELECT * FROM btl WHERE idMH = '$idMH' AND idBTL = '$idBTL'";
-                            $res3 = mysqli_query($conn, $sql3);
-                            while ($row3 = mysqli_fetch_assoc($res3)) { ?>
-                                <div class="title-btvn">
+                           
+                           
+                                 <div class="tittle-mh">
+                                <h2><?php echo $nameMH ?></h2>
+                                </div>
+                                <?php
+                                
+                                $sql3 = "SELECT * FROM btl WHERE idMH = '$idMH' AND idBTL = '$idBTL'";
+                                $res3 = mysqli_query($conn, $sql3);
+                                while ($row3 = mysqli_fetch_assoc($res3)) { ?>
+                                <?php                     
+                        if(isset($_POST['send'])){                                                                                                  
+                            $fileName = $_FILES['file']['name'];
+                            $fileTmpName = $_FILES['file']['tmp_name'];
+                            $path = "filebt/".$fileName;
+                            $notebtlsv = $_POST['notebtlsv'];
+                            $userid = $_SESSION['user_id'];
+                            $query = "INSERT INTO `btlsv`(`idBTL`, `user_id`, `idMH`, `fileBTL`, `notebtlsv`) 
+                            VALUES ('$idBTL','$userid','$idMH','$fileName','$notebtlsv')";
+                            $run = mysqli_query($conn,$query);
+                            
+                            if($run){
+                                move_uploaded_file($fileTmpName,$path);
+                                echo "success";
+                            }
+                            else{
+                                echo $query;
+                            }
+                        }                 
+                    ?>
+                                    <div class="title-btvn">
 
-                                    <div class="name-btvn row">
+                                     
+                                        <div style="min-height: 400px;" class="name-btvn row">
 
-                                        <div class="content-btvn col">
-                                            <h6><?php echo $row3['nameBTL'] ?></h6>
-                                            <label for="empEmail" class="col-sm-3 col-form-label">Đề bài:</label>
-                                            <div class="form-group">
-                                                <h6><?php echo $row3['filenamebtl'] ?></h6>
-                                                <a href="download-exercise.php?file=<?php echo $row3['filenamebtl'] ?>"> <button class="btn btn-success text-white me-2"><i class="fas fa-download"></i>Tải đề</button></a>
-                                                <a href="./dk-btl-admin.php?idBTL=<?php echo $row3['idBTL']; ?>"><button type="button" class="btn btn-success text-white me-4 col-3"><i class="fas fa-edit"></i> Đăng kí</button></a>
-                                                <a href="./dsnhom-btl-admin.php?idBTL=<?php echo $row3['idBTL']; ?>"><button type="button" class="btn btn-info text-white me-4 col-3"><i class="far fa-eye"></i>Danh sách nhóm</button></a>
-                                                <a href="send-btl.php?idBTL=<?php echo $row3['idBTL']; ?>&&idMH=<?php echo $row3['idMH']; ?>&&user_id=<?php echo $_SESSION['user_id']; ?>"><button type="button" class="btn btn-success text-white me-2"><i class="fas fa-upload"></i>NỘP BÀI</i></button></a>
+                                            <div class="content-btvn col">
+                                                <h6><?php echo $row3['nameBTL'] ?></h6>
+                                                <p><span style="font-weight: 500;">Opened: </span><?php echo $row3['openedBTL'] ?></p>
+                                                <p style="border-bottom: 1px solid;"><span style="font-weight: 500;">Deadline: </span><?php echo $row3['deadlineBTL'] ?></p>
+                                                <p class="note"><?php echo $row3['notebtl'] ?></p>
+                                                <div class="form-tn">
+
+                                                </div>
+
+                                                <div class="mb-3">
+                                                    <label for="exampleFormControlTextarea1" class="form-label"></label>
+                                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="notebtlsv"></textarea>
+                                                </div>
+                                                <label for="empEmail" class="col-sm-3 col-form-label">File bài nộp</label>
+                                                <div class="col-sm-5">
+                                                    <input type="file" class="form-control" id="file" name="file">
+                                                </div>
+                                                <button type="submit" class="btn btn-success text-white me-2" name="send"><i class="fas fa-upload"></i>SEND</button></a>
                                             </div>
-
-
                                         </div>
                                     </div>
-                                    
-                                </div>
-                            <?php
-                            }
-
-                            ?>
-
-
+                                <?php
+                                }
+                                ?>                                                                           
                         </div>
+                        </form>
                     </div>
                 </div>
             </div>

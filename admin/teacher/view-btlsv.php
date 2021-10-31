@@ -1,7 +1,7 @@
 <title>VIEW EXCERCISE</title>
 <?php include('../../config/config.php');
 session_start();
-if (!isset($_SESSION['student'])) {
+if (!isset($_SESSION['teacher'])) {
     header('location:../../login/index.php');
 }
 ?>
@@ -16,7 +16,20 @@ if (isset($_GET['idBTL'], $_GET['idMH'])) {
     $res1 = mysqli_query($conn, $sql1);
     $row1 = mysqli_fetch_assoc($res1);
     $nameMH = $row1['nameMH'];
+    $sql2 = "SELECT * FROM btl WHERE  idBTL = $idBTL";
+    $res2 = mysqli_query($conn, $sql2);
+    $row2 = mysqli_fetch_assoc($res2);
+    $nameBTL = $row2['nameBTL'];
+    
+    
 }
+
+    
+    // $sql4 = "SELECT * FROM btvn WHERE  user_id = $row3";
+    // $res4 = mysqli_query($conn, $sql4);
+    // $row4 = mysqli_fetch_assoc($res4);
+    // $user_name = $row4['user_name'];
+
 ?>
 <div id="wrapper">
 
@@ -72,31 +85,29 @@ if (isset($_GET['idBTL'], $_GET['idMH'])) {
                             <br>
                             <br><br>
                             <div class="tittle-mh">
-                                <h2><?php echo $nameMH;?></h2>
+                               <h3><?php echo $nameMH ?></h3>
+                               <h5><?php echo $nameBTL?></h5>
                             </div>
                             <?php
-                            $sql3 = "SELECT * FROM btl WHERE idMH = '$idMH' AND idBTL = '$idBTL'";
+                            $sql3 = "SELECT * FROM btlsv WHERE idMH = '$idMH' AND idBTL = '$idBTL'";
                             $res3 = mysqli_query($conn, $sql3);
+                            
                             while ($row3 = mysqli_fetch_assoc($res3)) { ?>
                                 <div class="title-btvn">
 
                                     <div class="name-btvn row">
 
                                         <div class="content-btvn col">
-                                            <h6><?php echo $row3['nameBTL'] ?></h6>
+                                            <h6><?php echo $row3['user_id'] ?></h6>
                                             <label for="empEmail" class="col-sm-3 col-form-label">Đề bài:</label>
                                             <div class="form-group">
-                                                <h6><?php echo $row3['filenamebtl'] ?></h6>
-                                                <a href="download-exercise.php?file=<?php echo $row3['filenamebtl'] ?>"> <button class="btn btn-success text-white me-2"><i class="fas fa-download"></i>Tải đề</button></a>
-                                                <a href="./dk-btl-admin.php?idBTL=<?php echo $row3['idBTL']; ?>"><button type="button" class="btn btn-success text-white me-4 col-3"><i class="fas fa-edit"></i> Đăng kí</button></a>
-                                                <a href="./dsnhom-btl-admin.php?idBTL=<?php echo $row3['idBTL']; ?>"><button type="button" class="btn btn-info text-white me-4 col-3"><i class="far fa-eye"></i>Danh sách nhóm</button></a>
-                                                <a href="send-btl.php?idBTL=<?php echo $row3['idBTL']; ?>&&idMH=<?php echo $row3['idMH']; ?>&&user_id=<?php echo $_SESSION['user_id']; ?>"><button type="button" class="btn btn-success text-white me-2"><i class="fas fa-upload"></i>NỘP BÀI</i></button></a>
+                                                <h6><?php echo $row3['fileBTL'] ?></h6>
+                                                <a href="download-btvnsv.php?file=<?php echo $row3['fileBTL'] ?>"> <button class="btn btn-success text-white me-2"><i class="fas fa-download"></i>Tải và xem bài làm</button></a><br>
                                             </div>
-
 
                                         </div>
                                     </div>
-                                    
+                                   
                                 </div>
                             <?php
                             }
