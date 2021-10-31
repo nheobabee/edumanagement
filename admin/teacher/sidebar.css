@@ -521,4 +521,68 @@ h1.count{
       border-top: 5px solid lightblue;
   }
   
-  
+  .nopbai {
+ 
+    float: left;
+}
+.tittle-mh,.name-btvn{
+    border-top: 5px solid lightblue;
+}
+.sub-bt{
+    margin-top:5px;
+}
+
+.btn-success {
+    margin-top:10px;
+    float: left;
+}
+.tittle-mh,.name-btvn{
+    border-top: 5px solid lightblue;
+}
+
+.sub-bt{
+    margin-top:30px;
+}
+
+.content-btvn {
+    border-right: 0.5px solid lightgray;
+}
+.btn-success {
+    margin-left: 8px;
+}
+.btn-warning,.btn-info{
+    float: right;
+}
+
+.btn-success{
+    margin-top: 10px;
+}
+.navbar, .ftr {
+    background-color: #ced6e0;
+}
+
+.ftr {
+    height:44px;
+    margin-bottom: 0;
+    padding-top:6px;
+}
+h1.count{
+    margin-top:30px
+}
+.container{
+    min-height: 521px;
+}
+
+.name-btvn p {
+    margin-bottom: 0;
+    
+}
+.note {
+    margin-top:14px;
+}
+.content-btvn {
+    border-right: 0.5px solid;
+}
+.btn-success {
+    margin-left: 8px;
+}
