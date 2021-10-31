@@ -24,6 +24,27 @@
             }
             ?>
             <?php
+
+            if (isset($_POST['update-img'])) {
+                $useravatar = $_FILES['user_avatar']['name'];
+                if ($useravatar != null) {
+                    $path = "./img/";
+                    $tmp_name = $_FILES['user_avatar']['tmp_name'];
+                    move_uploaded_file($tmp_name, $path . $useravatar);
+                }
+
+                $sql_img = "UPDATE `users` SET 
+                 `user_avatar`='$useravatar'
+                WHERE `user_id`='$userid'";
+                $rs_img = mysqli_query($conn, $sql_img);
+                if ($rs_img) {
+                    header('location:./myprofile.php');
+                }
+            }
+
+            ?>
+
+            <?php
             $userid = $_SESSION['user_id'];
 
 
@@ -148,37 +169,17 @@
 
     </div>
 
-    
-    
+
+
     <footer>
         <p class="ftr text-center">
             QTV - Do your best, the rest will come!
         </p>
     </footer>
-</div>
+    </div>
 
 
 </form>
-<?php
-
-if (isset($_POST['update-img'])) {
-    $useravatar = $_FILES['user_avatar']['name'];
-    if ($useravatar != null) {
-        $path = "./img/";
-        $tmp_name = $_FILES['user_avatar']['tmp_name'];
-        move_uploaded_file($tmp_name, $path . $useravatar);
-    }
-
-    $sql_img = "UPDATE `users` SET 
-                 `user_avatar`='$useravatar'
-                WHERE `user_id`='$userid'";
-    $rs_img = mysqli_query($conn, $sql_img);
-    if ($rs_img) {
-        header('location:./myprofile.php');
-    }
-}
-
-?>
 
 
 
