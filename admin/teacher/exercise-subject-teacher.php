@@ -1,4 +1,4 @@
-<title>BTL</title>
+<title>EXERCISE</title>
 <?php include('../../config/config.php'); 
         session_start();
         if(!isset($_SESSION['teacher']))
@@ -39,6 +39,7 @@ if (isset($_GET['idMH'])) {
             <li>
                 <a href="learn-teach-teacher.php"><i class="fas fa-school"></i> Teach - Learn</a>
             </li>
+            
 
             <li>
                 <a href="result-admin.php"><i class="fas fa-poll"></i> Result</a>
@@ -70,14 +71,13 @@ if (isset($_GET['idMH'])) {
 
                         <div class="container">
                             <br>
-                        <a href="./add-btl-admin.php?idMH=<?php echo $idMH; ?>"><button class="btn btn-success"> ADD BTL</button></a>
-                        <br>
-                           
+                            <a href="./add-exercise-teacher.php?idMH=<?php echo $idMH; ?>"><button type="button" class="btn btn-success text-white me-2"><i class="fas fa-plus"></i>ADD EXCERCISE</button></a>
+                            <br><br>
                             <div class="tittle-mh">
                                 <h2><?php echo $nameMH ?></h2>
                             </div>
                             <?php
-                            $sql3 = "SELECT * FROM btl WHERE idMH = '$idMH'";
+                            $sql3 = "SELECT * FROM btvn WHERE idMH = '$idMH'";
                             $res3 = mysqli_query($conn, $sql3);
                             if ($res3 == true) {
                                 while ($row3 = mysqli_fetch_assoc($res3)) {
@@ -87,17 +87,18 @@ if (isset($_GET['idMH'])) {
                                       
                                             <div class="name-btvn row">
                                                
-                                                  <div class="content-btvn col-md-8">
-                                                  <h4><?php echo $row3['nameBTL'] ?></h4>
-                                                    <p><span style="font-weight: 500;">Opened: </span><?php echo $row3['openedBTL'] ?></p>
-                                                    <p style="border-bottom: 1px solid;"><span style="font-weight: 500;">Deadline: </span><?php echo $row3['deadlineBTL'] ?></p>
-                                                    <p class="note">Ghi chú: <?php echo $row3['notebtl'] ?></p>
+                                                  <div class="content-btvn col-md-7">
+                                                  <h6><?php echo $row3['nameBTVN'] ?></h6>
+                                                  <p><span style="font-weight: 500;">Hình thức: </span><?php echo $row3['formatBTVN'] ?></p>
+                                                    <p><span style="font-weight: 500;">Opened: </span><?php echo $row3['openedBTVN'] ?></p>
+                                                    <p style="border-bottom: 1px solid;"><span style="font-weight: 500;">Deadline: </span><?php echo $row3['deadlineBTVN'] ?></p>
+                                                    <p class="note"><?php echo $row3['note'] ?></p>
                                             
                                                   </div>
-                                                  <div style="margin:auto"  class="service col-md-4">
-                                                  <a href="./upd-btl-admin.php?idBTL=<?php echo $row3['idBTL']; ?>"><button type="button" class="btn btn-success text-white me-2"><i class="fas fa-edit"></i> UPDATE</button></a>
-                                                  <a href="./del-btl-admin.php?idBTL=<?php echo $row3['idBTL']; ?>"><button type="button" class="btn btn-danger text-white me-2"><i class="fas fa-trash-alt"></i> DELETE</button></a>
-                                                  <a href="./chitiet-btl-admin.php?idBTL=<?php echo $row3['idBTL']; ?>&&idMH=<?php echo $row3['idMH']; ?>"><button type="button" class="btn btn-info text-white me-2"><i class="far fa-eye"></i> Chi Tiết</button></a>
+                                                  <div class="service col-md-5">
+                                                  <a href="./upd-exercise-teacher.php?idBTVN=<?php echo $row3['idBTVN']; ?>&&idMH=<?php echo $row3['idMH']; ?>"><button type="button" class="btn btn-success text-white me-2"><i class="fas fa-edit"></i> UPDATE</button></a>
+                                                  <a href="./del-exercise-admin.php?idBTVN=<?php echo $row3['idBTVN']; ?>&&idMH=<?php echo $row3['idMH']; ?>"><button type="button" class="btn btn-danger text-white me-2"><i class="fas fa-trash-alt"></i> DELETE</button></a>
+                                                  <a href="./view-exercise-admin.php?idBTVN=<?php echo $row3['idBTVN']; ?>&&idMH=<?php echo $row3['idMH']; ?>"><button type="button" class="btn btn-info text-white me-2"><i class="far fa-eye"></i> VIEW</button></a>
                                                   </div>
                                             </div>
                                         </div>

@@ -1,6 +1,6 @@
-<title>EXERCISE</title>
+
 <?php include('../../config/config.php'); 
-        session_start();
+     session_start();
         if(!isset($_SESSION['teacher']))
         {
             header('location:../../login/index.php');
@@ -8,7 +8,7 @@
 ?>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-<link rel="stylesheet" href="../../css/exercise-subject-admin.css">
+<link rel="stylesheet" href="../../css/sj-stu.css">
 <?php
 if (isset($_GET['idMH'])) {
     $idMH = $_GET['idMH'];
@@ -25,7 +25,7 @@ if (isset($_GET['idMH'])) {
     <div id="sidebar-wrapper">
         <ul class="sidebar-nav">
             <li class="sidebar-brand">
-                <h2>ADMIN</h2>
+                <h2>TEACHER</h2>
             </li>
             <li>
                 <a href="teacher.php"><i class="fas fa-chalkboard-teacher"></i> Teacher</a>
@@ -37,7 +37,7 @@ if (isset($_GET['idMH'])) {
                 <a href="subject.php"><i class="fas fa-book"></i> Subject</a>
             </li>
             <li>
-                <a href="teach.php"><i class="fas fa-school"></i> Teach</a>
+                <a href="learn-teach-teacher.php"><i class="fas fa-school"></i> Teach - Learn</a>
             </li>
             
 
@@ -71,41 +71,30 @@ if (isset($_GET['idMH'])) {
 
                         <div class="container">
                             <br>
-                            <a href="./add-exercise-admin.php?idMH=<?php echo $idMH; ?>"><button type="button" class="btn btn-success text-white me-2"><i class="fas fa-plus"></i>ADD EXCERCISE</button></a>
+                            <a  href="./subject.php"><button style="padding:1% 2%;" type="button" class="btn btn-secondary text-white me-2"><i class="fas fa-undo-alt"></i></button></a>
                             <br><br>
-                            <div class="tittle-mh">
-                                <h2><?php echo $nameMH ?></h2>
-                            </div>
-                            <?php
-                            $sql3 = "SELECT * FROM btvn WHERE idMH = '$idMH'";
-                            $res3 = mysqli_query($conn, $sql3);
-                            if ($res3 == true) {
-                                while ($row3 = mysqli_fetch_assoc($res3)) {
-
-                            ?>
-                                    <div class="title-btvn">
-                                      
-                                            <div class="name-btvn row">
-                                               
-                                                  <div class="content-btvn col-md-7">
-                                                  <h6><?php echo $row3['nameBTVN'] ?></h6>
-                                                  <p><span style="font-weight: 500;">Hình thức: </span><?php echo $row3['formatBTVN'] ?></p>
-                                                    <p><span style="font-weight: 500;">Opened: </span><?php echo $row3['openedBTVN'] ?></p>
-                                                    <p style="border-bottom: 1px solid;"><span style="font-weight: 500;">Deadline: </span><?php echo $row3['deadlineBTVN'] ?></p>
-                                                    <p class="note"><?php echo $row3['note'] ?></p>
-                                            
-                                                  </div>
-                                                  <div class="service col-md-5">
-                                                  <a href="./upd-exercise-admin.php?idBTVN=<?php echo $row3['idBTVN']; ?>&&idMH=<?php echo $row3['idMH']; ?>"><button type="button" class="btn btn-success text-white me-2"><i class="fas fa-edit"></i> UPDATE</button></a>
-                                                  <a href="./del-exercise-admin.php?idBTVN=<?php echo $row3['idBTVN']; ?>&&idMH=<?php echo $row3['idMH']; ?>"><button type="button" class="btn btn-danger text-white me-2"><i class="fas fa-trash-alt"></i> DELETE</button></a>
-                                                  <a href="./view-exercise-admin.php?idBTVN=<?php echo $row3['idBTVN']; ?>&&idMH=<?php echo $row3['idMH']; ?>"><button type="button" class="btn btn-info text-white me-2"><i class="far fa-eye"></i> VIEW</button></a>
-                                                  </div>
-                                            </div>
-                                        </div>
-                                <?php
-                                }
+                        <?php 
+                            if(isset($_GET['idMH'])){
+                                $idMH = $_GET['idMH'];
+                                $sql0 = "select * from monhoc where idMH = '$idMH'";
+                                $res0 = mysqli_query($conn, $sql0);
+                                $row0 = mysqli_fetch_assoc($res0);
                             }
-                                ?>
+                        ?>
+                        <h1><?php echo $row0['nameMH'] ?></h1>
+                        <br>
+                        <div class="folder-subject">
+                            <div class="subject-folder text-center">
+                                <a href="exercise-subject-teacher.php?idMH=<?php echo $idMH ?>"> <i class="subject-icon far fa-folder"></i>
+                                    <h6 class="subject-name">BÀI TẬP VỀ NHÀ</h6>
+                                </a>
+                            </div>
+                            <div class="subject-folder text-center">
+                                <a href="btl.php?idMH=<?php echo $idMH ?>"><i class="subject-btl fas fa-users"></i>
+                                    <h6 class="subject-name">BÀI TẬP LỚN</h6>
+                                </a>
+                            </div>
+                        </div>
                                     </div>
                         </div>
                     </div>

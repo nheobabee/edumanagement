@@ -30,7 +30,7 @@ if (!isset($_SESSION['teacher'])) {
                 <a href="subject.php"><i class="fas fa-book"></i> Subject</a>
             </li>
             <li>
-                <a href="teach.php"><i class="fas fa-school"></i> Teach</a>
+                <a href="learn-teach-teacher.php"><i class="fas fa-school"></i> Teach - Learn</a>
             </li>
             <li>
                 <a href="result-admin.php"><i class="fas fa-poll"></i> Result</a>
@@ -58,9 +58,10 @@ if (!isset($_SESSION['teacher'])) {
                         </div>
                     </nav>
                     <div class="container">
-                        <br>
-                        <a href="./add-teacher.php"><button class="btn btn-success"> ADD TEACHER</button></a>
-                        <?php
+                        
+                       <h1>DANH SÁCH GIÁO VIÊN</h1>
+                       <br>
+                       <?php
                         if (isset($_SESSION['errorDel'])) {
                             echo $_SESSION['errorDel'];
                             unset($_SESSION['errorDel']);
@@ -70,53 +71,42 @@ if (!isset($_SESSION['teacher'])) {
                             unset($_SESSION['successDel']);
                         }
                         ?>
-                        <br><br>
                         <table class="table">
                             <thead>
                                 <tr>
                                     <th scope="col">STT</th>
-                                    <th scope="col">Name</th>
-                                    <th scope="col">Gender</th>
+                                    <th scope="col">Tên giáo viên</th>
+                                    <th scope="col">Giới tính</th>
                                     <th scope="col">Email</th>
-                                    <th scope="col">SDT</th>
-                                    <th scope="col">Address</th>
-                                    <th scope="col">Update</th>
-                                    <th scope="col">Delete</th>
+                                    <th scope="col">SĐT</th>
 
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php
-                                $sql = "SELECT * from giaovien";
+                                $sql = "SELECT * from users where user_level = 1";
                                 $res = mysqli_query($conn, $sql);
                                 $sn = 1;
                                 if ($res == true) {
                                     while ($row = mysqli_fetch_assoc($res)) {
-                                        $genderGV = $row['genderGV'];
-                                        $idGV = $row['idGV'];
+                                        $user_gioitinh = $row['user_gioitinh'];
+                                        $user_id = $row['user_id'];
                                 ?>
                                         <tr>
                                             <td><?php echo $sn++ ?></td>
-                                            <td><?php echo $row['nameGV']; ?></td>
+                                            <td><?php echo $row['user_name']; ?></td>
                                             <td>
-                                                <?php if ($genderGV == 1) {
+                                                <?php if ($user_gioitinh == 1) {
                                                     echo 'Nam';
                                                 }
-                                                if ($genderGV == 0) {
+                                                if ($user_gioitinh == 0) {
                                                     echo 'Nữ';
                                                 }
                                                 ?>
                                             </td>
-                                            <td><?php echo $row['emailGV']; ?></td>
-                                            <td><?php echo $row['sdtGV']; ?></td>
-                                            <td><?php echo $row['addressGV']; ?></td>
-                                            <td>
-                                                <a href="./upd-teacher-admin.php?idGV=<?php echo $row['idGV']; ?>"><button type="button" class="btn btn-primary text-white me-2"><i class="fas fa-user-edit"></i></button></a>
-                                            </td>
-
-                                            <td>
-                                                <a href="./del-teacher-admin.php?idGV=<?php echo $row['idGV']; ?>"><button type="button" class="btn btn-danger text-white me-2"><i class="fas fa-user-minus"></i></button></a>
-                                            </td>
+                                            <td><?php echo $row['user_email']; ?></td>
+                                            <td><?php echo $row['user_phone']; ?></td>
+                                            
                                         </tr>
                                 <?php
                                     }
