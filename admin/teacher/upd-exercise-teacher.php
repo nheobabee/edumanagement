@@ -20,7 +20,7 @@ if (isset($_GET['idBTVN'], $_GET['idMH'])) {
     $formatBTVN1 = $row1['formatBTVN'];
     $deadlineBTVN = $row1['deadlineBTVN'];
     $fileName_q = $row1['filename'];
-    $note = $row1['note'];
+    $note_q = $row1['note'];
 
 
     $sql2 = "SELECT * FROM monhoc where idMH = $idMH";
@@ -78,7 +78,7 @@ if (isset($_GET['idBTVN'], $_GET['idMH'])) {
                         <div class="tittleAdd">
                             <h2>CẬP NHẬT BÀI TẬP</h2>
                         </div>
-                        <form method="post">
+                        <form method="post" enctype="multipart/form-data">
                             <?php
                             if (isset($_POST['add'])) {
 
@@ -89,17 +89,16 @@ if (isset($_GET['idBTVN'], $_GET['idMH'])) {
                                 $fileTmpName = $_FILES['file']['tmp_name'];
                                 $path = "uploads/".$fileName;
                                 $note = $_POST['note'];
-
+                               
                                 $sql3 = "UPDATE `btvn` SET `nameBTVN`='$nameBTVN',
                                 `formatBTVN`=' $formatBTVN',
                                 `deadlineBTVN`=' $deadlineBTVN',
                                 `note`='$note',
-                                `filename`='$fileName'
-                                
-                                WHERE idBTVN = '$idBTVN'
-                                 ";
+                                `filename`='$fileName'                              
+                                WHERE idBTVN = '$idBTVN'";
                                 $res3 = mysqli_query($conn, $sql3);
                                 if ($res3 == true) {
+                                    move_uploaded_file($fileTmpName,$path);
                                     header("Location:http://localhost/edumanagement/admin/teacher/exercise-subject-teacher.php?idMH=" . $idMH);
                                 } else {
                                     echo $sql3;
@@ -152,7 +151,7 @@ if (isset($_GET['idBTVN'], $_GET['idMH'])) {
                                     </div>
                                     <div class="form-group">
                                         <label for="note">Ghi chú:</label>
-                                        <input type="text" class="form-control" id="note" placeholder="Enter note" name="note" value="<?php echo $note ?>">
+                                        <input type="text" class="form-control" id="note" placeholder="Enter note" name="note" value="<?php echo $note_q ?>">
                                     </div>
                                     
                                     <button style="margin-top:10px" name="add" type="submit" class="btn btn-success"><i class="fas fa-pen"></i> Cập nhật</button>
