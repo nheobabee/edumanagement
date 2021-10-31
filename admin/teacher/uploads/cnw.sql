@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 30, 2021 lúc 03:50 PM
+-- Thời gian đã tạo: Th10 30, 2021 lúc 08:54 PM
 -- Phiên bản máy phục vụ: 10.4.21-MariaDB
 -- Phiên bản PHP: 8.0.10
 
@@ -34,6 +34,7 @@ CREATE TABLE `btl` (
   `openedBTL` datetime NOT NULL DEFAULT current_timestamp(),
   `deadlineBTL` datetime NOT NULL,
   `notebtl` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `filenamebtl` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `idMH` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -41,10 +42,11 @@ CREATE TABLE `btl` (
 -- Đang đổ dữ liệu cho bảng `btl`
 --
 
-INSERT INTO `btl` (`idBTL`, `nameBTL`, `formatBTL`, `openedBTL`, `deadlineBTL`, `notebtl`, `idMH`) VALUES
-(1, 'Làm Web quản lý học tập', 'Tự luận', '2021-10-29 20:46:46', '2021-10-30 20:45:22', 'Dùng Bootstrap làm giao diện, PHP làm backend', 1),
-(2, 'Round Robin', 'Tự luận', '2021-10-29 20:48:09', '2021-10-30 20:46:50', 'Làm vào google Doc', 3),
-(3, 'Dùng ngôn ngữ bậc cao + SQLServer ', 'Tự luận', '2021-10-29 20:48:57', '2021-10-30 20:48:10', 'Ưu tiên dùng PHP', 2);
+INSERT INTO `btl` (`idBTL`, `nameBTL`, `formatBTL`, `openedBTL`, `deadlineBTL`, `notebtl`, `filenamebtl`, `idMH`) VALUES
+(1, 'Làm Web quản lý học tập', 'Tự luận', '2021-10-29 20:46:46', '2021-10-30 20:45:22', 'Dùng Bootstrap làm giao diện, PHP làm backend', 'CSE391_All.pdf', 1),
+(2, 'Round Robin', 'Tự luận', '2021-10-29 20:48:09', '2021-10-30 20:46:50', 'Làm vào google Doc', '', 3),
+(3, 'Dùng ngôn ngữ bậc cao + SQLServer ', 'Tự luận', '2021-10-29 20:48:57', '2021-10-30 20:48:10', 'Ưu tiên dùng PHP', '', 2),
+(25, ' a', 'a', '2021-10-31 01:47:04', '2021-10-07 22:22:00', 'a', 'Bai 5 SU PHAT TRIEN CUA TU VUNG Tiep theo.pptx', 3);
 
 -- --------------------------------------------------------
 
@@ -95,11 +97,12 @@ CREATE TABLE `btvn` (
 
 INSERT INTO `btvn` (`idBTVN`, `nameBTVN`, `formatBTVN`, `openedBTVN`, `deadlineBTVN`, `note`, `filename`, `idMH`) VALUES
 (1, 'Sự bế tắc', 'Tự luận', '2021-10-29 20:12:15', '2021-10-30 20:10:10', 'https://docs.google.com/document/d/1STH2rOsvZAZ5l23hvfCn2aUPhFqEbWykGgXUGHuxsv8/edit?usp=sharing', '', 3),
-(2, 'Dùng Boostrap 5 làm giao diện Web quản lý học tập', 'Tự luận', '2021-10-29 20:13:03', '2021-10-30 20:12:17', 'https://forms.gle/RxH1toXPq3MEP4Zu6', '', 1),
+(2, 'Dùng Boostrap 5 làm giao diện Web quản lý ', ' Tự luận', '2021-10-29 20:13:03', '2021-10-30 20:12:17', '[[[https://forms.gle/RxH1toXPq3MEP4Zu6]]]', '', 1),
 (3, 'Thực hành PROCEDURE', 'Tự luận', '2021-10-29 20:13:33', '2021-10-30 20:13:05', 'https://docs.google.com/document/d/1STH2rOsvZAZ5l23hvfCn2aUPhFqEbWykGgXUGHuxsv8/edit?usp=sharing', '', 2),
-(9, 'cc ', 'Tự luận', '2021-10-30 18:22:01', '2021-10-06 23:23:00', 'cc ', 'CSE485_All.pdf', 2),
-(12, ' cc', 'Trắc nghiệm', '2021-10-30 20:03:30', '2021-03-31 03:03:00', 'cc', 'CSE391_All.pdf', 3),
-(13, ' cvdfadf', 'Trắc nghiệm', '2021-10-30 20:28:29', '2021-12-12 11:23:00', 'vv', '6-1068x601.jpg', 3);
+(13, ' cvdfadf', 'Trắc nghiệm', '2021-10-30 20:28:29', '2021-12-12 11:23:00', 'vv', '6-1068x601.jpg', 3),
+(14, ' e', 'Tự luận', '2021-10-30 22:31:22', '2021-10-06 03:32:00', 'dd', 'Bai 6 Canh ngay xuan.pptx', 2),
+(16, ' a', 'Trắc nghiệm', '2021-10-30 23:17:21', '2021-10-07 23:03:00', 'a', 'danhbadt.sql', 1),
+(17, ' test hoc sinh', 'Trắc nghiệm', '2021-10-31 01:31:07', '2021-10-21 22:22:00', 'cc', 'Bai 1 Phong cach Ho Chi Minh.ppt', 3);
 
 -- --------------------------------------------------------
 
@@ -223,7 +226,7 @@ INSERT INTO `users` (`user_id`, `user_name`, `user_avatar`, `user_gioitinh`, `us
 (7, 'Nguyễn Văn Tân', 'unknown1.jpg', 1, '0000-00-00', '0386653766', 'nheo.4fun@gmail.com', '$2y$10$dEk5ebENJ73EEDcSx4YOJOaVtBROLz3ucSRK5EuaHsScXXPuWWGBi', 0, 1, '64c2858418cc2aa489e8c702578faa6b', ''),
 (8, 'Long', '.', 1, '2021-10-13', '3333333', 'long@gmail.com', '1', 0, 1, '1', '1'),
 (9, 'Đức', 'f', 1, '2021-10-07', '33333', '2@gmail.com', '1', 0, 1, '1', '1'),
-(10, 'Hồ Hông Quân', ' img/kakashi.png', 1, '2001-11-25', '0346785893', 'aqdz01@gmail.com', '$2y$10$TySByXD7JoufRz9qAoOes.o57J0r5LqV6tiiry4GE9bnDekiZgtLW', 1, 1, '01d5adc62fdbba0c64eae55eddb8bbb5', '');
+(10, 'Hồ Hông Quân', ' img/kakashi.png', 1, '2001-11-25', '0346785893', 'aqdz01@gmail.com', '$2y$10$TySByXD7JoufRz9qAoOes.o57J0r5LqV6tiiry4GE9bnDekiZgtLW', 0, 1, '01d5adc62fdbba0c64eae55eddb8bbb5', '');
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -299,13 +302,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT cho bảng `btl`
 --
 ALTER TABLE `btl`
-  MODIFY `idBTL` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `idBTL` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT cho bảng `btvn`
 --
 ALTER TABLE `btvn`
-  MODIFY `idBTVN` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `idBTVN` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT cho bảng `monhoc`

@@ -18,7 +18,7 @@ session_start();
     <div id="sidebar-wrapper">
         <ul class="sidebar-nav">
         <li class="sidebar-brand">
-                <h2>STUDENT</h2>
+                <h2>TEACHER</h2>
             </li>        
             <li>
                 <a href="teacher.php"><i class="fas fa-chalkboard-teacher"></i> Teacher</a>
@@ -30,7 +30,7 @@ session_start();
                 <a href="subject.php"><i class="fas fa-book"></i> Subject</a>
             </li>
             <li>
-                <a href="teach.php"><i class="fas fa-school"></i> Teach</a>
+                <a href="learn-teach-teacher.php"><i class="fas fa-school"></i> Teach - Learn</a>
             </li>
        
             <li>
@@ -59,9 +59,8 @@ session_start();
                         </div>
                     </nav>
                     <div class="container">
-                        <br>
-                        <a href="./add-student-admin.php"><button class="btn btn-success"> ADD STUDENT</button></a>
-                        <?php
+                        <h1>DANH SÁCH SINH VIÊN</h1>
+                       <?php
                             if(isset($_SESSION['errorDel'])){
                                 echo $_SESSION['errorDel'];
                                 unset($_SESSION['errorDel']);
@@ -71,24 +70,22 @@ session_start();
                                 unset($_SESSION['successDel']);
                             }
                         ?>
-                        <br><br>
+                        <br>
                         <table class="table">
                             <thead>
                                 <tr>
                                     <th scope="col">STT</th>
-                                    <th scope="col">Name</th>
-                                    <th scope="col">Gender</th>
+                                    <th scope="col">Tên sinh viên</th>
+                                    <th scope="col">Giới tính</th>
                                     <th scope="col">Email</th>
-                                    <th scope="col">SDT</th>
-                                    <th scope="col">Address</th>
-                                    <th scope="col">Update</th>
-                                    <th scope="col">Delete</th>
-
+                                    <th scope="col">SĐT</th>
+                                    <th scope="col">Địa chỉ</th>
+                                    <th scope="col">Xóa</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php
-                                $sql = "SELECT * from users where user_level = 2";
+                                $sql = "SELECT * from users where user_level = 0";
                                 $res = mysqli_query($conn, $sql);
                                 $sn = 1;
                                 if ($res == true) {
@@ -111,12 +108,9 @@ session_start();
                                             <td><?php echo $row['user_birthday']; ?></td>
                                             <td><?php echo $row['user_phone']; ?></td>
                                             <td><?php echo $row['user_email']; ?></td>
-                                            <td>
-                                                <a href="./upd-teacher-admin.php?user_id=<?php echo $row['user_id']; ?>"><button type="button" class="btn btn-primary text-white me-2"><i class="fas fa-user-edit"></i></button></a>
-                                            </td>
 
                                             <td>
-                                                <a href="./del-teacher-admin.php?user_id=<?php echo $row['user_id']; ?>"><button type="button" class="btn btn-danger text-white me-2"><i class="fas fa-user-minus"></i></button></a>
+                                                <a href="./del-student-teacher.php?user_id=<?php echo $row['user_id']; ?>"><button type="button" class="btn btn-danger text-white me-2"><i class="fas fa-user-minus"></i></button></a>
                                             </td>
                                         </tr>
                                 <?php
