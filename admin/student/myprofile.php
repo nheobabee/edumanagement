@@ -1,55 +1,43 @@
-<title>DASHBOARD</title>
-<?php include('../../config/config.php');
-session_start();
-if (!isset($_SESSION['student'])) {
-    header('location:../../login/index.php');
-}
-?>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-<link rel="stylesheet" href="../../css/style.css">
-
-<div id="wrapper">
-
-    <?php
-    // lấy giá trị user cần sửa 
-    if (isset($_SESSION['user_id'])) {
-        $userid = $_SESSION['user_id'];
-
-        //lấy giá trị từ bảng
-        $sql = "SELECT * FROM users WHERE user_id = '$userid'";
-        $kq = mysqli_query($conn, $sql);
-        if ($kq) {
-            $row = mysqli_fetch_assoc($kq);
-            $username_q = $row['user_name'];
-            $useravatar_q = $row['user_avatar'];
-            $usergioitinh_q = $row['user_gioitinh'];
-            $userbirthday_q = $row['user_birthday'];
-            $userphone_q = $row['user_phone'];
-            $useremail_q = $row['user_email'];
-        }
-    }
-    echo $row['user_avatar'];
-    ?>
-    <?php
+<?php include('./header.php') ?>
+<?php
+// lấy giá trị user cần sửa 
+if (isset($_SESSION['user_id'])) {
     $userid = $_SESSION['user_id'];
 
+    //lấy giá trị từ bảng
+    $sql = "SELECT * FROM users WHERE user_id = '$userid'";
+    $kq = mysqli_query($conn, $sql);
+    if ($kq) {
+        $row = mysqli_fetch_assoc($kq);
+        $username_q = $row['user_name'];
+        $useravatar_q = $row['user_avatar'];
+        $usergioitinh_q = $row['user_gioitinh'];
+        $userbirthday_q = $row['user_birthday'];
+        $userphone_q = $row['user_phone'];
+        $useremail_q = $row['user_email'];
+    }
+}
 
-    if (isset($_POST['update'])) {
-        $username = $_POST['user_name'];
-        $useravatar = $_FILES['user_avatar']['name'];
-        $usergioitinh = $_POST['user_gioitinh'];
-        $userbirthday = $_POST['user_birthday'];
-        $userphone = $_POST['user_phone'];
-        $useremail = $_POST['user_email'];
-        if ($useravatar != null) {
-            $path = "./img/";
-            $tmp_name = $_FILES['user_avatar']['tmp_name'];
-            move_uploaded_file($tmp_name, $path . $useravatar);
-        }
+?>
+<?php
+$userid = $_SESSION['user_id'];
 
-        // Bước 2 câu lệnh truy vấn
-        $sql1 = "UPDATE `users` SET 
+
+if (isset($_POST['update'])) {
+    $username = $_POST['user_name'];
+    $useravatar = $_FILES['user_avatar']['name'];
+    $usergioitinh = $_POST['user_gioitinh'];
+    $userbirthday = $_POST['user_birthday'];
+    $userphone = $_POST['user_phone'];
+    $useremail = $_POST['user_email'];
+    if ($useravatar != null) {
+        $path = "./img/";
+        $tmp_name = $_FILES['user_avatar']['tmp_name'];
+        move_uploaded_file($tmp_name, $path . $useravatar);
+    }
+
+    // Bước 2 câu lệnh truy vấn
+    $sql1 = "UPDATE `users` SET 
                         `user_name`='$username',
                         --  `user_avatar`='$useravatar',
                         `user_gioitinh`='$usergioitinh',
@@ -58,200 +46,131 @@ if (!isset($_SESSION['student'])) {
                         `user_email`='$useremail'
                         WHERE `user_id`='$userid'";
 
-        $result1 = mysqli_query($conn, $sql1);
+    $result1 = mysqli_query($conn, $sql1);
 
-        header('location:./accout.php');
+    header('location:./accout.php');
+}
+
+?>
+<form action="" method="POST" enctype="multipart/form-data">
+    <?php
+
+    if (isset($_POST['update-img'])) {
+        $useravatar = $_FILES['user_avatar']['name'];
+        if ($useravatar != null) {
+            $path = "./img/";
+            $tmp_name = $_FILES['user_avatar']['tmp_name'];
+            move_uploaded_file($tmp_name, $path . $useravatar);
+        }
+
+        $sql_img = "UPDATE `users` SET 
+                            `user_avatar`='$useravatar'
+                            WHERE `user_id`='$userid'";
+        $rs_img = mysqli_query($conn, $sql_img);
+        if ($rs_img) {
+            header('location:./myprofile.php');
+        }
     }
 
     ?>
+    <div class="main-content">
 
-    <!-- Sidebar -->
-    <div id="sidebar-wrapper">
-        <ul class="sidebar-nav">
-            <li class="sidebar-brand">
-                <h2>ADMIN</h2>
-            </li>
-            <li>
-                <a href="index.php"><i class="fas fa-chart-line"></i> Dashboard</a>
-            </li>
-            <li>
-                <a href="teacher.php"><i class="fas fa-chalkboard-teacher"></i> Teacher</a>
-            </li>
-            <li>
-                <a href="student.php"><i class="fas fa-user-graduate"></i> Student</a>
-            </li>
-            <li>
-                <a href="subject.php"><i class="fas fa-book"></i> Subject</a>
-            </li>
-            <li>
-                <a href="learn-teach-admin.php"><i class="fas fa-school"></i> Teach - Learn</a>
-            </li>
+        <div class="container">
 
-            <li>
-                <a href="result-admin.php"><i class="fas fa-poll"></i> Result</a>
-            </li>
-        </ul>
-    </div>
-    <!-- /#sidebar-wrapper -->
+            <div class="view-account">
+                <section class="module">
+                    <div class="module-inner">
+                        <div class="side-bar">
 
-    <!-- Page Content -->
-    <div id="page-content-wrapper">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-12">
+                            <div class="user-info">
+                                <img class="img-profile img-circle img-responsive center-block" src="./img/<?php echo $useravatar_q ?>" alt="">
+                                <ul class="meta list list-unstyled">
+                                    <li class="name"><?php echo $username_q ?>
 
-                    <nav class="navbar navbar-light">
-                        <div class="container-fluid">
-                            <a href="#menu-toggle" class="btn btn-default" id="menu-toggle"><i class="fas fa-bars"></i></a>
+                                    </li>
 
-                            <form class="d-flex">
-                                <a href="" class="navbar-brand">HOME</a>
-                                <a href="./accout.php" class="navbar-brand">ACCOUNT</a>
-                                <a href="../../login/logout.php" class="navbar-brand">LOGOUT</a>
-                                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                                <button class="btn btn-outline-success" type="submit">Search</button>
+                                </ul>
+                            </div>
+
+                        </div>
+
+                        <div class="content-panel">
+                            <h2 class="title">Profile<span class="pro-label label label-warning">PRO</span></h2>
+                            <form class="form-horizontal" method="POST">
+                                <fieldset class="fieldset">
+                                    <h3 class="fieldset-title">Personal Info</h3>
+                                    <div class="form-group avatar">
+                                        <figure class="figure col-md-2 col-sm-3 col-xs-12">
+                                            <img class="img-rounded img-responsive" src="./img/<?php echo $useravatar_q ?>" alt="">
+                                        </figure>
+                                        <div class="form-inline col-md-10 col-sm-9 col-xs-12">
+                                            <input name="user_avatar" type="file" class="file-uploader pull-left">
+                                            <button name="update-img" type="submit" class="btn btn-sm btn-default-alt pull-left">Update Image</button>
+                                        </div>
+                                    </div>
+                                    <!-- </form>
+                                                <form action="" method="POST"> -->
+                                    <br>
+                                    <div class="form-group">
+                                        <label class="col-md-2 col-sm-3 col-xs-12 control-label">Họ và tên</label>
+                                        <div class="col-md-10 col-sm-9 col-xs-12">
+                                            <input name="user_name" type="text" class="form-control" value="<?php echo $username_q ?>">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-md-2 col-sm-3 col-xs-12 control-label">Giới tính</label>
+                                        <div class="col-md-10 col-sm-9 col-xs-12">
+                                            <input <?php if ($usergioitinh_q == 1) {
+                                                        echo "checked";
+                                                    } ?> type="radio" name="user_gioitinh" value="1">
+                                            <label>Nam</label>
+                                            <input <?php if ($usergioitinh_q == 0) {
+                                                        echo "checked";
+                                                    } ?> type="radio" name="user_gioitinh" value="0">
+                                            <label>Nữ</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-2 col-sm-3 col-xs-12 control-label">Ngày sinh</label>
+                                        <div class="col-md-10 col-sm-9 col-xs-12">
+                                            <input name="user_birthday" type="date" class="form-control" value="<?php echo $userbirthday_q ?>">
+                                        </div>
+                                    </div>
+                                </fieldset>
+                                <fieldset class="fieldset">
+                                    <h3 class="fieldset-title">Contact Info</h3>
+                                    <div class="form-group">
+                                        <label class="col-md-2  col-sm-3 col-xs-12 control-label">Email</label>
+                                        <div class="col-md-10 col-sm-9 col-xs-12">
+                                            <input name="user_email" type="email" class="form-control" value="<?php echo $useremail_q ?>">
+                                            <p class="help-block">This is the email </p>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-2  col-sm-3 col-xs-12 control-label">Số điện thoại</label>
+                                        <div class="col-md-10 col-sm-9 col-xs-12">
+                                            <input name="user_phone" type="text" class="form-control" value="<?php echo $userphone_q ?>">
+                                        </div>
+                                    </div>
+
+                                </fieldset>
+                                <hr>
+                                <div class="form-group">
+                                    <div class="col-md-10 col-sm-9 col-xs-12 col-md-push-2 col-sm-push-3 col-xs-push-0">
+                                        <input name="update" class="btn btn-primary" type="submit" value="Update Profile">
+                                    </div>
+                                </div>
                             </form>
                         </div>
-                    </nav>
-                    <form action="" method="POST" enctype="multipart/form-data">
-                        <?php
-
-                        if (isset($_POST['update-img'])) {
-                            $useravatar = $_FILES['user_avatar']['name'];
-                            if ($useravatar != null) {
-                                $path = "./img/";
-                                $tmp_name = $_FILES['user_avatar']['tmp_name'];
-                                move_uploaded_file($tmp_name, $path . $useravatar);
-                            }
-
-                            $sql_img = "UPDATE `users` SET 
-                            `user_avatar`='$useravatar'
-                            WHERE `user_id`='$userid'";
-                            $rs_img = mysqli_query($conn, $sql_img);
-                            if ($rs_img) {
-                                header('location:./myprofile.php');
-                            }
-                        }
-
-                        ?>
-                        <div class="main-content">
-
-                            <div class="container">
-
-                                <div class="view-account">
-                                    <section class="module">
-                                        <div class="module-inner">
-                                            <div class="side-bar">
-
-                                                <div class="user-info">
-                                                    <img class="img-profile img-circle img-responsive center-block" src="./img/<?php echo $useravatar_q ?>" alt="">
-                                                    <ul class="meta list list-unstyled">
-                                                        <li class="name"><?php echo $username_q ?>
-
-                                                        </li>
-
-                                                    </ul>
-                                                </div>
-
-                                            </div>
-
-                                            <div class="content-panel">
-                                                <h2 class="title">Profile<span class="pro-label label label-warning">PRO</span></h2>
-                                                <form class="form-horizontal" method="POST">
-                                                    <fieldset class="fieldset">
-                                                        <h3 class="fieldset-title">Personal Info</h3>
-                                                        <div class="form-group avatar">
-                                                            <figure class="figure col-md-2 col-sm-3 col-xs-12">
-                                                                <img class="img-rounded img-responsive" src="./img/<?php echo $useravatar_q ?>" alt="">
-                                                            </figure>
-                                                            <div class="form-inline col-md-10 col-sm-9 col-xs-12">
-                                                                <input name="user_avatar" type="file" class="file-uploader pull-left">
-                                                                <button name="update-img" type="submit" class="btn btn-sm btn-default-alt pull-left">Update Image</button>
-                                                            </div>
-                                                        </div>
-                                                        <!-- </form>
-                                                <form action="" method="POST"> -->
-                                                        <br>
-                                                        <div class="form-group">
-                                                            <label class="col-md-2 col-sm-3 col-xs-12 control-label">Họ và tên</label>
-                                                            <div class="col-md-10 col-sm-9 col-xs-12">
-                                                                <input name="user_name" type="text" class="form-control" value="<?php echo $username_q ?>">
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="form-group">
-                                                            <label class="col-md-2 col-sm-3 col-xs-12 control-label">Giới tính</label>
-                                                            <div class="col-md-10 col-sm-9 col-xs-12">
-                                                                <input <?php if ($usergioitinh_q == 1) {
-                                                                            echo "checked";
-                                                                        } ?> type="radio" name="user_gioitinh" value="1">
-                                                                <label>Nam</label>
-                                                                <input <?php if ($usergioitinh_q == 0) {
-                                                                            echo "checked";
-                                                                        } ?> type="radio" name="user_gioitinh" value="0">
-                                                                <label>Nữ</label>
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label class="col-md-2 col-sm-3 col-xs-12 control-label">Ngày sinh</label>
-                                                            <div class="col-md-10 col-sm-9 col-xs-12">
-                                                                <input name="user_birthday" type="date" class="form-control" value="<?php echo $userbirthday_q ?>">
-                                                            </div>
-                                                        </div>
-                                                    </fieldset>
-                                                    <fieldset class="fieldset">
-                                                        <h3 class="fieldset-title">Contact Info</h3>
-                                                        <div class="form-group">
-                                                            <label class="col-md-2  col-sm-3 col-xs-12 control-label">Email</label>
-                                                            <div class="col-md-10 col-sm-9 col-xs-12">
-                                                                <input name="user_email" type="email" class="form-control" value="<?php echo $useremail_q ?>">
-                                                                <p class="help-block">This is the email </p>
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label class="col-md-2  col-sm-3 col-xs-12 control-label">Số điện thoại</label>
-                                                            <div class="col-md-10 col-sm-9 col-xs-12">
-                                                                <input name="user_phone" type="text" class="form-control" value="<?php echo $userphone_q ?>">
-                                                            </div>
-                                                        </div>
-
-                                                    </fieldset>
-                                                    <hr>
-                                                    <div class="form-group">
-                                                        <div class="col-md-10 col-sm-9 col-xs-12 col-md-push-2 col-sm-push-3 col-xs-push-0">
-                                                            <input name="update" class="btn btn-primary" type="submit" value="Update Profile">
-                                                        </div>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </section>
-                                </div>
-                            </div>
-                        </div>
-
-                    </form>
-                </div>
+                    </div>
+                </section>
             </div>
         </div>
     </div>
 
-    <footer>
-        <p class="ftr text-center">
-            QTV - Do your best, the rest will come!
-        </p>
-    </footer>
-</div>
-
-<!-- /#page-content-wrapper -->
-<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-<script>
-    $("#menu-toggle").click(function(e) {
-        e.preventDefault();
-        $("#wrapper").toggleClass("toggled");
-    });
-</script>
+</form>
+<?php include('./footer.php') ?>
 <style>
     body {
         background: #f9f9fb;
