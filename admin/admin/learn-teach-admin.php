@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="../../css/sj-stu.css">
+<!-- <link rel="stylesheet" href="../../css/sj-stu.css"> -->
 <?php include('./header.php') ?>
 <?php
 if (isset($_GET['idMH'])) {

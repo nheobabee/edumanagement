@@ -1,9 +1,9 @@
-<link rel="stylesheet" href="../../css/teacher-admin.css">
+<!-- <link rel="stylesheet" href="../../css/teacher-admin.css"> -->
 <?php include('./header.php') ?>
 
 <h1>DANH SÁCH GIÁO VIÊN</h1>
-<br>
 <a href="./add-teacher.php"><button class="btn btn-success"><i class="fas fa-plus"></i> Thêm giáo viên</button></a>
+<br>
 <?php
 if (isset($_SESSION['errorDel'])) {
     echo $_SESSION['errorDel'];

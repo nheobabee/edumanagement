@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="../../css/teacher-admin.css">
+<!-- <link rel="stylesheet" href="../../css/teacher-admin.css"> -->
 <?php include('./header.php') ?>
 <h1>DANH SÁCH SINH VIÊN</h1>
 <br>

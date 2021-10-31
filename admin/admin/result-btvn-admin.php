@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="../../css/result-admin.css">
+<!-- <link rel="stylesheet" href="../../css/result-admin.css"> -->
 <?php include('./header.php') ?>
 <br>
 <a href="./result-admin.php"><button style="padding:1% 2%;" type="button" class="btn btn-secondary text-white me-2"><i class="fas fa-undo-alt"></i></button></a>

@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="../../css/result-admin.css">
+<!-- <link rel="stylesheet" href="../../css/result-admin.css"> -->
 <?php include('./header.php') ?>
 <h1>HỌC TẬP</h1><a href="./learn-teach-admin.php"><button style="padding:1% 2%;" type="button" class="btn btn-secondary text-white me-2"><i class="fas fa-undo-alt"></i></button></a>
 <br>
@@ -46,7 +46,7 @@
                         <a href="./upd-learn-admin.php?user_id=<?php echo $user_id ?>"><button type="button" class="btn btn-primary text-white me-2"><i class="fas fa-edit"></i></button></a>
                     </td>
                     <td>
-                        <a href="./del-learn-admin.php?user_id=<?php echo $user_id ?>"><button type="button" class="btn btn-danger text-white me-2"><i class="fas fa-trash-alt"></i></button></a>
+                        <a href="./del-learn-admin.php?user_id=<?php echo $user_id ?>&&idMH=<?php echo $idMH ?>"><button type="button" class="btn btn-danger text-white me-2"><i class="fas fa-trash-alt"></i></button></a>
                     </td>
                 </tr>
         <?php

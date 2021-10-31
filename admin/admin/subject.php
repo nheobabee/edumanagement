@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="../../css/sj-stu.css">
+<!-- <link rel="stylesheet" href="../../css/sj-stu.css"> -->
 <?php include('./header.php') ?>
 <?php
 if (isset($_SESSION['errorDel'])) {
@@ -11,8 +11,8 @@ if (isset($_SESSION['successDel'])) {
 }
 ?>
 <h1>DANH SÁCH MÔN HỌC</h1>
-<br>
-
+<a href="./add-subject-admin.php"><button type="button" class="btn btn-success text-white me-2"><i class="fas fa-plus"></i> Thêm môn học</button></a>
+<br><br><br>
 <?php
 ?>
 
