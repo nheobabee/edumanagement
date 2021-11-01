@@ -12,7 +12,8 @@ if (isset($_GET['idMH'])) {
     $nameMH = $row1['nameMH'];
 }
 ?>
-<a href="./subject.php"><button style="padding:1% 2%;" type="button" class="btn btn-secondary text-white me-2"><i class="fas fa-undo-alt"></i></button></a>
+<br>
+<a href="./subject.php"><button style="padding:1% 2%;margin-left:10px" type="button" class="btn btn-secondary text-white me-2"><i class="fas fa-undo-alt"></i></button></a>
 
 <h1 class="title-chitietmh">CHI TIẾT MÔN HỌC</h1>
 <br><br>

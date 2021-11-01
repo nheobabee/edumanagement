@@ -11,9 +11,9 @@ if (isset($_GET['idMH'])) {
 }
 ?>
 <br>
-<a href="http://localhost/edumanagement/admin/admin/view-subject-admin.php?idMH=<?php echo $idMH ?>"><button style="padding:1% 2%;" type="button" class="btn btn-secondary text-white me-2"><i class="fas fa-undo-alt"></i></button></a>
+<a href="http://localhost/edumanagement/admin/admin/view-subject-admin.php?idMH=<?php echo $idMH ?>"><button style="padding:1% 2%;margin-left: 55px;" type="button" class="btn btn-secondary text-white me-2"><i class="fas fa-undo-alt"></i></button></a>
 <br><br>
-<h1 class="title-btl">BÀI TẬP VỀ NHÀ</h1>
+<div class="all_btvn"><h1 class="title-btl">BÀI TẬP VỀ NHÀ</h1>
 <br>
 <div class="tittle-mh">
     <h2><?php echo $nameMH ?></h2>
@@ -70,7 +70,7 @@ $row_v = mysqli_fetch_assoc($rs_v);
     <span id="comment_message"></span>
     <br />
     <div id="display_comment"></div>
-</div>
+</div></div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <script>

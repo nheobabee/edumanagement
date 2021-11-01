@@ -251,12 +251,7 @@ h6{
   }
 /*dsnhom btl admin [list-dk-btl.css] */
 
-.tittle-mh, .name-btvn{
-    background-color:#fff;
-    padding:1%;
-    border-radius: 4px;
-    border: 0.5px solid lightgray;
-  }
+
   .main-content{
       background-color: #e9edf1;
   }
@@ -294,12 +289,7 @@ h6{
       border-top: 5px solid lightblue;
   }
   /* exercise subject admin/ [ex-stu-ad.css] */
-  .tittle-mh, .name-btvn{
-    background-color:#fff;
-    padding:1%;
-    border-radius: 4px;
-    border: 0.5px solid lightgray;
-  }
+  
   .main-content{
       background-color: #e9edf1;
   }
@@ -308,11 +298,7 @@ h6{
       min-height: 521px;
   }
   
-  .name-btvn{
-      margin-top:14px;
-      margin-left: 0;
-      margin-right: 0;
-  }
+
   .name-btvn p {
       margin-bottom: 0;
       
@@ -470,13 +456,7 @@ h1.count{
  
  
   
-  /*view-exercise-admin [view-exercise-admin] */
-  .tittle-mh, .name-btvn{
-    background-color:#fff;
-    padding:1%;
-    border-radius: 4px;
-    border: 0.5px solid lightgray;
-  }
+
   .main-content{
       background-color: #e9edf1;
   }
@@ -485,12 +465,7 @@ h1.count{
       min-height: 521px;
   }
   
-  .name-btvn{
-      margin-top:14px;
-      margin-left: 0;
-      margin-right: 0;
-      min-height: 340px;
-  }
+  
   .name-btvn p {
       margin-bottom: 0;
       
@@ -571,4 +546,11 @@ h1.count{
     height: 254px;
     border-radius: 4px;
 
+}
+.all_btvn{
+    border: 2px solid lightgray;
+    border-radius: 4px;
+    width: 90%;
+    margin: auto;
+    padding:1%;
 }

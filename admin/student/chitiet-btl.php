@@ -99,8 +99,7 @@ while ($row3 = mysqli_fetch_assoc($res3)) {
                 <label for="empEmail" class="col-sm-3 col-form-label">Đề bài:</label>
                 <div class="form-group">
                     <h6><?php echo $row3['filenamebtl'] ?></h6>
-                    <a href="download-exercise.php?file=<?php echo $row3['filenamebtl'] ?>"> <button class="btn btn-success text-white me-2"><i class="fas fa-download"></i>Tải đề</button></a>
-                    <button type="submit" class="btn btn-success text-white me-4 col-3" name="dangki"><i class="fas fa-edit"></i> Đăng kí</button>
+                     <button type="submit" class="btn btn-success text-white me-4 col-3" name="dangki"><i class="fas fa-edit"></i> Đăng kí</button>
                     <button type="submit" class="btn btn-success text-white me-4 col-3" name="huydangki"><i class="fas fa-edit"></i>Hủy đăng kí</button>
                     <a href="./dsnhom-btl.php?idBTL=<?php echo $row3['idBTL']; ?>"><button type="button" class="btn btn-info text-white me-4 col-3"><i class="far fa-eye"></i>Danh sách nhóm</button></a>
                     
@@ -113,6 +112,7 @@ while ($row3 = mysqli_fetch_assoc($res3)) {
     </div>
     </div>
     </form>
+    <a href="download-exercise.php?file=<?php echo $row3['filenamebtl'] ?>"> <button class="btn btn-success text-white me-2"><i class="fas fa-download"></i>Tải đề</button></a>
     </div>
 <?php
 }
