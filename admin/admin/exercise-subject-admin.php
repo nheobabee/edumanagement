@@ -48,30 +48,23 @@ if ($res3 == true) {
     }
 }
 ?>
-<?php
-$sql_v = "select * from users";
-$rs_v = mysqli_query($conn,$sql_v);
-$row_v = mysqli_fetch_assoc($rs_v); 
-?>
+
 <button type="submit" id="hide" onclick="Show()">Bình luận</button>
 <div class="container" id="form">
     <form method="POST" id="comment_form">
-    <?php $row_v['user_name']?>;
         <div class="form-group">
-            <input type="text" disabled value="<?php echo $_SESSION['name'] ?>" name="comment_name" id="comment_name" class="form-control" placeholder="Enter Name" />
+            <input type="text"  value="<?php echo $_SESSION['name'] ?>" name="comment_name" id="comment_name" class="form-control" placeholder="Enter Name" />
         </div>
         <div class="form-group">
             <textarea name="comment_content" id="comment_content" class="form-control" placeholder="Enter Comment" rows="5"></textarea>
         </div>
         <div class="form-group">
-            <input type="hidden" name="comment_id" id="comment_id" value="0" />
-            
-            <input type="submit" name="submit" id="submit" class="btn btn-info" value="Submit" />
-
+            <input type="hidden" name="comment_id" id="comment_id" value="0" >
+            <input type="submit" name="submit" id="submit" class="btn btn-info" value="Submit" >
         </div>
     </form>
     <span id="comment_message"></span>
-    <br />
+    <br>
     <div id="display_comment"></div>
 </div>
 <script>

@@ -48,7 +48,7 @@
                         <a href="./upd-teach-admin.php?user_id=<?php echo $user_id ?>"><button type="button" class="btn btn-primary text-white me-2"><i class="fas fa-edit"></i></button></a>
                     </td>
                     <td>
-                        <a href="./del-teach-admin.php?user_id=<?php echo $user_id ?>"><button type="button" class="btn btn-danger text-white me-2"><i class="fas fa-trash-alt"></i></button></a>
+                        <a href="./del-teach-admin.php?user_id=<?php echo $user_id ?>&&idMH=<?php echo $idMH?>"><button type="button" class="btn btn-danger text-white me-2"><i class="fas fa-trash-alt"></i></button></a>
                     </td>
                 </tr>
         <?php

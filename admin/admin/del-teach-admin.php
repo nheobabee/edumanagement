@@ -7,9 +7,10 @@
         }
 ?>
 <?php
-    if(isset($_GET['user_id'])){
+    if(isset($_GET['user_id'],$_GET['idMH'])){
+        $idMH = $_GET['idMH'];
         $user_id = $_GET['user_id'];
-        $sql = "DELETE FROM relationship WHERE user_id = '$user_id'";
+        $sql = "DELETE FROM relationship WHERE user_id = '$user_id' AND  idMH = '$idMH'";
         $res = mysqli_query($conn, $sql);
         if($res == true){
             header('location: teach.php');
