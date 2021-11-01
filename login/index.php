@@ -110,6 +110,7 @@ session_start() ?>
 					//student
 					$st = ($row['user_level']==0) ;
 					$_SESSION['student']= $st;
+					
 					header('location:../admin/student/student.php'); 
 				}
 				 if($row['user_level']==1)

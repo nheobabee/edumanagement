@@ -1,8 +1,8 @@
 <!-- <link rel="stylesheet" href="../../css/ex-stu-ad.css"> -->
 <?php include('./header.php') ?>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
 <?php
 if (isset($_GET['idMH'])) {
@@ -48,17 +48,26 @@ if ($res3 == true) {
     }
 }
 ?>
-<div class="container">
+<?php
+$sql_v = "select * from users";
+$rs_v = mysqli_query($conn,$sql_v);
+$row_v = mysqli_fetch_assoc($rs_v); 
+?>
+<button type="submit" id="hide" onclick="Show()">Bình luận</button>
+<div class="container" id="form">
     <form method="POST" id="comment_form">
+    <?php $row_v['user_name']?>;
         <div class="form-group">
-            <input type="text" name="comment_name" id="comment_name" class="form-control" placeholder="Enter Name" />
+            <input type="text" disabled value="<?php echo $_SESSION['name'] ?>" name="comment_name" id="comment_name" class="form-control" placeholder="Enter Name" />
         </div>
         <div class="form-group">
             <textarea name="comment_content" id="comment_content" class="form-control" placeholder="Enter Comment" rows="5"></textarea>
         </div>
         <div class="form-group">
             <input type="hidden" name="comment_id" id="comment_id" value="0" />
+            
             <input type="submit" name="submit" id="submit" class="btn btn-info" value="Submit" />
+
         </div>
     </form>
     <span id="comment_message"></span>
@@ -66,6 +75,16 @@ if ($res3 == true) {
     <div id="display_comment"></div>
 </div>
 <script>
+    document.getElementById("form").style.display = "none";
+function Show() {
+  if (document.getElementById("form").style.display === "none") {
+    document.getElementById("form").style.display = "block";
+
+  } else {
+    document.getElementById("form").style.display = "none";
+  }
+}
+
     $(document).ready(function() {
 
         $('#comment_form').on('submit', function(event) {

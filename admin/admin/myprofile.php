@@ -1,9 +1,10 @@
 <link rel="stylesheet" href="../../css/style.css">
-<?php include('./header.php') ?>
+<?php
+include('./header.php') ?>
 <form action="" method="POST" enctype="multipart/form-data">
     <div class="main-content">
 
-        < class="container">
+     
             <?php
             // lấy giá trị user cần sửa 
             if (isset($_SESSION['user_id'])) {
