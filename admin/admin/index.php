@@ -1,7 +1,8 @@
 <?php include('./header.php') ?>
-
-
-                            <div class="header-page">
+<br>
+<div class="all-dashboard">
+    
+<div class="header-page">
                                 <h1 class="page-title">THỐNG KÊ</h1>
                                 <!--  -->
                             <?php
@@ -11,7 +12,7 @@
                             }
                             ?>
                             </div>
-                            <br><br>
+                            <br>
                             <div class="row">
                                 <div class="col text-center">
                                     <?php
@@ -84,6 +85,7 @@
                                     <p>Người dùng</p>
                                 </div>
                             </div>
+</div>
 
 <?php include('./footer.php') ?>
                         

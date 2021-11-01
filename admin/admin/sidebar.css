@@ -371,11 +371,13 @@ h6{
      color:#000;
      padding-top: 10px;
  }
- .all-sbj{
+ .all{
     padding: 10px 10px;
      border: 2px solid lightgray;
      width: 66%;
      border-top: 5px solid lightblue;
+     border-radius: 4px;
+     margin: auto;
  }
  .subject-icon,.subject-btl{
      font-size:100px;
@@ -459,6 +461,7 @@ h1.count{
     height: 200px;
     border-radius: 4px;
     border-top: 5px solid tomato;
+    
   }
 
   .header-page {
@@ -505,7 +508,7 @@ h1.count{
       background-color: #e9edf1;
   }
   .container{
-    
+    padding:0;
       min-height: 521px;
   }
   
@@ -550,3 +553,17 @@ h1.count{
     text-align: center;
     float:right;
   }
+  .f-learnteach{
+      padding: 10px 10px;
+      border: 2px solid lightgray;
+      width: 44%;
+      border-top: 5px solid lightblue;
+      border-radius: 4px;
+      margin: auto;
+  }
+  .all-dashboard{
+      border: 2px solid lightgray;
+      padding: 10px 10px;
+      border-radius:4px;
+      border-top: 5px solid lightblue;
+    }

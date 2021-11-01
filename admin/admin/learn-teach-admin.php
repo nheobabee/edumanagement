@@ -10,9 +10,10 @@ if (isset($_GET['idMH'])) {
     $nameMH = $row1['nameMH'];
 }
 ?>
-<h1>GIẢNG DẠY - HỌC TẬP</h1>
 <br>
-<div class="folder-subject">
+<div class="f-learnteach">
+    <h1>GIẢNG DẠY - HỌC TẬP</h1>
+<br>
     <div class="subject-folder text-center">
         <a href="./teach.php"><i class="subject-btl fas fa-chalkboard-teacher"></i>
             <h6 class="subject-name">Giảng dạy</h6>

@@ -10,14 +10,18 @@ if (isset($_SESSION['successDel'])) {
     unset($_SESSION['successDel']);
 }
 ?>
-<h1>DANH SÁCH MÔN HỌC</h1>
-<a href="./add-subject-admin.php"><button type="button" class="btn btn-success text-white me-2"><i class="fas fa-plus"></i> Thêm môn học</button></a>
-<br><br><br>
+
 <?php
 ?>
+<br>
+<div class="all"><h1>DANH SÁCH MÔN HỌC</h1>
 
-<div class="all-sbj">
-    <?php
+    <div class="btn-addsbj">
+    <a href="./add-subject-admin.php"><button type="button" class="btn btn-success text-white me-2"><i class="fas fa-plus"></i> Thêm môn học</button></a>
+    <br><br><br>    
+</div>
+   <div class="f-sbj">
+   <?php
     $sql3 = "SELECT * FROM monhoc ";
     $res3 = mysqli_query($conn, $sql3);
     if ($res3 == true) {
@@ -35,6 +39,7 @@ if (isset($_SESSION['successDel'])) {
         }
     }
     ?>
+   </div>
 </div>
 <?php
 ?>
