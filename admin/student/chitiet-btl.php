@@ -86,7 +86,10 @@ if (isset($_GET['idBTL'], $_GET['idMH'],$_GET['user_id'])) {
 <?php
 $sql3 = "SELECT * FROM btl WHERE idMH = '$idMH' AND idBTL = '$idBTL'";
 $res3 = mysqli_query($conn, $sql3);
-while ($row3 = mysqli_fetch_assoc($res3)) { ?>
+while ($row3 = mysqli_fetch_assoc($res3)) {
+    $idBTL = $row3['idBTL'];
+    ?>
+
     <div class="title-btvn">
         <div class="name-btvn row">
 
@@ -100,6 +103,7 @@ while ($row3 = mysqli_fetch_assoc($res3)) { ?>
                     <button type="submit" class="btn btn-success text-white me-4 col-3" name="dangki"><i class="fas fa-edit"></i> Đăng kí</button>
                     <button type="submit" class="btn btn-success text-white me-4 col-3" name="huydangki"><i class="fas fa-edit"></i>Hủy đăng kí</button>
                     <a href="./dsnhom-btl.php?idBTL=<?php echo $row3['idBTL']; ?>"><button type="button" class="btn btn-info text-white me-4 col-3"><i class="far fa-eye"></i>Danh sách nhóm</button></a>
+                    
                     <a href="send-btl.php?idBTL=<?php echo $row3['idBTL']; ?>&&idMH=<?php echo $row3['idMH']; ?>&&user_id=<?php echo $_SESSION['user_id']; ?>"><button type="button" class="btn btn-success text-white me-2"><i class="fas fa-upload"></i>NỘP BÀI</i></button></a>
                 </div>
 

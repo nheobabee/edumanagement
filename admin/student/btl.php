@@ -42,6 +42,10 @@ if (isset($_SESSION['errorchecksl'])) {
     echo $_SESSION['errorchecksl'];
     unset($_SESSION['errorchecksl']);
 }
+if (isset($_SESSION['errorchecksend'])) {
+    echo $_SESSION['errorchecksend'];
+    unset($_SESSION['errorchecksend']);
+}
 ?>
 <div class="tittle-mh">
     <h2><?php echo $nameMH ?></h2>
