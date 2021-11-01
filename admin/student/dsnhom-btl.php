@@ -7,7 +7,9 @@ if (isset($_GET['idBTL'])) {
     $res1 = mysqli_query($conn, $sql1);
     $row1 = mysqli_fetch_assoc($res1);
     $nameBTL = $row1['nameBTL'];
+    
 }
+    
 ?>
 <br>
 
@@ -15,35 +17,28 @@ if (isset($_GET['idBTL'])) {
     <h1><?php echo $nameBTL ?></h1>
 </div>
 <?php
-$sql3 = "SELECT * FROM btlsv WHERE idBTL = $idBTL";
-$sql4 = "SELECT * FROM btlsv WHERE idBTL = $idBTL";
-$res4 = mysqli_query($conn, $sql4);
-$res3 = mysqli_query($conn, $sql3);
-$row4 = mysqli_fetch_assoc($res4)
-?>
-<?php
+$sql2 ="SELECT * FROM dkbtl WHERE idBTL = $idBTL";
+$res2 = mysqli_query($conn,$sql2);
 
-if ($res3 == true) {
+if ($res2 == true) {
+    while ($row2 = mysqli_fetch_assoc($res2)) {
 
 ?>
-    <h2 style="color:darkgrey"><?php echo $row4['note'] ?></h2>
-    <?php
-    $i = 1;
-    while ($row3 = mysqli_fetch_assoc($res3)) {
-        $user_id = $row3['user_id'];
-        $sql6 = "SELECT * FROM users WHERE user_id = $user_id";
-        $res6 = mysqli_query($conn, $sql6);
-        $row6 = mysqli_fetch_assoc($res6);
+        <div class="title-btvn">
+            <div class="name-btvn row">
+                <div class="content-btvn col-md-10">
+                    <h6><?php echo $row2['user_id'] ?></h6>
+                   
+                </div>
+                
 
-    ?>
-
-        <p><span style="font-weight: 500;">Thành viên <?php echo $i ?>: </span><?php echo $row6['user_name'] ?></p>
-    <?php
-        $i++;
-    } ?>
-    <p class="note"><?php echo $row1['nameBTL'] ?></p>
+            </div>
+        </div>
 <?php
+    }
 }
 ?>
+
+
 
 <?php include('./footer.php'); ?>

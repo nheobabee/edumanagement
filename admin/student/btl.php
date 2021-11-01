@@ -13,6 +13,36 @@ if (isset($_GET['idMH'])) {
 <h1 class="title-btl">BÀI TẬP LỚN</h1>
 <br>
 
+<?php
+if (isset($_SESSION['success'])) {
+    echo $_SESSION['success'];
+    unset($_SESSION['success']);
+}
+if (isset($_SESSION['error'])) {
+    echo $_SESSION['error'];
+    unset($_SESSION['error']);
+}
+if (isset($_SESSION['errorcheck'])) {
+    echo $_SESSION['errorcheck'];
+    unset($_SESSION['errorcheck']);
+}
+if (isset($_SESSION['csuccess'])) {
+    echo $_SESSION['csuccess'];
+    unset($_SESSION['csuccess']);
+}
+if (isset($_SESSION['cerror'])) {
+    echo $_SESSION['cerror'];
+    unset($_SESSION['cerror']);
+}
+if (isset($_SESSION['cerrorcheck'])) {
+    echo $_SESSION['cerrorcheck'];
+    unset($_SESSION['cerrorcheck']);
+}
+if (isset($_SESSION['errorchecksl'])) {
+    echo $_SESSION['errorchecksl'];
+    unset($_SESSION['errorchecksl']);
+}
+?>
 <div class="tittle-mh">
     <h2><?php echo $nameMH ?></h2>
 </div>
@@ -21,6 +51,7 @@ $sql3 = "SELECT * FROM btl WHERE idMH = '$idMH'";
 $res3 = mysqli_query($conn, $sql3);
 if ($res3 == true) {
     while ($row3 = mysqli_fetch_assoc($res3)) {
+       $idBTL= $row3['idBTL'];
 
 ?>
         <div class="title-btvn">
@@ -35,9 +66,23 @@ if ($res3 == true) {
 
                 </div>
                 <div class="service col-md-4">
+                    <a href="./chitiet-btl.php?idBTL=<?php echo $row3['idBTL']; ?>&&idMH=<?php echo $row3['idMH']; ?>&&user_id=<?php echo $_SESSION['user_id']; ?>"><button type="button" class="btn btn-info text-white me-2"><i class="far fa-eye"></i> VIEW</button></a>
+                    <?php 
+                        if (isset($_SESSION['user_id'])) {
+                        $userid = $_SESSION['user_id'];
 
+                    }
 
-                    <a href="./chitiet-btl.php?idBTL=<?php echo $row3['idBTL']; ?>&&idMH=<?php echo $row3['idMH']; ?>"><button type="button" class="btn btn-info text-white me-2"><i class="far fa-eye"></i> VIEW</button></a>
+                    ?>
+                    <?php 
+                        $sql2 = "SELECT * FROM dkbtl WHERE user_id = $userid AND idBTL = $idBTL ";
+                        $res2 = mysqli_query($conn,$sql2);
+                        $count = mysqli_num_rows($res2);
+                        if($count>0){?>
+                           <p>Đã đăng ký</p>
+                        <?php
+                        }
+                    ?>
                 </div>
             </div>
         </div>
