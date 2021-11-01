@@ -61,9 +61,9 @@ if (isset($_GET['idMH'])) {
                             <a href="#menu-toggle" class="btn btn-default" id="menu-toggle"><i class="fas fa-bars"></i></a>
 
                             <form class="d-flex " style="margin-bottom:0">
-                                <a href="" class="navbar-brand">HOME</a>
-                                <a href="./accout.php" class="navbar-brand">ACCOUNT</a>
-                                <a href="../../login/logout.php" class="navbar-brand">LOGOUT</a>
+                                <a href="./index.php" class="navbar-brand">TRANG CHỦ</a>
+                                <a href="./accout.php" class="navbar-brand">TÀI KHOẢN</a>
+                                <a href="../../login/logout.php" class="navbar-brand">ĐĂNG XUẤT</a>
                                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                                 <button class="btn btn-outline-success" type="submit">Search</button>
                             </form>
