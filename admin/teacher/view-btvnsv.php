@@ -41,14 +41,42 @@ while ($row3 = mysqli_fetch_assoc($res3)) {
 
         <div class="name-btvn row">
 
-            <div class="content-btvn col">
+            <div class="content-btvn">
                 <h6><?php echo $row3['user_id'] ?>. <?php echo $row0['user_name'] ?></h6>
                 <p><span style="font-weight:500">Ngày nộp: </span><?php echo $row3['ngaynop'] ?></p>
-                <div class="form-group">
+                <div class="btn-downl">
                     <a href="download-btvnsv.php?file=<?php echo $row3['fileBTVN'] ?>"> <button class="btn btn-success text-white me-2"><i class="fas fa-download"></i>Tải và xem bài làm</button></a><br>
                 </div>
-                <form action="" method="post"></form>
-                
+                <?php
+                if (isset($_POST['submit'])){
+                    $user_id = $_POST['user_id'];
+                    $idBTVN = $_POST['idBTVN'];
+                    $markBTVN = $_POST['markBTVN'];
+                    $cmtBTVN = $_POST['cmtBTVN'];
+                    $sql5 = "INSERT INTO ketquabtvn values ('$user_id','$idBTVN','$markBTVN','$cmtBTVN')";
+                    $res5 = mysqli_query($conn, $sql5);
+                    if($res5==true){
+                        header("Location:http://localhost/edumanagement/admin/teacher/btl.php?idMH=" . $idMH."&&idMH" .$idBTVN);
+                    }
+                    else{
+                        echo $sql5;
+                    }
+                }
+                ?>
+                <form action="" method="post">
+                <input type="text" hidden class="markBTVN form-control" id="user_id" name="user_id" value="<?php echo $user_id ?>">
+                <input type="text" hidden class="markBTVN form-control" id="idBTVN" name="idBTVN" value="<?php echo $idBTVN ?>">
+                    <div class="mark-btvn">
+                        <label class="markBTVN" for="idMH">Điểm: </label>
+                        <input type="text" class="markBTVN form-control" id="markBTVN" name="markBTVN">
+                    </div>
+                    <div class="cmt-btvn">
+                        <label for="cmtBTVN">Nhận xét:</label>
+                        <textarea class="cmtBTVN form-control" id="cmtBTVN" rows="3" name="cmtBTVN"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-success text-white me-2" name="submit"><i class="fas fa-upload"></i> Gửi</button></a>
+                </form>
+
             </div>
         </div>
 
