@@ -6,6 +6,16 @@
 <br>
 <div class="all-teacher">
 <h1>HỌC TẬP</h1>
+<?php 
+    if(isset($_SESSION['successDelLearn'])){
+        echo $_SESSION['successDelLearn'];
+        unset($_SESSION['successDelLearn']);
+    }
+    if(isset($_SESSION['errorDelLearn'])){
+        echo $_SESSION['errorDelLearn'];
+        unset($_SESSION['errorDelLearn']);
+    }
+?>
 <br>
 <a href="./add-learn-teacher.php"><button type="button" class="btn btn-success text-white me-2"><i class="fas fa-plus"></i> Thêm sinh viên</button></a>
 

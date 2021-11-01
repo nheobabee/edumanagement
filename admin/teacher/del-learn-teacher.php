@@ -14,11 +14,11 @@
         $res = mysqli_query($conn, $sql);
         if($res == true){
             header("Location: http://localhost/edumanagement/admin/teacher/learn-teacher.php");
-            $_SESSION['successDel'] = "<div class='success'>Xóa thành công!</div>";
+            $_SESSION['successDelLearn'] = "<div class='success'>Xóa thành công!</div>";
         }
         else{
             header('location:learn.php');
-            $_SESSION['errorDel'] = "<div class='error'>Lỗi!</div>";
+            $_SESSION['errorDelLearn'] = "<div class='error'>Lỗi!</div>";
         }
     }
 ?>

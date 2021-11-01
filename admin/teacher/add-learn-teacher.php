@@ -21,7 +21,7 @@
             echo "Bản ghi đã được lưu";
             header("Location: http://localhost/edumanagement/admin/teacher/learn-teacher.php");
         } else {
-            echo "Lỗi";
+            echo "<p style='margin:0' class='error'>Sinh viên đang học môn này!</p>";
         }
     }
 

@@ -197,7 +197,7 @@ h6 {
 
 .form-add {
   border: 1px solid lightgray;
-  height: 250px;
+  height: 270px;
   padding-left: 10px;
   width: 40%;
   border-radius: 4px;
@@ -310,9 +310,7 @@ a {
 .res-link {
   margin: 10px 0 0 10px;
 }
-.result-btvn .col {
-  border-top: 5px solid tomato;
-}
+
 /* student/teacher/upd-btl-admin [teacher-admin.css] */
 .success {
   color: #2ed573;
@@ -464,4 +462,15 @@ h1.count {
     width:60%;
     padding:0 2%;
     margin:auto;
+}
+.result-btvn{
+  border: 2px solid lightgray;
+}
+.f-learnteach{
+  padding: 10px 10px;
+  border: 2px solid lightgray;
+  width: 60%;
+  border-top: 5px solid lightblue;
+  border-radius: 4px;
+  margin: auto;
 }

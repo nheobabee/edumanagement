@@ -1,7 +1,7 @@
 <!-- <link rel="stylesheet" href="../../css/teacher-admin.css"> -->
 <?php include('./header.php') ?>
 
-<h1>DANH SÁCH ĐIỂM BÀI TẬP LỚN</h1><br>
+
 <?php
 if (isset($_SESSION['errorDel'])) {
     echo $_SESSION['errorDel'];
@@ -13,12 +13,14 @@ if (isset($_SESSION['successDel'])) {
 }
 ?>
 <?php
-if (isset($_GET['idBTL'], $_GET['idMH'])) {
+if (isset($_GET['idBTVN'], $_GET['idMH'])) {
     $idMH = $_GET['idMH'];
-    $idBTL = $_GET['idBTL'];
+    $idBTVN = $_GET['idBTVN'];
 }
 ?>
 <br><br>
+<div class="all-teacher">
+<h1>DANH SÁCH ĐIỂM</h1><br>
 <table class="table">
     <thead>
         <tr>
@@ -31,11 +33,11 @@ if (isset($_GET['idBTL'], $_GET['idMH'])) {
     </thead>
     <tbody>
         <?php
-        $sql0 = "select * from btl where idBTL = '$idBTL'";
+        $sql0 = "select * from btvn where idBTVN = '$idBTVN'";
         $res0 = mysqli_query($conn, $sql0);
         $row0 = mysqli_fetch_assoc($res0);
 
-        $sql = "SELECT * from ketquabtl where idBTL = '$idBTL'";
+        $sql = "SELECT * from ketquabtvn where idBTVN = '$idBTVN'";
         $res = mysqli_query($conn, $sql);
 
 
@@ -50,9 +52,9 @@ if (isset($_GET['idBTL'], $_GET['idMH'])) {
                 <tr>
                     <td><?php echo $sn++ ?></td>
                     <td><?php echo $row2['user_name']; ?></td>
-                    <td><?php echo $row0['nameBTL']; ?></td>
-                    <td><?php echo $row['markBTL']; ?></td>
-                    <td><?php echo $row['cmtBTL']; ?></td>
+                    <td><?php echo $row0['nameBTVN']; ?></td>
+                    <td><?php echo $row['markBTVN']; ?></td>
+                    <td><?php echo $row['cmtBTVN']; ?></td>
                 </tr>
         <?php
             }
@@ -60,4 +62,5 @@ if (isset($_GET['idBTL'], $_GET['idMH'])) {
         ?>
     </tbody>
 </table>
+</div>
 <?php include('./footer.php') ?>

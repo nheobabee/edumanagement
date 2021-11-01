@@ -1,7 +1,7 @@
 <!-- <link rel="stylesheet" href="../../css/teacher-admin.css"> -->
 <?php include('./header.php') ?>
 
-<h1>DANH SÁCH ĐIỂM BÀI TẬP LỚN</h1><br>
+<h1>DANH SÁCH ĐIỂM</h1><br>
 <?php
 if (isset($_SESSION['errorDel'])) {
     echo $_SESSION['errorDel'];

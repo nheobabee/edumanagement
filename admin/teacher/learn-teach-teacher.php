@@ -12,6 +12,7 @@ if (isset($_GET['idMH'])) {
 <br><br>
 <div class="all" style="text-align:center">
 <h1>GIẢNG DẠY - HỌC TẬP</h1>
+
 <br>
 <div class="folder-subject">
     <div class="subject-folder text-center">
