@@ -528,6 +528,7 @@ h1.count{
       width: 500px;
     padding-left:24px;
     border-top: 5px solid lightblue;
+    margin: auto;
   }
   .btn-success {
       margin-top:10px;
@@ -567,3 +568,8 @@ h1.count{
       border-radius:4px;
       border-top: 5px solid lightblue;
     }
+
+    .title-chitietmh{
+        width: 45%;
+        margin: auto;
+}

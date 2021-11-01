@@ -12,8 +12,9 @@ if (isset($_GET['idMH'])) {
     $nameMH = $row1['nameMH'];
 }
 ?>
-<h1>CHI TIẾT MÔN HỌC</h1>
 <a href="./subject.php"><button style="padding:1% 2%;" type="button" class="btn btn-secondary text-white me-2"><i class="fas fa-undo-alt"></i></button></a>
+
+<h1 class="title-chitietmh">CHI TIẾT MÔN HỌC</h1>
 <br><br>
 <?php
 if (isset($_GET['idMH'])) {
