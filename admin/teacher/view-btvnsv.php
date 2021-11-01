@@ -20,6 +20,7 @@ if (isset($_GET['idBTVN'], $_GET['idMH'])) {
 // $user_name = $row4['user_name'];
 
 ?>
+
 <br>
 <br><br>
 <div class="tittle-mh">
@@ -46,7 +47,8 @@ while ($row3 = mysqli_fetch_assoc($res3)) {
                 <div class="form-group">
                     <a href="download-btvnsv.php?file=<?php echo $row3['fileBTVN'] ?>"> <button class="btn btn-success text-white me-2"><i class="fas fa-download"></i>Tải và xem bài làm</button></a><br>
                 </div>
-
+                <form action="" method="post"></form>
+                
             </div>
         </div>
 
@@ -55,6 +57,5 @@ while ($row3 = mysqli_fetch_assoc($res3)) {
 }
 
 ?>
-
 
 <?php include('./footer.php') ?>

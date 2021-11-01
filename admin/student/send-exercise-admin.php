@@ -12,7 +12,7 @@ if (isset($_GET['idBTVN'], $_GET['idMH'])) {
 <br>
 <br><br>
 
-
+<form action="" method="post" enctype="multipart/form-data">
 <div class="tittle-mh">
     <h2><?php echo $nameMH ?></h2>
 </div>
@@ -69,4 +69,5 @@ while ($row3 = mysqli_fetch_assoc($res3)) { ?>
 <?php
 }
 ?>
+</form>
 <?php include('./footer.php') ?>
