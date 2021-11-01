@@ -1,10 +1,9 @@
 <?php include('./header.php') ?>
-<h1>GIẢNG DẠY</h1>
-<a href="./learn-teach-teacher.php"><button style="padding:1% 2%;" type="button" class="btn btn-secondary text-white me-2"><i class="fas fa-undo-alt"></i></button></a>
-
-
 <br>
-
+<a href="./learn-teach-teacher.php"><button style="padding:1% 2%;" type="button" class="btn btn-secondary text-white me-2"><i class="fas fa-undo-alt"></i></button></a>
+<br><br>
+<div class="all-teacher">
+<h1>GIẢNG DẠY</h1>
 <br>
 <table class="table">
     <thead>
@@ -46,4 +45,5 @@
         ?>
     </tbody>
 </table>
+</div>
 <?php include('./footer.php') ?>

@@ -1,6 +1,9 @@
 <?php include('./header.php') ?>
+<br><br>
+<div class="form-add">
+
 <h2>THÊM SINH VIÊN</h2>
-<form class="form-add" method="post">
+<form  method="post">
     <?php
 
 
@@ -67,4 +70,5 @@
     <br>
     <button name="add" type="submit" class="btn btn-success"><i class="fas fa-plus"></i> Thêm</button>
 </form>
+</div>
 <?php include('./footer.php') ?>

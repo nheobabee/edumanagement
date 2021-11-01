@@ -8,6 +8,9 @@ if (isset($_GET['idMH'])) {
     $nameMH = $row['nameMH'];
 }
 ?>
+<br><br>
+<div class="add-ex">
+    
 <div class="tittleAdd">
     <h2>THÊM BÀI TẬP</h2>
 </div>
@@ -71,4 +74,5 @@ if (isset($_GET['idMH'])) {
             <br>
             <button name="add" type="submit" class="btn btn-success"><i class="fas fa-plus"></i> Thêm</button>
 </form>
+</div>
 <?php include('./footer.php') ?>

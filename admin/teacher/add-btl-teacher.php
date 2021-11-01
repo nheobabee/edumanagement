@@ -9,6 +9,9 @@ if (isset($_GET['idMH'])) {
 }
 
 ?>
+<br><br>
+<div class="add-ex">
+    
 <h2>THÊM BÀI TẬP LỚN</h2>
 <span style="font-weight:500">Môn học: <?php echo $nameMH ?><span>
         <form method="post" enctype="multipart/form-data">
@@ -76,4 +79,5 @@ if (isset($_GET['idMH'])) {
             <br>
             <button name="addbtl" type="submit" class="btn btn-success"><i class="fas fa-plus"></i> Thêm</button>
         </form>
+</div>
         <?php include('./footer.php') ?>

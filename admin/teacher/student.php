@@ -1,4 +1,6 @@
 <?php include('./header.php') ?>
+<br><br>
+<div class="all-teacher">
 <h1>DANH SÁCH SINH VIÊN</h1>
 <?php
 if (isset($_SESSION['errorDel'])) {
@@ -59,4 +61,5 @@ if (isset($_SESSION['successDel'])) {
         ?>
     </tbody>
 </table>
+</div>
 <?php include('./footer.php') ?>

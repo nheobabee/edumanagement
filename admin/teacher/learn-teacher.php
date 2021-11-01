@@ -1,7 +1,11 @@
 <?php include('./header.php') ?>
-<h1>HỌC TẬP</h1><a href="./learn-teach-admin.php"><button style="padding:1% 2%;" type="button" class="btn btn-secondary text-white me-2"><i class="fas fa-undo-alt"></i></button></a>
+<br>
+<a href="./learn-teach-admin.php"><button style="padding:1% 2%;" type="button" class="btn btn-secondary text-white me-2"><i class="fas fa-undo-alt"></i></button></a>
 <br>
 
+<br>
+<div class="all-teacher">
+<h1>HỌC TẬP</h1>
 <br>
 <a href="./add-learn-teacher.php"><button type="button" class="btn btn-success text-white me-2"><i class="fas fa-plus"></i> Thêm sinh viên</button></a>
 
@@ -45,7 +49,7 @@
                         <a href="./upd-learn-teacher.php?user_id=<?php echo $user_id ?>"><button type="button" class="btn btn-primary text-white me-2"><i class="fas fa-edit"></i></button></a>
                     </td>
                     <td>
-                        <a href="./del-learn-teacher.php?user_id=<?php echo $user_id ?>"><button type="button" class="btn btn-danger text-white me-2"><i class="fas fa-trash-alt"></i></button></a>
+                        <a href="./del-learn-teacher.php?user_id=<?php echo $user_id ?>&&idMH=<?php echo $idMH ?>"><button type="button" class="btn btn-danger text-white me-2"><i class="fas fa-trash-alt"></i></button></a>
                     </td>
                 </tr>
         <?php
@@ -54,4 +58,5 @@
         ?>
     </tbody>
 </table>
+</div>
 <?php include('./footer.php') ?>

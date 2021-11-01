@@ -9,6 +9,8 @@ if (isset($_SESSION['successDel'])) {
     unset($_SESSION['successDel']);
 }
 ?>
+<br><br>
+<div class="all">
 <h1>DANH SÁCH MÔN HỌC</h1>
 <br>
 
@@ -41,4 +43,5 @@ if (isset($_SESSION['user_id'])) {
 </div>
 <?php
 ?>
+</div>
 <?php include('./footer.php') ?>

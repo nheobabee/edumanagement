@@ -31,7 +31,7 @@ if (isset($_GET['idMH'])) {
                 <a href="index.php"><i class="fas fa-chart-line"></i> THỐNG KÊ</a>
             </li>
             <li>
-                <a href="teacher.php"><i class="fas fa-chalkboard-teacher"></i> GIÁO VIÊN</a>
+                <a href="teacher.php"><i class="fas fa-chalkboard-teacher"></i> GIẢNG VIÊN</a>
             </li>
             <li>
                 <a href="student.php"><i class="fas fa-user-graduate"></i> SINH VIÊN</a>
@@ -40,7 +40,7 @@ if (isset($_GET['idMH'])) {
                 <a href="subject.php"><i class="fas fa-book"></i> MÔN HỌC</a>
             </li>
             <li>
-                <a href="learn-teach-admin.php"><i class="fas fa-school"></i> Giảng dạy - Học tập</a>
+                <a href="learn-teach-admin.php"><i class="fas fa-school"></i> GIẢNG DẠY - HỌC TẬP</a>
             </li>
 
             <li>

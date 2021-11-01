@@ -1,5 +1,6 @@
 <?php include('./header.php') ?>
-
+<br><br>
+<div class="all-teacher">
 <h1>DANH SÁCH GIÁO VIÊN</h1>
 <br>
 <?php
@@ -55,4 +56,5 @@ if (isset($_SESSION['successDel'])) {
         ?>
     </tbody>
 </table>
+</div>
 <?php include('./footer.php') ?>

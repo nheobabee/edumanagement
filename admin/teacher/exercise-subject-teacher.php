@@ -12,7 +12,7 @@ if (isset($_GET['idMH'])) {
 
 <br>
 <a href="./add-exercise-teacher.php?idMH=<?php echo $idMH; ?>"><button type="button" class="btn btn-success text-white me-2"><i class="fas fa-plus"></i> Thêm bài tập</button></a>
-<br><br>
+<br><br><br>
 <div class="tittle-mh">
     <h2><?php echo $nameMH ?></h2>
 </div>
@@ -27,7 +27,7 @@ if ($res3 == true) {
 
             <div class="name-btvn row">
 
-                <div class="content-btvn col-md-7">
+                <div class="content-btvn col-md-8">
                     <h6><?php echo $row3['nameBTVN'] ?></h6>
                     <p><span style="font-weight: 500;">Hình thức: </span><?php echo $row3['formatBTVN'] ?></p>
                     <p><span style="font-weight: 500;">Opened: </span><?php echo $row3['openedBTVN'] ?></p>
@@ -35,10 +35,10 @@ if ($res3 == true) {
                     <p class="note"><?php echo $row3['note'] ?></p>
 
                 </div>
-                <div class="service col-md-5">
+                <div class="all-btn col-md-4">
                     <a href="./upd-exercise-teacher.php?idBTVN=<?php echo $row3['idBTVN']; ?>&&idMH=<?php echo $row3['idMH']; ?>"><button type="button" class="btn btn-success text-white me-2"><i class="fas fa-edit"></i> Cập nhật</button></a>
-                    <a href="./del-exercise-teacher.php?idBTVN=<?php echo $row3['idBTVN']; ?>&&idMH=<?php echo $row3['idMH']; ?>"><button type="button" class="btn btn-danger text-white me-2"><i class="fas fa-trash-alt"></i> Xóa</button></a>
                     <a href="./view-exercise-teacher.php?idBTVN=<?php echo $row3['idBTVN']; ?>&&idMH=<?php echo $row3['idMH']; ?>"><button type="button" class="btn btn-info text-white me-2"><i class="far fa-eye"></i> Xem</button></a>
+                    <a href="./del-exercise-teacher.php?idBTVN=<?php echo $row3['idBTVN']; ?>&&idMH=<?php echo $row3['idMH']; ?>"><button type="button" class="btn btn-danger text-white me-2"><i class="fas fa-trash-alt"></i> Xóa</button></a>
                 </div>
             </div>
         </div>

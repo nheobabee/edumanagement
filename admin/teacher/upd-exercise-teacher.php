@@ -20,6 +20,9 @@ if (isset($_GET['idBTVN'], $_GET['idMH'])) {
     $nameMH = $row2['nameMH'];
 }
 ?>
+<br><br>
+<div class="add-ex">
+    
 <div class="tittleAdd">
     <h2>CẬP NHẬT BÀI TẬP</h2>
 </div>
@@ -101,4 +104,5 @@ if (isset($_GET['idBTVN'], $_GET['idMH'])) {
 
             <button style="margin-top:10px" name="add" type="submit" class="btn btn-success"><i class="fas fa-pen"></i> Cập nhật</button>
 </form>
+</div>
 <?php include('./footer.php') ?>

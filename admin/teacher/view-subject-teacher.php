@@ -12,6 +12,7 @@ if (isset($_GET['idMH'])) {
 <br>
 <a href="./subject.php"><button style="padding:1% 2%;" type="button" class="btn btn-secondary text-white me-2"><i class="fas fa-undo-alt"></i></button></a>
 <br><br>
+<div class="all">
 <?php
 if (isset($_GET['idMH'])) {
     $idMH = $_GET['idMH'];
@@ -33,5 +34,6 @@ if (isset($_GET['idMH'])) {
             <h6 class="subject-name">BÀI TẬP LỚN</h6>
         </a>
     </div>
+</div>
 </div>
 <?php include('./footer.php') ?>
