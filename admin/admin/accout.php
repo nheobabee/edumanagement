@@ -19,6 +19,7 @@
                                     $userbirthday_q = $row['user_birthday'];
                                     $userphone_q = $row['user_phone'];
                                     $useremail_q = $row['user_email'];
+                                    $_SESSION['name'] = $row['user_name'];
                                 }
                             }
 
