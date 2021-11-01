@@ -265,7 +265,7 @@ h6{
       margin-top:14px;
   }
   
-  .btn-danger,.btn-primary{
+  .btn-primary{
       float: right;
   }
   
@@ -364,13 +364,19 @@ h6{
      border:  1px solid lightgray;
      margin: 10px;
      height:150px;
-     width:20%;
+     width:200px;
      border-radius: 6px;
      display: inline-block;
      border-top: 5px solid tomato;
      color:#000;
+     padding-top: 10px;
  }
- 
+ .all-sbj{
+    padding: 10px 10px;
+     border: 2px solid lightgray;
+     width: 66%;
+     border-top: 5px solid lightblue;
+ }
  .subject-icon,.subject-btl{
      font-size:100px;
      border-bottom: 1px solid tomato;
@@ -452,7 +458,9 @@ h1.count{
     margin: 1%;
     height: 200px;
     border-radius: 4px;
+    border-top: 5px solid tomato;
   }
+
   .header-page {
     display: flex;
     justify-content: space-between;
@@ -511,8 +519,13 @@ h1.count{
       margin-bottom: 0;
       
   }
-  
-  
+  .all-bt{
+      border: 2px solid lightblue;
+      border-radius:3px;
+      width: 500px;
+    padding-left:24px;
+    border-top: 5px solid lightblue;
+  }
   .btn-success {
       margin-top:10px;
       float: left;
@@ -520,5 +533,20 @@ h1.count{
   .tittle-mh,.name-btvn{
       border-top: 5px solid lightblue;
   }
-  
-  
+   .ten-sbj{
+       margin-right: 0;
+      width:70%;
+  }
+  .header-all {
+      display:flex;
+  }
+  .btn-del-sub{
+      margin-top: 4px;
+    padding:3%;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;  display: flex;
+    align-items: center;
+    text-align: center;
+    float:right;
+  }

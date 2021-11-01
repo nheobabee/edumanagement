@@ -12,10 +12,8 @@ if (isset($_GET['idMH'])) {
     $nameMH = $row1['nameMH'];
 }
 ?>
-<br>
+<h1>CHI TIẾT MÔN HỌC</h1>
 <a href="./subject.php"><button style="padding:1% 2%;" type="button" class="btn btn-secondary text-white me-2"><i class="fas fa-undo-alt"></i></button></a>
-<br><br>
-<a href="./del-subject-admin.php?idMH=<?php echo $idMH ?>"><button type="button" class="btn_del_sbj btn btn-danger text-white me-2"><i class="fas fa-trash-alt"></i> Xóa môn học</button></a>
 <br><br>
 <?php
 if (isset($_GET['idMH'])) {
@@ -25,18 +23,22 @@ if (isset($_GET['idMH'])) {
     $row0 = mysqli_fetch_assoc($res0);
 }
 ?>
-<h1><?php echo $row0['nameMH'] ?></h1>
-<br>
-<div class="folder-subject">
-    <div class="subject-folder text-center">
-        <a href="exercise-subject-admin.php?idMH=<?php echo $idMH ?>"> <i class="subject-icon far fa-folder"></i>
-            <h6 class="subject-name">BÀI TẬP VỀ NHÀ</h6>
-        </a>
+<div class="all-bt"> 
+    <div class="header-all">
+         <h1 class="ten-sbj"><?php echo $row0['nameMH'] ?></h1>
     </div>
-    <div class="subject-folder text-center">
-        <a href="btl.php?idMH=<?php echo $idMH ?>"><i class="subject-btl fas fa-users"></i>
-            <h6 class="subject-name">BÀI TẬP LỚN</h6>
-        </a>
+<br>
+    <div class="folder-subject">
+        <div class="subject-folder text-center">
+            <a href="exercise-subject-admin.php?idMH=<?php echo $idMH ?>"> <i class="subject-icon far fa-folder"></i>
+                <h6 class="subject-name">BÀI TẬP VỀ NHÀ</h6>
+            </a>
+        </div>
+        <div class="subject-folder text-center">
+            <a href="btl.php?idMH=<?php echo $idMH ?>"><i class="subject-btl fas fa-users"></i>
+                <h6 class="subject-name">BÀI TẬP LỚN</h6>
+            </a>
+        </div>
     </div>
 </div>
 <?php include('./footer.php') ?>
