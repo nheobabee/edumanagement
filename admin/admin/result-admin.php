@@ -13,7 +13,7 @@ if (isset($_SESSION['successDel'])) {
 
 <?php
 ?>
-<br>
+<br><br>
 <div class="all"><h1>DANH SÁCH ĐIỂM</h1>
 
     <div class="btn-addsbj"><br><br>    

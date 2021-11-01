@@ -172,21 +172,19 @@ h1.count{
     min-height: 521px;
   }
   
-  .form-control {
-    width: 60%;
-  }
-  .form-control .rdo-genderGV{
-      padding-left:12px;
-  }
+
+
   
   .form-add {
     border: 1px solid lightgray;
-    height:190px;
+    height: 298px;
     padding-left: 10px;
     width: 25%;
     border-radius:4px;
     border-top: 5px solid lightblue;
     padding-top: 10px;
+    margin:auto;
+
   }
 
   /* add-exercise-admin/upd-exercise-admin [add-exercise-admin.css] */
@@ -194,13 +192,7 @@ h1.count{
     min-height: 521px;
   }
   
-  .form-control {
-    width: 60%;
-  }
-  .form-control .rdo-genderGV{
-      padding-left:12px;
-  }
-  
+ 
 select {
     padding-left: 8px;
 }
@@ -220,22 +212,7 @@ h6{
     min-height: 521px;
   }
   
-  .form-control {
-    width: 60%;
-  }
-  .form-control .rdo-genderGV{
-      padding-left:12px;
-  }
-  
-  .form-add {
-    border: 1px solid lightgray;
-    height:190px;
-    padding-left: 10px;
-    width: 25%;
-    border-radius:4px;
-    border-top: 5px solid lightblue;
-    padding-top: 10px;
-  }
+ 
   /* btl/ [btl-ad.css] */
   .tittle-mh, .name-btvn{
     background-color:#fff;
@@ -490,12 +467,8 @@ h1.count{
     min-height: 521px;
   }
   
-  .form-control {
-    width: 60%;
-  }
-  .form-control .rdo-genderGV{
-      padding-left:12px;
-  }
+ 
+ 
   
   /*view-exercise-admin [view-exercise-admin] */
   .tittle-mh, .name-btvn{
@@ -574,4 +547,28 @@ h1.count{
     .title-chitietmh{
         width: 45%;
         margin: auto;
+}
+.display-name{
+    margin-top:0;
+    float: right;
+    padding-right: 20px;
+    padding-top: 6px;
+}
+.all-teacher{
+    margin: auto;
+    border: 2px solid lightgray;
+    border-top: 5px solid lightblue;
+    border-radius: 4px;
+    padding:5px;
+    width: 90%;
+}
+.add-monhoc{
+    border-top: 5px solid lightblue;
+    border: 2px solid lightgray;
+    width: 50%;
+    margin: auto;
+    padding:10px;
+    height: 254px;
+    border-radius: 4px;
+
 }

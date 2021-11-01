@@ -1,5 +1,7 @@
 <!-- <link rel="stylesheet" href="../../css/add-teacher-admin.css"> -->
 <?php include('./header.php') ?>
+<br><br>
+<div style="border-top: 5px solid lightblue;" class="add-monhoc">
 <h2>ADD SUBJECT</h2>
 <form method="post">
     <?php
@@ -27,8 +29,7 @@
         <label for="TC">Credits:</label>
         <input type="number" value="1" class="form-control" id="TC" placeholder="Enter credits" name="TC">
     </div>
-
-    <br>
     <button name="add" type="submit" class="btn btn-success">ADD</button>
 </form>
+</div>
 <?php include('./footer.php') ?>

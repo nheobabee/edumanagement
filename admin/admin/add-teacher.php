@@ -1,7 +1,10 @@
 <!-- <link rel="stylesheet" href="../../css/add-teacher-admin.css"> -->
 <?php include('./header.php') ?>
-<h2>THÊM GIÁO VIÊN</h2>
-<form class="form-add" method="post">
+
+<br><br>
+<div class="form-add">
+<form  method="post">
+    <h2>THÊM GIÁO VIÊN</h2>
     <?php
 
 
@@ -49,8 +52,12 @@
     <div class="form-group">
         <label style="margin:3px 0" for="`user_level">Chức vụ: Giáo viên</label>
         <input hidden type="text" class="form-control" id="user_level" placeholder="Enter chức vụ" name="user_level" value="1">
-    </div>
-    <br>
-    <button name="add" type="submit" class="btn btn-success"><i class="fas fa-plus"></i> Thêm</button>
+           </div>
+<button style="margin-top:10px;" name="add" type="submit" class="btn btn-success"><i class="fas fa-plus"></i> Thêm</button>
+ 
 </form>
+
+
+</div>
+
 <?php include('./footer.php') ?>

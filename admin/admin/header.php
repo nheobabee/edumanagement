@@ -69,7 +69,11 @@ if (isset($_GET['idMH'])) {
                             </form>
                            
                         </div>
-                       <div class="display-name">
+                      
+                    </nav>
+                    <div class="main-content">
+                    <div class="container">
+                         <div class="display-name">
                        <?php
                             if(isset($_SESSION['display-username']))
                             {
@@ -77,6 +81,3 @@ if (isset($_GET['idMH'])) {
                             }
                             ?>
                        </div>
-                    </nav>
-                    <div class="main-content">
-                    <div class="container">

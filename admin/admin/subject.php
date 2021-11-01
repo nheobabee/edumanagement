@@ -1,5 +1,11 @@
 <!-- <link rel="stylesheet" href="../../css/sj-stu.css"> -->
 <?php include('./header.php') ?>
+
+
+<?php
+?>
+<br><br>
+<div class="all"><h1>DANH SÁCH MÔN HỌC</h1>
 <?php
 if (isset($_SESSION['errorDel'])) {
     echo $_SESSION['errorDel'];
@@ -10,12 +16,6 @@ if (isset($_SESSION['successDel'])) {
     unset($_SESSION['successDel']);
 }
 ?>
-
-<?php
-?>
-<br>
-<div class="all"><h1>DANH SÁCH MÔN HỌC</h1>
-
     <div class="btn-addsbj">
     <a href="./add-subject-admin.php"><button type="button" class="btn btn-success text-white me-2"><i class="fas fa-plus"></i> Thêm môn học</button></a>
     <br><br><br>    

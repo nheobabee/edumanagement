@@ -1,5 +1,7 @@
 <!-- <link rel="stylesheet" href="../../css/teacher-admin.css"> -->
 <?php include('./header.php') ?>
+<br><br>
+<div class="all-teacher">
 <h1>DANH SÁCH SINH VIÊN</h1>
 <br>
 <?php
@@ -63,4 +65,5 @@ if (isset($_SESSION['successDel'])) {
         ?>
     </tbody>
 </table>
+</div>
 <?php include('./footer.php') ?>
