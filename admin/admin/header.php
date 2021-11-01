@@ -25,26 +25,26 @@ if (isset($_GET['idMH'])) {
     <div id="sidebar-wrapper">
         <ul class="sidebar-nav">
             <li class="sidebar-brand">
-                <h2>ADMIN</h2>
+                <h2>QUẢN TRỊ VIÊN</h2>
             </li>
             <li>
-                <a href="index.php"><i class="fas fa-chart-line"></i> Dashboard</a>
+                <a href="index.php"><i class="fas fa-chart-line"></i> THỐNG KÊ</a>
             </li>
             <li>
-                <a href="teacher.php"><i class="fas fa-chalkboard-teacher"></i> Teacher</a>
+                <a href="teacher.php"><i class="fas fa-chalkboard-teacher"></i> GIÁO VIÊN</a>
             </li>
             <li>
-                <a href="student.php"><i class="fas fa-user-graduate"></i> Student</a>
+                <a href="student.php"><i class="fas fa-user-graduate"></i> SINH VIÊN</a>
             </li>
             <li>
-                <a href="subject.php"><i class="fas fa-book"></i> Subject</a>
+                <a href="subject.php"><i class="fas fa-book"></i> MÔN HỌC</a>
             </li>
             <li>
-                <a href="learn-teach-admin.php"><i class="fas fa-school"></i> Teach - Learn</a>
+                <a href="learn-teach-admin.php"><i class="fas fa-school"></i> Giảng dạy - Học tập</a>
             </li>
 
             <li>
-                <a href="result-admin.php"><i class="fas fa-poll"></i> Result</a>
+                <a href="result-admin.php"><i class="fas fa-poll"></i> KẾT QUẢ</a>
             </li>
         </ul>
     </div>
@@ -60,14 +60,23 @@ if (isset($_GET['idMH'])) {
                         <div class="container-fluid">
                             <a href="#menu-toggle" class="btn btn-default" id="menu-toggle"><i class="fas fa-bars"></i></a>
 
-                            <form class="d-flex">
+                            <form class="d-flex " style="margin-bottom:0">
                                 <a href="" class="navbar-brand">HOME</a>
                                 <a href="./accout.php" class="navbar-brand">ACCOUNT</a>
                                 <a href="../../login/logout.php" class="navbar-brand">LOGOUT</a>
                                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                                 <button class="btn btn-outline-success" type="submit">Search</button>
                             </form>
+                           
                         </div>
+                       <div class="display-name">
+                       <?php
+                            if(isset($_SESSION['display-username']))
+                            {
+                                        echo $_SESSION['display-username'];
+                            }
+                            ?>
+                       </div>
                     </nav>
                     <div class="main-content">
                     <div class="container">

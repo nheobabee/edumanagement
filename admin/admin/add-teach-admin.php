@@ -19,7 +19,7 @@
             echo "Bản ghi đã được lưu";
             header("Location: http://localhost/edumanagement/admin/admin/teach.php");
         } else {
-            echo "Lỗi";
+            echo "Giáo viên đang dạy môn học này!";
         }
     }
 

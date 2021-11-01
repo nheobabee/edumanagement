@@ -8,45 +8,59 @@ if (isset($_GET['idBTL'])) {
     $row1 = mysqli_fetch_assoc($res1);
     $nameBTL = $row1['nameBTL'];
 }
+
 ?>
-
 <br>
-
 <div class="tittle-mh">
-
+    <h1><?php echo $nameBTL ?></h1>
 </div>
 <?php
-$sql3 = "SELECT * FROM btlsv WHERE idBTL = $idBTL";
-$res3 = mysqli_query($conn, $sql3);
-if ($res3 == true) {
-    while ($row3 = mysqli_fetch_assoc($res3)) {
+$sql2 = "SELECT * FROM dkbtl WHERE idBTL = $idBTL";
+$res2 = mysqli_query($conn, $sql2);
+
+if ($res2 == true) {
+    while ($row2 = mysqli_fetch_assoc($res2)) {
+        $user_id = $row2['user_id'];
 
 ?>
-
         <div class="title-btvn">
-
             <div class="name-btvn row">
-
-                <div class="content-btvn col-md-7">
-                    <h2 style="color:darkgrey"><?php echo $row3['nameTeam'] ?></h2>
-                    <p><span style="font-weight: 500;">Thành viên 1: </span><?php echo $row3['nameST1'] ?></p>
-                    <p><span style="font-weight: 500;">Thành viên 2: </span><?php echo $row3['nameST2'] ?></p>
-                    <p><span style="font-weight: 500;">Thành viên 3: </span><?php echo $row3['nameST3'] ?></p>
-                    <p style="border-bottom: 1px solid;"><span style="font-weight: 500;"></span></p>
-                    <p class="note"><?php echo $row1['nameBTL'] ?></p>
-
+                <div class="content-btvn col-md-10">
+                    <h6><?php echo $user_id ?></h6>
+                    <?php
+                    if (isset($_POST['submit'])) {
+                        $user_id1 = $_POST['user_id1'];
+                        $markBTL = $_POST['markBTL'];
+                        $cmtBTL = $_POST['cmtBTL'];
+                        $sql5 = "INSERT INTO ketquabtl values ('$user_id1','$idBTL','$markBTL','$cmtBTL')";
+                        $res5 = mysqli_query($conn, $sql5);
+                        if ($res5 == true) {
+                            header("Location:http://localhost/edumanagement/admin/teacher/dsnhom-btl-teacher.php?idBTL=" . $idBTL);
+                        } else {
+                            echo $sql5;
+                        }
+                    }
+                    ?>
+                    <form action="" method="post">
+                        <input type="text"  class="markBTVN form-control" id="user_id" name="user_id1" value="<?php echo $user_id ?>">
+                     
+                        <div class="mark-btvn">
+                            <label class="markBTVN" for="idMH">Điểm: </label>
+                            <input type="text" class="markBTVN form-control" id="markBTL" name="markBTL">
+                        </div>
+                        <div class="cmt-btvn">
+                            <label for="cmtBTL">Nhận xét:</label>
+                            <textarea class="cmtBTVN form-control" id="cmtBTL" rows="3" name="cmtBTL"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-success text-white me-2" name="submit"><i class="fas fa-upload"></i> Gửi</button></a>
+                    </form>
                 </div>
-                <div class="service col-md-5">
-                    <a href="./dk-btl-admin.php?idBTL=<?php echo $row3['idBTL']; ?>"><button type="button" class="btn btn-success text-white me-2"><i class="fas fa-edit"></i> Đăng kí</button></a>
 
-                    <a href="./upd-btl-admin.php?idBTL=<?php echo $row3['idBTL']; ?>"><button type="button" class="btn btn-success text-white me-2"><i class="fas fa-edit"></i> UPDATE</button></a>
-                    <a href="./del-btl-admin.php?idBTL=<?php echo $row3['idBTL']; ?>"><button type="button" class="btn btn-danger text-white me-2"><i class="fas fa-trash-alt"></i> DELETE</button></a>
-                    <a href="./view-btl-admin.php?idBTL=<?php echo $row3['idBTL']; ?>"><button type="button" class="btn btn-info text-white me-2"><i class="far fa-eye"></i> VIEW</button></a>
-                </div>
+
             </div>
         </div>
 <?php
     }
 }
 ?>
-<?php include('./footer.php') ?>
+<?php include('./footer.php'); ?>

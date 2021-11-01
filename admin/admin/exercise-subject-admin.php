@@ -1,10 +1,5 @@
 <!-- <link rel="stylesheet" href="../../css/ex-stu-ad.css"> -->
 <?php include('./header.php') ?>
-<<<<<<< Updated upstream
-=======
-
-
->>>>>>> Stashed changes
 <?php
 if (isset($_GET['idMH'])) {
     $idMH = $_GET['idMH'];
@@ -49,8 +44,7 @@ if ($res3 == true) {
     }
 }
 ?>
-<<<<<<< Updated upstream
-=======
+
 <?php
 $sql_v = "select * from users";
 $rs_v = mysqli_query($conn,$sql_v);
@@ -122,7 +116,7 @@ function Show() {
                 }
             })
         }
->>>>>>> Stashed changes
+
 
 
 <?php include('./footer.php') ?>

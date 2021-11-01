@@ -128,7 +128,7 @@ session_start() ?>
 					header('location:../admin/admin/index.php');
 				}
 				// header('location:../admin/index.php');
-				$_SESSION['display-username'] = "<h6 style='margin-top:5px;'> Hello, " . $row['user_name'] . "  </h6>";
+				$_SESSION['display-username'] = "<h6 style='margin-top:5px;'> Xin chào, " . $row['user_name'] . "  </h6>";
 				$_SESSION['name'] = $row['user_name'];
 			}
 		 else {

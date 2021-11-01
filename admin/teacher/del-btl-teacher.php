@@ -7,10 +7,12 @@
         }
 ?>
 <?php
-    if(isset($_GET['idBTL'])){
+    if(isset($_GET['idBTL'],$_GET['idMH'])){
         $idBTL = $_GET['idBTL'];
+        $idMH = $_GET['idMH'];
         $sql = "DELETE FROM btl WHERE idBTL = '$idBTL'";
         $res = mysqli_query($conn, $sql);
+
        
         if($res == true){
             header('location: http://localhost/edumanagement/admin/teacher/btl.php?idMH=' . $idMH);

@@ -5,12 +5,7 @@
 <div class="header-page">
                                 <h1 class="page-title">THỐNG KÊ</h1>
                                 <!--  -->
-                            <?php
-                            if(isset($_SESSION['display-username']))
-                            {
-                                        echo $_SESSION['display-username'];
-                            }
-                            ?>
+                         
                             </div>
                             <br>
                             <div class="row">

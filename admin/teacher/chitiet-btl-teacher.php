@@ -33,6 +33,8 @@ while ($row3 = mysqli_fetch_assoc($res3)) { ?>
                     <p style="border-bottom: 1px solid;"><span style="font-weight: 500;">Hạn cuối: </span><?php echo $row3['deadlineBTL'] ?></p>
                     <p class="note"><?php echo $row3['notebtl'] ?></p>
                 </div>
+                <a href="./dsnhom-btl-teacher.php?idBTL=<?php echo $row3['idBTL']; ?>"><button type="button" class="btn btn-info text-white me-4 col-3"><i class="far fa-eye"></i>Danh sách nhóm</button></a>
+                    
                 <a href="view-btlsv.php?idBTL=<?php echo $row3['idBTL']; ?>&&idMH=<?php echo $row3['idMH']; ?>"><button type="button" class="nopbai btn btn-success text-white me-2"><i class="fas fa-upload"></i> Xem bài nộp</button></a>
             </div>
         </div>

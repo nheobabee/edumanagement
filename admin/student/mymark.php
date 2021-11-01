@@ -15,19 +15,21 @@ if (isset($_SESSION['successDel'])) {
 ?>
 <br>
 <div class="all">
-    <h1>DANH SÁCH MÔN HỌC</h1>
+    <h1>DANH SÁCH ĐIỂM CỦA BẠN</h1>
 
-    <div class="btn-addsbj">
-        <a href="./add-subject-admin.php"><button type="button" class="btn btn-success text-white me-2"><i class="fas fa-plus"></i> Thêm môn học</button></a>
-        <br><br><br>
+    <div class="btn-addsbj"><br>
     </div>
     <div class="f-sbj">
         <?php
         $user_id = $_SESSION["user_id"];
         $sql0 = "SELECT * from relationship where user_id = '$user_id'";
         $res0 = mysqli_query($conn, $sql0);
-       
-        if ($res0 == true) {
+
+
+
+        $sql3 = "SELECT * FROM monhoc ";
+        $res3 = mysqli_query($conn, $sql3);
+        if ($res3 == true) {
             while ($row0 = mysqli_fetch_assoc($res0)) {
                 $idMH = $row0['idMH'];
                 $sql3 = "SELECT * FROM monhoc where idMH = $idMH";
@@ -37,7 +39,7 @@ if (isset($_SESSION['successDel'])) {
         ?>
                
                <div class="subject-folder text-center">
-                    <a href="view-subject.php?idMH=<?php echo $row0['idMH'] ?>"> <i class="subject-icon far fa-folder"></i>
+                    <a href="details-result-student.php?idMH=<?php echo $row0['idMH'] ?>"> <i class="subject-icon far fa-folder"></i>
                         <h6 class="subject-name"><?php echo $row3['nameMH'] ?></h6>
                     </a>
                 </div>

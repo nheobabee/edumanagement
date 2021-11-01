@@ -16,13 +16,16 @@
     <div id="sidebar-wrapper">
         <ul class="sidebar-nav">
             <li class="sidebar-brand">
-                <h2>STUDENT</h2>
+                <h2>SINH VIÊN</h2>
             </li>
             <li>
-                <a href="student.php"><i class="fas fa-user-graduate"></i> Student</a>
+                <a href="student.php"><i class="fas fa-user-graduate"></i> Sinh viên</a>
             </li>
             <li>
-                <a href="subject.php"><i class="fas fa-book"></i> Subject</a>
+                <a href="subject.php"><i class="fas fa-book"></i> Môn học</a>
+            </li>
+            <li>
+                <a href="mymark.php"><i class="fas fa-book"></i> Điểm</a>
             </li>
         </ul>
     </div>
@@ -38,10 +41,10 @@
                         <div class="container-fluid">
                             <a href="#menu-toggle" class="btn btn-default" id="menu-toggle"><i class="fas fa-bars"></i></a>
 
-                            <form class="d-flex">
-                                <a href="" class="navbar-brand">HOME</a>
-                                <a href="./accout.php" class="navbar-brand">ACCOUNT</a>
-                                <a href="../../login/logout.php" class="navbar-brand">LOGOUT</a>
+                            <form class="d-flex"  style="margin-bottom:0">
+                                <a href="" class="navbar-brand">TRANG CHỦ</a>
+                                <a href="./accout.php" class="navbar-brand">TÀI KHOẢN</a>
+                                <a href="../../login/logout.php" class="navbar-brand">ĐĂNG XUẤT</a>
                                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                                 <button class="btn btn-outline-success" type="submit">Search</button>
                             </form>

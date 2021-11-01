@@ -48,7 +48,7 @@
                         <div class="container-fluid">
                             <a href="#menu-toggle" class="btn btn-default" id="menu-toggle"><i class="fas fa-bars"></i></a>
 
-                            <form class="d-flex">
+                            <form class="d-flex"  style="margin-bottom:0">
                                 <a href="" class="navbar-brand">HOME</a>
                                 <a href="./accout.php" class="navbar-brand">ACCOUNT</a>
                                 <a href="../../login/logout.php" class="navbar-brand">LOGOUT</a>
