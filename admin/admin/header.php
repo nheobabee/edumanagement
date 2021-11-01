@@ -46,6 +46,9 @@ if (isset($_GET['idMH'])) {
             <li>
                 <a href="result-admin.php"><i class="fas fa-poll"></i> KẾT QUẢ</a>
             </li>
+            <li>
+                <a href="contact.php"><i class="fas fa-comment-dots"></i> LIÊN HỆ</a>
+            </li>
         </ul>
     </div>
     <!-- /#sidebar-wrapper -->

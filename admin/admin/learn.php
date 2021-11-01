@@ -1,7 +1,7 @@
 <!-- <link rel="stylesheet" href="../../css/result-admin.css"> -->
 <?php include('./header.php') ?>
 <br>
-<a href="./learn-teach-admin.php"><button style="padding:1% 2%;margin-left:5px;" type="button" class="btn btn-secondary text-white me-2"><i class="fas fa-undo-alt"></i></button></a>
+<a href="./learn-teach-admin.php"><button style="padding:1% 2%;margin-left:55px;" type="button" class="btn btn-secondary text-white me-2"><i class="fas fa-undo-alt"></i></button></a>
 
 <br><br>
 <div class="all-teacher">

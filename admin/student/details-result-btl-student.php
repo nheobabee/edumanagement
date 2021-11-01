@@ -31,7 +31,8 @@ if (isset($_SESSION['successDel'])) {
         if ($res0 == true) {
             while ($row0 = mysqli_fetch_assoc($res0)) {
                 $idMH = $row0['idMH'];
-                $sql3 = "SELECT * FROM btl where idMH = $idMH";
+                $idBTL = $row0['idBTL'];
+                $sql3 = "SELECT * FROM btl where idMH = $idMH AND idBTL = $idBTL";
                 $res3 = mysqli_query($conn, $sql3);
                 $row3 = mysqli_fetch_assoc($res3);
                 $nameMH = $row3['nameBTL'];

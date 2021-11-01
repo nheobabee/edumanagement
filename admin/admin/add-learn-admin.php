@@ -1,7 +1,9 @@
 <!-- <link rel="stylesheet" href="../../css/add-teach-admin.css"> -->
 <?php include('./header.php') ?>
-<h2>THÊM SINH VIÊN</h2>
+<br><br>
 <form class="form-add" method="post">
+    <h2>THÊM SINH VIÊN</h2>
+    <br>
     <?php
 
 

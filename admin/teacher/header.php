@@ -34,6 +34,9 @@
             <li>
                 <a href="result-admin.php"><i class="fas fa-poll"></i> KẾT QUẢ</a>
             </li>
+            <li>
+                <a href="contact.php"><i class="fas fa-comment-dots"></i> KẾT QUẢ</a>
+            </li>
         </ul>
     </div>
     <!-- /#sidebar-wrapper -->

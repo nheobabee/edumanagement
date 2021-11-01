@@ -554,3 +554,12 @@ h1.count{
     margin: auto;
     padding:1%;
 }
+.all-contact{
+    width: 80%;
+    margin: auto;
+
+}
+.logo-contact i{
+    width: 200px;
+    height:200px;
+}
