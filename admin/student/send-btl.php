@@ -43,12 +43,12 @@ if (isset($_GET['idBTL'], $_GET['idMH'])) {
 
                 if ($run) {
                     move_uploaded_file($fileTmpName, $path);
-                    echo "success";
+                    header("Location:http://localhost/edumanagement/admin/student/btl.php?idMH=" . $idMH);
                 } else {
-                    echo $query;
+                    echo '<p class="error">Bạn đã nộp bài rồi</p>';
                 }
             } else {
-                $_SESSION['errorchecksend'] = 'Bạn không thuộc nhóm này';
+                $_SESSION['errorchecksend'] = '<p class="error">Bạn không thuộc nhóm này</p>';
                 header("Location:http://localhost/edumanagement/admin/student/btl.php?idMH=" . $idMH);
             }
         }
@@ -75,7 +75,7 @@ if (isset($_GET['idBTL'], $_GET['idMH'])) {
                     <div class="col-sm-5">
                         <input type="file" class="form-control" id="file" name="file">
                     </div>
-                    <button type="submit" class="btn btn-success text-white me-2" name="send"><i class="fas fa-upload"></i>SEND</button></a>
+                    <button style="margin-top:10px" type="submit" class="btn btn-success text-white me-2" name="send"><i class="fas fa-upload"></i>SEND</button></a>
                 </div>
             </div>
         </div>

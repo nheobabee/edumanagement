@@ -62,7 +62,7 @@ while ($row3 = mysqli_fetch_assoc($res3)) { ?>
                 <div class="col-sm-5">
                     <input type="file" class="form-control" id="file" name="file">
                 </div>
-                <button type="submit" class="btn btn-success text-white me-2" name="send"><i class="fas fa-upload"></i>SEND</button></a>
+                <button style="margin-top:10px;" type="submit" class="btn btn-success text-white me-2" name="send"><i class="fas fa-upload"></i>SEND</button></a>
             </div>
         </div>
     </div>

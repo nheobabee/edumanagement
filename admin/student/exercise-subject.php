@@ -30,9 +30,9 @@ if ($res3 == true) {
                 <div class="content-btvn col-md-10">
                     <h6><?php echo $row3['nameBTVN'] ?></h6>
                     <p><span style="font-weight: 500;">Hình thức: </span><?php echo $row3['formatBTVN'] ?></p>
-                    <p><span style="font-weight: 500;">Opened: </span><?php echo $row3['openedBTVN'] ?></p>
-                    <p><span style="font-weight: 500;">Deadline: </span><?php echo $row3['deadlineBTVN'] ?></p>
-
+                    <p><span style="font-weight: 500;">Ngày giao: </span><?php echo $row3['openedBTVN'] ?></p>
+                    <p><span style="font-weight: 500;">Hạn cuối: </span><?php echo $row3['deadlineBTVN'] ?></p>
+                    <p><span style="font-weight: 500;">Ghi chú: </span><?php echo $row3['note'] ?></p>
 
                 </div>
                 <div class="service col-md-2">

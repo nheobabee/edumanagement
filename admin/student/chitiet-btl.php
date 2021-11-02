@@ -16,6 +16,11 @@ if (isset($_GET['idBTL'], $_GET['idMH'], $_GET['user_id'])) {
 
 </div> -->
 <br><br>
+<div class="tittle-mh">
+        <h2><?php echo $nameMH; ?></h2>
+    </div>
+<br>
+<div class="chitiet-all">
 <form action="" method="post">
     <?php
     if (isset($_POST['dangki'])) {
@@ -34,18 +39,18 @@ if (isset($_GET['idBTL'], $_GET['idMH'], $_GET['user_id'])) {
                 $kq2 = mysqli_query($conn, $sql2);
 
                 if ($kq2) {
-                    $_SESSION['success'] = 'Đăng kí thành công';
+                    $_SESSION['success'] = '<p class="success">Đăng kí thành công</p>';
                     header("Location:http://localhost/edumanagement/admin/student/btl.php?idMH=" . $idMH);
                 } else {
-                    $_SESSION['error'] = 'Bạn đã đăng kí bài tập lớn rồi';
+                    $_SESSION['error'] = '<p class="error">Bạn đã đăng kí bài tập lớn rồi</p>';
                     header("Location:http://localhost/edumanagement/admin/student/btl.php?idMH=" . $idMH);
                 }
             } else {
-                $_SESSION['errorcheck'] = 'Bạn đã đăng kí bài tập lớn rồi';
+                $_SESSION['errorcheck'] = '<p class="error">Bạn đã đăng kí bài tập lớn rồi</p>';
                 header("Location:http://localhost/edumanagement/admin/student/btl.php?idMH=" . $idMH);
             }
         } else {
-            $_SESSION['errorchecksl'] = 'Bài tập lớn này đã đủ thành viên Vui lòng chọn bài tập lớn khác';
+            $_SESSION['errorchecksl'] = '<p class="error">Bài tập lớn này đã đủ thành viên Vui lòng chọn bài tập lớn khác</p>';
             header("Location:http://localhost/edumanagement/admin/student/btl.php?idMH=" . $idMH);
         }
     }
@@ -61,56 +66,56 @@ if (isset($_GET['idBTL'], $_GET['idMH'], $_GET['user_id'])) {
             $kq2 = mysqli_query($conn, $sql2);
 
             if ($kq2) {
-                $_SESSION['csuccess'] = 'Hủy đăng kí thành công';
+                $_SESSION['csuccess'] = '<p class="success">Hủy đăng kí thành công</p>';
                 header("Location:http://localhost/edumanagement/admin/student/btl.php?idMH=" . $idMH);
             } else {
-                $_SESSION['cerror'] = 'Không thể hủy vì bạn chưa đăng ký';
+                $_SESSION['cerror'] = '<p class="error">Không thể hủy vì bạn chưa đăng ký</p>';
                 header("Location:http://localhost/edumanagement/admin/student/btl.php?idMH=" . $idMH);
             }
         } else {
-            $_SESSION['cerrorcheck'] = 'Không thể hủy vì bạn chưa đăng ký';
+            $_SESSION['cerrorcheck'] = '<p class="error">Không thể hủy vì bạn chưa đăng ký</p>';
             header("Location:http://localhost/edumanagement/admin/student/btl.php?idMH=" . $idMH);
         }
     }
 
     ?>
-    <div class="tittle-mh">
-        <h2><?php echo $nameMH; ?></h2>
-    </div>
+    
     <?php
     $sql3 = "SELECT * FROM btl WHERE idMH = '$idMH' AND idBTL = '$idBTL'";
     $res3 = mysqli_query($conn, $sql3);
     while ($row3 = mysqli_fetch_assoc($res3)) {
         $idBTL = $row3['idBTL'];
     ?>
+        <div class="nd-hdh">
 
-        <div class="title-btvn">
-            <div class="name-btvn row">
 
-                <div class="content-btvn col">
+            <div class="title-btvn">
+                <div class="name-btvn1">
 
-                    <h6><?php echo $row3['nameBTL'] ?></h6>
-                    <label for="empEmail" class="col-sm-3 col-form-label">Đề bài:</label>
-                    <div class="form-group">
-                        <h6><?php echo $row3['filenamebtl'] ?></h6>
-                        <button type="submit" class="btn btn-success text-white me-4 col-3" name="dangki"><i class="fas fa-edit"></i> Đăng kí</button>
-                        <button type="submit" class="btn btn-success text-white me-4 col-3" name="huydangki"><i class="fas fa-edit"></i>Hủy đăng kí</button>
-                        <a href="./dsnhom-btl.php?idBTL=<?php echo $row3['idBTL']; ?>"><button type="button" class="btn btn-info text-white me-4 col-3"><i class="far fa-eye"></i>Danh sách nhóm</button></a>
+                    <div class="content-btvn">
 
-                        <a href="send-btl.php?idBTL=<?php echo $row3['idBTL']; ?>&&idMH=<?php echo $row3['idMH']; ?>&&user_id=<?php echo $_SESSION['user_id']; ?>"><button type="button" class="btn btn-success text-white me-2"><i class="fas fa-upload"></i>NỘP BÀI</i></button></a>
+                        <h6><?php echo $row3['nameBTL'] ?></h6>
+                        <label for="empEmail" class="col-sm-3 col-form-label">Đề bài:</label>
+                        <div class="form-group">
+                            <h6><?php echo $row3['filenamebtl'] ?></h6>
+                            <button type="submit" class="btn btn-primary text-white me-2" name="dangki"><i class="fas fa-edit"></i> Đăng kí</button>
+                            <button type="submit" class="btn btn-danger text-white me-2" name="huydangki"><i class="fas fa-edit"></i>Hủy đăng kí</button>
+                            <a href="./dsnhom-btl.php?idBTL=<?php echo $row3['idBTL']; ?>"><button type="button" class="btn btn-info text-white me-2"><i class="far fa-eye"></i>Danh sách nhóm</button></a>
+
+                            <a href="send-btl.php?idBTL=<?php echo $row3['idBTL']; ?>&&idMH=<?php echo $row3['idMH']; ?>&&user_id=<?php echo $_SESSION['user_id']; ?>"><button type="button" class="btn btn-success text-white me-2"><i class="fas fa-upload"></i>NỘP BÀI</i></button></a>
+                        </div>
+
                     </div>
-
                 </div>
+
             </div>
+        
+</form>
+</div><a href="download-exercise.php?file=<?php echo $row3['filenamebtl'] ?>"> <button class="btn btn-success text-white me-2"><i class="fas fa-download"></i>Tải đề</button></a>
 
-        </div>
-</form> <a href="download-exercise.php?file=<?php echo $row3['filenamebtl'] ?>"> <button class="btn btn-success text-white me-2"><i class="fas fa-download"></i>Tải đề</button></a>
-
-</div>
-
-</div>
 <?php
     }
 
 ?>
+
 <?php include('./footer.php') ?>

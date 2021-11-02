@@ -45,9 +45,9 @@ if ($res2 == true) {
                         $date2 =  strtotime($late);
                         $day_late = $date2 - $date1;
                         if ($day_late > 0) {
-                            echo "(nộp muộn)";
+                            echo "(Nộp muộn)";
                         } else {
-                            echo "(đã nộp)";
+                            echo "(Đã nộp)";
                         }
                         if ($countmark > 0) {
                             echo '<p class="error">(Đã chấm bài)</p>';

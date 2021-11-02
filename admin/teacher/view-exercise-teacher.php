@@ -9,9 +9,11 @@ if (isset($_GET['idBTVN'], $_GET['idMH'])) {
     $nameMH = $row1['nameMH'];
 }
 ?>
-<h1>CHI TIẾT BÀI TẬP</h1><br>
+<br><br>
 <div class="tittle-mh">
-    <h2><?php echo $nameMH ?></h2>
+<h1>CHI TIẾT BÀI TẬP</h1>
+<br>
+    <h4><?php echo $nameMH ?></h4>
 </div>
 <?php
 $sql3 = "SELECT * FROM btvn WHERE idMH = '$idMH' AND idBTVN = '$idBTVN'";

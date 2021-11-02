@@ -260,14 +260,8 @@ h6 {
   margin-top: 14px;
 }
 
-.btn-danger,
-.btn-primary {
-  float: right;
-}
 
-.btn-success {
-  margin-left: 8px;
-}
+
 /*dsnhom btl admin [list-dk-btl.css] */
 
 .tittle-mh,
@@ -297,7 +291,6 @@ h6 {
 }
 
 .btn-success {
-  margin-left: 8px;
 }
 .team-btl {
   margin-top: 10px;
@@ -312,13 +305,7 @@ h6 {
   border-top: 5px solid lightblue;
 }
 /* exercise subject admin/ [ex-stu-ad.css] */
-.tittle-mh,
-.name-btvn {
-  background-color: #fff;
-  padding: 1%;
-  border-radius: 4px;
-  border: 0.5px solid lightgray;
-}
+
 .main-content {
   background-color: #e9edf1;
 }
@@ -340,14 +327,9 @@ h6 {
 .content-btvn {
 }
 
-.btn-primary {
-  float: right;
-}
 
-.tittle-mh,
-.name-btvn {
-  border-top: 5px solid lightblue;
-}
+
+
 /* learn-teach-admin/subject/view-subject-admin [sj-stu.css] */
 .container {
   min-height: 521px;
@@ -479,13 +461,7 @@ h1.count {
 }
 
 /*view-exercise-admin [view-exercise-admin] */
-.tittle-mh,
-.name-btvn {
-  background-color: #fff;
-  padding: 1%;
-  border-radius: 4px;
-  border: 0.5px solid lightgray;
-}
+
 .main-content {
   background-color: #e9edf1;
 }
@@ -497,36 +473,22 @@ h1.count {
   margin-top: 14px;
   margin-left: 0;
   margin-right: 0;
-  min-height: 340px;
+  min-height:200px;
 }
 .name-btvn p {
   margin-bottom: 0;
 }
 
-.btn-success {
-  margin-top: 10px;
-  float: left;
-}
-.tittle-mh,
-.name-btvn {
-  border-top: 5px solid lightblue;
-}
+
 
 .nopbai {
   float: left;
 }
-.tittle-mh,
-.name-btvn {
-  border-top: 5px solid lightblue;
-}
+
 .sub-bt {
   margin-top: 5px;
 }
 
-.btn-success {
-  margin-top: 10px;
-  float: left;
-}
 .tittle-mh,
 .name-btvn {
   border-top: 5px solid lightblue;
@@ -536,17 +498,10 @@ h1.count {
   margin-top: 30px;
 }
 
-
-.btn-success {
-  margin-left: 8px;
-}
 .btn-warning {
   float: right;
 }
 
-.btn-success {
-  margin-top: 10px;
-}
 .navbar,
 .ftr {
   background-color: #ced6e0;
@@ -571,9 +526,6 @@ h1.count {
   margin-top: 14px;
 }
 
-.btn-success {
-  margin-left: 8px;
-}
 .all-contact {
   border-top: 5px solid tomato;
   width: 70%;
@@ -634,4 +586,25 @@ h1.count {
   border-top: 5px solid lightblue;
   border-radius: 4px;
   margin: auto;
+}
+.error {
+  color: #ff4757;
+}
+
+.success {
+  color: #2ed573;
+}
+.name-btvn1 {
+  
+  margin-top: 14px;
+  margin-left: 0;
+  margin-right: 0;
+  min-height: 150px;
+}
+.chitiet-all{
+  min-height:240px;
+  background-color:#fff;
+  padding:2%;
+  border-top: 5px solid lightblue;
+  border-radius: 4px;
 }

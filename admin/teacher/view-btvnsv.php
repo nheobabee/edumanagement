@@ -11,6 +11,7 @@ if (isset($_GET['idBTVN'], $_GET['idMH'])) {
     $res2 = mysqli_query($conn, $sql2);
     $row2 = mysqli_fetch_assoc($res2);
     $nameBTVN = $row2['nameBTVN'];
+    $deadline = $row2['deadlineBTVN'];
 }
 
 
@@ -31,8 +32,9 @@ if (isset($_GET['idBTVN'], $_GET['idMH'])) {
 <?php
 $sql3 = "SELECT * FROM btvnsv WHERE idMH = '$idMH' AND idBTVN = '$idBTVN'";
 $res3 = mysqli_query($conn, $sql3);
-
+ //ngay nop bai
 while ($row3 = mysqli_fetch_assoc($res3)) {
+    $late = $row3['ngaynop'];
     $user_id = $row3['user_id'];
     $sql0 = "Select * from users where user_id = '$user_id'";
     $res0 = mysqli_query($conn, $sql0);
@@ -48,6 +50,14 @@ while ($row3 = mysqli_fetch_assoc($res3)) {
                 $sqlmark = "SELECT * FROM ketquabtvn where user_id = '$user_id'";
                 $resmark = mysqli_query($conn, $sqlmark);
                 $countmark = mysqli_num_rows($resmark);
+                $date1 = strtotime($deadline);
+                $date2 =  strtotime($late);
+                $day_late = $date2 - $date1;
+                if ($day_late > 0) {
+                    echo "(Nộp muộn)";
+                } else {
+                    echo "(Đã nộp)";
+                }
                 if($countmark > 0){
                     echo '<p class="error">(Đã chấm bài)</p>';
                 }
