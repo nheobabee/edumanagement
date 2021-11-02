@@ -1,6 +1,6 @@
 <?php include('./header.php') ?>
 <br>
-<a href="./learn-teach-admin.php"><button style="padding:1% 2%;" type="button" class="btn btn-secondary text-white me-2"><i class="fas fa-undo-alt"></i></button></a>
+<a href="./learn-teach-teacher.php"><button style="padding:1% 2%;" type="button" class="btn btn-secondary text-white me-2"><i class="fas fa-undo-alt"></i></button></a>
 <br>
 
 <br>

@@ -20,10 +20,22 @@ if (isset($_SESSION['successDel'])) {
 </div>
    <div class="f-sbj">
    <?php
-    $sql3 = "SELECT * FROM monhoc ";
-    $res3 = mysqli_query($conn, $sql3);
-    if ($res3 == true) {
-        while ($row3 = mysqli_fetch_assoc($res3)) {
+// lấy giá trị user cần sửa 
+if (isset($_SESSION['user_id'])) {
+    $user_id = $_SESSION['user_id'];
+}
+?>
+   <?php
+    $sql4 = "SELECT * FROM relationship where user_id = '$user_id'";
+    $res4 = mysqli_query($conn, $sql4);
+    
+    
+    if ($res4 == true) {
+        while ($row4 = mysqli_fetch_assoc($res4)) {
+            $idMH1 = $row4['idMH'];
+            $sql3 = "SELECT * FROM monhoc where idMH = '$idMH1'";
+            $res3 = mysqli_query($conn, $sql3);
+            $row3 = mysqli_fetch_assoc($res3);
     ?>
             <div class="subject-folder text-center">
            

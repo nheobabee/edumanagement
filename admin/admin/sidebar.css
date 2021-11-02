@@ -555,11 +555,13 @@ h1.count{
     padding:1%;
 }
 .all-contact{
+    border-top: 5px solid tomato;
     width: 70%;
     margin: auto;
     border: 2px solid lightgray;
     padding:2%;
     display:flex;
+    border-radius: 4px;
 
 }
 .logo-contact i{
