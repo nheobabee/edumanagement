@@ -29,7 +29,16 @@ if ($res2 == true) {
         <div class="title-btvn">
             <div class="name-btvn row">
                 <div class="content-btvn col-md-10">
-                    <h6><?php echo $user_id ?>.<?php echo $rowuser['user_name']?></h6>
+                    <h6><?php echo $user_id ?>.<?php echo $rowuser['user_name'] ?>
+                        <?php
+                        $sqlmark = "SELECT * FROM ketquabtl where user_id = '$user_id'";
+                        $resmark = mysqli_query($conn, $sqlmark);
+                        $countmark = mysqli_num_rows($resmark);
+                        if ($countmark > 0) {
+                            echo '<p class="error">(Đã chấm bài)</p>';
+                        }
+                        ?>
+                    </h6>
                     <?php
                     if (isset($_POST['submit'])) {
                         $user_id1 = $_POST['user_id1'];
@@ -45,8 +54,8 @@ if ($res2 == true) {
                     }
                     ?>
                     <form action="" method="post">
-                        <input type="text"  class="markBTVN form-control" id="user_id" name="user_id1" value="<?php echo $user_id ?>">
-                     
+                        <input type="text" class="markBTVN form-control" id="user_id" name="user_id1" value="<?php echo $user_id ?>">
+
                         <div class="mark-btvn">
                             <label class="markBTVN" for="idMH">Điểm: </label>
                             <input type="text" class="markBTVN form-control" id="markBTL" name="markBTL">

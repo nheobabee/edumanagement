@@ -28,7 +28,11 @@
                 <a href="mymark.php"><i class="fas fa-book"></i> Điểm</a>
             </li>
             <li>
-                <a href="contact.php"><i class="fas fa-comment-dots"></i> Liên hệ</a>
+                <a href="contact.php"><i class="fas fa-phone-alt"></i> Liên hệ</a>
+            </li>
+
+            <li>
+                <a href="chat.php"><i class="fas fa-comment-dots"></i>  Phản hồi</a>
             </li>
         </ul>
     </div>
