@@ -15,7 +15,9 @@ if (isset($_GET['idBTL'])) {
 $sql_late = "select * from btlsv where idBTL= '$idBTL' ";
 $rs_late = mysqli_query($conn, $sql_late);
 $row_late = mysqli_fetch_assoc($rs_late);
+if($row_late>0){
 $late = $row_late['ngaynop']; //ngay nop bai
+}
 ?>
 <br><br>
 <div class="tittle-mh">
@@ -41,6 +43,7 @@ if ($res2 == true) {
                         $sqlmark = "SELECT * FROM ketquabtl where user_id = '$user_id'";
                         $resmark = mysqli_query($conn, $sqlmark);
                         $countmark = mysqli_num_rows($resmark);
+                        if($row_late>0){
                         $date1 = strtotime($deadline);
                         $date2 =  strtotime($late);
                         $day_late = $date2 - $date1;
@@ -49,6 +52,7 @@ if ($res2 == true) {
                         } else {
                             echo "(Đã nộp)";
                         }
+                    }
                         if ($countmark > 0) {
                             echo '<p class="error">(Đã chấm bài)</p>';
                         }
