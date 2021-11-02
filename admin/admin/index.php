@@ -21,7 +21,7 @@
         </div>
         <div class="col text-center">
             <?php
-            $sql2 = "SELECT * FROM users where user_level = 2";
+            $sql2 = "SELECT * FROM users where user_level = 0";
             $res2 = mysqli_query($conn, $sql2);
             $count2 = mysqli_num_rows($res2);
             ?>
@@ -61,11 +61,14 @@
         </div>
         <div class="col text-center">
             <?php
-            $sql6 = "SELECT * FROM ketquabtl, ketquabtvn";
+            $sql6 = "SELECT * FROM ketquabtl";
             $res6 = mysqli_query($conn, $sql6);
             $count6 = mysqli_num_rows($res6);
+            $sql0 = "SELECT * FROM  ketquabtvn";
+            $res0 = mysqli_query($conn, $sql0);
+            $count0 = mysqli_num_rows($res0);
             ?>
-            <h1 class="count"><?php echo $count6 ?></h1>
+            <h1 class="count"><?php echo $count6 + $count0 ?></h1>
             <br>
             <p>Kết quả</p>
         </div>

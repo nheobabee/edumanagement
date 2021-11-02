@@ -3,578 +3,556 @@
  * Copyright 2013-2016 Start Bootstrap
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
  */
- .row>* {
-    padding : 0;
+.row > * {
+  padding: 0;
 }
- body {
-    overflow-x: hidden;
- }
+body {
+  overflow-x: hidden;
+}
 
 /* Toggle Styles */
 
 #wrapper {
-    padding-left: 0;
-    -webkit-transition: all 0.5s ease;
-    -moz-transition: all 0.5s ease;
-    -o-transition: all 0.5s ease;
-    transition: all 0.5s ease;
+  padding-left: 0;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
 }
 .navbar-brand {
-    font-size:17px;
-    font-weight:500;
+  font-size: 17px;
+  font-weight: 500;
 }
 #page-content-wrapper {
-    padding: 50px;
-    position: relative;
+  padding: 50px;
+  position: relative;
 }
 #wrapper.toggled {
-    padding-left: 250px;
+  padding-left: 250px;
 }
 
 #sidebar-wrapper {
-    z-index: 1000;
-    position: fixed;
-    left: 250px;
-    width: 0;
-    height: 100%;
-    margin-left: -250px;
-    overflow-y: auto;
-    background: #000;
-    -webkit-transition: all 0.5s ease;
-    -moz-transition: all 0.5s ease;
-    -o-transition: all 0.5s ease;
-    transition: all 0.5s ease;
+  z-index: 1000;
+  position: fixed;
+  left: 250px;
+  width: 0;
+  height: 100%;
+  margin-left: -250px;
+  overflow-y: auto;
+  background: #000;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
 }
 
 #wrapper.toggled #sidebar-wrapper {
-    width: 250px;
+  width: 250px;
 }
 
 #page-content-wrapper {
-    width: 100%;
-    position: absolute;
-    padding: 15px;
+  width: 100%;
+  position: absolute;
+  padding: 15px;
 }
 
 #wrapper.toggled #page-content-wrapper {
-    position: absolute;
-    margin-right: -250px;
+  position: absolute;
+  margin-right: -250px;
 }
 
 /* Sidebar Styles */
 
 .sidebar-nav {
-    position: absolute;
-    top: 0;
-    width: 250px;
-    margin: 0;
-    padding: 0;
-    list-style: none;
+  position: absolute;
+  top: 0;
+  width: 250px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 .sidebar-nav li {
-    text-indent: 20px;
-    line-height: 40px;
+  text-indent: 20px;
+  line-height: 40px;
 }
 
 .sidebar-nav li a {
-    display: block;
-    text-decoration: none;
-    color: #999999;
+  display: block;
+  text-decoration: none;
+  color: #999999;
 }
 
 .sidebar-nav li a:hover {
-    text-decoration: none;
-    color: #fff;
-    background: rgba(255,255,255,0.2);
+  text-decoration: none;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.2);
 }
 
 .sidebar-nav li a:active,
 .sidebar-nav li a:focus {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 .sidebar-nav > .sidebar-brand {
-    height: 65px;
-    font-size: 18px;
-    line-height: 60px;
-    margin-top: 15px;
+  height: 65px;
+  font-size: 18px;
+  line-height: 60px;
+  margin-top: 15px;
 }
 
 .sidebar-nav > .sidebar-brand a {
-    color: #999999;
+  color: #999999;
 }
 
 .sidebar-nav > .sidebar-brand a:hover {
-    color: #fff;
-    background: none;
+  color: #fff;
+  background: none;
 }
 
-@media(min-width:768px) {
-    #wrapper {
-        padding-left: 250px;
-    }
+@media (min-width: 768px) {
+  #wrapper {
+    padding-left: 250px;
+  }
 
-    #wrapper.toggled {
-        padding-left: 0;
-    }
+  #wrapper.toggled {
+    padding-left: 0;
+  }
 
-    #sidebar-wrapper {
-        width: 250px;
-    }
+  #sidebar-wrapper {
+    width: 250px;
+  }
 
-    #wrapper.toggled #sidebar-wrapper {
-        width: 0;
-    }
+  #wrapper.toggled #sidebar-wrapper {
+    width: 0;
+  }
 
-    #page-content-wrapper {
-        padding: 0;
-        position: relative;
-    }
+  #page-content-wrapper {
+    padding: 0;
+    position: relative;
+  }
 
-    #wrapper.toggled #page-content-wrapper {
-        position: relative;
-        margin-right: 0;
-    }
+  #wrapper.toggled #page-content-wrapper {
+    position: relative;
+    margin-right: 0;
+  }
 }
 
 /* Dashboard */
-.col{
-    border: 1px solid #000; 
-    margin:1%;
-    height: 200px;
-    border-radius:4px;
+.col {
+  border: 1px solid #000;
+  margin: 1%;
+  height: 200px;
+  border-radius: 4px;
 }
 .header-page {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 .main-content {
-    min-height: 82vh;
+  min-height: 82vh;
 }
 
-.navbar, .ftr {
-    background-color: #ced6e0;
+.navbar,
+.ftr {
+  background-color: #ced6e0;
 }
 
 .ftr {
-    height:44px;
-    margin-bottom: 0;
-    padding-top:6px;
+  height: 44px;
+  margin-bottom: 0;
+  padding-top: 6px;
 }
-h1.count{
-    margin-top:30px
+h1.count {
+  margin-top: 30px;
 }
 /* add btl admin/  add student admin/ add subject admin/add teacher/dk btl admin/aupd-subject-admin/upd-teach-admin
  [add-teacher-admin.css] */
 .container {
-    min-height: 521px;
-  }
-  
+  min-height: 521px;
+}
 
+.form-add {
+  border: 1px solid lightgray;
+  height: 298px;
+  padding-left: 10px;
+  width: 25%;
+  border-radius: 4px;
+  border-top: 5px solid lightblue;
+  padding-top: 10px;
+  margin: auto;
+}
 
-  
-  .form-add {
-    border: 1px solid lightgray;
-    height: 298px;
-    padding-left: 10px;
-    width: 25%;
-    border-radius:4px;
-    border-top: 5px solid lightblue;
-    padding-top: 10px;
-    margin:auto;
+/* add-exercise-admin/upd-exercise-admin [add-exercise-admin.css] */
+.container {
+  min-height: 521px;
+}
 
-  }
-
-  /* add-exercise-admin/upd-exercise-admin [add-exercise-admin.css] */
-  .container {
-    min-height: 521px;
-  }
-  
- 
 select {
-    padding-left: 8px;
+  padding-left: 8px;
 }
 
 .form-group {
-    margin-top:5px;
+  margin-top: 5px;
 }
 
 .subMH {
-    display: flex;
+  display: flex;
 }
-h6{
-    margin-top: 0;
+h6 {
+  margin-top: 0;
 }
-  /* add learn admin/add teach admin/upd-learn-admin[add-teach-admin.css] */
-  .container {
-    min-height: 521px;
-  }
-  
- 
-  /* btl/ [btl-ad.css] */
-  .tittle-mh, .name-btvn{
-    background-color:#fff;
-    padding:1%;
-    border-radius: 4px;
-    border: 0.5px solid lightgray;
-    border-top: 5px solid lightblue;
-  }
-  .main-content{
-      background-color: #e9edf1;
-  }
-  .container{
-    
-      min-height: 521px;
-  }
-  
-  .name-btvn{
-      margin-top:14px;
-      margin-left: 0;
-      margin-right: 0;
-  }
-  .name-btvn p {
-      margin-bottom: 0;
-      
-  }
-  .note {
-      margin-top:14px;
-  }
-  
-  .btn-primary{
-      float: right;
-  }
-  
-  .btn-success {
-      margin-left: 8px;
-  }
+/* add learn admin/add teach admin/upd-learn-admin[add-teach-admin.css] */
+.container {
+  min-height: 521px;
+}
+
+/* btl/ [btl-ad.css] */
+.tittle-mh,
+.name-btvn {
+  background-color: #fff;
+  padding: 1%;
+  border-radius: 4px;
+  border: 0.5px solid lightgray;
+  border-top: 5px solid lightblue;
+}
+.main-content {
+  background-color: #e9edf1;
+}
+.container {
+  min-height: 521px;
+}
+
+.name-btvn {
+  margin-top: 14px;
+  margin-left: 0;
+  margin-right: 0;
+}
+.name-btvn p {
+  margin-bottom: 0;
+}
+.note {
+  margin-top: 14px;
+}
+
+.btn-primary {
+  float: right;
+}
+
+.btn-success {
+  margin-left: 8px;
+}
 /*dsnhom btl admin [list-dk-btl.css] */
 
+.main-content {
+  background-color: #e9edf1;
+}
+.container {
+  min-height: 521px;
+}
 
-  .main-content{
-      background-color: #e9edf1;
-  }
-  .container{
-    
-      min-height: 521px;
-  }
-  
-  .name-btvn{
-      margin-top:14px;
-      margin-left: 0;
-      margin-right: 0;
-  }
-  .name-btvn p {
-      margin-bottom: 0;
-      
-  }
-  .note {
-      margin-top:14px;
-  }
-  
-  .btn-success {
-      margin-left: 8px;
-  }
-  .team-btl {
-      margin-top:10px;
-      border: 1px solid lightgray;
-      width: 50%;
-      background-color: #fff;
-      padding-left: 10px;
-      border-radius:4px;
-      border-top: 5px solid lightblue;
-  }
-  .tittle-mh {
-      border-top: 5px solid lightblue;
-  }
-  /* exercise subject admin/ [ex-stu-ad.css] */
-  
-  .main-content{
-      background-color: #e9edf1;
-  }
-  .container{
-    
-      min-height: 521px;
-  }
-  
+.name-btvn {
+  margin-top: 14px;
+  margin-left: 0;
+  margin-right: 0;
+}
+.name-btvn p {
+  margin-bottom: 0;
+}
+.note {
+  margin-top: 14px;
+}
 
-  .name-btvn p {
-      margin-bottom: 0;
-      
-  }
-  .note {
-      margin-top:14px;
-  }
-  .content-btvn {
-   
-  }
-  
-  
-   .btn-primary {
-      float: right;
-  }
-  
-  .tittle-mh,.name-btvn{
-      border-top: 5px solid lightblue;
-  }
-  /* learn-teach-admin/subject/view-subject-admin [sj-stu.css] */
-  .container{
-    min-height: 521px;
- }
- .subject-folder {
-     text-align: center;
-     border:  1px solid lightgray;
-     margin: 10px;
-     height:150px;
-     width:200px;
-     border-radius: 6px;
-     display: inline-block;
-     border-top: 5px solid tomato;
-     color:#000;
-     padding-top: 10px;
- }
- .all{
-    padding: 10px 10px;
-     border: 2px solid lightgray;
-     width: 66%;
-     border-top: 5px solid lightblue;
-     border-radius: 4px;
-     margin: auto;
- }
- .subject-icon,.subject-btl{
-     font-size:100px;
-     border-bottom: 1px solid tomato;
-     color:#000;
-     opacity: 0.7;
- }
- .subject-name{
-     margin-bottom: 0;
-    
- 
-     color:#000;
- }
- a {
-     text-decoration: none;
- }
- .subject-icon:hover{
-     opacity: 1
- 
- }
- /*learn/result-btl-admin/result-btvn-admin/teach[result-admin.css]  */
- .container{
-    min-height: 521px;
- }
- .icon-result{
-    font-size:200px;
-    float: left;
-    margin-left: 8px;
- 
-   
- }
- .res-tittle, .res-link{
-    margin: 10px 0 0 10px;
- }
- .result-btvn .col{
-    border-top: 5px solid tomato;
- 
- }
- /* student/teacher/upd-btl-admin [teacher-admin.css] */
- .success{
-    color: #2ed573;
- }
- .error{
-    color: #ff6348;
- }
- .col{
-    border: 1px solid #000; 
-    margin:1%;
-    height: 200px;
-    border-radius:4px;
+.btn-success {
+  margin-left: 8px;
+}
+.team-btl {
+  margin-top: 10px;
+  border: 1px solid lightgray;
+  width: 50%;
+  background-color: #fff;
+  padding-left: 10px;
+  border-radius: 4px;
+  border-top: 5px solid lightblue;
+}
+.tittle-mh {
+  border-top: 5px solid lightblue;
+}
+/* exercise subject admin/ [ex-stu-ad.css] */
+
+.main-content {
+  background-color: #e9edf1;
+}
+.container {
+  min-height: 521px;
+}
+
+.name-btvn p {
+  margin-bottom: 0;
+}
+.note {
+  margin-top: 14px;
+}
+.content-btvn {
+}
+
+.btn-primary {
+  float: right;
+}
+
+.tittle-mh,
+.name-btvn {
+  border-top: 5px solid lightblue;
+}
+/* learn-teach-admin/subject/view-subject-admin [sj-stu.css] */
+.container {
+  min-height: 521px;
+}
+.subject-folder {
+  text-align: center;
+  border: 1px solid lightgray;
+  margin: 10px;
+  height: 150px;
+  width: 200px;
+  border-radius: 6px;
+  display: inline-block;
+  border-top: 5px solid tomato;
+  color: #000;
+  padding-top: 10px;
+}
+.all {
+  padding: 10px 10px;
+  border: 2px solid lightgray;
+  width: 66%;
+  border-top: 5px solid lightblue;
+  border-radius: 4px;
+  margin: auto;
+}
+.subject-icon,
+.subject-btl {
+  font-size: 100px;
+  border-bottom: 1px solid tomato;
+  color: #000;
+  opacity: 0.7;
+}
+.subject-name {
+  margin-bottom: 0;
+
+  color: #000;
+}
+a {
+  text-decoration: none;
+}
+.subject-icon:hover {
+  opacity: 1;
+}
+/*learn/result-btl-admin/result-btvn-admin/teach[result-admin.css]  */
+.container {
+  min-height: 521px;
+}
+.icon-result {
+  font-size: 200px;
+  float: left;
+  margin-left: 8px;
+}
+.res-tittle,
+.res-link {
+  margin: 10px 0 0 10px;
+}
+.result-btvn .col {
+  border-top: 5px solid tomato;
+}
+/* student/teacher/upd-btl-admin [teacher-admin.css] */
+.success {
+  color: #2ed573;
+}
+.error {
+  color: #ff6348;
+}
+.col {
+  border: 1px solid #000;
+  margin: 1%;
+  height: 200px;
+  border-radius: 4px;
 }
 .header-page {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 .main-content {
-    min-height: 82vh;
+  min-height: 82vh;
 }
 
-.navbar, .ftr {
-    background-color: #ced6e0;
+.navbar,
+.ftr {
+  background-color: #ced6e0;
 }
 
 .ftr {
-    height:44px;
-    margin-bottom: 0;
-    padding-top:6px;
+  height: 44px;
+  margin-bottom: 0;
+  padding-top: 6px;
 }
-h1.count{
-    margin-top:30px
+h1.count {
+  margin-top: 30px;
 }
-.container{
-    min-height: 521px;
+.container {
+  min-height: 521px;
 }
 
 /* upd-result-btvn-admin/upd-student-admin/up-teacher-admin [upd-teacher-admin] */
 .col {
-    border: 1px solid #000;
-    margin: 1%;
-    height: 200px;
-    border-radius: 4px;
-    border-top: 5px solid tomato;
-    
-  }
-
-  .header-page {
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  .main-content {
-    min-height: 82vh;
-  }
-  
-  .navbar,
-  .ftr {
-    background-color: #ced6e0;
-  }
-  
-  .ftr {
-    height: 44px;
-    margin-bottom: 0;
-    padding-top: 6px;
-  }
-  h1.count {
-    margin-top: 30px;
-  }
-  .container {
-    min-height: 521px;
-  }
-  
- 
- 
-  
-
-  .main-content{
-      background-color: #e9edf1;
-  }
-  .container{
-    padding:0;
-      min-height: 521px;
-  }
-  
-  
-  .name-btvn p {
-      margin-bottom: 0;
-      
-  }
-  .all-bt{
-      border: 2px solid lightblue;
-      border-radius:3px;
-      width: 500px;
-    padding-left:24px;
-    border-top: 5px solid lightblue;
-    margin: auto;
-  }
-  .btn-success {
-      margin-top:10px;
-      float: left;
-  }
-  .tittle-mh,.name-btvn{
-      border-top: 5px solid lightblue;
-  }
-   .ten-sbj{
-       margin-right: 0;
-      width:70%;
-  }
-  .header-all {
-      display:flex;
-  }
-  .btn-del-sub{
-      margin-top: 4px;
-    padding:3%;
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;  display: flex;
-    align-items: center;
-    text-align: center;
-    float:right;
-  }
-  .f-learnteach{
-      padding: 10px 10px;
-      border: 2px solid lightgray;
-      width: 44%;
-      border-top: 5px solid lightblue;
-      border-radius: 4px;
-      margin: auto;
-  }
-  .all-dashboard{
-      margin: auto;
-      width: 90%;
-      border: 2px solid lightgray;
-      padding: 10px 10px;
-      border-radius:4px;
-      border-top: 5px solid lightblue;
-    }
-
-    .title-chitietmh{
-        width: 45%;
-        margin: auto;
-}
-.display-name{
-    margin-top:0;
-    float: right;
-    padding-right: 20px;
-    padding-top: 6px;
-}
-.all-teacher{
-    margin: auto;
-    border: 2px solid lightgray;
-    border-top: 5px solid lightblue;
-    border-radius: 4px;
-    padding:5px;
-    width: 90%;
-}
-.add-monhoc{
-    border-top: 5px solid lightblue;
-    border: 2px solid lightgray;
-    width: 50%;
-    margin: auto;
-    padding:10px;
-    height: 254px;
-    border-radius: 4px;
-
-}
-.all_btvn{
-    border: 2px solid lightgray;
-    border-radius: 4px;
-    width: 90%;
-    margin: auto;
-    padding:1%;
-}
-.all-contact{
-    border-top: 5px solid tomato;
-    width: 70%;
-    margin: auto;
-    border: 2px solid lightgray;
-    padding:2%;
-    display:flex;
-    border-radius: 4px;
-
-}
-.logo-contact i{
-    margin-right: 120px;
-    font-size:200px;
+  border: 1px solid #000;
+  margin: 1%;
+  height: 200px;
+  border-radius: 4px;
+  border-top: 5px solid tomato;
 }
 
-.mxh a{
-    color:#000;
-    margin-right: 25px;
-    font-size: 22px;
+.header-page {
+  display: flex;
+  justify-content: space-between;
 }
-.mxh a:hover{
-    cursor: pointer;
-    color: tomato;
+
+.main-content {
+  min-height: 82vh;
+}
+
+.navbar,
+.ftr {
+  background-color: #ced6e0;
+}
+
+.ftr {
+  height: 44px;
+  margin-bottom: 0;
+  padding-top: 6px;
+}
+h1.count {
+  margin-top: 30px;
+}
+.container {
+  min-height: 521px;
+}
+
+.main-content {
+  background-color: #e9edf1;
+}
+.container {
+  padding: 0;
+  min-height: 521px;
+}
+
+.name-btvn p {
+  margin-bottom: 0;
+}
+.all-bt {
+  border: 2px solid lightblue;
+  border-radius: 3px;
+  width: 500px;
+  padding-left: 24px;
+  border-top: 5px solid lightblue;
+  margin: auto;
+}
+.btn-success {
+  margin-top: 10px;
+  float: left;
+}
+.tittle-mh,
+.name-btvn {
+  border-top: 5px solid lightblue;
+}
+.ten-sbj {
+  margin-right: 0;
+  width: 70%;
+}
+.header-all {
+  display: flex;
+}
+.btn-del-sub {
+  margin-top: 4px;
+  padding: 3%;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  float: right;
+}
+.f-learnteach {
+  padding: 10px 10px;
+  border: 2px solid lightgray;
+  width: 44%;
+  border-top: 5px solid lightblue;
+  border-radius: 4px;
+  margin: auto;
+}
+.all-dashboard {
+  margin: auto;
+  width: 90%;
+  border: 2px solid lightgray;
+  padding: 10px 10px;
+  border-radius: 4px;
+  border-top: 5px solid lightblue;
+}
+
+.title-chitietmh {
+  width: 45%;
+  margin: auto;
+}
+.display-name {
+  margin-top: 0;
+  float: right;
+  padding-right: 20px;
+  padding-top: 6px;
+}
+.all-teacher {
+  margin: auto;
+  border: 2px solid lightgray;
+  border-top: 5px solid lightblue;
+  border-radius: 4px;
+  padding: 5px;
+  width: 90%;
+}
+.add-monhoc {
+  border-top: 5px solid lightblue;
+  border: 2px solid lightgray;
+  width: 50%;
+  margin: auto;
+  padding: 10px;
+  height: 254px;
+  border-radius: 4px;
+}
+.all_btvn {
+  border: 2px solid lightgray;
+  border-radius: 4px;
+  width: 90%;
+  margin: auto;
+  padding: 1%;
+}
+.all-contact {
+  border-top: 5px solid tomato;
+  width: 70%;
+  margin: auto;
+  border: 2px solid lightgray;
+  padding: 2%;
+  display: flex;
+  border-radius: 4px;
+}
+.logo-contact i {
+  margin-right: 120px;
+  font-size: 200px;
+}
+
+.mxh a {
+  color: #000;
+  margin-right: 25px;
+  font-size: 22px;
+}
+.mxh a:hover {
+  cursor: pointer;
+  color: tomato;
 }

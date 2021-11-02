@@ -28,26 +28,29 @@ if (isset($_GET['idMH'])) {
                 <h2>QUẢN TRỊ VIÊN</h2>
             </li>
             <li>
-                <a href="index.php"><i class="fas fa-chart-line"></i> THỐNG KÊ</a>
+                <a href="index.php"><i class="fas fa-chart-line"></i> Thống kê</a>
             </li>
             <li>
-                <a href="teacher.php"><i class="fas fa-chalkboard-teacher"></i> GIẢNG VIÊN</a>
+                <a href="teacher.php"><i class="fas fa-chalkboard-teacher"></i> Giáo viên</a>
             </li>
             <li>
-                <a href="student.php"><i class="fas fa-user-graduate"></i> SINH VIÊN</a>
+                <a href="student.php"><i class="fas fa-user-graduate"></i> Sinh viên</a>
             </li>
             <li>
-                <a href="subject.php"><i class="fas fa-book"></i> MÔN HỌC</a>
+                <a href="subject.php"><i class="fas fa-book"></i> Môn học</a>
             </li>
             <li>
-                <a href="learn-teach-admin.php"><i class="fas fa-school"></i> GIẢNG DẠY - HỌC TẬP</a>
+                <a href="learn-teach-admin.php"><i class="fas fa-school"></i> Giảng dạy - Học tập</a>
             </li>
 
             <li>
-                <a href="result-admin.php"><i class="fas fa-poll"></i> KẾT QUẢ</a>
+                <a href="result-admin.php"><i class="fas fa-poll"></i> Kết quả</a>
             </li>
             <li>
-                <a href="contact.php"><i class="fas fa-comment-dots"></i> LIÊN HỆ</a>
+                <a href="contact.php"><i class="fas fa-phone-alt"></i> Liên hệ</a>
+            </li>
+            <li>
+                <a href="chat.php"><i class="fas fa-comment-dots"></i> Phản hồi</a>
             </li>
         </ul>
     </div>

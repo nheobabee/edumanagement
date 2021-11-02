@@ -1,10 +1,9 @@
 <title>BTL</title>
-<?php include('../../config/config.php'); 
-        session_start();
-        if(!isset($_SESSION['teacher']))
-        {
-            header('location:../../login/index.php');
-        }
+<?php include('../../config/config.php');
+session_start();
+if (!isset($_SESSION['teacher'])) {
+    header('location:../../login/index.php');
+}
 ?>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -16,30 +15,31 @@
     <div id="sidebar-wrapper">
         <ul class="sidebar-nav">
             <li class="sidebar-brand">
-                <h2>GIẢNG VIÊN</h2>
+                <h2>GIÁO VIÊN</h2>
             </li>
             <li>
-                <a href="teacher.php"><i class="fas fa-chalkboard-teacher"></i> GIÁO VIÊN</a>
+                <a href="teacher.php"><i class="fas fa-chalkboard-teacher"></i> Giáo viên</a>
             </li>
             <li>
-                <a href="student.php"><i class="fas fa-user-graduate"></i> SINH VIÊN</a>
+                <a href="student.php"><i class="fas fa-user-graduate"></i> Sinh viên</a>
             </li>
             <li>
-                <a href="subject.php"><i class="fas fa-book"></i> MÔN HỌC</a>
+                <a href="subject.php"><i class="fas fa-book"></i> Môn học</a>
             </li>
             <li>
-                <a href="learn-teach-teacher.php"><i class="fas fa-school"></i> GIẢNG DẠY - HỌC TẬP</a>
+                <a href="learn-teach-teacher.php"><i class="fas fa-school"></i> Giảng dạy - Học tập</a>
             </li>
 
             <li>
-                <a href="result-admin.php"><i class="fas fa-poll"></i> KẾT QUẢ</a>
+                <a href="result-admin.php"><i class="fas fa-poll"></i> Kết quả</a>
             </li>
             <li>
-                <a href="chat.php"><i class="fas fa-comment-dots"></i> PHẢN HỒI</a>
+                <a href="contact.php"><i class="fas fa-phone-alt"></i> Liên hệ</a>
             </li>
             <li>
-                <a href="contact.php"><i class="fas fa-comment-dots"></i> LIÊN HỆ</a>
+                <a href="chat.php"><i class="fas fa-comment-dots"></i> Phản hồi</a>
             </li>
+
         </ul>
     </div>
     <!-- /#sidebar-wrapper -->
@@ -61,17 +61,16 @@
                                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                                 <button class="btn btn-outline-success" type="submit">Search</button>
                             </form>
-                           
+
                         </div>
-                      
+
                     </nav>
                     <div class="main-content">
-                    <div class="container">
-                         <div class="display-name">
-                       <?php
-                            if(isset($_SESSION['display-username']))
-                            {
-                                        echo $_SESSION['display-username'];
-                            }
-                            ?>
-                       </div>
+                        <div class="container">
+                            <div class="display-name">
+                                <?php
+                                if (isset($_SESSION['display-username'])) {
+                                    echo $_SESSION['display-username'];
+                                }
+                                ?>
+                            </div>
