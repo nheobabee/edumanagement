@@ -31,7 +31,7 @@ if (!isset($_SESSION['teacher'])) {
             </li>
 
             <li>
-                <a href="result-admin.php"><i class="fas fa-poll"></i> Kết quả</a>
+                <a href="result-admin.php"><i class="fas fa-poll"></i></i> Kết quả</a>
             </li>
             <li>
                 <a href="contact.php"><i class="fas fa-phone-alt"></i> Liên hệ</a>

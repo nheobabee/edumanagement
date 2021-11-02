@@ -1,13 +1,6 @@
 <?php include('./header.php') ?>
 <br>
 <div class="header-page">
-    <h1 class="page-title">STUDENT</h1>
-    <!--  -->
-    <?php
-    if (isset($_SESSION['display-username'])) {
-        echo $_SESSION['display-username'];
-    }
-    ?>
 </div>
 
 <?php
@@ -22,6 +15,9 @@ if (isset($_SESSION['successDel'])) {
 
 ?>
 <br>
+<div class="all-teacher">
+    <h1 class="page-title">STUDENT</h1>
+    <br>
 <table class="table">
     <thead>
         <tr>
@@ -67,4 +63,5 @@ if (isset($_SESSION['successDel'])) {
         ?>
     </tbody>
 </table>
+</div>
 <?php include('./footer.php') ?>

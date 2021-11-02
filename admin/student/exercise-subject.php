@@ -10,9 +10,10 @@ if (isset($_GET['idMH'])) {
 }
 ?>
 <br>
-<h1 class="title-btl">BÀI TẬP VỀ NHÀ</h1>
 <br>
 <div class="tittle-mh">
+    <h1 class="title-btl">BÀI TẬP VỀ NHÀ</h1>
+<br>
     <h2><?php echo $nameMH ?></h2>
 </div>
 <?php

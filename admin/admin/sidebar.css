@@ -482,6 +482,7 @@ h1.count {
   width: 44%;
   border-top: 5px solid lightblue;
   border-radius: 4px;
+  border-top: 5px solid tomato;
   margin: auto;
 }
 .all-dashboard {

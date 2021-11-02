@@ -34,7 +34,7 @@ while ($row3 = mysqli_fetch_assoc($res3)) { ?>
 
         if ($run) {
             move_uploaded_file($fileTmpName, $path);
-            echo "success";
+           header("Location:http://localhost/edumanagement/admin/student/exercise-subject.php?idMH=".$idMH);
         } else {
             echo $query;
         }

@@ -22,10 +22,10 @@
                 <a href="student.php"><i class="fas fa-user-graduate"></i> Sinh viên</a>
             </li>
             <li>
-                <a href="subject.php"><i class="fas fa-book"></i> Môn học</a>
+                <a href="subject.php"><i class="fas fa-book"></i></i> Môn học</a>
             </li>
             <li>
-                <a href="mymark.php"><i class="fas fa-book"></i> Điểm</a>
+                <a href="mymark.php"><i class="fas fa-poll"></i> Điểm</a>
             </li>
             <li>
                 <a href="contact.php"><i class="fas fa-phone-alt"></i> Liên hệ</a>
@@ -48,14 +48,24 @@
                         <div class="container-fluid">
                             <a href="#menu-toggle" class="btn btn-default" id="menu-toggle"><i class="fas fa-bars"></i></a>
 
-                            <form class="d-flex"  style="margin-bottom:0">
-                                <a href="" class="navbar-brand">TRANG CHỦ</a>
+                            <form class="d-flex " style="margin-bottom:0">
+                                <a href="./student.php" class="navbar-brand">TRANG CHỦ</a>
                                 <a href="./accout.php" class="navbar-brand">TÀI KHOẢN</a>
                                 <a href="../../login/logout.php" class="navbar-brand">ĐĂNG XUẤT</a>
                                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                                 <button class="btn btn-outline-success" type="submit">Search</button>
                             </form>
+                           
                         </div>
+                      
                     </nav>
                     <div class="main-content">
                     <div class="container">
+                         <div class="display-name">
+                       <?php
+                            if(isset($_SESSION['display-username']))
+                            {
+                                        echo $_SESSION['display-username'];
+                            }
+                            ?>
+                       </div>

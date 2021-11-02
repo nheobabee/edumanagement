@@ -1,12 +1,20 @@
 <?php include('./header.php') ?>
-
+<?php
+?>
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>Comment System using PHP and Ajax</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-<link rel="stylesheet" href="cmt.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-  <br><br>
-  <div class="all">
-      <form method="POST" id="comment_form">
-    <div class="type">
+ </head>
+ <body>
+  <br />
+  
+  <br />
+  <div class="container">
+   <form method="POST" id="comment_form">
     <div class="form-group">
      <input type="text" name="comment_name" readonly id="comment_name" class="form-control" placeholder="Enter Name" value="<?php echo $_SESSION['name'] ?>" />
     </div>
@@ -17,16 +25,13 @@
      <input type="hidden" name="comment_id" id="comment_id" value="0" />
      <input type="submit" name="submit" id="submit" class="btn btn-info" value="Submit" />
     </div>
-    </div>
    </form>
-   <div class="cmt">
    <span id="comment_message"></span>
    <br />
    <div id="display_comment"></div>
-   </div>
   </div>
-   
-  
+ </body>
+</html>
 <?php include('./footer.php') ?>
 <script>
 $(document).ready(function(){

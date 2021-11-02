@@ -9,9 +9,8 @@ if (isset($_GET['idMH'])) {
     $nameMH = $row1['nameMH'];
 }
 ?>
-<br>
-<h1 class="title-btl">BÀI TẬP LỚN</h1>
-<br>
+<br><br>
+
 
 <?php
 if (isset($_SESSION['success'])) {
@@ -48,6 +47,8 @@ if (isset($_SESSION['errorchecksend'])) {
 }
 ?>
 <div class="tittle-mh">
+<h1 class="title-btl">BÀI TẬP LỚN</h1>
+<br>
     <h2><?php echo $nameMH ?></h2>
 </div>
 <?php
