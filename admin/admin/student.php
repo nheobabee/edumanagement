@@ -21,9 +21,9 @@ if (isset($_SESSION['successDel'])) {
             <th scope="col">STT</th>
             <th scope="col">Tên sinh viên</th>
             <th scope="col">Giới tính</th>
-            <th scope="col">Email</th>
+            <th scope="col">Ngày sinh</th>
             <th scope="col">SĐT</th>
-            <th scope="col">Địa chỉ</th>
+            <th scope="col">Email</th>
             <th scope="col">Xóa</th>
 
         </tr>

@@ -3,6 +3,7 @@
 <br><br>
 <div class="all-teacher">
     <h1>DANH SÁCH GIÁO VIÊN</h1>
+    <br>
     <?php
     if (isset($_SESSION['errorDel'])) {
         echo $_SESSION['errorDel'];
@@ -23,9 +24,9 @@
                 <th scope="col">STT</th>
                 <th scope="col">Tên giáo viên</th>
                 <th scope="col">Giới tính</th>
-                <th scope="col">Email</th>
+                <th scope="col">Ngày sinh</th>
                 <th scope="col">SĐT</th>
-                <th scope="col">Địa chỉ</th>
+                <th scope="col">Email</th>
                 <th scope="col">Xóa</th>
             </tr>
         </thead>

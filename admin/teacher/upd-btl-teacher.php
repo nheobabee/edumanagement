@@ -23,7 +23,11 @@ if (isset($_GET['idBTL'], $_GET['idMH'])) {
 }
 
 ?>
+<br><br>
+<div class="add-ex">
+
 <h2>CẬP NHẬT BÀI TẬP LỚN</h2>
+<br>
 <form method="post" enctype="multipart/form-data">
 
 
@@ -100,4 +104,5 @@ if (isset($_GET['idBTL'], $_GET['idMH'])) {
             <br>
             <button name="updbtl" type="submit" class="btn btn-success"><i class="fas fa-pen"></i> Cập nhật</button>
 </form>
+</div>
 <?php include('./footer.php') ?>

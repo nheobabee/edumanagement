@@ -10,8 +10,9 @@ if (isset($_GET['idBTL'], $_GET['idMH'])) {
 }
 ?>
 
-<h1>CHI TIẾT BÀI TẬP LỚN</h1><br>
+<br><br>
 <div class="tittle-mh">
+<h1>CHI TIẾT BÀI TẬP LỚN</h1><br>
     <h2><?php echo $nameMH ?></h2>
 </div>
 <?php

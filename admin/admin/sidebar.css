@@ -177,7 +177,7 @@ h1.count {
   border: 1px solid lightgray;
   height: 298px;
   padding-left: 10px;
-  width: 25%;
+  width: 30%;
   border-radius: 4px;
   border-top: 5px solid lightblue;
   padding-top: 10px;
@@ -236,9 +236,7 @@ h6 {
   margin-top: 14px;
 }
 
-.btn-primary {
-  float: right;
-}
+
 
 .btn-success {
   margin-left: 8px;
@@ -297,9 +295,6 @@ h6 {
 .content-btvn {
 }
 
-.btn-primary {
-  float: right;
-}
 
 .tittle-mh,
 .name-btvn {
@@ -332,7 +327,6 @@ h6 {
 .subject-icon,
 .subject-btl {
   font-size: 100px;
-  border-bottom: 1px solid tomato;
   color: #000;
   opacity: 0.7;
 }

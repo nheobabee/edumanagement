@@ -4,6 +4,7 @@
 <div style="width:45%" class="form-add">
     <form method="post">
         <h2>THÊM GIÁO VIÊN PHỤ TRÁCH</h2>
+        <br>
         <?php
 
 

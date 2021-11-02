@@ -15,7 +15,7 @@
     </div>
     <div class="form-group">
      <input type="hidden" name="comment_id" id="comment_id" value="0" />
-     <input type="submit" name="submit" id="submit" class="btn btn-info" value="Submit" />
+     <input  type="submit" name="submit" id="submit" class="btn btn-info" value="Submit" />
     </div>
     </div>
    </form>

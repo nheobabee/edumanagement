@@ -120,11 +120,7 @@ if (isset($_SESSION['user_id'])) {
         border-color: #BA68C8
     }
 
-    .btn-primary {
-        width: 20%;
-
-    }
-
+    
     .back:hover {
         color: #682773;
         cursor: pointer

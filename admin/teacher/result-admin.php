@@ -14,7 +14,7 @@ if (isset($_SESSION['successDel'])) {
 <?php
 ?>
 <br><br>
-<div class="all"><h1>DANH SÁCH ĐIỂM</h1>
+<div class="all"><h1>DANH SÁCH MÔN HỌC</h1>
 
     <div class="btn-addsbj"><br><br>    
 </div>
@@ -40,7 +40,7 @@ if (isset($_SESSION['user_id'])) {
             <div class="subject-folder text-center">
            
                  
-                <a href="details-result-admin.php?idMH=<?php echo $row3['idMH'] ?>"> <i class="subject-icon far fa-folder"></i>
+                <a href="details-result-admin.php?idMH=<?php echo $row3['idMH'] ?>"><i class="subject-icon fas fa-book"></i>
                     <h6 class="subject-name"><?php echo $row3['nameMH'] ?></h6>
                 </a>
             </div>

@@ -13,7 +13,9 @@ if (isset($_GET['idMH'])) {
 <div class="add-ex">
     
 <h2>THÊM BÀI TẬP LỚN</h2>
+<br>
 <span style="font-weight:500">Môn học: <?php echo $nameMH ?><span>
+    <br>
         <form method="post" enctype="multipart/form-data">
 
             <?php

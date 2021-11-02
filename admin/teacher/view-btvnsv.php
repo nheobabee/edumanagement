@@ -25,6 +25,7 @@ if (isset($_GET['idBTVN'], $_GET['idMH'])) {
 <br><br>
 <div class="tittle-mh">
     <h3><?php echo $nameMH ?></h3>
+    <br>
     <h5><?php echo $nameBTVN ?></h5>
 </div>
 <?php
@@ -83,7 +84,7 @@ while ($row3 = mysqli_fetch_assoc($res3)) {
                         <label for="cmtBTVN">Nhận xét:</label>
                         <textarea class="cmtBTVN form-control" id="cmtBTVN" rows="3" name="cmtBTVN"></textarea>
                     </div>
-                    <button type="submit" class="btn btn-success text-white me-2" name="submit"><i class="fas fa-upload"></i> Gửi</button></a>
+                    <button style="margin-top:5px;" type="submit" class="btn btn-success text-white me-2" name="submit"><i class="fas fa-upload"></i> Gửi</button></a>
                 </form>
 
             </div>

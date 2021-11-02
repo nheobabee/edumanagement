@@ -31,7 +31,7 @@ if (isset($_SESSION['successDel'])) {
     ?>
             <div class="subject-folder text-center"> 
                  
-             <a href="display-mark-exercise.php?idMH=<?php echo $idMH?>&&idBTVN=<?php echo $row3['idBTVN']?>"> <i class="subject-icon far fa-folder"></i>
+             <a href="display-mark-exercise.php?idMH=<?php echo $idMH?>&&idBTVN=<?php echo $row3['idBTVN']?>"><i class="subject-icon fas fa-file"></i>
                     <h6 class="subject-name"><?php echo $row3['nameBTVN'] ?></h6>
                 </a>
             </div>

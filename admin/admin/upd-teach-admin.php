@@ -19,8 +19,10 @@ if (isset($_GET['user_id'])) {
     $user_name1 = $row2['user_name'];
 }
 ?>
-<h2>CẬP NHẬT GIÁO VIÊN</h2>
+<br><br>
 <form class="form-add" method="post">
+    <h2>CẬP NHẬT GIÁO VIÊN</h2>
+    <br>
     <?php
 
 

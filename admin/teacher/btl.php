@@ -26,16 +26,16 @@ if ($res3 == true) {
 ?>
         <div class="title-btvn">
 
-            <div class="name-btvn row">
+            <div class="name-btvn">
 
-                <div class="content-btvn col-md-8">
+                <div class="content-btvn">
                     <h4><?php echo $row3['nameBTL'] ?></h4>
                     <p><span style="font-weight: 500;">Opened: </span><?php echo $row3['openedBTL'] ?></p>
                     <p style="border-bottom: 1px solid;"><span style="font-weight: 500;">Deadline: </span><?php echo $row3['deadlineBTL'] ?></p>
                     <p class="note">Ghi chú: <?php echo $row3['notebtl'] ?></p>
 
                 </div>
-                <div style="margin:auto" class="service col-md-4">
+                <div style="margin-top:10px" >
                     <a href="./upd-btl-teacher.php?idBTL=<?php echo $row3['idBTL']; ?>&&idMH=<?php echo $row3['idMH']; ?>"><button type="button" class="btn btn-success text-white me-2"><i class="fas fa-edit"></i> Cập nhật</button></a>
                     <a href="./del-btl-teacher.php?idBTL=<?php echo $row3['idBTL']; ?>&&idMH=<?php echo $row3['idMH']; ?>"><button type="button" class="btn btn-danger text-white me-2"><i class="fas fa-trash-alt"></i> Xóa</button></a>
                     <a href="./chitiet-btl-teacher.php?idBTL=<?php echo $row3['idBTL']; ?>&&idMH=<?php echo $row3['idMH']; ?>"><button type="button" class="btn btn-info text-white me-2"><i class="far fa-eye"></i> Xem</button></a>

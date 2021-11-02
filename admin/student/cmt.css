@@ -42,4 +42,11 @@
   .navbar{
     border-bottom: 0 !important;
   }
-  
+  .all {
+    padding: 10px 10px;
+    border: 2px solid lightgray;
+    width: 66%;
+    border-top: 5px solid lightblue;
+    border-radius: 4px;
+    margin: auto;
+  }

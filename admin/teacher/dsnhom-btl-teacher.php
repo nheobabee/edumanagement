@@ -7,10 +7,17 @@ if (isset($_GET['idBTL'])) {
     $res1 = mysqli_query($conn, $sql1);
     $row1 = mysqli_fetch_assoc($res1);
     $nameBTL = $row1['nameBTL'];
+    $deadline = $row1['deadlineBTL'];
 }
 
 ?>
-<br>
+<?php
+$sql_late = "select * from btlsv where idBTL= '$idBTL' ";
+$rs_late = mysqli_query($conn, $sql_late);
+$row_late = mysqli_fetch_assoc($rs_late);
+$late = $row_late['ngaynop']; //ngay nop bai
+?>
+<br><br>
 <div class="tittle-mh">
     <h1><?php echo $nameBTL ?></h1>
 </div>
@@ -34,6 +41,14 @@ if ($res2 == true) {
                         $sqlmark = "SELECT * FROM ketquabtl where user_id = '$user_id'";
                         $resmark = mysqli_query($conn, $sqlmark);
                         $countmark = mysqli_num_rows($resmark);
+                        $date1 = strtotime($deadline);
+                        $date2 =  strtotime($late);
+                        $day_late = $date2 - $date1;
+                        if ($day_late > 0) {
+                            echo "(nộp muộn)";
+                        } else {
+                            echo "(đã nộp)";
+                        }
                         if ($countmark > 0) {
                             echo '<p class="error">(Đã chấm bài)</p>';
                         }
@@ -64,7 +79,7 @@ if ($res2 == true) {
                             <label for="cmtBTL">Nhận xét:</label>
                             <textarea class="cmtBTVN form-control" id="cmtBTL" rows="3" name="cmtBTL"></textarea>
                         </div>
-                        <button type="submit" class="btn btn-success text-white me-2" name="submit"><i class="fas fa-upload"></i> Gửi</button></a>
+                        <button style="margin-top:5px" type="submit" class="btn btn-success text-white me-2" name="submit"><i class="fas fa-upload"></i> Gửi</button></a>
                     </form>
                 </div>
 

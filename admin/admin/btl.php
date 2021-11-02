@@ -15,6 +15,7 @@ if (isset($_GET['idMH'])) {
 <br><br>
 
 
+<div class="all_btvn">
 <div class="tittle-mh">
     <h2><?php echo $row1['nameMH'] ?></h2>
 </div>
@@ -45,5 +46,6 @@ if ($res3 == true) {
     }
 }
 ?>
+</div>
 
 <?php include('./footer.php') ?>

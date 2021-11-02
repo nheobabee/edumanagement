@@ -25,6 +25,7 @@ if (isset($_GET['idBTVN'], $_GET['idMH'])) {
     
 <div class="tittleAdd">
     <h2>CẬP NHẬT BÀI TẬP</h2>
+    <br>
 </div>
 <form method="post" enctype="multipart/form-data">
     <?php

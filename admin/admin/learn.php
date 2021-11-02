@@ -5,12 +5,11 @@
 
 <br><br>
 <div class="all-teacher">
-<h1>HỌC TẬP</h1><br>
-
+<h1>HỌC TẬP</h1>
 <br>
 <a href="./add-learn-admin.php"><button type="button" class="btn btn-success text-white me-2"><i class="fas fa-plus"></i> Thêm sinh viên</button></a>
 
-<br><br>
+<br><br><br>
 <table class="table">
     <thead>
         <tr>

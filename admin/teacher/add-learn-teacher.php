@@ -3,6 +3,7 @@
 <div class="form-add">
 
 <h2>THÊM SINH VIÊN</h2>
+<br>
 <form  method="post">
     <?php
 

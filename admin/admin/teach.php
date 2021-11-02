@@ -5,9 +5,10 @@
 <br><br>
 <div class="all-teacher">
 <h1>GIẢNG DẠY</h1>
+<br>
 <a href="./add-teach-admin.php"><button type="button" class="btn btn-success text-white me-2"><i class="fas fa-plus"></i> Thêm giáo viên phụ trách</button></a>
 
-<br>
+<br><br>
 
 <br>
 <table class="table">

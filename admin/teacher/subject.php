@@ -34,7 +34,7 @@ if (isset($_SESSION['user_id'])) {
             $row3 = mysqli_fetch_assoc($res3);
     ?>
             <div class="subject-folder text-center">
-                <a href="view-subject-teacher.php?idMH=<?php echo $row3['idMH'] ?>"> <i class="subject-icon far fa-folder"></i>
+                <a href="view-subject-teacher.php?idMH=<?php echo $row3['idMH'] ?>"><i class="subject-icon fas fa-book"></i>
                     <h6 class="subject-name"><?php echo $row3['nameMH'] ?></h6>
                 </a>
             </div>

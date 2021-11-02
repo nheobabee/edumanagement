@@ -7,12 +7,15 @@ if (isset($_GET['idBTL'])) {
     $res1 = mysqli_query($conn, $sql1);
     $row1 = mysqli_fetch_assoc($res1);
     $nameBTL = $row1['nameBTL'];
-    
+    $idMH = $row1['idMH'];
+   
 }
     
-?>
-<br>
+?><br>
+<a href="http://localhost/edumanagement/admin/admin/btl.php?idMH=<?php echo $idMH ?>"><button style="padding:1% 2%;" type="button" class="btn btn-secondary text-white me-2"><i class="fas fa-undo-alt"></i></button></a>
+<br><br>
 
+<div class="all_btvn">
 <div class="tittle-mh">
     <h1><?php echo $nameBTL ?></h1>
 </div>
@@ -43,6 +46,7 @@ if ($res2 == true) {
 }
 ?>
 
+</div>
 
 
 <?php include('./footer.php'); ?>
