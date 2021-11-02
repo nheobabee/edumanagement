@@ -1,7 +1,7 @@
 <!-- <link rel="stylesheet" href="../../css/teacher-admin.css"> -->
 <?php include('./header.php') ?>
 
-<h1>DANH SÁCH ĐIỂM</h1><br>
+
 <?php
 if (isset($_SESSION['errorDel'])) {
     echo $_SESSION['errorDel'];
@@ -19,6 +19,9 @@ if (isset($_GET['idBTL'], $_GET['idMH'])) {
 }
 ?>
 <br><br>
+<div class="all-teacher">
+<h1>DANH SÁCH ĐIỂM</h1>
+<br>
 <table class="table">
     <thead>
         <tr>
@@ -60,4 +63,5 @@ if (isset($_GET['idBTL'], $_GET['idMH'])) {
         ?>
     </tbody>
 </table>
+</div>
 <?php include('./footer.php') ?>

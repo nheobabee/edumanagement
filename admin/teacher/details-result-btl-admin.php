@@ -18,7 +18,7 @@ if (isset($_SESSION['successDel'])) {
  }
 ?>
 <br><br>
-<div class="all"><h1>DANH SÁCH ĐIỂM BÀI TẬP LỚN</h1>
+<div class="all"><h1>DANH SÁCH BÀI TẬP LỚN</h1>
 
     <div class="btn-addsbj"><br><br>    
 </div>
