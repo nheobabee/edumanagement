@@ -103,7 +103,6 @@ session_start() ?>
 			if (password_verify($password, $password_hash)) {
 				//SESIOM lấy user_id
 				$_SESSION['user_id'] = $row['user_id'];
-				//$_SESSION['loginok'] = $username;
 				if($row['user_level']==0)
 				{
 

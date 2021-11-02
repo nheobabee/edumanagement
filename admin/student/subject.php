@@ -17,9 +17,7 @@ if (isset($_SESSION['successDel'])) {
 <div class="all">
     <h1>DANH SÁCH MÔN HỌC</h1>
 
-    <div class="btn-addsbj">
-        <a href="./add-subject-admin.php"><button type="button" class="btn btn-success text-white me-2"><i class="fas fa-plus"></i> Thêm môn học</button></a>
-        <br><br><br>
+    <div class="btn-addsbj"><br><br>
     </div>
     <div class="f-sbj">
         <?php

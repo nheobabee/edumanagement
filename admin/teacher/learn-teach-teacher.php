@@ -1,14 +1,5 @@
 <?php include('./header.php') ?>
-<?php
-if (isset($_GET['idMH'])) {
-    $idMH = $_GET['idMH'];
 
-    $sql1 = "SELECT * FROM monhoc where idMH = $idMH";
-    $res1 = mysqli_query($conn, $sql1);
-    $row1 = mysqli_fetch_assoc($res1);
-    $nameMH = $row1['nameMH'];
-}
-?>
 <br><br>
 <div class="all" style="text-align:center">
 <h1>GIẢNG DẠY - HỌC TẬP</h1>

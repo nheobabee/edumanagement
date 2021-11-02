@@ -42,7 +42,16 @@ while ($row3 = mysqli_fetch_assoc($res3)) {
         <div class="name-btvn row">
 
             <div class="content-btvn">
-                <h6><?php echo $row3['user_id'] ?>. <?php echo $row0['user_name'] ?></h6>
+                <h6><?php echo $row3['user_id'] ?>. <?php echo $row0['user_name'] ?>
+            <?php
+                $sqlmark = "SELECT * FROM ketquabtvn where user_id = '$user_id'";
+                $resmark = mysqli_query($conn, $sqlmark);
+                $countmark = mysqli_num_rows($resmark);
+                if($countmark > 0){
+                    echo '<p class="error">(Đã chấm bài)</p>';
+                }
+            ?>
+            </h6>
                 <p><span style="font-weight:500">Ngày nộp: </span><?php echo $row3['ngaynop'] ?></p>
                 <div class="btn-downl">
                     <a href="download-btvnsv.php?file=<?php echo $row3['fileBTVN'] ?>"> <button class="btn btn-success text-white me-2"><i class="fas fa-download"></i>Tải và xem bài làm</button></a><br>
@@ -56,10 +65,10 @@ while ($row3 = mysqli_fetch_assoc($res3)) {
                     $sql5 = "INSERT INTO ketquabtvn values ('$user_id','$idBTVN','$markBTVN','$cmtBTVN')";
                     $res5 = mysqli_query($conn, $sql5);
                     if($res5==true){
-                        header("Location:http://localhost/edumanagement/admin/teacher/btl.php?idMH=" . $idMH."&&idMH" .$idBTVN);
+                        header("Location:http://localhost/edumanagement/admin/teacher/view-btvnsv.php?idBTVN=" .$idBTVN."&&idMH=". $idMH );
                     }
                     else{
-                        echo $sql5;
+                        echo 'Sinh viên này đã được chấm điểm';
                     }
                 }
                 ?>

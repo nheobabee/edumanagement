@@ -4,8 +4,6 @@
 <?php
 $userid = $_SESSION['user_id'];
 
-
-
 ?>
 <?php
 // lấy giá trị user cần sửa 
@@ -16,6 +14,7 @@ if (isset($_SESSION['user_id'])) {
     $sql = "SELECT * FROM users WHERE user_id = '$userid'";
     $kq = mysqli_query($conn, $sql);
     if ($kq) {
+
         $row = mysqli_fetch_assoc($kq);
         $username_q = $row['user_name'];
         $useravatar_q = $row['user_avatar'];
@@ -23,9 +22,10 @@ if (isset($_SESSION['user_id'])) {
         $userbirthday_q = $row['user_birthday'];
         $userphone_q = $row['user_phone'];
         $useremail_q = $row['user_email'];
+        
+
     }
 }
-
 ?>
 
 <form action="myprofile.php" method="post" enctype="multipart/form-data">

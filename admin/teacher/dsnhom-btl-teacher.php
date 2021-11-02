@@ -21,12 +21,15 @@ $res2 = mysqli_query($conn, $sql2);
 if ($res2 == true) {
     while ($row2 = mysqli_fetch_assoc($res2)) {
         $user_id = $row2['user_id'];
+        $sqluser = "SELECT * from users where user_id = '$user_id'";
+        $resuser = mysqli_query($conn, $sqluser);
+        $rowuser = mysqli_fetch_assoc($resuser);
 
 ?>
         <div class="title-btvn">
             <div class="name-btvn row">
                 <div class="content-btvn col-md-10">
-                    <h6><?php echo $user_id ?></h6>
+                    <h6><?php echo $user_id ?>.<?php echo $rowuser['user_name']?></h6>
                     <?php
                     if (isset($_POST['submit'])) {
                         $user_id1 = $_POST['user_id1'];
