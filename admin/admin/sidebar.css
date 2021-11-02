@@ -555,11 +555,24 @@ h1.count{
     padding:1%;
 }
 .all-contact{
-    width: 80%;
+    width: 70%;
     margin: auto;
+    border: 2px solid lightgray;
+    padding:2%;
+    display:flex;
 
 }
 .logo-contact i{
-    width: 200px;
-    height:200px;
+    margin-right: 120px;
+    font-size:200px;
+}
+
+.mxh a{
+    color:#000;
+    margin-right: 25px;
+    font-size: 22px;
+}
+.mxh a:hover{
+    cursor: pointer;
+    color: tomato;
 }
