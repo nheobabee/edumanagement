@@ -1,7 +1,7 @@
 <?php include('./header.php') ?>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-<link rel="stylesheet" href="cmt.css">
+<link rel="stylesheet" href="../css/cmt.css">
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
   <br><br>
   <div class="all">

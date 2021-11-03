@@ -1,5 +1,5 @@
 <title>BTL</title>
-<?php include('../../config/config.php'); 
+<?php include('../config/config.php'); 
         session_start();
         if(!isset($_SESSION['loginok']))
         {
@@ -8,7 +8,7 @@
 ?>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-<link rel="stylesheet" href="./sidebar.css">
+<link rel="stylesheet" href="../css/style-admin.css">
 <?php
 if (isset($_GET['idMH'])) {
     $idMH = $_GET['idMH'];
@@ -69,7 +69,7 @@ if (isset($_GET['idMH'])) {
                             <form class="d-flex " style="margin-bottom:0">
                                 <a href="./index.php" class="navbar-brand">TRANG CHỦ</a>
                                 <a href="./accout.php" class="navbar-brand">TÀI KHOẢN</a>
-                                <a href="../../login/logout.php" class="navbar-brand">ĐĂNG XUẤT</a>
+                                <a href="../login/logout.php" class="navbar-brand">ĐĂNG XUẤT</a>
                                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                                 <button class="btn btn-outline-success" type="submit">Search</button>
                             </form>
