@@ -16,6 +16,13 @@
         unset($_SESSION['errorDelLearn']);
     }
 ?>
+<?php 
+    $user_id = $_SESSION['user_id'];
+    $sql0 = "SELECT * from relationship where user_id = '$user_id'";
+    $res0 = mysqli_query($conn,$sql0);
+    $row0 = mysqli_fetch_assoc($res0);
+    $idMH0 = $row0['idMH'];
+?>
 <br>
 <a href="./add-learn-teacher.php"><button type="button" class="btn btn-success text-white me-2"><i class="fas fa-plus"></i> Thêm sinh viên</button></a>
 
@@ -26,14 +33,13 @@
             <th scope="col">STT</th>
             <th scope="col">Tên sinh viên</th>
             <th scope="col">Tên môn học</th>
-            <th scope="col">Cập nhật</th>
             <th scope="col">Xóa</th>
 
         </tr>
     </thead>
     <tbody>
         <?php
-        $sql = "SELECT * from relationship where note = 0";
+        $sql = "SELECT * from relationship where note = 0 and idMH = '$idMH0'";
         $res = mysqli_query($conn, $sql);
         $sn = 1;
         if ($res == true) {
@@ -55,9 +61,6 @@
                     <td><?php echo $sn++ ?></td>
                     <td><?php echo $row3['user_name']; ?></td>
                     <td><?php echo $row2['nameMH']; ?></td>
-                    <td>
-                        <a href="./upd-learn-teacher.php?user_id=<?php echo $user_id ?>"><button type="button" class="btn btn-primary text-white me-2"><i class="fas fa-edit"></i></button></a>
-                    </td>
                     <td>
                         <a href="./del-learn-teacher.php?user_id=<?php echo $user_id ?>&&idMH=<?php echo $idMH ?>"><button type="button" class="btn btn-danger text-white me-2"><i class="fas fa-trash-alt"></i></button></a>
                     </td>
