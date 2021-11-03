@@ -110,21 +110,21 @@ session_start() ?>
 					$st = ($row['user_level']==0) ;
 					$_SESSION['student']= $st;
 					
-					header('location:../admin/student/student.php'); 
+					header('location:../src/student/student.php'); 
 				}
 				 if($row['user_level']==1)
 				{
 					//teacher
 					$tc = ($row['user_level']==1) ;
 					$_SESSION['teacher']= $tc;
-					header('location:../admin/teacher/teacher.php');
+					header('location:../src/teacher/teacher.php');
 				}
 				 if($row['user_level']==2)
 				{
 					//admin
 					$ad = ($row['user_level']==2) ;
 					$_SESSION['loginok'] = $ad;
-					header('location:../admin/admin/index.php');
+					header('location:../src/admin/index.php');
 				}
 				// header('location:../admin/index.php');
 				$_SESSION['display-username'] = "<h6> Xin chào, " . $row['user_name'] . "  </h6>";
