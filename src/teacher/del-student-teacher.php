@@ -1,5 +1,5 @@
 <?php session_start() ?>
-<?php include('../../config/config.php'); 
+<?php include('../config/config.php'); 
         session_start();
         if(!isset($_SESSION['loginok']))
         {
