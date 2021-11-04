@@ -34,10 +34,7 @@ if (isset($_GET['idBTL'])) {
                 <div class="name-btvn row">
                     <div class="content-btvn col-md-10">
                         <h6><?php echo $row2['user_id'] ?>. <?php echo $row3['user_name'] ?></h6>
-
                     </div>
-
-
                 </div>
             </div>
     <?php

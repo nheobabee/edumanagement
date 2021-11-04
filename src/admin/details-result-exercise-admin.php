@@ -29,7 +29,6 @@ if (isset($_GET['idMH'])) {
             while ($row3 = mysqli_fetch_assoc($res3)) {
         ?>
                 <div class="subject-folder text-center">
-
                     <a href="display-mark-exercise.php?idMH=<?php echo $idMH ?>&&idBTVN=<?php echo $row3['idBTVN'] ?>"><i class="subject-icon fas fa-file"></i>
                         <h6 class="subject-name"><?php echo $row3['nameBTVN'] ?></h6>
                     </a>

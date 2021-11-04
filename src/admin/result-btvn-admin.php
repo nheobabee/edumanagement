@@ -13,7 +13,6 @@
             <th scope="col">Tên BTVN</th>
             <th scope="col">Điểm</th>
             <th scope="col">Nhận xét</th>
-
         </tr>
     </thead>
     <tbody>
@@ -32,7 +31,6 @@
                 $sql2 = "SELECT * FROM users WHERE user_id = '$user_id'";
                 $res2 = mysqli_query($conn, $sql2);
                 $row2 = mysqli_fetch_assoc($res2);
-
         ?>
                 <tr>
                     <td><?php echo $sn++ ?></td>
@@ -40,7 +38,6 @@
                     <td><?php echo $row3['nameBTVN']; ?></td>
                     <td><?php echo $row['markBTVN']; ?></td>
                     <td><?php echo $row['cmtBTVN']; ?></td>
-
                 </tr>
         <?php
             }

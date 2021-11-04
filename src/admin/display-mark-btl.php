@@ -40,7 +40,6 @@
             $sql = "SELECT * from ketquabtl where idBTL = '$idBTL'";
             $res = mysqli_query($conn, $sql);
 
-
             $sn = 1;
             if ($res == true) {
                 while ($row = mysqli_fetch_assoc($res)) {

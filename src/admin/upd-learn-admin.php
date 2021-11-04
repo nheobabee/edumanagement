@@ -25,20 +25,14 @@ if (isset($_GET['user_id'])) {
     <h2>CẬP NHẬT SINH VIÊN</h2>
     <br>
     <?php
-
-
     if (isset($_POST['add'])) {
         $user_id =  $_POST['user_id'];
         $idMH = $_POST['idMH'];
         // Bước 2 câu lệnh truy vấn
         $sql7 = "UPDATE relationship SET 
-                                idMH = '$idMH'
-                                where user_id = '$user_id'
-                                ";
-
-
+                idMH = '$idMH'
+                where user_id = '$user_id'";
         $result7 = mysqli_query($conn, $sql7);
-
         if ($result7 > 0) {
             echo "Bản ghi đã được lưu";
             header("Location: http://localhost/edumanagement/src/admin/learn.php");
@@ -46,12 +40,6 @@ if (isset($_GET['user_id'])) {
             echo "Lỗi";
         }
     }
-
-    ?>
-    <?php
-    // lấy giá trị user cần sửa 
-
-
     ?>
     <div class="form-group ">
         <label style="display: inline" for="idMH" class="col-sm-2 col-form-label">Tên sinh viên:</label>

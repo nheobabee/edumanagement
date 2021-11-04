@@ -27,9 +27,7 @@ if ($res3 == true) {
 
 ?>
         <div class="title-btvn">
-
             <div class="name-btvn row">
-
                 <div class="content-btvn col-md-7">
                     <h4><?php echo $row3['nameBTL'] ?></h4>
                     <p><span style="font-weight: 500;">Opened: </span><?php echo $row3['openedBTL'] ?></p>

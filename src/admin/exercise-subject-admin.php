@@ -24,7 +24,6 @@ if (isset($_GET['idMH'])) {
     $res3 = mysqli_query($conn, $sql3);
     if ($res3 == true) {
         while ($row3 = mysqli_fetch_assoc($res3)) {
-
     ?>
             <div class="title-btvn">
 

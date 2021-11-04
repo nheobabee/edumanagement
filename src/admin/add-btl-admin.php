@@ -24,7 +24,7 @@ if (isset($_GET['idMH'])) {
 
 
         $sql = "INSERT INTO `btl`( `nameBTL`, `formatBTL`,  `deadlineBTL`, `idMH`, `notebtl`) 
-                                VALUES (' $nameBTL','$formatBTL','$deadlineBTL',' $idMH ','$note')";
+                VALUES (' $nameBTL','$formatBTL','$deadlineBTL',' $idMH ','$note')";
         $res = mysqli_query($conn, $sql);
         if ($res == true) {
             header("location:http://localhost/edumanagement/src/admin/btl.php?idMH= " . $idMH);
@@ -42,10 +42,6 @@ if (isset($_GET['idMH'])) {
         <label for="formatBTL">formatBTL:</label>
         <input type="text" class="form-control" id="formatBTL" placeholder="Enter formatBTL" name="formatBTL">
     </div>
-    <!-- <div class="form-group">
-                                    <label for="openedBTL">openedBTL:</label>
-                                    <input type="date" class="form-control" id="openedBTL" placeholder="Enter openedBTL" name="openedBTL">
-                                </div> -->
     <div class="form-group">
         <label for="deadlineBTL">deadlineBTL:</label>
         <input type="datetime-local" class="form-control" id="deadlineBTL" placeholder="Enter deadlineBTL" name="deadlineBTL">

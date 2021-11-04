@@ -25,7 +25,6 @@
                 <th scope="col">SĐT</th>
                 <th scope="col">Email</th>
                 <th scope="col">Xóa</th>
-
             </tr>
         </thead>
         <tbody>
@@ -53,8 +52,6 @@
                         <td><?php echo $row['user_birthday']; ?></td>
                         <td><?php echo $row['user_phone']; ?></td>
                         <td><?php echo $row['user_email']; ?></td>
-
-
                         <td>
                             <a href="./del-student-admin.php?user_id=<?php echo $row['user_id']; ?>"><button type="button" class="btn btn-danger text-white me-2"><i class="fas fa-user-minus"></i></button></a>
                         </td>

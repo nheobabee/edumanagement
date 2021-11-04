@@ -10,7 +10,7 @@
         $TC = $_POST['TC'];
 
         $sql = "INSERT INTO monhoc(nameMH, TC) 
-                                    VALUES(N'$nameMH','$TC')";
+                VALUES(N'$nameMH','$TC')";
         $res = mysqli_query($conn, $sql);
         if ($res == true) {
             header('location: subject.php');

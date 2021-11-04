@@ -32,7 +32,6 @@
                 $sql2 = "SELECT * FROM users WHERE user_id = '$user_id'";
                 $res2 = mysqli_query($conn, $sql2);
                 $row2 = mysqli_fetch_assoc($res2);
-
         ?>
                 <tr>
                     <td><?php echo $sn++ ?></td>
@@ -40,7 +39,6 @@
                     <td><?php echo $row3['nameBTL']; ?></td>
                     <td><?php echo $row['markBTL']; ?></td>
                     <td><?php echo $row['cmtBTL']; ?></td>
-
                 </tr>
         <?php
             }

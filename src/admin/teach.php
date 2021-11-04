@@ -19,7 +19,6 @@
                 <th scope="col">Tên môn học</th>
                 <th scope="col">Cập nhật</th>
                 <th scope="col">Xóa</th>
-
             </tr>
         </thead>
         <tbody>

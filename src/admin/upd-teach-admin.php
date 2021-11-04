@@ -24,8 +24,6 @@ if (isset($_GET['user_id'])) {
     <h2>CẬP NHẬT GIÁO VIÊN</h2>
     <br>
     <?php
-
-
     if (isset($_POST['add'])) {
         $user_id =  $_POST['user_id'];
         $idMH = $_POST['idMH'];
@@ -33,7 +31,6 @@ if (isset($_GET['user_id'])) {
         $sql7 = "UPDATE relationship SET 
         idMH = '$idMH'
         where user_id = '$user_id' ";
-
 
         $result7 = mysqli_query($conn, $sql7);
 
@@ -44,11 +41,6 @@ if (isset($_GET['user_id'])) {
             echo "Lỗi";
         }
     }
-
-    ?>
-    <?php
-    // lấy giá trị user cần sửa 
-
 
     ?>
     <div class="form-group ">

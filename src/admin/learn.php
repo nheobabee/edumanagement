@@ -18,7 +18,6 @@
                 <th scope="col">Tên môn học</th>
                 <th scope="col">Cập nhật</th>
                 <th scope="col">Xóa</th>
-
             </tr>
         </thead>
         <tbody>
@@ -39,7 +38,6 @@
                     $sql2 = "SELECT * FROM monhoc WHERE idMH = '$idMH'";
                     $res2 = mysqli_query($conn, $sql2);
                     $row2 = mysqli_fetch_assoc($res2);
-
             ?>
                     <tr>
                         <td><?php echo $sn++ ?></td>

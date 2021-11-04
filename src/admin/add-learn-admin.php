@@ -11,10 +11,7 @@
         $note = $_POST['note'];
         // Bước 2 câu lệnh truy vấn
         $sql0 = "INSERT INTO relationship values ('$user_id','$idMH','$note')";
-
-
         $result0 = mysqli_query($conn, $sql0);
-
         if ($result0 > 0) {
             echo "Bản ghi đã được lưu";
             header("Location: http://localhost/edumanagement/src/admin/learn.php");

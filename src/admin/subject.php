@@ -32,8 +32,6 @@
         ?>
                 <div class="subject-folder text-center">
                     <a href="./del-subject-admin.php?idMH=<?php echo $row3['idMH'] ?>"><button type="button" class="btn-del-sub btn btn-danger text-white me-2"><i class="fas fa-times"></i></button></a>
-
-
                     <a href="view-subject-admin.php?idMH=<?php echo $row3['idMH'] ?>"><i class="subject-icon fas fa-book"></i>
                         <h6 class="subject-name"><?php echo $row3['nameMH'] ?></h6>
                     </a>
