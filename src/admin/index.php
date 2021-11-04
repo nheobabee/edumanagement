@@ -1,4 +1,10 @@
-<?php include('./header.php') ?>
+<?php include('./header.php') ;
+  
+  if(!isset($_SESSION['loginok']))
+  {
+      header('location:../login/index.php');
+  }
+?>
 <br><br>
 <div class="all-dashboard">
 
