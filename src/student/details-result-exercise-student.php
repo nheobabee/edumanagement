@@ -30,8 +30,9 @@ if (isset($_GET['idMH'])) {
 
         if ($res0 == true) {
             while ($row0 = mysqli_fetch_assoc($res0)) {
+                $idBTVN = $row0['idBTVN'];
                 $idMH = $row0['idMH'];
-                $sql3 = "SELECT * FROM btvn where idMH = $idMH";
+                $sql3 = "SELECT * FROM btvn where idMH = $idMH AND idBTVN = $idBTVN";
                 $res3 = mysqli_query($conn, $sql3);
                 $row3 = mysqli_fetch_assoc($res3);
                 $nameMH = $row3['nameBTVN'];

@@ -20,7 +20,9 @@ if (isset($_GET['idBTL'])) {
 $sql_late = "select * from btlsv where idBTL= '$idBTL' ";
 $rs_late = mysqli_query($conn, $sql_late);
 $row_late = mysqli_fetch_assoc($rs_late);
+if($row_late>0){
 $late = $row_late['ngaynop']; //ngay nop bai
+}
 ?>
 <?php
 $sql2 = "SELECT * FROM dkbtl WHERE idBTL = $idBTL";

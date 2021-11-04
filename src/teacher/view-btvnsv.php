@@ -47,7 +47,7 @@ while ($row3 = mysqli_fetch_assoc($res3)) {
             <div class="content-btvn">
                 <h6><?php echo $row3['user_id'] ?>. <?php echo $row0['user_name'] ?>
             <?php
-                $sqlmark = "SELECT * FROM ketquabtvn where user_id = '$user_id'";
+                $sqlmark = "SELECT * FROM ketquabtvn where user_id = '$user_id' AND idBTVN = $idBTVN";
                 $resmark = mysqli_query($conn, $sqlmark);
                 $countmark = mysqli_num_rows($resmark);
                 $date1 = strtotime($deadline);
